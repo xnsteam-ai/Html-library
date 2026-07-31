@@ -1,6 +1,6 @@
 import { ArrowUpRight } from 'lucide-react'
 import { categories, components, PAGES_URL, REPO_URL } from '../../registry'
-import { componentHref, docHref } from '../hooks/useHashRoute'
+import { componentHref, docHref, galleryHref } from '../hooks/useHashRoute'
 import { Callout, Code, DocPage, List, P, Section } from '../components/Prose'
 
 export function Introduction() {
@@ -41,27 +41,33 @@ export function Introduction() {
       </Section>
 
       <Section title="The three sets">
-        <div className="grid gap-3 sm:grid-cols-2">
-          {categories.map((category) => (
-            <div key={category.id} className="rounded-xl border border-border p-4">
-              <div className="flex items-baseline justify-between">
-                <h3 className="text-[14.5px] font-semibold text-foreground">{category.title}</h3>
-                <span className="text-[12px] text-muted-foreground">
-                  {category.items.length} components
-                </span>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {categories.map((category) => {
+            const first = category.items[0]
+            const href = category.id === 'apps' ? galleryHref() : componentHref(first.name)
+            const cta = category.id === 'apps' ? 'Browse the gallery' : `Start with ${first.title}`
+
+            return (
+              <div key={category.id} className="flex flex-col rounded-xl border border-border p-4">
+                <div className="flex items-baseline justify-between gap-2">
+                  <h3 className="text-[14.5px] font-semibold text-foreground">{category.title}</h3>
+                  <span className="shrink-0 text-[12px] text-muted-foreground">
+                    {category.items.length} components
+                  </span>
+                </div>
+                <p className="mt-1 flex-1 text-[13px] leading-relaxed text-muted-foreground">
+                  {category.blurb}
+                </p>
+                <a
+                  href={href}
+                  className="mt-3 inline-flex items-center gap-1 text-[13px] font-medium text-foreground transition hover:opacity-70"
+                >
+                  {cta}
+                  <ArrowUpRight size={13} />
+                </a>
               </div>
-              <p className="mt-1 text-[13px] leading-relaxed text-muted-foreground">
-                {category.blurb}
-              </p>
-              <a
-                href={componentHref(category.items[0].name)}
-                className="mt-3 inline-flex items-center gap-1 text-[13px] font-medium text-foreground transition hover:opacity-70"
-              >
-                Start with {category.items[0].title}
-                <ArrowUpRight size={13} />
-              </a>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </Section>
 
