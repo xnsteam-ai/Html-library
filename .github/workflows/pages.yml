@@ -17,8 +17,8 @@ jobs:
     name: Verify registry
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
@@ -32,8 +32,11 @@ jobs:
   deploy:
     name: Deploy to Pages
     # Deploys from whichever branch is the repository default, so the workflow
-    # works before and after the initial branch is merged or renamed.
-    if: github.event_name == 'push' && github.ref_name == github.event.repository.default_branch
+    # works before and after the initial branch is merged or renamed. Manual
+    # runs (workflow_dispatch) on the default branch deploy too, not just push.
+    if: >
+      github.ref_name == github.event.repository.default_branch &&
+      (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     needs: verify
     runs-on: ubuntu-latest
     permissions:
@@ -44,8 +47,8 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
