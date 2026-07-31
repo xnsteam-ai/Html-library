@@ -1,5 +1,5 @@
 {
-  "$schema": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
   "name": "message-list",
   "title": "Message List",
   "description": "A conversation thread with user bubbles, assistant turns, hover actions, and a streaming turn with a caret.",

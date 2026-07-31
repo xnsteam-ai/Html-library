@@ -1,5 +1,5 @@
 {
-  "$schema": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
   "name": "badge",
   "title": "Badge",
   "description": "Status pills in seven tones plus dot, counter, removable-tag and small label variants.",

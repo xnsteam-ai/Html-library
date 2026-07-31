@@ -1,5 +1,5 @@
 {
-  "$schema": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
   "name": "input-bar",
   "title": "Input Bar",
   "description": "The composer: auto-height textarea, attachment and tools controls, model readout, dictation, and a send button.",

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
   "name": "spiral-loader",
   "title": "Spiral Loader",
   "description": "A masked conic-gradient spinner in three sizes, a bordered ring variant, and an inline running-status row.",

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
   "name": "suggestions",
   "title": "Suggestions",
   "description": "Prompt starters in two shapes: a wrapping chip row and a stacked list with icons and descriptions.",

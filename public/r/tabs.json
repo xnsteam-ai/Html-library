@@ -1,5 +1,5 @@
 {
-  "$schema": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
   "name": "tabs",
   "title": "Tabs",
   "description": "Three tab patterns — underline with a count badge, pill group, and vertical tabs beside a panel.",

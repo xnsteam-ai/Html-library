@@ -1,11 +1,11 @@
 {
-  "$schema": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
   "name": "html-library",
   "version": "0.1.0",
-  "homepage": "https://xnsteam-ai.github.io/html-library",
-  "repository": "https://github.com/xnsteam-ai/html-library",
-  "baseUrl": "https://xnsteam-ai.github.io/html-library/r",
-  "rawBaseUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r",
+  "homepage": "https://xnsteam-ai.github.io/Html-library",
+  "repository": "https://github.com/xnsteam-ai/Html-library",
+  "baseUrl": "https://xnsteam-ai.github.io/Html-library/r",
+  "rawBaseUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r",
   "generatedFrom": "registry/",
   "categories": [
     {
@@ -30,8 +30,8 @@
         "shell",
         "conversation"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/agent-chat.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/agent-chat.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/agent-chat.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/agent-chat.json"
     },
     {
       "name": "message-list",
@@ -43,8 +43,8 @@
         "thread",
         "streaming"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/message-list.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/message-list.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/message-list.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/message-list.json"
     },
     {
       "name": "input-bar",
@@ -56,8 +56,8 @@
         "input",
         "textarea"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/input-bar.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/input-bar.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/input-bar.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/input-bar.json"
     },
     {
       "name": "suggestions",
@@ -69,8 +69,8 @@
         "chips",
         "empty-state"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/suggestions.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/suggestions.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/suggestions.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/suggestions.json"
     },
     {
       "name": "model-picker",
@@ -82,8 +82,8 @@
         "dropdown",
         "model"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/model-picker.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/model-picker.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/model-picker.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/model-picker.json"
     },
     {
       "name": "mode-selector",
@@ -95,8 +95,8 @@
         "segmented",
         "toggle"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/mode-selector.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/mode-selector.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/mode-selector.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/mode-selector.json"
     },
     {
       "name": "user-message",
@@ -108,8 +108,8 @@
         "bubble",
         "user"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/user-message.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/user-message.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/user-message.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/user-message.json"
     },
     {
       "name": "markdown",
@@ -121,8 +121,8 @@
         "prose",
         "output"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/markdown.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/markdown.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/markdown.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/markdown.json"
     },
     {
       "name": "send-button",
@@ -134,8 +134,8 @@
         "send",
         "states"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/send-button.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/send-button.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/send-button.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/send-button.json"
     },
     {
       "name": "attachment-button",
@@ -147,8 +147,8 @@
         "attachment",
         "upload"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/attachment-button.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/attachment-button.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/attachment-button.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/attachment-button.json"
     },
     {
       "name": "file-attachment",
@@ -160,8 +160,8 @@
         "upload",
         "progress"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/file-attachment.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/file-attachment.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/file-attachment.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/file-attachment.json"
     },
     {
       "name": "text-shimmer",
@@ -173,8 +173,8 @@
         "animation",
         "status"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/text-shimmer.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/text-shimmer.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/text-shimmer.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/text-shimmer.json"
     },
     {
       "name": "spiral-loader",
@@ -186,8 +186,8 @@
         "spinner",
         "status"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/spiral-loader.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/spiral-loader.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/spiral-loader.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/spiral-loader.json"
     },
     {
       "name": "bash-tool",
@@ -199,8 +199,8 @@
         "terminal",
         "output"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/bash-tool.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/bash-tool.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/bash-tool.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/bash-tool.json"
     },
     {
       "name": "edit-tool",
@@ -212,8 +212,8 @@
         "diff",
         "editor"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/edit-tool.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/edit-tool.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/edit-tool.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/edit-tool.json"
     },
     {
       "name": "search-tool",
@@ -225,8 +225,8 @@
         "search",
         "results"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/search-tool.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/search-tool.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/search-tool.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/search-tool.json"
     },
     {
       "name": "todo-tool",
@@ -238,8 +238,8 @@
         "todo",
         "progress"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/todo-tool.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/todo-tool.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/todo-tool.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/todo-tool.json"
     },
     {
       "name": "plan-tool",
@@ -251,8 +251,8 @@
         "plan",
         "approval"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/plan-tool.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/plan-tool.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/plan-tool.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/plan-tool.json"
     },
     {
       "name": "tool-group",
@@ -264,8 +264,8 @@
         "collapsible",
         "timeline"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/tool-group.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/tool-group.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/tool-group.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/tool-group.json"
     },
     {
       "name": "button",
@@ -277,8 +277,8 @@
         "action",
         "variants"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/button.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/button.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/button.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/button.json"
     },
     {
       "name": "badge",
@@ -290,8 +290,8 @@
         "tag",
         "status"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/badge.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/badge.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/badge.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/badge.json"
     },
     {
       "name": "card",
@@ -303,8 +303,8 @@
         "surface",
         "layout"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/card.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/card.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/card.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/card.json"
     },
     {
       "name": "input",
@@ -316,8 +316,8 @@
         "input",
         "field"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/input.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/input.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/input.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/input.json"
     },
     {
       "name": "alert",
@@ -329,8 +329,8 @@
         "feedback",
         "banner"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/alert.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/alert.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/alert.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/alert.json"
     },
     {
       "name": "tabs",
@@ -342,8 +342,8 @@
         "navigation",
         "segmented"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/tabs.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/tabs.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/tabs.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/tabs.json"
     },
     {
       "name": "avatar",
@@ -355,8 +355,8 @@
         "identity",
         "stack"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/avatar.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/avatar.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/avatar.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/avatar.json"
     },
     {
       "name": "empty-state",
@@ -368,8 +368,8 @@
         "placeholder",
         "zero-state"
       ],
-      "url": "https://xnsteam-ai.github.io/html-library/r/empty-state.json",
-      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/empty-state.json"
+      "url": "https://xnsteam-ai.github.io/Html-library/r/empty-state.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/empty-state.json"
     }
   ]
 }

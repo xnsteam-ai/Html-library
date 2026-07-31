@@ -1,5 +1,5 @@
 {
-  "$schema": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
   "name": "avatar",
   "title": "Avatar",
   "description": "Initial avatars in four sizes and several tones, with a presence dot, icon fallback, overlap stack and account row.",

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
   "name": "plan-tool",
   "title": "Plan Tool",
   "description": "A proposed plan awaiting approval: numbered steps with affected files, a status pill, and approve/edit actions.",

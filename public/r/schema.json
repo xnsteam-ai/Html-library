@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "$id": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
   "title": "html-library registry item",
   "type": "object",
   "required": [

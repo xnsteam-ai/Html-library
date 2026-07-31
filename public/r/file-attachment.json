@@ -1,5 +1,5 @@
 {
-  "$schema": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
   "name": "file-attachment",
   "title": "File Attachment",
   "description": "Attached files as removable chips, an uploading card with a progress bar, and a failed card with a retry action.",

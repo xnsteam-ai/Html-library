@@ -78,9 +78,9 @@ export function getComponent(name: string): RegistryItem | undefined {
   return components.find((item) => item.name === name)
 }
 
-export const REPO = 'xnsteam-ai/html-library'
+export const REPO = 'xnsteam-ai/Html-library'
 export const REPO_URL = `https://github.com/${REPO}`
-export const PAGES_URL = 'https://xnsteam-ai.github.io/html-library'
+export const PAGES_URL = 'https://xnsteam-ai.github.io/Html-library'
 export const RAW_URL = `https://raw.githubusercontent.com/${REPO}/main/public/r`
 
 export function registryUrl(name: string) {

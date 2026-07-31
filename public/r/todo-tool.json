@@ -1,5 +1,5 @@
 {
-  "$schema": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
   "name": "todo-tool",
   "title": "Todo Tool",
   "description": "The agent's task list: completed items struck through, an in-progress row with a spinner, pending rows, and a progress bar.",

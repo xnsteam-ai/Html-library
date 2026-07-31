@@ -1,5 +1,5 @@
 {
-  "$schema": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
   "name": "empty-state",
   "title": "Empty State",
   "description": "A dashed placeholder with icon, copy and actions, plus a compact no-results row for search.",

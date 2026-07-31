@@ -1,5 +1,5 @@
 {
-  "$schema": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
   "name": "tool-group",
   "title": "Tool Group",
   "description": "A collapsible run of tool calls: summary header with stacked icons and timing, collapsed, expanded, and running children.",

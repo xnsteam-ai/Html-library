@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 
 // GitHub Pages serves the site from /<repo>/, local dev serves from /.
-const base = process.env.GITHUB_PAGES ? '/html-library/' : '/'
+const base = process.env.GITHUB_PAGES ? '/Html-library/' : '/'
 
 export default defineConfig({
   base,

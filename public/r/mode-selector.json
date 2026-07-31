@@ -1,5 +1,5 @@
 {
-  "$schema": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
   "name": "mode-selector",
   "title": "Mode Selector",
   "description": "Segmented controls for switching agent modes — a full-width pill group and a compact bordered variant.",

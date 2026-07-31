@@ -1,5 +1,5 @@
 {
-  "$schema": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
   "name": "search-tool",
   "title": "Search Tool",
   "description": "Grep-style results grouped by file, with line gutters, highlighted matches, and a search summary footer.",

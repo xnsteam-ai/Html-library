@@ -1,5 +1,5 @@
 {
-  "$schema": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
   "name": "send-button",
   "title": "Send Button",
   "description": "Send affordance in four states: idle, disabled, generating (stop), and a labelled variant with a keyboard hint.",

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
   "name": "user-message",
   "title": "User Message",
   "description": "The sent turn: a plain bubble and a richer variant with an attached file, timestamp, and edit/copy actions.",

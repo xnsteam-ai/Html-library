@@ -1,5 +1,5 @@
 {
-  "$schema": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
   "name": "text-shimmer",
   "title": "Text Shimmer",
   "description": "A shimmering status label for pending work, plus a pulsing skeleton. Ships one scoped style block for the keyframes.",

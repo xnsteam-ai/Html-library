@@ -1,5 +1,5 @@
 {
-  "$schema": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
   "name": "edit-tool",
   "title": "Edit Tool",
   "description": "A file-edit tool call rendered as a diff: path header with +/− counts, gutter line numbers, and apply actions.",

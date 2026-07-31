@@ -21,9 +21,9 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const REGISTRY_DIR = path.join(root, 'registry')
 const OUT_DIR = path.join(root, 'public', 'r')
 
-const REPO = 'xnsteam-ai/html-library'
+const REPO = 'xnsteam-ai/Html-library'
 const BRANCH = 'main'
-const PAGES_URL = 'https://xnsteam-ai.github.io/html-library'
+const PAGES_URL = 'https://xnsteam-ai.github.io/Html-library'
 const RAW_URL = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/public/r`
 
 const CATEGORIES = {

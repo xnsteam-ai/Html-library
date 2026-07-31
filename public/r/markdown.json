@@ -1,5 +1,5 @@
 {
-  "$schema": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
   "name": "markdown",
   "title": "Markdown",
   "description": "Typography for rendered agent output: headings, lists, inline code, a titled code block, blockquote, table, and links.",

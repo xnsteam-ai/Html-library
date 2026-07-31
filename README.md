@@ -21,11 +21,11 @@ src/                                        the docs frontend (Vite + React + Ta
 
 ```bash
 # GitHub Pages (canonical)
-curl -s https://xnsteam-ai.github.io/html-library/r/agent-chat.json \
+curl -s https://xnsteam-ai.github.io/Html-library/r/agent-chat.json \
   | jq -r '.files[0].content' > agent-chat.html
 
 # raw.githubusercontent.com (fallback — works without Pages)
-curl -s https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/agent-chat.json \
+curl -s https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/agent-chat.json \
   | jq -r '.files[0].content' > agent-chat.html
 ```
 
@@ -38,7 +38,7 @@ Then make sure Tailwind scans wherever you put it:
 Grab everything at once:
 
 ```bash
-curl -s https://xnsteam-ai.github.io/html-library/r/index.json \
+curl -s https://xnsteam-ai.github.io/Html-library/r/index.json \
   | jq -r '.items[] | .url' \
   | xargs -I{} sh -c 'curl -s {} | jq -r ".files[0].content" > "$(basename {} .json).html"'
 ```
@@ -85,7 +85,9 @@ Adding a component is two files; see [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ## Deployment
 
-`.github/workflows/pages.yml` verifies the registry on every push and pull request, then deploys `dist/` (site + `/r/` registry) to GitHub Pages from `main`. Enable Pages with **Source: GitHub Actions** in repository settings.
+`.github/workflows/pages.yml` verifies the registry on every push and pull request, then deploys `dist/` (site + `/r/` registry) to GitHub Pages from the repository's default branch. Enable Pages with **Source: GitHub Actions** in repository settings.
+
+The published URLs use the repository name exactly (`Html-library`), because GitHub Pages paths are case-sensitive. `raw.githubusercontent.com` is not — either case resolves there.
 
 ## License
 

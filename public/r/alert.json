@@ -1,5 +1,5 @@
 {
-  "$schema": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
   "name": "alert",
   "title": "Alert",
   "description": "Neutral, success, warning and error alerts with icons and actions, plus a solid inline announcement banner.",
