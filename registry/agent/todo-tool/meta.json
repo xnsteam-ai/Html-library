@@ -1,0 +1,10 @@
+{
+  "name": "todo-tool",
+  "title": "Todo Tool",
+  "description": "The agent's task list: completed items struck through, an in-progress row with a spinner, pending rows, and a progress bar.",
+  "category": "agent",
+  "order": 17,
+  "tags": ["tool", "todo", "progress"],
+  "previewBg": "plain",
+  "previewHeight": 360
+}

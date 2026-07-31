@@ -1,0 +1,10 @@
+{
+  "name": "attachment-button",
+  "title": "Attachment Button",
+  "description": "Attachment triggers (plus and paperclip) with the open source menu: file, image, repo, and clipboard.",
+  "category": "agent",
+  "order": 10,
+  "tags": ["menu", "attachment", "upload"],
+  "previewBg": "plain",
+  "previewHeight": 330
+}

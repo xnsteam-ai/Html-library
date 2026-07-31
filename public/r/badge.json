@@ -1,0 +1,22 @@
+{
+  "$schema": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "name": "badge",
+  "title": "Badge",
+  "description": "Status pills in seven tones plus dot, counter, removable-tag and small label variants.",
+  "category": "ui",
+  "type": "html",
+  "version": "0.1.0",
+  "tailwind": "^4.0.0",
+  "tags": [
+    "badge",
+    "tag",
+    "status"
+  ],
+  "files": [
+    {
+      "path": "badge.html",
+      "type": "html",
+      "content": "<!-- Badge — status pills, counters and removable tags -->\n<div class=\"mx-auto w-full max-w-lg space-y-4\">\n  <div class=\"flex flex-wrap items-center gap-2\">\n    <span class=\"rounded-full bg-gray-100 px-2.5 py-0.5 text-[11.5px] font-medium text-gray-700 dark:bg-white/10 dark:text-gray-300\">Default</span>\n    <span class=\"rounded-full bg-gray-900 px-2.5 py-0.5 text-[11.5px] font-medium text-white dark:bg-white dark:text-neutral-900\">Solid</span>\n    <span class=\"rounded-full border border-gray-200 px-2.5 py-0.5 text-[11.5px] font-medium text-gray-600 dark:border-white/15 dark:text-gray-300\">Outline</span>\n    <span class=\"rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11.5px] font-medium text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400\">Success</span>\n    <span class=\"rounded-full bg-amber-50 px-2.5 py-0.5 text-[11.5px] font-medium text-amber-700 dark:bg-amber-400/10 dark:text-amber-300\">Warning</span>\n    <span class=\"rounded-full bg-red-50 px-2.5 py-0.5 text-[11.5px] font-medium text-red-700 dark:bg-red-500/10 dark:text-red-400\">Error</span>\n    <span class=\"rounded-full bg-blue-50 px-2.5 py-0.5 text-[11.5px] font-medium text-blue-700 dark:bg-blue-500/10 dark:text-blue-400\">Info</span>\n  </div>\n\n  <div class=\"flex flex-wrap items-center gap-2\">\n    <!-- With dot -->\n    <span class=\"flex items-center gap-1.5 rounded-full border border-gray-200 px-2.5 py-0.5 text-[11.5px] font-medium text-gray-700 dark:border-white/15 dark:text-gray-300\">\n      <span class=\"h-1.5 w-1.5 rounded-full bg-emerald-500\"></span>\n      Operational\n    </span>\n    <!-- Counter -->\n    <span class=\"flex items-center gap-1.5 rounded-full bg-gray-100 py-0.5 pl-2.5 pr-1.5 text-[11.5px] font-medium text-gray-700 dark:bg-white/10 dark:text-gray-300\">\n      Issues\n      <span class=\"rounded-full bg-white px-1.5 text-[10.5px] text-gray-600 dark:bg-neutral-900 dark:text-gray-400\">12</span>\n    </span>\n    <!-- Removable -->\n    <span class=\"flex items-center gap-1 rounded-full bg-gray-100 py-0.5 pl-2.5 pr-1 text-[11.5px] font-medium text-gray-700 dark:bg-white/10 dark:text-gray-300\">\n      tailwind\n      <button type=\"button\" class=\"rounded-full p-0.5 text-gray-400 transition hover:bg-gray-200 hover:text-gray-700 dark:hover:bg-white/15 dark:hover:text-gray-200\" aria-label=\"Remove tailwind tag\">\n        <svg class=\"h-2.5 w-2.5\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\"><path d=\"M18 6L6 18M6 6l12 12\" /></svg>\n      </button>\n    </span>\n    <!-- Beta tag, matching the app shell -->\n    <span class=\"rounded border border-gray-200 bg-gray-100 px-1.5 py-px text-[10px] font-medium leading-relaxed text-gray-600 dark:border-white/10 dark:bg-white/10 dark:text-gray-300\">Beta</span>\n  </div>\n</div>\n"
+    }
+  ]
+}

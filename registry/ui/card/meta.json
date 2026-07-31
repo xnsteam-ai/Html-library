@@ -1,0 +1,10 @@
+{
+  "name": "card",
+  "title": "Card",
+  "description": "A surface in three shapes: header/body/footer card, stat card with a bar sparkline, and a clickable link card.",
+  "category": "ui",
+  "order": 3,
+  "tags": ["card", "surface", "layout"],
+  "previewBg": "muted",
+  "previewHeight": 360
+}

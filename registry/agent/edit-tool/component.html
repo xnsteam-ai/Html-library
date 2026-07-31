@@ -1,0 +1,47 @@
+<!-- Edit Tool — file diff card with added and removed lines -->
+<div class="mx-auto w-full max-w-2xl overflow-hidden rounded-xl border border-gray-200 dark:border-white/10">
+  <div class="flex items-center gap-2 border-b border-gray-200 bg-gray-50 px-3 py-2 dark:border-white/10 dark:bg-white/5">
+    <svg class="h-3.5 w-3.5 shrink-0 text-gray-500 dark:text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z" /></svg>
+    <code class="min-w-0 flex-1 truncate font-mono text-[12px] text-gray-800 dark:text-gray-200">src/server/session.ts</code>
+    <span class="shrink-0 font-mono text-[11px] text-emerald-600 dark:text-emerald-400">+3</span>
+    <span class="shrink-0 font-mono text-[11px] text-red-500 dark:text-red-400">−1</span>
+    <button type="button" class="ml-1 shrink-0 rounded p-1 text-gray-400 transition hover:bg-gray-200 hover:text-gray-700 dark:hover:bg-white/10 dark:hover:text-gray-200" aria-label="Collapse diff">
+      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6" /></svg>
+    </button>
+  </div>
+
+  <div class="overflow-x-auto bg-white font-mono text-[11.5px] leading-[1.7] dark:bg-neutral-950">
+    <div class="flex">
+      <span class="w-11 shrink-0 select-none border-r border-gray-100 px-2 text-right text-gray-300 dark:border-white/5 dark:text-gray-600">38</span>
+      <span class="px-3 text-gray-600 dark:text-gray-400">&nbsp;&nbsp;const raw = cookies.get("sid")</span>
+    </div>
+    <div class="flex bg-red-50 dark:bg-red-500/10">
+      <span class="w-11 shrink-0 select-none border-r border-red-100 px-2 text-right text-red-400 dark:border-red-500/20 dark:text-red-400/70">39</span>
+      <span class="px-3 text-red-700 dark:text-red-300">−&nbsp;return decode(raw)</span>
+    </div>
+    <div class="flex bg-emerald-50 dark:bg-emerald-500/10">
+      <span class="w-11 shrink-0 select-none border-r border-emerald-100 px-2 text-right text-emerald-500 dark:border-emerald-500/20 dark:text-emerald-400/70">39</span>
+      <span class="px-3 text-emerald-800 dark:text-emerald-300">+&nbsp;if (!raw) return null</span>
+    </div>
+    <div class="flex bg-emerald-50 dark:bg-emerald-500/10">
+      <span class="w-11 shrink-0 select-none border-r border-emerald-100 px-2 text-right text-emerald-500 dark:border-emerald-500/20 dark:text-emerald-400/70">40</span>
+      <span class="px-3 text-emerald-800 dark:text-emerald-300">+</span>
+    </div>
+    <div class="flex bg-emerald-50 dark:bg-emerald-500/10">
+      <span class="w-11 shrink-0 select-none border-r border-emerald-100 px-2 text-right text-emerald-500 dark:border-emerald-500/20 dark:text-emerald-400/70">41</span>
+      <span class="px-3 text-emerald-800 dark:text-emerald-300">+&nbsp;return decode(raw)</span>
+    </div>
+    <div class="flex">
+      <span class="w-11 shrink-0 select-none border-r border-gray-100 px-2 text-right text-gray-300 dark:border-white/5 dark:text-gray-600">42</span>
+      <span class="px-3 text-gray-600 dark:text-gray-400">}</span>
+    </div>
+  </div>
+
+  <div class="flex items-center justify-between border-t border-gray-200 px-3 py-2 dark:border-white/10">
+    <span class="text-[11px] text-gray-400 dark:text-gray-500">1 hunk · applied</span>
+    <div class="flex items-center gap-1.5">
+      <button type="button" class="rounded-md border border-gray-200 px-2 py-1 text-[11.5px] font-medium text-gray-600 transition hover:bg-gray-50 dark:border-white/15 dark:text-gray-300 dark:hover:bg-white/10">Revert</button>
+      <button type="button" class="rounded-md bg-gray-900 px-2 py-1 text-[11.5px] font-medium text-white transition hover:bg-gray-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-gray-200">Open file</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+{
+  "name": "badge",
+  "title": "Badge",
+  "description": "Status pills in seven tones plus dot, counter, removable-tag and small label variants.",
+  "category": "ui",
+  "order": 2,
+  "tags": ["badge", "tag", "status"],
+  "previewBg": "plain",
+  "previewHeight": 220
+}

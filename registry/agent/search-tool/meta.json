@@ -1,0 +1,10 @@
+{
+  "name": "search-tool",
+  "title": "Search Tool",
+  "description": "Grep-style results grouped by file, with line gutters, highlighted matches, and a search summary footer.",
+  "category": "agent",
+  "order": 16,
+  "tags": ["tool", "search", "results"],
+  "previewBg": "plain",
+  "previewHeight": 400
+}

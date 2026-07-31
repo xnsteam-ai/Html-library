@@ -1,0 +1,22 @@
+{
+  "$schema": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "name": "spiral-loader",
+  "title": "Spiral Loader",
+  "description": "A masked conic-gradient spinner in three sizes, a bordered ring variant, and an inline running-status row.",
+  "category": "agent",
+  "type": "html",
+  "version": "0.1.0",
+  "tailwind": "^4.0.0",
+  "tags": [
+    "loading",
+    "spinner",
+    "status"
+  ],
+  "files": [
+    {
+      "path": "spiral-loader.html",
+      "type": "html",
+      "content": "<!-- Spiral Loader — conic spinner in three sizes, plus an inline status row -->\n<div class=\"mx-auto flex w-full max-w-md flex-col items-center gap-7\">\n  <div class=\"flex items-end gap-7\">\n    <!-- Small -->\n    <span class=\"h-4 w-4 animate-spin rounded-full bg-[conic-gradient(from_0deg,transparent_0%,#111827_100%)] [mask:radial-gradient(farthest-side,transparent_calc(100%-2px),#000_0)] motion-reduce:animate-none dark:bg-[conic-gradient(from_0deg,transparent_0%,#f5f5f5_100%)]\" role=\"status\" aria-label=\"Loading\"></span>\n    <!-- Medium -->\n    <span class=\"h-7 w-7 animate-spin rounded-full bg-[conic-gradient(from_0deg,transparent_0%,#111827_100%)] [mask:radial-gradient(farthest-side,transparent_calc(100%-3px),#000_0)] motion-reduce:animate-none dark:bg-[conic-gradient(from_0deg,transparent_0%,#f5f5f5_100%)]\" role=\"status\" aria-label=\"Loading\"></span>\n    <!-- Large -->\n    <span class=\"h-11 w-11 animate-spin rounded-full bg-[conic-gradient(from_0deg,transparent_0%,#111827_100%)] [mask:radial-gradient(farthest-side,transparent_calc(100%-4px),#000_0)] motion-reduce:animate-none dark:bg-[conic-gradient(from_0deg,transparent_0%,#f5f5f5_100%)]\" role=\"status\" aria-label=\"Loading\"></span>\n  </div>\n\n  <!-- Dashed ring variant -->\n  <span class=\"h-8 w-8 animate-spin rounded-full border-2 border-gray-200 border-t-gray-900 motion-reduce:animate-none dark:border-white/15 dark:border-t-white\" role=\"status\" aria-label=\"Loading\"></span>\n\n  <!-- Inline status row -->\n  <div class=\"flex w-full items-center gap-2.5 rounded-lg border border-gray-200 px-3 py-2.5 dark:border-white/10\">\n    <span class=\"h-3.5 w-3.5 shrink-0 animate-spin rounded-full bg-[conic-gradient(from_0deg,transparent_0%,#111827_100%)] [mask:radial-gradient(farthest-side,transparent_calc(100%-2px),#000_0)] motion-reduce:animate-none dark:bg-[conic-gradient(from_0deg,transparent_0%,#f5f5f5_100%)]\"></span>\n    <span class=\"text-[13px] text-gray-600 dark:text-gray-300\">Running the test suite…</span>\n    <button type=\"button\" class=\"ml-auto rounded-md px-2 py-1 text-[12px] font-medium text-gray-500 transition hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-white/10 dark:hover:text-gray-100\">Stop</button>\n  </div>\n</div>\n"
+    }
+  ]
+}

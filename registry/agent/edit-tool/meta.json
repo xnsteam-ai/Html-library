@@ -1,0 +1,10 @@
+{
+  "name": "edit-tool",
+  "title": "Edit Tool",
+  "description": "A file-edit tool call rendered as a diff: path header with +/− counts, gutter line numbers, and apply actions.",
+  "category": "agent",
+  "order": 15,
+  "tags": ["tool", "diff", "editor"],
+  "previewBg": "plain",
+  "previewHeight": 380
+}

@@ -1,0 +1,10 @@
+{
+  "name": "alert",
+  "title": "Alert",
+  "description": "Neutral, success, warning and error alerts with icons and actions, plus a solid inline announcement banner.",
+  "category": "ui",
+  "order": 5,
+  "tags": ["alert", "feedback", "banner"],
+  "previewBg": "plain",
+  "previewHeight": 480
+}

@@ -1,0 +1,10 @@
+{
+  "name": "input",
+  "title": "Input",
+  "description": "Form fields: labelled input with hint, search with shortcut, prefixed input, invalid state, textarea and disabled.",
+  "category": "ui",
+  "order": 4,
+  "tags": ["form", "input", "field"],
+  "previewBg": "plain",
+  "previewHeight": 520
+}

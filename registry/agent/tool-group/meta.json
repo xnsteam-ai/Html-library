@@ -1,0 +1,10 @@
+{
+  "name": "tool-group",
+  "title": "Tool Group",
+  "description": "A collapsible run of tool calls: summary header with stacked icons and timing, collapsed, expanded, and running children.",
+  "category": "agent",
+  "order": 19,
+  "tags": ["tool", "collapsible", "timeline"],
+  "previewBg": "plain",
+  "previewHeight": 340
+}

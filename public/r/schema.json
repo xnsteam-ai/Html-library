@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "title": "html-library registry item",
+  "type": "object",
+  "required": [
+    "name",
+    "title",
+    "description",
+    "category",
+    "type",
+    "files"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Unique component id, matches the file name."
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "agent",
+        "ui"
+      ]
+    },
+    "type": {
+      "const": "html"
+    },
+    "version": {
+      "type": "string"
+    },
+    "tailwind": {
+      "type": "string",
+      "description": "Tailwind version range the markup targets."
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "files": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "content"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "type": {
+            "const": "html"
+          },
+          "content": {
+            "type": "string",
+            "description": "The complete markup — this is what you copy."
+          }
+        }
+      }
+    }
+  }
+}

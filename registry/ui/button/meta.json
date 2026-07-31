@@ -1,0 +1,10 @@
+{
+  "name": "button",
+  "title": "Button",
+  "description": "Primary, secondary, ghost, destructive and link buttons across four sizes, with loading, disabled and icon states.",
+  "category": "ui",
+  "order": 1,
+  "tags": ["button", "action", "variants"],
+  "previewBg": "plain",
+  "previewHeight": 280
+}

@@ -1,0 +1,46 @@
+<!-- Avatar — initials, sizes, status dot, stack and a user row -->
+<div class="mx-auto w-full max-w-lg space-y-5">
+  <!-- Sizes -->
+  <div class="flex items-end gap-3">
+    <span class="flex h-6 w-6 items-center justify-center rounded-full bg-gray-900 text-[10px] font-semibold text-white dark:bg-white dark:text-neutral-900">EK</span>
+    <span class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-900 text-[12px] font-semibold text-white dark:bg-white dark:text-neutral-900">EK</span>
+    <span class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-900 text-[14px] font-semibold text-white dark:bg-white dark:text-neutral-900">EK</span>
+    <span class="flex h-14 w-14 items-center justify-center rounded-full bg-gray-900 text-[18px] font-semibold text-white dark:bg-white dark:text-neutral-900">EK</span>
+  </div>
+
+  <!-- Tones, status and fallback -->
+  <div class="flex items-center gap-3">
+    <span class="flex h-9 w-9 items-center justify-center rounded-full bg-blue-100 text-[13px] font-semibold text-blue-700 dark:bg-blue-500/15 dark:text-blue-300">AR</span>
+    <span class="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-100 text-[13px] font-semibold text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-300">MT</span>
+    <span class="relative inline-flex">
+      <span class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-[13px] font-semibold text-gray-600 dark:bg-white/10 dark:text-gray-300">JD</span>
+      <span class="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full border-2 border-white bg-emerald-500 dark:border-neutral-950"></span>
+    </span>
+    <span class="flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-gray-400 dark:border-white/15 dark:text-gray-500">
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5" /><path d="M4 20c0-3.6 3.6-6 8-6s8 2.4 8 6" /></svg>
+    </span>
+    <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-900 text-[13px] font-semibold text-white dark:bg-white dark:text-neutral-900">A</span>
+  </div>
+
+  <!-- Stack -->
+  <div class="flex -space-x-2">
+    <span class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-gray-900 text-[11px] font-semibold text-white dark:border-neutral-950 dark:bg-white dark:text-neutral-900">EK</span>
+    <span class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-blue-100 text-[11px] font-semibold text-blue-700 dark:border-neutral-950 dark:bg-blue-500/20 dark:text-blue-200">AR</span>
+    <span class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-emerald-100 text-[11px] font-semibold text-emerald-700 dark:border-neutral-950 dark:bg-emerald-500/20 dark:text-emerald-200">MT</span>
+    <span class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-gray-100 text-[11px] font-medium text-gray-500 dark:border-neutral-950 dark:bg-white/10 dark:text-gray-400">+7</span>
+  </div>
+
+  <!-- User row, as in the app shell footer -->
+  <div class="flex items-center justify-between rounded-xl border border-gray-200 px-3 py-2.5 dark:border-white/10">
+    <div class="flex items-center gap-2.5">
+      <span class="flex h-7 w-7 items-center justify-center rounded-full bg-blue-800 text-[11px] font-semibold text-white">e</span>
+      <span class="flex flex-col leading-tight">
+        <span class="text-[13px] font-medium text-gray-800 dark:text-gray-200">edison · Pro</span>
+        <span class="text-[11px] text-gray-400 dark:text-gray-500">edison@example.com</span>
+      </span>
+    </div>
+    <button type="button" class="rounded-md p-1.5 text-gray-400 transition hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-white/10 dark:hover:text-gray-200" aria-label="Account menu">
+      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6" /></svg>
+    </button>
+  </div>
+</div>

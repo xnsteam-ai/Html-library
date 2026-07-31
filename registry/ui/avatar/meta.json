@@ -1,0 +1,10 @@
+{
+  "name": "avatar",
+  "title": "Avatar",
+  "description": "Initial avatars in four sizes and several tones, with a presence dot, icon fallback, overlap stack and account row.",
+  "category": "ui",
+  "order": 7,
+  "tags": ["avatar", "identity", "stack"],
+  "previewBg": "plain",
+  "previewHeight": 380
+}

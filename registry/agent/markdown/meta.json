@@ -1,0 +1,10 @@
+{
+  "name": "markdown",
+  "title": "Markdown",
+  "description": "Typography for rendered agent output: headings, lists, inline code, a titled code block, blockquote, table, and links.",
+  "category": "agent",
+  "order": 8,
+  "tags": ["typography", "prose", "output"],
+  "previewBg": "plain",
+  "previewHeight": 780
+}

@@ -1,0 +1,10 @@
+{
+  "name": "input-bar",
+  "title": "Input Bar",
+  "description": "The composer: auto-height textarea, attachment and tools controls, model readout, dictation, and a send button.",
+  "category": "agent",
+  "order": 3,
+  "tags": ["composer", "input", "textarea"],
+  "previewBg": "plain",
+  "previewHeight": 260
+}

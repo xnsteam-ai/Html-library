@@ -1,0 +1,10 @@
+@import 'tailwindcss' source(none);
+
+/* Docs frontend */
+@source '../**/*.{js,ts,jsx,tsx}';
+@source '../../index.html';
+
+/* Registry components are plain HTML — Tailwind must scan them so that the
+   utilities used only inside a registry file exist in the docs stylesheet and
+   the live previews render correctly. */
+@source '../../registry/**/*.html';

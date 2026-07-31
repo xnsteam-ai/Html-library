@@ -1,0 +1,10 @@
+{
+  "name": "empty-state",
+  "title": "Empty State",
+  "description": "A dashed placeholder with icon, copy and actions, plus a compact no-results row for search.",
+  "category": "ui",
+  "order": 8,
+  "tags": ["empty", "placeholder", "zero-state"],
+  "previewBg": "plain",
+  "previewHeight": 380
+}

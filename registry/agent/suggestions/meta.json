@@ -1,0 +1,10 @@
+{
+  "name": "suggestions",
+  "title": "Suggestions",
+  "description": "Prompt starters in two shapes: a wrapping chip row and a stacked list with icons and descriptions.",
+  "category": "agent",
+  "order": 4,
+  "tags": ["prompts", "chips", "empty-state"],
+  "previewBg": "plain",
+  "previewHeight": 340
+}

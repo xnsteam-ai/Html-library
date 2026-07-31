@@ -1,0 +1,10 @@
+{
+  "name": "send-button",
+  "title": "Send Button",
+  "description": "Send affordance in four states: idle, disabled, generating (stop), and a labelled variant with a keyboard hint.",
+  "category": "agent",
+  "order": 9,
+  "tags": ["button", "send", "states"],
+  "previewBg": "plain",
+  "previewHeight": 200
+}

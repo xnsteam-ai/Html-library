@@ -1,0 +1,10 @@
+{
+  "name": "file-attachment",
+  "title": "File Attachment",
+  "description": "Attached files as removable chips, an uploading card with a progress bar, and a failed card with a retry action.",
+  "category": "agent",
+  "order": 11,
+  "tags": ["file", "upload", "progress"],
+  "previewBg": "plain",
+  "previewHeight": 330
+}

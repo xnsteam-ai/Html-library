@@ -1,0 +1,375 @@
+{
+  "$schema": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "name": "html-library",
+  "version": "0.1.0",
+  "homepage": "https://xnsteam-ai.github.io/html-library",
+  "repository": "https://github.com/xnsteam-ai/html-library",
+  "baseUrl": "https://xnsteam-ai.github.io/html-library/r",
+  "rawBaseUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r",
+  "generatedFrom": "registry/",
+  "categories": [
+    {
+      "name": "agent",
+      "title": "Agent Elements",
+      "count": 19
+    },
+    {
+      "name": "ui",
+      "title": "UI Elements",
+      "count": 8
+    }
+  ],
+  "items": [
+    {
+      "name": "agent-chat",
+      "title": "Agent Chat",
+      "description": "A complete conversation shell: header with agent status, scrollable thread with an inline tool call, and a composer.",
+      "category": "agent",
+      "tags": [
+        "chat",
+        "shell",
+        "conversation"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/agent-chat.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/agent-chat.json"
+    },
+    {
+      "name": "message-list",
+      "title": "Message List",
+      "description": "A conversation thread with user bubbles, assistant turns, hover actions, and a streaming turn with a caret.",
+      "category": "agent",
+      "tags": [
+        "messages",
+        "thread",
+        "streaming"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/message-list.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/message-list.json"
+    },
+    {
+      "name": "input-bar",
+      "title": "Input Bar",
+      "description": "The composer: auto-height textarea, attachment and tools controls, model readout, dictation, and a send button.",
+      "category": "agent",
+      "tags": [
+        "composer",
+        "input",
+        "textarea"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/input-bar.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/input-bar.json"
+    },
+    {
+      "name": "suggestions",
+      "title": "Suggestions",
+      "description": "Prompt starters in two shapes: a wrapping chip row and a stacked list with icons and descriptions.",
+      "category": "agent",
+      "tags": [
+        "prompts",
+        "chips",
+        "empty-state"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/suggestions.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/suggestions.json"
+    },
+    {
+      "name": "model-picker",
+      "title": "Model Picker",
+      "description": "A model selector trigger plus the open menu: options with descriptions, a selected check, and a settings row.",
+      "category": "agent",
+      "tags": [
+        "menu",
+        "dropdown",
+        "model"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/model-picker.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/model-picker.json"
+    },
+    {
+      "name": "mode-selector",
+      "title": "Mode Selector",
+      "description": "Segmented controls for switching agent modes — a full-width pill group and a compact bordered variant.",
+      "category": "agent",
+      "tags": [
+        "tabs",
+        "segmented",
+        "toggle"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/mode-selector.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/mode-selector.json"
+    },
+    {
+      "name": "user-message",
+      "title": "User Message",
+      "description": "The sent turn: a plain bubble and a richer variant with an attached file, timestamp, and edit/copy actions.",
+      "category": "agent",
+      "tags": [
+        "message",
+        "bubble",
+        "user"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/user-message.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/user-message.json"
+    },
+    {
+      "name": "markdown",
+      "title": "Markdown",
+      "description": "Typography for rendered agent output: headings, lists, inline code, a titled code block, blockquote, table, and links.",
+      "category": "agent",
+      "tags": [
+        "typography",
+        "prose",
+        "output"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/markdown.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/markdown.json"
+    },
+    {
+      "name": "send-button",
+      "title": "Send Button",
+      "description": "Send affordance in four states: idle, disabled, generating (stop), and a labelled variant with a keyboard hint.",
+      "category": "agent",
+      "tags": [
+        "button",
+        "send",
+        "states"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/send-button.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/send-button.json"
+    },
+    {
+      "name": "attachment-button",
+      "title": "Attachment Button",
+      "description": "Attachment triggers (plus and paperclip) with the open source menu: file, image, repo, and clipboard.",
+      "category": "agent",
+      "tags": [
+        "menu",
+        "attachment",
+        "upload"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/attachment-button.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/attachment-button.json"
+    },
+    {
+      "name": "file-attachment",
+      "title": "File Attachment",
+      "description": "Attached files as removable chips, an uploading card with a progress bar, and a failed card with a retry action.",
+      "category": "agent",
+      "tags": [
+        "file",
+        "upload",
+        "progress"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/file-attachment.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/file-attachment.json"
+    },
+    {
+      "name": "text-shimmer",
+      "title": "Text Shimmer",
+      "description": "A shimmering status label for pending work, plus a pulsing skeleton. Ships one scoped style block for the keyframes.",
+      "category": "agent",
+      "tags": [
+        "loading",
+        "animation",
+        "status"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/text-shimmer.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/text-shimmer.json"
+    },
+    {
+      "name": "spiral-loader",
+      "title": "Spiral Loader",
+      "description": "A masked conic-gradient spinner in three sizes, a bordered ring variant, and an inline running-status row.",
+      "category": "agent",
+      "tags": [
+        "loading",
+        "spinner",
+        "status"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/spiral-loader.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/spiral-loader.json"
+    },
+    {
+      "name": "bash-tool",
+      "title": "Bash Tool",
+      "description": "Terminal tool calls: command header, scrollable output, exit-status pill, duration footer, and a failed variant.",
+      "category": "agent",
+      "tags": [
+        "tool",
+        "terminal",
+        "output"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/bash-tool.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/bash-tool.json"
+    },
+    {
+      "name": "edit-tool",
+      "title": "Edit Tool",
+      "description": "A file-edit tool call rendered as a diff: path header with +/− counts, gutter line numbers, and apply actions.",
+      "category": "agent",
+      "tags": [
+        "tool",
+        "diff",
+        "editor"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/edit-tool.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/edit-tool.json"
+    },
+    {
+      "name": "search-tool",
+      "title": "Search Tool",
+      "description": "Grep-style results grouped by file, with line gutters, highlighted matches, and a search summary footer.",
+      "category": "agent",
+      "tags": [
+        "tool",
+        "search",
+        "results"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/search-tool.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/search-tool.json"
+    },
+    {
+      "name": "todo-tool",
+      "title": "Todo Tool",
+      "description": "The agent's task list: completed items struck through, an in-progress row with a spinner, pending rows, and a progress bar.",
+      "category": "agent",
+      "tags": [
+        "tool",
+        "todo",
+        "progress"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/todo-tool.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/todo-tool.json"
+    },
+    {
+      "name": "plan-tool",
+      "title": "Plan Tool",
+      "description": "A proposed plan awaiting approval: numbered steps with affected files, a status pill, and approve/edit actions.",
+      "category": "agent",
+      "tags": [
+        "tool",
+        "plan",
+        "approval"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/plan-tool.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/plan-tool.json"
+    },
+    {
+      "name": "tool-group",
+      "title": "Tool Group",
+      "description": "A collapsible run of tool calls: summary header with stacked icons and timing, collapsed, expanded, and running children.",
+      "category": "agent",
+      "tags": [
+        "tool",
+        "collapsible",
+        "timeline"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/tool-group.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/tool-group.json"
+    },
+    {
+      "name": "button",
+      "title": "Button",
+      "description": "Primary, secondary, ghost, destructive and link buttons across four sizes, with loading, disabled and icon states.",
+      "category": "ui",
+      "tags": [
+        "button",
+        "action",
+        "variants"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/button.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/button.json"
+    },
+    {
+      "name": "badge",
+      "title": "Badge",
+      "description": "Status pills in seven tones plus dot, counter, removable-tag and small label variants.",
+      "category": "ui",
+      "tags": [
+        "badge",
+        "tag",
+        "status"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/badge.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/badge.json"
+    },
+    {
+      "name": "card",
+      "title": "Card",
+      "description": "A surface in three shapes: header/body/footer card, stat card with a bar sparkline, and a clickable link card.",
+      "category": "ui",
+      "tags": [
+        "card",
+        "surface",
+        "layout"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/card.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/card.json"
+    },
+    {
+      "name": "input",
+      "title": "Input",
+      "description": "Form fields: labelled input with hint, search with shortcut, prefixed input, invalid state, textarea and disabled.",
+      "category": "ui",
+      "tags": [
+        "form",
+        "input",
+        "field"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/input.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/input.json"
+    },
+    {
+      "name": "alert",
+      "title": "Alert",
+      "description": "Neutral, success, warning and error alerts with icons and actions, plus a solid inline announcement banner.",
+      "category": "ui",
+      "tags": [
+        "alert",
+        "feedback",
+        "banner"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/alert.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/alert.json"
+    },
+    {
+      "name": "tabs",
+      "title": "Tabs",
+      "description": "Three tab patterns — underline with a count badge, pill group, and vertical tabs beside a panel.",
+      "category": "ui",
+      "tags": [
+        "tabs",
+        "navigation",
+        "segmented"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/tabs.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/tabs.json"
+    },
+    {
+      "name": "avatar",
+      "title": "Avatar",
+      "description": "Initial avatars in four sizes and several tones, with a presence dot, icon fallback, overlap stack and account row.",
+      "category": "ui",
+      "tags": [
+        "avatar",
+        "identity",
+        "stack"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/avatar.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/avatar.json"
+    },
+    {
+      "name": "empty-state",
+      "title": "Empty State",
+      "description": "A dashed placeholder with icon, copy and actions, plus a compact no-results row for search.",
+      "category": "ui",
+      "tags": [
+        "empty",
+        "placeholder",
+        "zero-state"
+      ],
+      "url": "https://xnsteam-ai.github.io/html-library/r/empty-state.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/html-library/main/public/r/empty-state.json"
+    }
+  ]
+}

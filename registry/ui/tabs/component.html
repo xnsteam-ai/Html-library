@@ -1,0 +1,34 @@
+<!-- Tabs — underline, pill and vertical variants -->
+<div class="mx-auto w-full max-w-lg space-y-7">
+  <!-- Underline -->
+  <div>
+    <div class="flex gap-5 border-b border-gray-200 dark:border-white/10" role="tablist" aria-label="Section">
+      <button type="button" role="tab" aria-selected="true" class="-mb-px border-b-2 border-gray-900 pb-2 text-[13px] font-medium text-gray-900 dark:border-white dark:text-gray-100">Preview</button>
+      <button type="button" role="tab" aria-selected="false" class="-mb-px border-b-2 border-transparent pb-2 text-[13px] font-medium text-gray-500 transition hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200">Code</button>
+      <button type="button" role="tab" aria-selected="false" class="-mb-px flex items-center gap-1.5 border-b-2 border-transparent pb-2 text-[13px] font-medium text-gray-500 transition hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200">
+        Usage
+        <span class="rounded-full bg-gray-100 px-1.5 text-[10px] text-gray-500 dark:bg-white/10 dark:text-gray-400">3</span>
+      </button>
+    </div>
+    <p class="pt-3 text-[13px] text-gray-600 dark:text-gray-400">Panel content for the selected tab.</p>
+  </div>
+
+  <!-- Pill -->
+  <div class="inline-flex rounded-full bg-gray-100 p-[3px] dark:bg-white/10" role="tablist" aria-label="View">
+    <button type="button" role="tab" aria-selected="true" class="rounded-full bg-white px-3.5 py-1.5 text-[12.5px] font-medium text-gray-900 shadow-sm dark:bg-neutral-900 dark:text-gray-100">All</button>
+    <button type="button" role="tab" aria-selected="false" class="rounded-full px-3.5 py-1.5 text-[12.5px] font-medium text-gray-500 transition hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200">Agent</button>
+    <button type="button" role="tab" aria-selected="false" class="rounded-full px-3.5 py-1.5 text-[12.5px] font-medium text-gray-500 transition hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200">UI</button>
+  </div>
+
+  <!-- Vertical -->
+  <div class="flex gap-5">
+    <div class="flex w-40 flex-col gap-0.5" role="tablist" aria-orientation="vertical" aria-label="Settings">
+      <button type="button" role="tab" aria-selected="true" class="rounded-lg bg-gray-100 px-2.5 py-1.5 text-left text-[13px] font-medium text-gray-900 dark:bg-white/10 dark:text-gray-100">General</button>
+      <button type="button" role="tab" aria-selected="false" class="rounded-lg px-2.5 py-1.5 text-left text-[13px] font-medium text-gray-500 transition hover:bg-gray-50 hover:text-gray-800 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-200">Registry</button>
+      <button type="button" role="tab" aria-selected="false" class="rounded-lg px-2.5 py-1.5 text-left text-[13px] font-medium text-gray-500 transition hover:bg-gray-50 hover:text-gray-800 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-200">Appearance</button>
+    </div>
+    <div class="flex-1 rounded-xl border border-gray-200 p-3.5 dark:border-white/10">
+      <p class="text-[13px] text-gray-600 dark:text-gray-400">Vertical tabs keep long settings lists scannable.</p>
+    </div>
+  </div>
+</div>

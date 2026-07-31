@@ -1,0 +1,10 @@
+{
+  "name": "agent-chat",
+  "title": "Agent Chat",
+  "description": "A complete conversation shell: header with agent status, scrollable thread with an inline tool call, and a composer.",
+  "category": "agent",
+  "order": 1,
+  "tags": ["chat", "shell", "conversation"],
+  "previewBg": "muted",
+  "previewHeight": 620
+}

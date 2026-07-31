@@ -1,0 +1,10 @@
+{
+  "name": "plan-tool",
+  "title": "Plan Tool",
+  "description": "A proposed plan awaiting approval: numbered steps with affected files, a status pill, and approve/edit actions.",
+  "category": "agent",
+  "order": 18,
+  "tags": ["tool", "plan", "approval"],
+  "previewBg": "plain",
+  "previewHeight": 460
+}

@@ -1,0 +1,10 @@
+{
+  "name": "mode-selector",
+  "title": "Mode Selector",
+  "description": "Segmented controls for switching agent modes — a full-width pill group and a compact bordered variant.",
+  "category": "agent",
+  "order": 6,
+  "tags": ["tabs", "segmented", "toggle"],
+  "previewBg": "plain",
+  "previewHeight": 220
+}

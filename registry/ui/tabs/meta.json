@@ -1,0 +1,10 @@
+{
+  "name": "tabs",
+  "title": "Tabs",
+  "description": "Three tab patterns — underline with a count badge, pill group, and vertical tabs beside a panel.",
+  "category": "ui",
+  "order": 6,
+  "tags": ["tabs", "navigation", "segmented"],
+  "previewBg": "plain",
+  "previewHeight": 400
+}

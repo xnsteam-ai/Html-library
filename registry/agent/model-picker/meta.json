@@ -1,0 +1,10 @@
+{
+  "name": "model-picker",
+  "title": "Model Picker",
+  "description": "A model selector trigger plus the open menu: options with descriptions, a selected check, and a settings row.",
+  "category": "agent",
+  "order": 5,
+  "tags": ["menu", "dropdown", "model"],
+  "previewBg": "plain",
+  "previewHeight": 400
+}

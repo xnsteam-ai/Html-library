@@ -1,0 +1,10 @@
+{
+  "name": "bash-tool",
+  "title": "Bash Tool",
+  "description": "Terminal tool calls: command header, scrollable output, exit-status pill, duration footer, and a failed variant.",
+  "category": "agent",
+  "order": 14,
+  "tags": ["tool", "terminal", "output"],
+  "previewBg": "plain",
+  "previewHeight": 420
+}

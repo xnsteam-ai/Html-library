@@ -1,0 +1,10 @@
+{
+  "name": "message-list",
+  "title": "Message List",
+  "description": "A conversation thread with user bubbles, assistant turns, hover actions, and a streaming turn with a caret.",
+  "category": "agent",
+  "order": 2,
+  "tags": ["messages", "thread", "streaming"],
+  "previewBg": "plain",
+  "previewHeight": 420
+}

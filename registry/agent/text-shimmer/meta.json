@@ -1,0 +1,10 @@
+{
+  "name": "text-shimmer",
+  "title": "Text Shimmer",
+  "description": "A shimmering status label for pending work, plus a pulsing skeleton. Ships one scoped style block for the keyframes.",
+  "category": "agent",
+  "order": 12,
+  "tags": ["loading", "animation", "status"],
+  "previewBg": "plain",
+  "previewHeight": 240
+}

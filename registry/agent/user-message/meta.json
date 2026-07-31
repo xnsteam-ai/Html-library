@@ -1,0 +1,10 @@
+{
+  "name": "user-message",
+  "title": "User Message",
+  "description": "The sent turn: a plain bubble and a richer variant with an attached file, timestamp, and edit/copy actions.",
+  "category": "agent",
+  "order": 7,
+  "tags": ["message", "bubble", "user"],
+  "previewBg": "plain",
+  "previewHeight": 300
+}

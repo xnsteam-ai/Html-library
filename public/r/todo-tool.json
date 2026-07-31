@@ -1,0 +1,22 @@
+{
+  "$schema": "https://xnsteam-ai.github.io/html-library/r/schema.json",
+  "name": "todo-tool",
+  "title": "Todo Tool",
+  "description": "The agent's task list: completed items struck through, an in-progress row with a spinner, pending rows, and a progress bar.",
+  "category": "agent",
+  "type": "html",
+  "version": "0.1.0",
+  "tailwind": "^4.0.0",
+  "tags": [
+    "tool",
+    "todo",
+    "progress"
+  ],
+  "files": [
+    {
+      "path": "todo-tool.html",
+      "type": "html",
+      "content": "<!-- Todo Tool — task checklist with completed, active and pending states -->\n<div class=\"mx-auto w-full max-w-lg overflow-hidden rounded-xl border border-gray-200 dark:border-white/10\">\n  <div class=\"flex items-center gap-2 border-b border-gray-200 bg-gray-50 px-3 py-2 dark:border-white/10 dark:bg-white/5\">\n    <svg class=\"h-3.5 w-3.5 shrink-0 text-gray-500 dark:text-gray-400\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 11l3 3 8-8\" /><path d=\"M20 12v7a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h9\" /></svg>\n    <span class=\"flex-1 text-[12.5px] font-medium text-gray-800 dark:text-gray-200\">Task list</span>\n    <span class=\"rounded-full bg-gray-100 px-2 py-0.5 text-[10.5px] font-medium text-gray-600 dark:bg-white/10 dark:text-gray-300\">2 of 5</span>\n  </div>\n\n  <ul class=\"divide-y divide-gray-100 dark:divide-white/5\">\n    <li class=\"flex items-start gap-2.5 px-3 py-2.5\">\n      <span class=\"mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-gray-900 text-white dark:bg-white dark:text-neutral-900\">\n        <svg class=\"h-2.5 w-2.5\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 6L9 17l-5-5\" /></svg>\n      </span>\n      <span class=\"text-[13px] text-gray-400 line-through dark:text-gray-500\">Reproduce the failing nightly run</span>\n    </li>\n\n    <li class=\"flex items-start gap-2.5 px-3 py-2.5\">\n      <span class=\"mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-gray-900 text-white dark:bg-white dark:text-neutral-900\">\n        <svg class=\"h-2.5 w-2.5\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 6L9 17l-5-5\" /></svg>\n      </span>\n      <span class=\"text-[13px] text-gray-400 line-through dark:text-gray-500\">Locate the Node version mismatch</span>\n    </li>\n\n    <li class=\"flex items-start gap-2.5 bg-gray-50 px-3 py-2.5 dark:bg-white/5\">\n      <span class=\"mt-0.5 h-4 w-4 shrink-0 animate-spin rounded-full border-2 border-gray-200 border-t-gray-900 motion-reduce:animate-none dark:border-white/15 dark:border-t-white\"></span>\n      <span class=\"flex-1 text-[13px] font-medium text-gray-900 dark:text-gray-100\">Pin the dependency to Node 22</span>\n      <span class=\"rounded bg-white px-1.5 py-0.5 text-[10px] font-medium text-gray-500 shadow-sm dark:bg-neutral-900 dark:text-gray-400\">in progress</span>\n    </li>\n\n    <li class=\"flex items-start gap-2.5 px-3 py-2.5\">\n      <span class=\"mt-0.5 h-4 w-4 shrink-0 rounded-full border-[1.5px] border-gray-300 dark:border-white/20\"></span>\n      <span class=\"text-[13px] text-gray-700 dark:text-gray-300\">Re-run the e2e job on the branch</span>\n    </li>\n\n    <li class=\"flex items-start gap-2.5 px-3 py-2.5\">\n      <span class=\"mt-0.5 h-4 w-4 shrink-0 rounded-full border-[1.5px] border-gray-300 dark:border-white/20\"></span>\n      <span class=\"text-[13px] text-gray-700 dark:text-gray-300\">Open a PR with the lockfile update</span>\n    </li>\n  </ul>\n\n  <div class=\"h-1 w-full bg-gray-100 dark:bg-white/10\">\n    <div class=\"h-full w-2/5 bg-gray-900 dark:bg-white\"></div>\n  </div>\n</div>\n"
+    }
+  ]
+}

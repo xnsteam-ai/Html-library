@@ -1,0 +1,51 @@
+<!--
+  Text Shimmer — animated "thinking" label.
+  Keyframes cannot be expressed as Tailwind utilities, so this file carries one
+  scoped <style> block. Class names are prefixed `hl-` to avoid collisions.
+-->
+<style>
+  @keyframes hl-shimmer {
+    0% {
+      background-position: 150% center;
+    }
+    100% {
+      background-position: -150% center;
+    }
+  }
+
+  .hl-shimmer {
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: hl-shimmer 2.4s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hl-shimmer {
+      animation: none;
+    }
+  }
+</style>
+
+<div class="mx-auto flex w-full max-w-md flex-col items-start gap-4">
+  <!-- With a pulsing glyph -->
+  <div class="flex items-center gap-2">
+    <svg class="h-3.5 w-3.5 animate-pulse text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5l1.6 8.9 6.3-4.8-4.8 6.3 8.9 1.6-8.9 1.6 4.8 6.3-6.3-4.8-1.6 8.9-1.6-8.9-6.3 4.8 4.8-6.3L-.5 13.5l8.9-1.6-4.8-6.3 6.3 4.8z" /></svg>
+    <span class="hl-shimmer bg-gradient-to-r from-gray-400 via-gray-900 to-gray-400 text-[14px] font-medium dark:from-gray-600 dark:via-gray-100 dark:to-gray-600">
+      Thinking…
+    </span>
+  </div>
+
+  <!-- Longer status line -->
+  <span class="hl-shimmer bg-gradient-to-r from-gray-400 via-gray-900 to-gray-400 text-[13px] dark:from-gray-600 dark:via-gray-100 dark:to-gray-600">
+    Reading 12 files in src/server…
+  </span>
+
+  <!-- Skeleton shimmer using Tailwind's built-in pulse -->
+  <div class="w-full space-y-2">
+    <div class="h-3 w-4/5 animate-pulse rounded bg-gray-200 dark:bg-white/10"></div>
+    <div class="h-3 w-full animate-pulse rounded bg-gray-200 dark:bg-white/10"></div>
+    <div class="h-3 w-2/3 animate-pulse rounded bg-gray-200 dark:bg-white/10"></div>
+  </div>
+</div>

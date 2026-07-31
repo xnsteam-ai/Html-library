@@ -1,0 +1,10 @@
+{
+  "name": "spiral-loader",
+  "title": "Spiral Loader",
+  "description": "A masked conic-gradient spinner in three sizes, a bordered ring variant, and an inline running-status row.",
+  "category": "agent",
+  "order": 13,
+  "tags": ["loading", "spinner", "status"],
+  "previewBg": "plain",
+  "previewHeight": 300
+}
