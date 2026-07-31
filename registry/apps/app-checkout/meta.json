@@ -1,0 +1,10 @@
+{
+  "name": "app-checkout",
+  "title": "Checkout",
+  "description": "An order review screen: line items with quantity steppers, delivery address, selectable payment methods, totals, and a sticky pay bar.",
+  "category": "apps",
+  "surface": "app",
+  "tagline": "Cart, address & payment",
+  "order": 4,
+  "tags": ["commerce", "checkout", "payment"]
+}

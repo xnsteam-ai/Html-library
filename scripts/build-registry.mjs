@@ -27,9 +27,12 @@ const PAGES_URL = 'https://xnsteam-ai.github.io/Html-library'
 const RAW_URL = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/public/r`
 
 const CATEGORIES = {
-  agent: { title: 'Agent Elements', order: 1 },
-  ui: { title: 'UI Elements', order: 2 },
+  apps: { title: 'Apps & Sites', order: 1 },
+  agent: { title: 'Agent Elements', order: 2 },
+  ui: { title: 'UI Elements', order: 3 },
 }
+
+const SURFACES = ['app', 'site']
 
 const checkOnly = process.argv.includes('--check')
 const errors = []
@@ -74,6 +77,13 @@ function validateMeta(id, meta) {
   }
   if (meta.tags && !Array.isArray(meta.tags)) {
     fail(id, '"tags" must be an array')
+  }
+  // Screens drive the gallery's Apps/Sites tabs, so the surface is required there.
+  if (meta.category === 'apps' && !SURFACES.includes(meta.surface)) {
+    fail(id, `"surface" must be one of ${SURFACES.join(', ')} for Apps & Sites items`)
+  }
+  if (meta.surface && !SURFACES.includes(meta.surface)) {
+    fail(id, `unknown surface "${meta.surface}"`)
   }
 }
 
@@ -151,6 +161,8 @@ function toRegistryItem({ meta, html }, version) {
     version,
     tailwind: '^4.0.0',
     tags: meta.tags ?? [],
+    // Only whole-screen items carry a surface; parts omit it entirely.
+    ...(meta.surface ? { surface: meta.surface } : {}),
     files: [{ path: `${meta.name}.html`, type: 'html', content: html }],
   }
 }
@@ -168,6 +180,11 @@ function schema() {
       title: { type: 'string' },
       description: { type: 'string' },
       category: { type: 'string', enum: Object.keys(CATEGORIES) },
+      surface: {
+        type: 'string',
+        enum: SURFACES,
+        description: 'Whole-screen items only: the device the screen was drawn for.',
+      },
       type: { const: 'html' },
       version: { type: 'string' },
       tailwind: { type: 'string', description: 'Tailwind version range the markup targets.' },

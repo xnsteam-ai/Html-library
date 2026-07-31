@@ -1,0 +1,10 @@
+{
+  "name": "app-profile-settings",
+  "title": "Profile & Settings",
+  "description": "An account screen: avatar header with membership badge and stat row, plus grouped setting rows with toggles, values and a destructive action.",
+  "category": "apps",
+  "surface": "app",
+  "tagline": "Account, toggles & groups",
+  "order": 6,
+  "tags": ["profile", "settings", "account"]
+}

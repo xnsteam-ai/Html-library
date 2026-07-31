@@ -25,9 +25,18 @@
     "category": {
       "type": "string",
       "enum": [
+        "apps",
         "agent",
         "ui"
       ]
+    },
+    "surface": {
+      "type": "string",
+      "enum": [
+        "app",
+        "site"
+      ],
+      "description": "Whole-screen items only: the device the screen was drawn for."
     },
     "type": {
       "const": "html"

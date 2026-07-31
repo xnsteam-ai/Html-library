@@ -4,10 +4,10 @@ An open-source component library where every component is **plain HTML + Tailwin
 
 No package to install, no framework to adopt. Copy the markup, or fetch it over HTTP from the registry that ships inside this repo.
 
-- **27 components** — 19 agent-interface elements, 8 general UI primitives
+- **38 components** — 11 full app screens and site pages, 19 agent-interface elements, 8 general UI primitives
 - **Light and dark** — every component carries `dark:` variants
 - **Self-contained** — no JavaScript, no external stylesheets, inline SVG icons
-- **Browsable** — a React docs app with live previews, search (⌘K), and per-component copy
+- **Browsable** — a React docs app with live previews, search (⌘K), per-component copy, and a gallery view for whole screens
 
 ```
 registry/<category>/<name>/component.html   source of truth
@@ -61,9 +61,13 @@ Each item is a single JSON file. `files[0].content` is the complete markup — t
 }
 ```
 
+Items in the `apps` category carry one extra field, `"surface": "app" | "site"`, naming the device the screen was drawn for.
+
 `index.json` lists every component with its Pages URL and raw URL, plus per-category counts.
 
 ## Components
+
+**Apps & Sites** — whole screens rather than parts, browsable as a gallery. Mobile screens at 390×844 (Onboarding, Content Feed, Wallet, Checkout, Chat Inbox, Profile & Settings) and site pages at 1280×800 (Landing Page, Pricing Page, Dashboard, Documentation, Sign In).
 
 **Agent Elements** — Agent Chat, Message List, Input Bar, Suggestions, Model Picker, Mode Selector, User Message, Markdown, Send Button, Attachment Button, File Attachment, Text Shimmer, Spiral Loader, Bash Tool, Edit Tool, Search Tool, Todo Tool, Plan Tool, Tool Group
 

@@ -1,11 +1,16 @@
 import { useEffect, useState } from 'react'
 
+import type { Surface } from '../../registry'
+
 export type Route =
   | { kind: 'doc'; slug: string }
   | { kind: 'component'; name: string }
+  | { kind: 'gallery'; surface: Surface }
   | { kind: 'not-found'; path: string }
 
 const DOC_SLUGS = ['introduction', 'installation', 'registry', 'theming', 'use-cases']
+
+export const GALLERY_SLUG = 'apps-and-sites'
 
 export function parseHash(hash: string): Route {
   const path = hash.replace(/^#\/?/, '').replace(/\/$/, '')
@@ -13,6 +18,10 @@ export function parseHash(hash: string): Route {
 
   const [head, tail] = path.split('/')
   if (head === 'component' && tail) return { kind: 'component', name: tail }
+  if (head === GALLERY_SLUG) {
+    if (!tail || tail === 'apps') return { kind: 'gallery', surface: 'app' }
+    if (tail === 'sites') return { kind: 'gallery', surface: 'site' }
+  }
   if (!tail && DOC_SLUGS.includes(head)) return { kind: 'doc', slug: head }
   return { kind: 'not-found', path }
 }
@@ -40,4 +49,8 @@ export function docHref(slug: string) {
 
 export function componentHref(name: string) {
   return `#/component/${name}`
+}
+
+export function galleryHref(surface: Surface = 'app') {
+  return surface === 'site' ? `#/${GALLERY_SLUG}/sites` : `#/${GALLERY_SLUG}`
 }

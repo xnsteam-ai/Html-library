@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { ChevronsLeft, Github, Moon, Search, Star, Sun } from 'lucide-react'
+import { ChevronsLeft, Github, LayoutGrid, Moon, Search, Star, Sun } from 'lucide-react'
 import { categories, REPO, REPO_URL } from '../../registry'
-import { componentHref, docHref, type Route } from '../hooks/useHashRoute'
+import { componentHref, docHref, galleryHref, type Route } from '../hooks/useHashRoute'
 import { useTheme } from '../hooks/useTheme'
 import { Logo } from './Logo'
 
@@ -103,9 +103,25 @@ export function Sidebar({ route, onCollapse, onOpenSearch }: SidebarProps) {
         {categories.map((category) => (
           <div key={category.id} className="pt-3">
             <div className="mb-1 border-t border-border pt-3">
-              <p className="px-2.5 pb-1 text-[11px] font-medium uppercase tracking-wide text-muted-foreground/80">
-                {category.title}
-              </p>
+              {/* Apps & Sites opens a gallery; the other sections are plain labels. */}
+              {category.id === 'apps' ? (
+                <a
+                  href={galleryHref()}
+                  aria-current={route.kind === 'gallery' ? 'page' : undefined}
+                  className={`mx-0 flex items-center gap-1 rounded-md px-2.5 py-1 text-[11px] font-medium uppercase tracking-wide transition ${
+                    route.kind === 'gallery'
+                      ? 'bg-subtle text-foreground'
+                      : 'text-muted-foreground/80 hover:bg-muted hover:text-foreground'
+                  }`}
+                >
+                  {category.title}
+                  <LayoutGrid size={11} className="opacity-70" />
+                </a>
+              ) : (
+                <p className="px-2.5 pb-1 text-[11px] font-medium uppercase tracking-wide text-muted-foreground/80">
+                  {category.title}
+                </p>
+              )}
             </div>
             <ul className="space-y-px">
               {category.items.map((item) => (

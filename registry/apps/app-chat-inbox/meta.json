@@ -1,0 +1,11 @@
+{
+  "name": "app-chat-inbox",
+  "title": "Chat Inbox",
+  "description": "A messages list: search field, pinned avatars with presence, unread and read-receipt states, and a tab bar.",
+  "category": "apps",
+  "surface": "app",
+  "tagline": "Conversations & unread",
+  "status": "updated",
+  "order": 5,
+  "tags": ["chat", "inbox", "list"]
+}

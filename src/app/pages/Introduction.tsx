@@ -40,7 +40,7 @@ export function Introduction() {
         />
       </Section>
 
-      <Section title="The two sets">
+      <Section title="The three sets">
         <div className="grid gap-3 sm:grid-cols-2">
           {categories.map((category) => (
             <div key={category.id} className="rounded-xl border border-border p-4">

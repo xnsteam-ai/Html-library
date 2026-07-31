@@ -9,6 +9,7 @@ import {
 } from '../../registry'
 import { useCopy } from '../hooks/useCopy'
 import { CodeBlock } from './CodeBlock'
+import { ScreenFrame } from './ScreenFrame'
 
 const SURFACES: Record<string, string> = {
   plain: 'bg-background',
@@ -17,6 +18,15 @@ const SURFACES: Record<string, string> = {
 }
 
 function Preview({ item }: { item: RegistryItem }) {
+  // Whole screens get device chrome at their authored size; parts render inline.
+  if (item.category === 'apps') {
+    return (
+      <div className="flex justify-center rounded-xl border border-border bg-muted p-6">
+        <ScreenFrame item={item} fit />
+      </div>
+    )
+  }
+
   return (
     <div
       className={`scrollbar-thin flex items-center justify-center overflow-auto rounded-xl border border-border p-6 ${

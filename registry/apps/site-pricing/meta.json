@@ -1,0 +1,10 @@
+{
+  "name": "site-pricing",
+  "title": "Pricing Page",
+  "description": "Three pricing tiers with a monthly/yearly toggle, a highlighted popular plan, checked feature lists, and an FAQ strip.",
+  "category": "apps",
+  "surface": "site",
+  "tagline": "Tiers, toggle & features",
+  "order": 8,
+  "tags": ["pricing", "marketing", "plans"]
+}

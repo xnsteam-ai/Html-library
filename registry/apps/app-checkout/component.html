@@ -1,0 +1,121 @@
+<!-- App Checkout — order review, payment method, sticky pay bar, 390×844 -->
+<div class="flex h-[844px] w-[390px] flex-col bg-white dark:bg-neutral-950">
+  <!-- Status bar -->
+  <div class="flex items-center justify-between px-6 pb-1 pt-3.5">
+    <span class="text-[13px] font-semibold text-gray-900 dark:text-gray-100">9:41</span>
+    <div class="flex items-center gap-1.5 text-gray-900 dark:text-gray-100">
+      <svg class="h-3 w-4" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1" /><rect x="5" y="5" width="3" height="7" rx="1" /><rect x="10" y="2" width="3" height="10" rx="1" /><rect x="15" y="0" width="3" height="12" rx="1" opacity="0.35" /></svg>
+      <svg class="h-3 w-6" viewBox="0 0 26 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="3" stroke="currentColor" opacity="0.4" /><rect x="2" y="2" width="15" height="8" rx="1.5" fill="currentColor" /></svg>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <header class="flex items-center gap-3 px-4 py-3">
+    <button type="button" class="rounded-full p-1.5 text-gray-700 transition hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-white/10" aria-label="Back">
+      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+    </button>
+    <h1 class="text-[16px] font-semibold text-gray-900 dark:text-gray-100">Checkout</h1>
+  </header>
+
+  <div class="flex-1 space-y-5 overflow-hidden px-5 pt-1">
+    <!-- Items -->
+    <section>
+      <h2 class="mb-2.5 text-[12px] font-medium uppercase tracking-wide text-gray-400 dark:text-gray-500">Order</h2>
+      <div class="space-y-3">
+        <div class="flex gap-3">
+          <div class="h-16 w-16 shrink-0 rounded-xl bg-gradient-to-br from-stone-200 to-stone-300 dark:from-stone-600/40 dark:to-stone-700/40"></div>
+          <div class="min-w-0 flex-1">
+            <p class="truncate text-[14px] font-medium text-gray-900 dark:text-gray-100">Merino crew sweater</p>
+            <p class="text-[12px] text-gray-500 dark:text-gray-400">Oatmeal · M</p>
+            <p class="mt-1 text-[13.5px] font-semibold text-gray-900 dark:text-gray-100">$128.00</p>
+          </div>
+          <div class="flex items-center gap-2 self-start rounded-lg border border-gray-200 px-2 py-1 dark:border-white/10">
+            <span class="text-[13px] text-gray-400">−</span>
+            <span class="text-[13px] font-medium text-gray-900 dark:text-gray-100">1</span>
+            <span class="text-[13px] text-gray-600 dark:text-gray-300">+</span>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <div class="h-16 w-16 shrink-0 rounded-xl bg-gradient-to-br from-sky-200 to-blue-300 dark:from-sky-600/40 dark:to-blue-700/40"></div>
+          <div class="min-w-0 flex-1">
+            <p class="truncate text-[14px] font-medium text-gray-900 dark:text-gray-100">Canvas tote</p>
+            <p class="text-[12px] text-gray-500 dark:text-gray-400">Washed indigo</p>
+            <p class="mt-1 text-[13.5px] font-semibold text-gray-900 dark:text-gray-100">$46.00</p>
+          </div>
+          <div class="flex items-center gap-2 self-start rounded-lg border border-gray-200 px-2 py-1 dark:border-white/10">
+            <span class="text-[13px] text-gray-400">−</span>
+            <span class="text-[13px] font-medium text-gray-900 dark:text-gray-100">2</span>
+            <span class="text-[13px] text-gray-600 dark:text-gray-300">+</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Delivery -->
+    <section>
+      <h2 class="mb-2.5 text-[12px] font-medium uppercase tracking-wide text-gray-400 dark:text-gray-500">Deliver to</h2>
+      <div class="flex items-center gap-3 rounded-xl border border-gray-200 px-3.5 py-3 dark:border-white/10">
+        <svg class="h-4 w-4 shrink-0 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1116 0z" /><circle cx="12" cy="10" r="3" /></svg>
+        <div class="min-w-0 flex-1">
+          <p class="text-[13.5px] font-medium text-gray-900 dark:text-gray-100">Home · 42 Alder Street</p>
+          <p class="truncate text-[12px] text-gray-500 dark:text-gray-400">Portland, OR 97204 · Arrives Fri, Mar 21</p>
+        </div>
+        <span class="text-[12.5px] font-medium text-gray-500 dark:text-gray-400">Edit</span>
+      </div>
+    </section>
+
+    <!-- Payment -->
+    <section>
+      <h2 class="mb-2.5 text-[12px] font-medium uppercase tracking-wide text-gray-400 dark:text-gray-500">Payment</h2>
+      <div class="space-y-2">
+        <label class="flex items-center gap-3 rounded-xl border-2 border-gray-900 px-3.5 py-3 dark:border-white">
+          <span class="flex h-8 w-11 items-center justify-center rounded-md bg-gray-900 text-[9px] font-bold tracking-wider text-white dark:bg-white dark:text-neutral-900">VISA</span>
+          <span class="min-w-0 flex-1">
+            <span class="block text-[13.5px] font-medium text-gray-900 dark:text-gray-100">•••• 4242</span>
+            <span class="block text-[11.5px] text-gray-500 dark:text-gray-400">Expires 09/28</span>
+          </span>
+          <span class="flex h-4 w-4 items-center justify-center rounded-full bg-gray-900 dark:bg-white">
+            <svg class="h-2.5 w-2.5 text-white dark:text-neutral-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
+          </span>
+        </label>
+        <label class="flex items-center gap-3 rounded-xl border border-gray-200 px-3.5 py-3 dark:border-white/10">
+          <span class="flex h-8 w-11 items-center justify-center rounded-md bg-gray-100 text-gray-600 dark:bg-white/10 dark:text-gray-300">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 5v14M5 12h14" /></svg>
+          </span>
+          <span class="flex-1 text-[13.5px] font-medium text-gray-700 dark:text-gray-200">Add another method</span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Totals -->
+    <section class="space-y-1.5 border-t border-gray-200 pt-3.5 dark:border-white/10">
+      <div class="flex justify-between text-[13px]">
+        <span class="text-gray-500 dark:text-gray-400">Subtotal</span>
+        <span class="text-gray-900 dark:text-gray-100">$220.00</span>
+      </div>
+      <div class="flex justify-between text-[13px]">
+        <span class="text-gray-500 dark:text-gray-400">Shipping</span>
+        <span class="text-emerald-600 dark:text-emerald-400">Free</span>
+      </div>
+      <div class="flex justify-between text-[13px]">
+        <span class="text-gray-500 dark:text-gray-400">Tax</span>
+        <span class="text-gray-900 dark:text-gray-100">$17.60</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- Pay bar -->
+  <div class="border-t border-gray-200 px-5 pb-3 pt-3.5 dark:border-white/10">
+    <div class="mb-3 flex items-baseline justify-between">
+      <span class="text-[13px] text-gray-500 dark:text-gray-400">Total</span>
+      <span class="text-[20px] font-semibold tracking-tight text-gray-900 dark:text-gray-100">$237.60</span>
+    </div>
+    <button type="button" class="w-full rounded-2xl bg-gray-900 py-4 text-[15px] font-medium text-white transition hover:bg-gray-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-gray-200">
+      Pay $237.60
+    </button>
+  </div>
+
+  <div class="flex justify-center pb-2 pt-1">
+    <span class="h-1 w-32 rounded-full bg-gray-900/80 dark:bg-white/60"></span>
+  </div>
+</div>

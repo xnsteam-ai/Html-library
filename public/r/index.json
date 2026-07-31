@@ -9,6 +9,11 @@
   "generatedFrom": "registry/",
   "categories": [
     {
+      "name": "apps",
+      "title": "Apps & Sites",
+      "count": 11
+    },
+    {
       "name": "agent",
       "title": "Agent Elements",
       "count": 19
@@ -20,6 +25,149 @@
     }
   ],
   "items": [
+    {
+      "name": "app-onboarding",
+      "title": "Onboarding",
+      "description": "A welcome screen with a gradient hero, paging dots, primary and social sign-in actions, and iOS status bar chrome.",
+      "category": "apps",
+      "tags": [
+        "onboarding",
+        "welcome",
+        "auth"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/app-onboarding.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/app-onboarding.json"
+    },
+    {
+      "name": "app-feed",
+      "title": "Content Feed",
+      "description": "A discovery feed: category chips, a featured card with gradient artwork, compact list rows, and a four-item tab bar.",
+      "category": "apps",
+      "tags": [
+        "feed",
+        "list",
+        "tab-bar"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/app-feed.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/app-feed.json"
+    },
+    {
+      "name": "app-wallet",
+      "title": "Wallet",
+      "description": "A finance home: dark balance card with trend pill, a row of quick actions, and a categorised transaction list.",
+      "category": "apps",
+      "tags": [
+        "finance",
+        "balance",
+        "transactions"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/app-wallet.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/app-wallet.json"
+    },
+    {
+      "name": "app-checkout",
+      "title": "Checkout",
+      "description": "An order review screen: line items with quantity steppers, delivery address, selectable payment methods, totals, and a sticky pay bar.",
+      "category": "apps",
+      "tags": [
+        "commerce",
+        "checkout",
+        "payment"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/app-checkout.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/app-checkout.json"
+    },
+    {
+      "name": "app-chat-inbox",
+      "title": "Chat Inbox",
+      "description": "A messages list: search field, pinned avatars with presence, unread and read-receipt states, and a tab bar.",
+      "category": "apps",
+      "tags": [
+        "chat",
+        "inbox",
+        "list"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/app-chat-inbox.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/app-chat-inbox.json"
+    },
+    {
+      "name": "app-profile-settings",
+      "title": "Profile & Settings",
+      "description": "An account screen: avatar header with membership badge and stat row, plus grouped setting rows with toggles, values and a destructive action.",
+      "category": "apps",
+      "tags": [
+        "profile",
+        "settings",
+        "account"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/app-profile-settings.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/app-profile-settings.json"
+    },
+    {
+      "name": "site-landing",
+      "title": "Landing Page",
+      "description": "A marketing home: nav bar, announcement pill, large hero with dual calls to action, logo social proof, and a three-column feature row.",
+      "category": "apps",
+      "tags": [
+        "marketing",
+        "hero",
+        "landing"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/site-landing.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/site-landing.json"
+    },
+    {
+      "name": "site-pricing",
+      "title": "Pricing Page",
+      "description": "Three pricing tiers with a monthly/yearly toggle, a highlighted popular plan, checked feature lists, and an FAQ strip.",
+      "category": "apps",
+      "tags": [
+        "pricing",
+        "marketing",
+        "plans"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/site-pricing.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/site-pricing.json"
+    },
+    {
+      "name": "site-dashboard",
+      "title": "Dashboard",
+      "description": "A product app shell: navigation sidebar with account footer, stat tiles with trends, a bar chart with range toggle, and a status table.",
+      "category": "apps",
+      "tags": [
+        "dashboard",
+        "admin",
+        "analytics"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/site-dashboard.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/site-dashboard.json"
+    },
+    {
+      "name": "site-docs",
+      "title": "Documentation",
+      "description": "A three-column docs layout: search bar with shortcut, grouped nav, article with breadcrumb, code block, callout and options table, plus an on-this-page rail.",
+      "category": "apps",
+      "tags": [
+        "docs",
+        "layout",
+        "reference"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/site-docs.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/site-docs.json"
+    },
+    {
+      "name": "site-auth",
+      "title": "Sign In",
+      "description": "A split authentication page: social and credential sign-in with remember-me on one side, a dark testimonial panel with stats on the other.",
+      "category": "apps",
+      "tags": [
+        "auth",
+        "login",
+        "split"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/site-auth.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/site-auth.json"
+    },
     {
       "name": "agent-chat",
       "title": "Agent Chat",

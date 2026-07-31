@@ -1,0 +1,11 @@
+{
+  "name": "site-landing",
+  "title": "Landing Page",
+  "description": "A marketing home: nav bar, announcement pill, large hero with dual calls to action, logo social proof, and a three-column feature row.",
+  "category": "apps",
+  "surface": "site",
+  "tagline": "Hero, proof & features",
+  "status": "new",
+  "order": 7,
+  "tags": ["marketing", "hero", "landing"]
+}

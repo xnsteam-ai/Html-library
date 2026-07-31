@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { CornerDownLeft, FileText, Search, Square } from 'lucide-react'
 import { CATEGORY_META, components } from '../../registry'
-import { componentHref, docHref, navigate } from '../hooks/useHashRoute'
+import { componentHref, docHref, galleryHref, navigate } from '../hooks/useHashRoute'
 
 interface Entry {
   href: string
@@ -11,6 +11,7 @@ interface Entry {
 }
 
 const DOC_ENTRIES: Entry[] = [
+  { href: galleryHref(), title: 'Apps & Sites gallery', hint: 'Browse screens', kind: 'doc' },
   { href: docHref('introduction'), title: 'Introduction', hint: 'Docs', kind: 'doc' },
   { href: docHref('installation'), title: 'Installation', hint: 'Docs', kind: 'doc' },
   { href: docHref('registry'), title: 'Registry', hint: 'Docs', kind: 'doc' },

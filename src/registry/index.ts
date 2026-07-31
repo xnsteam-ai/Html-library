@@ -1,4 +1,7 @@
-export type CategoryId = 'agent' | 'ui'
+export type CategoryId = 'apps' | 'agent' | 'ui'
+
+/** Whole-screen items declare which device they were drawn for. */
+export type Surface = 'app' | 'site'
 
 export interface ComponentMeta {
   name: string
@@ -9,6 +12,11 @@ export interface ComponentMeta {
   tags?: string[]
   previewBg?: 'plain' | 'muted' | 'app'
   previewHeight?: number
+  /** Screens only — drives the Apps/Sites tabs and which frame is drawn. */
+  surface?: Surface
+  /** Short line under the name in the gallery; falls back to `description`. */
+  tagline?: string
+  status?: 'new' | 'updated'
 }
 
 export interface RegistryItem extends ComponentMeta {
@@ -23,16 +31,27 @@ export interface Category {
 }
 
 export const CATEGORY_META: Record<CategoryId, { title: string; blurb: string; order: number }> = {
+  apps: {
+    title: 'Apps & Sites',
+    blurb: 'Complete app screens and website pages, browsable as a gallery.',
+    order: 1,
+  },
   agent: {
     title: 'Agent Elements',
     blurb: 'Chat surfaces, composers and tool-call cards for agent interfaces.',
-    order: 1,
+    order: 2,
   },
   ui: {
     title: 'UI Elements',
     blurb: 'General-purpose primitives that pair with the agent set.',
-    order: 2,
+    order: 3,
   },
+}
+
+/** Pixel size each screen is authored at, before the gallery scales it down. */
+export const FRAME_SIZE: Record<Surface, { width: number; height: number }> = {
+  app: { width: 390, height: 844 },
+  site: { width: 1280, height: 800 },
 }
 
 // The docs app reads the registry sources directly, so the site can never drift
@@ -76,6 +95,13 @@ export const categories: Category[] = (Object.keys(CATEGORY_META) as CategoryId[
 
 export function getComponent(name: string): RegistryItem | undefined {
   return components.find((item) => item.name === name)
+}
+
+/** Screens in the Apps & Sites gallery, optionally narrowed to one surface. */
+export function getScreens(surface?: Surface): RegistryItem[] {
+  return components.filter(
+    (item) => item.category === 'apps' && (!surface || item.surface === surface),
+  )
 }
 
 export const REPO = 'xnsteam-ai/Html-library'

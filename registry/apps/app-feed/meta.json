@@ -1,0 +1,11 @@
+{
+  "name": "app-feed",
+  "title": "Content Feed",
+  "description": "A discovery feed: category chips, a featured card with gradient artwork, compact list rows, and a four-item tab bar.",
+  "category": "apps",
+  "surface": "app",
+  "tagline": "Browse, read & save",
+  "status": "new",
+  "order": 2,
+  "tags": ["feed", "list", "tab-bar"]
+}

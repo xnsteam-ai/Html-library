@@ -1,0 +1,11 @@
+{
+  "name": "app-onboarding",
+  "title": "Onboarding",
+  "description": "A welcome screen with a gradient hero, paging dots, primary and social sign-in actions, and iOS status bar chrome.",
+  "category": "apps",
+  "surface": "app",
+  "tagline": "Welcome, sign-in & paging",
+  "status": "new",
+  "order": 1,
+  "tags": ["onboarding", "welcome", "auth"]
+}

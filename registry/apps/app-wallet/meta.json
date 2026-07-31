@@ -1,0 +1,10 @@
+{
+  "name": "app-wallet",
+  "title": "Wallet",
+  "description": "A finance home: dark balance card with trend pill, a row of quick actions, and a categorised transaction list.",
+  "category": "apps",
+  "surface": "app",
+  "tagline": "Balance, actions & activity",
+  "order": 3,
+  "tags": ["finance", "balance", "transactions"]
+}

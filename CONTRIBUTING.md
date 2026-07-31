@@ -53,9 +53,19 @@ The markup, and nothing else.
 }
 ```
 
-- `name` must equal the folder name; `category` must equal the parent folder (`agent` or `ui`).
+- `name` must equal the folder name; `category` must equal the parent folder (`apps`, `agent` or `ui`).
 - `order` controls sidebar position within the category.
 - `previewBg` is `plain`, `muted` or `app`; `previewHeight` is the minimum preview height in pixels.
+
+### Whole screens (`registry/apps/`)
+
+Items in `apps` are complete screens rather than parts, and appear in the Apps & Sites gallery.
+
+- `surface` is **required**: `"app"` for mobile screens, `"site"` for desktop pages. The build fails without it.
+- Author at the exact frame size — `h-[844px] w-[390px]` for apps, `h-[800px] w-[1280px]` for sites — since the gallery scales that box down and the detail view fits it to the column.
+- `tagline` is the short line under the name in the grid; it falls back to `description`.
+- `status` is optional, `"new"` or `"updated"`, and renders as a badge on the card.
+- Include the platform chrome the screen would really have — status bar and home indicator for apps — so previews read as screens rather than floating panels.
 
 ## Before opening a pull request
 
@@ -69,4 +79,4 @@ CI runs `npm run verify:registry` and fails if `public/r` does not match `regist
 
 ## Adding a category
 
-Add an entry to `CATEGORIES` in `scripts/build-registry.mjs` and to `CATEGORY_META` in `src/registry/index.ts`, then create `registry/<category>/`. The sidebar picks it up automatically.
+Add an entry to `CATEGORIES` in `scripts/build-registry.mjs` and to `CATEGORY_META` in `src/registry/index.ts` (extending the `CategoryId` union), then create `registry/<category>/`. The sidebar and the Introduction page pick it up automatically — both are driven by `CATEGORY_META`, ordered by its `order` field.
