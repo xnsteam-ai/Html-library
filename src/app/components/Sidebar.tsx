@@ -90,7 +90,7 @@ export function Sidebar({ route, onCollapse, onOpenSearch }: SidebarProps) {
                 aria-current={isDocActive(link.slug) ? 'page' : undefined}
                 className={`block rounded-md px-2.5 py-1.5 text-[13.5px] transition ${
                   isDocActive(link.slug)
-                    ? 'bg-subtle font-medium text-foreground'
+                    ? 'bg-subtle font-medium text-foreground dark:bg-[#282828]'
                     : 'text-muted-foreground hover:bg-muted hover:text-foreground'
                 }`}
               >
@@ -115,7 +115,7 @@ export function Sidebar({ route, onCollapse, onOpenSearch }: SidebarProps) {
                   aria-current={isActiveGallery ? 'page' : undefined}
                   className={`mx-0 flex items-center gap-1 rounded-md px-2.5 py-1 text-[11px] font-medium uppercase tracking-wide transition ${
                     isActiveGallery
-                      ? 'bg-subtle text-foreground'
+                      ? 'bg-subtle text-foreground dark:bg-[#282828]'
                       : 'text-muted-foreground/80 hover:bg-muted hover:text-foreground'
                   }`}
                 >
@@ -136,7 +136,7 @@ export function Sidebar({ route, onCollapse, onOpenSearch }: SidebarProps) {
                     aria-current={isComponentActive(item.name) ? 'page' : undefined}
                     className={`block rounded-md px-2.5 py-1.5 text-[13.5px] transition ${
                       isComponentActive(item.name)
-                        ? 'bg-subtle font-medium text-foreground'
+                        ? 'bg-subtle font-medium text-foreground dark:bg-[#282828]'
                         : 'text-muted-foreground hover:bg-muted hover:text-foreground'
                     }`}
                   >
