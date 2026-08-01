@@ -1,4 +1,8 @@
-<!-- Badge — status pills, counters and removable tags -->
+<!--
+  Badge — status pills, counters and tags that genuinely dismiss.
+  The removable tags use a checkbox: ticking it hides the tag via
+  `peer-checked:hidden`. No JavaScript.
+-->
 <div class="mx-auto w-full max-w-lg space-y-4">
   <div class="flex flex-wrap items-center gap-2">
     <span class="rounded-full bg-gray-100 px-2.5 py-0.5 text-[11.5px] font-medium text-gray-700 dark:bg-white/10 dark:text-gray-300">Default</span>
@@ -16,19 +20,35 @@
       <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
       Operational
     </span>
+
     <!-- Counter -->
     <span class="flex items-center gap-1.5 rounded-full bg-gray-100 py-0.5 pl-2.5 pr-1.5 text-[11.5px] font-medium text-gray-700 dark:bg-white/10 dark:text-gray-300">
       Issues
       <span class="rounded-full bg-white px-1.5 text-[10.5px] text-gray-600 dark:bg-neutral-900 dark:text-gray-400">12</span>
     </span>
-    <!-- Removable -->
-    <span class="flex items-center gap-1 rounded-full bg-gray-100 py-0.5 pl-2.5 pr-1 text-[11.5px] font-medium text-gray-700 dark:bg-white/10 dark:text-gray-300">
-      tailwind
-      <button type="button" class="rounded-full p-0.5 text-gray-400 transition hover:bg-gray-200 hover:text-gray-700 dark:hover:bg-white/15 dark:hover:text-gray-200" aria-label="Remove tailwind tag">
-        <svg class="h-2.5 w-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
-      </button>
+
+    <!-- Removable — ticking the hidden checkbox dismisses the tag -->
+    <span class="contents">
+      <input type="checkbox" id="badge-tag-tailwind" class="peer sr-only" />
+      <span class="flex items-center gap-1 rounded-full bg-gray-100 py-0.5 pl-2.5 pr-1 text-[11.5px] font-medium text-gray-700 peer-checked:hidden dark:bg-white/10 dark:text-gray-300">
+        tailwind
+        <label for="badge-tag-tailwind" class="cursor-pointer rounded-full p-0.5 text-gray-400 transition hover:bg-gray-200 hover:text-gray-700 dark:hover:bg-white/15 dark:hover:text-gray-200" aria-label="Remove tailwind tag">
+          <svg class="h-2.5 w-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+        </label>
+      </span>
     </span>
-    <!-- Beta tag, matching the app shell -->
+
+    <span class="contents">
+      <input type="checkbox" id="badge-tag-html" class="peer sr-only" />
+      <span class="flex items-center gap-1 rounded-full bg-gray-100 py-0.5 pl-2.5 pr-1 text-[11.5px] font-medium text-gray-700 peer-checked:hidden dark:bg-white/10 dark:text-gray-300">
+        html
+        <label for="badge-tag-html" class="cursor-pointer rounded-full p-0.5 text-gray-400 transition hover:bg-gray-200 hover:text-gray-700 dark:hover:bg-white/15 dark:hover:text-gray-200" aria-label="Remove html tag">
+          <svg class="h-2.5 w-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+        </label>
+      </span>
+    </span>
+
+    <!-- Small label, matching the app shell -->
     <span class="rounded border border-gray-200 bg-gray-100 px-1.5 py-px text-[10px] font-medium leading-relaxed text-gray-600 dark:border-white/10 dark:bg-white/10 dark:text-gray-300">Beta</span>
   </div>
 </div>

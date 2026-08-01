@@ -71,18 +71,49 @@ export function Introduction() {
         </div>
       </Section>
 
-      <Section title="One rule, one exception">
+      <Section title="Interactive, with no JavaScript">
         <P>
-          Registry files ship no JavaScript — the build script rejects any component containing a{' '}
-          <Code>&lt;script&gt;</Code> tag or an external stylesheet. Interactive states are shown as
-          static variants (open menus, selected tabs, running spinners) so you can wire them to
-          whatever state layer you already use.
+          The components genuinely work — menus open, tabs switch panels, checkboxes tick, alerts
+          dismiss, switches flip — and they do it without shipping a single line of JavaScript. The
+          build script rejects any component containing a <Code>&lt;script&gt;</Code> tag or an
+          external stylesheet.
+        </P>
+        <List
+          items={[
+            <>
+              <Code>&lt;details&gt;</Code> / <Code>&lt;summary&gt;</Code> for disclosure — dropdown
+              menus, collapsible tool output, expandable diffs.
+            </>,
+            <>
+              Hidden radios and checkboxes hold the state; the visible parts style themselves from
+              it with <Code>peer-checked:</Code>, <Code>has-checked:</Code> and{' '}
+              <Code>group-has-[…]:</Code>.
+            </>,
+            <>
+              Real form controls throughout — <Code>&lt;label for&gt;</Code>,{' '}
+              <Code>&lt;select&gt;</Code>, <Code>&lt;input type="file"&gt;</Code> — so keyboard
+              navigation and screen readers work without any extra wiring.
+            </>,
+          ]}
+        />
+        <P>
+          This is why paste-and-go actually holds: there is no hydration step, no event listener to
+          register, and nothing to initialise. Drop the markup into a Rails view or a React
+          component and the behaviour comes with it.
         </P>
         <Callout>
-          The one exception: <Code>text-shimmer</Code> carries a single scoped{' '}
-          <Code>&lt;style&gt;</Code> block, because CSS keyframes cannot be expressed as Tailwind
-          utilities. Its class names are prefixed <Code>hl-</Code> to stay collision-free.
+          Three things genuinely need JavaScript and are therefore left to you: copying text to the
+          clipboard, filtering a list as you type, and appending a new message to a thread. Those
+          are marked in the components rather than faked.
         </Callout>
+      </Section>
+
+      <Section title="One exception">
+        <P>
+          <Code>text-shimmer</Code> carries a single scoped <Code>&lt;style&gt;</Code> block,
+          because CSS keyframes cannot be expressed as Tailwind utilities. Its class names are
+          prefixed <Code>hl-</Code> to stay collision-free.
+        </P>
       </Section>
 
       <Section title="Next">

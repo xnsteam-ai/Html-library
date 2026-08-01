@@ -31,9 +31,17 @@ The markup, and nothing else.
 - A scoped `<style>` block **only** for keyframes that cannot be expressed as utilities. Prefix class names with `hl-` and honour `prefers-reduced-motion`. See `registry/agent/text-shimmer/component.html`.
 - Inline `style` attributes for one-off values a utility cannot express (e.g. a bar height percentage).
 
-**Conventions**
+**Interactivity — make it real, without scripts**
 
-- Show interactive states as static variants — open menu, selected tab, running spinner — rather than reaching for JavaScript.
+Components are expected to actually work. Use the platform:
+
+- `<details>` / `<summary>` for anything that opens and closes — dropdown menus, collapsible output, expandable diffs. Add `list-none [&::-webkit-details-marker]:hidden` to the summary and rotate the chevron with `group-open/name:rotate-90`.
+- Hidden `<input type="radio">` / `<input type="checkbox">` (`class="peer sr-only"`) to hold state. Style the visible sibling with `peer-checked:`; when the styled element is not a sibling, put `group/name` on a common ancestor and use `group-has-[#id:checked]/name:` instead. **`peer-*` only reaches siblings — this is the single easiest thing to get wrong.**
+- Dismissal is a checkbox plus `peer-checked:hidden`. Point the ✕ at it with `<label for="…">` so only the ✕ dismisses, never the whole element.
+- Prefer real controls — `<select>`, `<label for>`, `<input type="file">` — over faked ones; keyboard and screen-reader support then comes for free.
+- Give every `id` a component-name prefix. Several screens render at once in the gallery, and duplicate ids would cross-wire them.
+
+Do not fake what genuinely needs JavaScript (clipboard copy, live filtering, appending messages). Leave it to the consumer and say so.
 - Sizes are explicit (`text-[13px]`, `rounded-xl`) so a component keeps its proportions wherever it lands.
 - Surfaces `bg-white` / `dark:bg-neutral-950`, hairlines `border-gray-200` / `dark:border-white/10`, primary actions `bg-gray-900` / `dark:bg-white`.
 - Add `motion-reduce:animate-none` to anything animated.

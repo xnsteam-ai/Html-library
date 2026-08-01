@@ -21,11 +21,11 @@
   </header>
 
   <!-- Category chips -->
-  <div class="flex gap-2 overflow-hidden px-5 pb-3">
-    <span class="whitespace-nowrap rounded-full bg-gray-900 px-3.5 py-1.5 text-[12.5px] font-medium text-white dark:bg-white dark:text-neutral-900">For you</span>
-    <span class="whitespace-nowrap rounded-full bg-gray-100 px-3.5 py-1.5 text-[12.5px] font-medium text-gray-600 dark:bg-white/10 dark:text-gray-300">Design</span>
-    <span class="whitespace-nowrap rounded-full bg-gray-100 px-3.5 py-1.5 text-[12.5px] font-medium text-gray-600 dark:bg-white/10 dark:text-gray-300">Engineering</span>
-    <span class="whitespace-nowrap rounded-full bg-gray-100 px-3.5 py-1.5 text-[12.5px] font-medium text-gray-600 dark:bg-white/10 dark:text-gray-300">AI</span>
+  <div class="flex gap-2 overflow-hidden px-5 pb-3" role="radiogroup" aria-label="Category">
+    <label><input type="radio" name="app-feed-category" class="peer sr-only" checked /><span class="block cursor-pointer whitespace-nowrap rounded-full bg-gray-100 px-3.5 py-1.5 text-[12.5px] font-medium text-gray-600 transition peer-checked:bg-gray-900 peer-checked:text-white dark:bg-white/10 dark:text-gray-300 dark:peer-checked:bg-white dark:peer-checked:text-neutral-900">For you</span></label>
+    <label><input type="radio" name="app-feed-category" class="peer sr-only" /><span class="block cursor-pointer whitespace-nowrap rounded-full bg-gray-100 px-3.5 py-1.5 text-[12.5px] font-medium text-gray-600 transition peer-checked:bg-gray-900 peer-checked:text-white dark:bg-white/10 dark:text-gray-300 dark:peer-checked:bg-white dark:peer-checked:text-neutral-900">Design</span></label>
+    <label><input type="radio" name="app-feed-category" class="peer sr-only" /><span class="block cursor-pointer whitespace-nowrap rounded-full bg-gray-100 px-3.5 py-1.5 text-[12.5px] font-medium text-gray-600 transition peer-checked:bg-gray-900 peer-checked:text-white dark:bg-white/10 dark:text-gray-300 dark:peer-checked:bg-white dark:peer-checked:text-neutral-900">Engineering</span></label>
+    <label><input type="radio" name="app-feed-category" class="peer sr-only" /><span class="block cursor-pointer whitespace-nowrap rounded-full bg-gray-100 px-3.5 py-1.5 text-[12.5px] font-medium text-gray-600 transition peer-checked:bg-gray-900 peer-checked:text-white dark:bg-white/10 dark:text-gray-300 dark:peer-checked:bg-white dark:peer-checked:text-neutral-900">AI</span></label>
   </div>
 
   <!-- Feed -->

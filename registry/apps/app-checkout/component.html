@@ -68,21 +68,29 @@
     <section>
       <h2 class="mb-2.5 text-[12px] font-medium uppercase tracking-wide text-gray-400 dark:text-gray-500">Payment</h2>
       <div class="space-y-2">
-        <label class="flex items-center gap-3 rounded-xl border-2 border-gray-900 px-3.5 py-3 dark:border-white">
+        <label class="flex cursor-pointer items-center gap-3 rounded-xl border-2 border-gray-200 px-3.5 py-3 transition has-checked:border-gray-900 dark:border-white/10 dark:has-checked:border-white">
+          <input type="radio" name="checkout-payment" class="peer sr-only" checked />
           <span class="flex h-8 w-11 items-center justify-center rounded-md bg-gray-900 text-[9px] font-bold tracking-wider text-white dark:bg-white dark:text-neutral-900">VISA</span>
           <span class="min-w-0 flex-1">
             <span class="block text-[13.5px] font-medium text-gray-900 dark:text-gray-100">•••• 4242</span>
             <span class="block text-[11.5px] text-gray-500 dark:text-gray-400">Expires 09/28</span>
           </span>
-          <span class="flex h-4 w-4 items-center justify-center rounded-full bg-gray-900 dark:bg-white">
-            <svg class="h-2.5 w-2.5 text-white dark:text-neutral-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
+          <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-gray-300 text-transparent transition peer-checked:border-gray-900 peer-checked:bg-gray-900 peer-checked:text-white dark:border-white/25 dark:peer-checked:border-white dark:peer-checked:bg-white dark:peer-checked:text-neutral-900">
+            <svg class="h-2.5 w-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
           </span>
         </label>
-        <label class="flex items-center gap-3 rounded-xl border border-gray-200 px-3.5 py-3 dark:border-white/10">
+        <label class="flex cursor-pointer items-center gap-3 rounded-xl border-2 border-gray-200 px-3.5 py-3 transition has-checked:border-gray-900 dark:border-white/10 dark:has-checked:border-white">
+          <input type="radio" name="checkout-payment" class="peer sr-only" />
           <span class="flex h-8 w-11 items-center justify-center rounded-md bg-gray-100 text-gray-600 dark:bg-white/10 dark:text-gray-300">
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 5v14M5 12h14" /></svg>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2" /><path d="M2 10h20" /></svg>
           </span>
-          <span class="flex-1 text-[13.5px] font-medium text-gray-700 dark:text-gray-200">Add another method</span>
+          <span class="min-w-0 flex-1">
+            <span class="block text-[13.5px] font-medium text-gray-900 dark:text-gray-100">•••• 8813</span>
+            <span class="block text-[11.5px] text-gray-500 dark:text-gray-400">Mastercard · 04/27</span>
+          </span>
+          <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-gray-300 text-transparent transition peer-checked:border-gray-900 peer-checked:bg-gray-900 peer-checked:text-white dark:border-white/25 dark:peer-checked:border-white dark:peer-checked:bg-white dark:peer-checked:text-neutral-900">
+            <svg class="h-2.5 w-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
+          </span>
         </label>
       </div>
     </section>

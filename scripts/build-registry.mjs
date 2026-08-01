@@ -64,6 +64,21 @@ function validateHtml(id, html) {
   if (/<style[\s>]/i.test(html)) {
     warnings.push(`${id}: ships a scoped <style> block (allowed for keyframes only)`)
   }
+
+  // Interactivity is CSS-driven, which only works when ids are unique on the
+  // page — several screens render side by side in the gallery.
+  const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1])
+  const duplicates = ids.filter((value, index) => ids.indexOf(value) !== index)
+  if (duplicates.length > 0) {
+    fail(id, `duplicate id attribute(s): ${[...new Set(duplicates)].join(', ')}`)
+  }
+
+  // A `for`/`id` mismatch silently breaks a control that looks fine.
+  for (const [, target] of html.matchAll(/<label[^>]*\sfor="([^"]+)"/g)) {
+    if (!ids.includes(target)) {
+      fail(id, `<label for="${target}"> has no matching id in the same file`)
+    }
+  }
 }
 
 function validateMeta(id, meta) {

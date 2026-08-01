@@ -5,8 +5,9 @@ An open-source component library where every component is **plain HTML + Tailwin
 No package to install, no framework to adopt. Copy the markup, or fetch it over HTTP from the registry that ships inside this repo.
 
 - **38 components** — 11 full app screens and site pages, 19 agent-interface elements, 8 general UI primitives
+- **Genuinely interactive, with zero JavaScript** — menus open, tabs switch panels, checkboxes tick, alerts dismiss, switches flip. Built on `<details>`/`<summary>` and hidden radios/checkboxes driving `peer-checked:` / `has-checked:` / `group-has-[…]:`
 - **Light and dark** — every component carries `dark:` variants
-- **Self-contained** — no JavaScript, no external stylesheets, inline SVG icons
+- **Self-contained** — no scripts, no external stylesheets, inline SVG icons
 - **Browsable** — a React docs app with live previews, search (⌘K), per-component copy, and a gallery view for whole screens
 
 ```

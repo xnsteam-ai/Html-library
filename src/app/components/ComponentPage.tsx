@@ -22,7 +22,7 @@ function Preview({ item }: { item: RegistryItem }) {
   if (item.category === 'apps') {
     return (
       <div className="flex justify-center rounded-xl border border-border bg-muted p-6">
-        <ScreenFrame item={item} fit />
+        <ScreenFrame item={item} fit interactive />
       </div>
     )
   }

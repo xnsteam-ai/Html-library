@@ -46,10 +46,12 @@ function ScaledScreen({
   html,
   surface,
   scale,
+  interactive,
 }: {
   html: string
   surface: Surface
   scale: number
+  interactive: boolean
 }) {
   const { width, height } = FRAME_SIZE[surface]
 
@@ -62,7 +64,12 @@ function ScaledScreen({
         style={{ width, height, transform: `scale(${scale})`, transformOrigin: 'top left' }}
         className="overflow-hidden"
       >
-        <div className="pointer-events-none select-none" dangerouslySetInnerHTML={{ __html: html }} />
+        {/* Cards are inert so a click navigates; detail views stay usable, since
+            these screens carry real controls. */}
+        <div
+          className={interactive ? undefined : 'pointer-events-none select-none'}
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
       </div>
     </div>
   )
@@ -103,14 +110,18 @@ interface ScreenFrameProps {
   scale?: number
   /** Scale down to whatever width is available, never up. */
   fit?: boolean
+  /** Let clicks reach the screen's own controls. */
+  interactive?: boolean
 }
 
-export function ScreenFrame({ item, scale = 1, fit = false }: ScreenFrameProps) {
+export function ScreenFrame({ item, scale = 1, fit = false, interactive = false }: ScreenFrameProps) {
   const surface = item.surface ?? 'app'
   const { ref, scale: fitted } = useFitScale(surface, fit)
   const applied = fit ? fitted : scale
 
-  const screen = <ScaledScreen html={item.html} surface={surface} scale={applied} />
+  const screen = (
+    <ScaledScreen html={item.html} surface={surface} scale={applied} interactive={interactive} />
+  )
   const framed =
     surface === 'app' ? <PhoneFrame>{screen}</PhoneFrame> : <BrowserFrame>{screen}</BrowserFrame>
 
