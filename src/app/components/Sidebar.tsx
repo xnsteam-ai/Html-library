@@ -50,7 +50,7 @@ export function Sidebar({ route, onCollapse, onOpenSearch }: SidebarProps) {
   const isComponentActive = (name: string) => route.kind === 'component' && route.name === name
 
   return (
-    <aside className="flex h-full w-[264px] min-w-[264px] flex-col border-r border-border bg-background">
+    <aside className="dark flex h-full w-[264px] min-w-[264px] flex-col border-r border-border bg-[#101010]">
       {/* Brand */}
       <div className="flex items-center gap-2 px-4 pb-2 pt-4">
         <Logo />
