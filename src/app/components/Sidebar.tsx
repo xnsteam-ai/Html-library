@@ -72,11 +72,13 @@ export function Sidebar({ route, onCollapse, onOpenSearch }: SidebarProps) {
         <button
           type="button"
           onClick={onOpenSearch}
-          className="flex w-full items-center gap-2 rounded-lg bg-muted px-2.5 py-2 text-left transition hover:bg-subtle"
+          className="flex w-full items-center gap-2 rounded-lg border border-border bg-[#0a0a0a] px-2.5 py-2 text-left transition hover:border-white/15 hover:bg-white/[0.03]"
         >
           <Search size={14} className="text-muted-foreground" />
           <span className="flex-1 text-[13px] text-muted-foreground">Search…</span>
-          <kbd className="font-mono text-[11px] text-muted-foreground">⌘K</kbd>
+          <kbd className="rounded border border-border px-1.5 py-0.5 font-mono text-[10.5px] text-muted-foreground">
+            ⌘K
+          </kbd>
         </button>
       </div>
 

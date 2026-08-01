@@ -75,7 +75,7 @@ export function CodeBlock({ code, language = 'html', filename, maxHeight }: Code
 
   return (
     <div className="overflow-hidden rounded-xl border border-border bg-background">
-      <div className="flex items-center justify-between border-b border-border bg-muted px-3 py-1.5">
+      <div className="flex items-center justify-between border-b border-border bg-muted px-3 py-1.5 dark:bg-[#0a0a0a]">
         <span className="font-mono text-[11px] text-muted-foreground">
           {filename ?? (language === 'bash' ? 'terminal' : language)}
         </span>
