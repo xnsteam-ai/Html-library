@@ -22,7 +22,7 @@ function Preview({ item }: { item: RegistryItem }) {
   // Whole screens and page sections get device chrome; parts render inline.
   if (item.category === 'apps' || item.category === 'sites') {
     return (
-      <div className="flex justify-center rounded-xl border border-border bg-muted p-6">
+      <div className="flex justify-center rounded-xl border border-border bg-muted p-6 dark:bg-[#0a0a0a]">
         <ScreenFrame item={item} fit interactive />
       </div>
     )
@@ -30,7 +30,7 @@ function Preview({ item }: { item: RegistryItem }) {
 
   return (
     <div
-      className={`scrollbar-thin flex items-center justify-center overflow-auto rounded-xl border border-border p-6 ${
+      className={`scrollbar-thin flex items-center justify-center overflow-auto rounded-xl border border-border p-6 dark:bg-[#0a0a0a] ${
         SURFACES[item.previewBg ?? 'plain']
       }`}
       style={{ minHeight: item.previewHeight ?? 320 }}
