@@ -94,7 +94,7 @@ export function Gallery({ category }: { category: CategoryId }) {
       aria-current={category === value ? 'page' : undefined}
       className={`flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[13px] font-medium transition ${
         category === value
-          ? 'bg-background text-foreground shadow-sm'
+          ? 'bg-background text-foreground shadow-sm dark:bg-subtle'
           : 'text-muted-foreground hover:text-foreground'
       }`}
     >

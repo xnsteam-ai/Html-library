@@ -91,7 +91,7 @@ export function ComponentPage({ item }: { item: RegistryItem }) {
             onClick={() => setTab('preview')}
             className={`flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[12.5px] font-medium transition ${
               tab === 'preview'
-                ? 'bg-background text-foreground shadow-sm'
+                ? 'bg-background text-foreground shadow-sm dark:bg-subtle'
                 : 'text-muted-foreground hover:text-foreground'
             }`}
           >
@@ -105,7 +105,7 @@ export function ComponentPage({ item }: { item: RegistryItem }) {
             onClick={() => setTab('code')}
             className={`flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[12.5px] font-medium transition ${
               tab === 'code'
-                ? 'bg-background text-foreground shadow-sm'
+                ? 'bg-background text-foreground shadow-sm dark:bg-subtle'
                 : 'text-muted-foreground hover:text-foreground'
             }`}
           >
