@@ -1,0 +1,10 @@
+{
+  "name": "section-team",
+  "title": "Team",
+  "description": "A four-up team grid: gradient avatar, name and role, with a heading and supporting line above.",
+  "category": "sites",
+  "surface": "section",
+  "tagline": "Bio grid with avatars",
+  "order": 29,
+  "tags": ["team", "about", "bios"]
+}

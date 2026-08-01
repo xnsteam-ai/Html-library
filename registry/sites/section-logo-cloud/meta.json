@@ -1,0 +1,10 @@
+{
+  "name": "section-logo-cloud",
+  "title": "Logo Cloud",
+  "description": "A compact social-proof band: an eyebrow label above a row of muted customer wordmarks.",
+  "category": "sites",
+  "surface": "section",
+  "tagline": "Wordmark social proof",
+  "order": 28,
+  "tags": ["logo-cloud", "social-proof", "trust"]
+}

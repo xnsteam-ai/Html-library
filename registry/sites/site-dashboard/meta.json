@@ -2,10 +2,14 @@
   "name": "site-dashboard",
   "title": "Dashboard",
   "description": "A product app shell: navigation sidebar with account footer, stat tiles with trends, a bar chart with range toggle, and a status table.",
-  "category": "apps",
+  "category": "sites",
   "surface": "site",
   "tagline": "Sidebar, metrics & table",
   "status": "updated",
   "order": 9,
-  "tags": ["dashboard", "admin", "analytics"]
+  "tags": [
+    "dashboard",
+    "admin",
+    "analytics"
+  ]
 }

@@ -1,0 +1,10 @@
+{
+  "name": "section-stats",
+  "title": "Stats",
+  "description": "A four-up metric row on a dark band, with a heading and supporting line.",
+  "category": "sites",
+  "surface": "section",
+  "tagline": "Metric row, dark band",
+  "order": 27,
+  "tags": ["stats", "metrics", "numbers"]
+}

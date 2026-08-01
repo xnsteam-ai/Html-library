@@ -3,7 +3,7 @@
   "name": "site-landing",
   "title": "Landing Page",
   "description": "A marketing home: nav bar, announcement pill, large hero with dual calls to action, logo social proof, and a three-column feature row.",
-  "category": "apps",
+  "category": "sites",
   "type": "html",
   "version": "0.1.0",
   "tailwind": "^4.0.0",

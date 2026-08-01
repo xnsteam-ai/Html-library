@@ -4,7 +4,7 @@ An open-source component library where every component is **plain HTML + Tailwin
 
 No package to install, no framework to adopt. Copy the markup, or fetch it over HTTP from the registry that ships inside this repo.
 
-- **38 components** — 11 full app screens and site pages, 19 agent-interface elements, 8 general UI primitives
+- **50 components** — 6 mobile app screens, 17 site pages and page sections, 19 agent-interface elements, 8 general UI primitives
 - **Genuinely interactive, with zero JavaScript** — menus open, tabs switch panels, checkboxes tick, alerts dismiss, switches flip. Built on `<details>`/`<summary>` and hidden radios/checkboxes driving `peer-checked:` / `has-checked:` / `group-has-[…]:`
 - **Light and dark** — every component carries `dark:` variants
 - **Self-contained** — no scripts, no external stylesheets, inline SVG icons
@@ -62,13 +62,16 @@ Each item is a single JSON file. `files[0].content` is the complete markup — t
 }
 ```
 
-Items in the `apps` category carry one extra field, `"surface": "app" | "site"`, naming the device the screen was drawn for.
+Items in `apps` and `sites` carry one extra field, `"surface": "app" | "site" | "section"`, naming the chrome the item is drawn in — a phone frame, a browser frame at a fixed page height, or a browser frame that grows with the content, for a marketing section rather than a whole page.
 
 `index.json` lists every component with its Pages URL and raw URL, plus per-category counts.
 
 ## Components
 
-**Apps & Sites** — whole screens rather than parts, browsable as a gallery. Mobile screens at 390×844 (Onboarding, Content Feed, Wallet, Checkout, Chat Inbox, Profile & Settings) and site pages at 1280×800 (Landing Page, Pricing Page, Dashboard, Documentation, Sign In).
+**Apps** and **Sites** are separate categories, each browsable as its own gallery — whole screens rather than parts:
+
+- **Apps** (390×844 phone frames) — Onboarding, Content Feed, Wallet, Checkout, Chat Inbox, Profile & Settings
+- **Sites** — five full pages at 1280×800 (Landing Page, Pricing Page, Dashboard, Documentation, Sign In) plus twelve reusable marketing sections at 1280 wide with natural height (Hero, Features, Bento Grid, Pricing, Testimonials, FAQ, CTA, Stats, Logo Cloud, Team, Newsletter, Footer)
 
 **Agent Elements** — Agent Chat, Message List, Input Bar, Suggestions, Model Picker, Mode Selector, User Message, Markdown, Send Button, Attachment Button, File Attachment, Text Shimmer, Spiral Loader, Bash Tool, Edit Tool, Search Tool, Todo Tool, Plan Tool, Tool Group
 

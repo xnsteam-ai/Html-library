@@ -11,7 +11,8 @@ interface Entry {
 }
 
 const DOC_ENTRIES: Entry[] = [
-  { href: galleryHref(), title: 'Apps & Sites gallery', hint: 'Browse screens', kind: 'doc' },
+  { href: galleryHref('apps'), title: 'Apps gallery', hint: 'Browse mobile screens', kind: 'doc' },
+  { href: galleryHref('sites'), title: 'Sites gallery', hint: 'Browse pages & sections', kind: 'doc' },
   { href: docHref('introduction'), title: 'Introduction', hint: 'Docs', kind: 'doc' },
   { href: docHref('installation'), title: 'Installation', hint: 'Docs', kind: 'doc' },
   { href: docHref('registry'), title: 'Registry', hint: 'Docs', kind: 'doc' },

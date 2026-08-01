@@ -1,0 +1,11 @@
+{
+  "name": "section-pricing",
+  "title": "Pricing",
+  "description": "Three pricing tiers with a working monthly/yearly toggle that swaps the price, a highlighted popular plan, and checked feature lists.",
+  "category": "sites",
+  "surface": "section",
+  "tagline": "Tiers with live toggle",
+  "status": "new",
+  "order": 23,
+  "tags": ["pricing", "plans", "toggle"]
+}

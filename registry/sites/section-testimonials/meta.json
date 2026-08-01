@@ -1,0 +1,10 @@
+{
+  "name": "section-testimonials",
+  "title": "Testimonials",
+  "description": "A working quote slider: three testimonials switched by clickable dot navigation, no JavaScript.",
+  "category": "sites",
+  "surface": "section",
+  "tagline": "Working quote slider",
+  "order": 24,
+  "tags": ["testimonials", "slider", "social-proof"]
+}

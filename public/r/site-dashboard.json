@@ -3,7 +3,7 @@
   "name": "site-dashboard",
   "title": "Dashboard",
   "description": "A product app shell: navigation sidebar with account footer, stat tiles with trends, a bar chart with range toggle, and a status table.",
-  "category": "apps",
+  "category": "sites",
   "type": "html",
   "version": "0.1.0",
   "tailwind": "^4.0.0",

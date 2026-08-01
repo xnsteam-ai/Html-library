@@ -1,0 +1,10 @@
+{
+  "name": "section-cta",
+  "title": "CTA",
+  "description": "A dark closing call-to-action banner with decorative gradients and dual actions.",
+  "category": "sites",
+  "surface": "section",
+  "tagline": "Closing banner",
+  "order": 26,
+  "tags": ["cta", "banner", "conversion"]
+}

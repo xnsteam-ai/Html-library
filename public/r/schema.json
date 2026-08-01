@@ -26,6 +26,7 @@
       "type": "string",
       "enum": [
         "apps",
+        "sites",
         "agent",
         "ui"
       ]
@@ -34,7 +35,8 @@
       "type": "string",
       "enum": [
         "app",
-        "site"
+        "site",
+        "section"
       ],
       "description": "Whole-screen items only: the device the screen was drawn for."
     },

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
+  "name": "section-logo-cloud",
+  "title": "Logo Cloud",
+  "description": "A compact social-proof band: an eyebrow label above a row of muted customer wordmarks.",
+  "category": "sites",
+  "type": "html",
+  "version": "0.1.0",
+  "tailwind": "^4.0.0",
+  "tags": [
+    "logo-cloud",
+    "social-proof",
+    "trust"
+  ],
+  "surface": "section",
+  "files": [
+    {
+      "path": "section-logo-cloud.html",
+      "type": "html",
+      "content": "<!-- Logo Cloud Section — eyebrow line and a row of wordmarks -->\n<section class=\"w-full bg-white px-6 py-16 dark:bg-neutral-950\">\n  <div class=\"mx-auto max-w-4xl text-center\">\n    <p class=\"text-[12.5px] font-medium uppercase tracking-wide text-gray-400 dark:text-gray-500\">\n      Trusted by engineering teams at\n    </p>\n    <div class=\"mt-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-60 grayscale\">\n      <span class=\"text-[19px] font-semibold tracking-tight text-gray-700 dark:text-gray-300\">Northwind</span>\n      <span class=\"text-[19px] font-semibold tracking-tight text-gray-700 dark:text-gray-300\">Alteryx</span>\n      <span class=\"text-[19px] font-semibold tracking-tight text-gray-700 dark:text-gray-300\">Bellhop</span>\n      <span class=\"text-[19px] font-semibold tracking-tight text-gray-700 dark:text-gray-300\">Corvus</span>\n      <span class=\"text-[19px] font-semibold tracking-tight text-gray-700 dark:text-gray-300\">Sundial</span>\n      <span class=\"text-[19px] font-semibold tracking-tight text-gray-700 dark:text-gray-300\">Halyard</span>\n    </div>\n  </div>\n</section>\n"
+    }
+  ]
+}

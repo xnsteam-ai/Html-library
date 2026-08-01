@@ -1,13 +1,22 @@
 import { useMemo, useState } from 'react'
 import { ExternalLink, Search, X } from 'lucide-react'
-import { getScreens, type RegistryItem, type Surface } from '../../registry'
+import {
+  CATEGORY_META,
+  GALLERY_CATEGORIES,
+  getByCategory,
+  type CategoryId,
+  type RegistryItem,
+  type Surface,
+} from '../../registry'
 import { componentHref, galleryHref, previewHref } from '../hooks/useHashRoute'
 import { ScreenFrame } from './ScreenFrame'
 
 // Card previews are scaled to roughly a third of the authored size; sites are
 // far wider than phones, so each surface needs its own factor to land on
-// similar card heights.
-const CARD_SCALE: Record<Surface, number> = { app: 0.42, site: 0.22 }
+// similar card heights. Sections additionally clamp to a fixed authored
+// height so a long section still yields a tidy card.
+const CARD_SCALE: Record<Surface, number> = { app: 0.42, site: 0.22, section: 0.28 }
+const SECTION_CARD_CLAMP = 420
 
 const STATUS_LABEL = { new: 'New', updated: 'Updated' } as const
 
@@ -36,7 +45,11 @@ function ScreenCard({ item }: { item: RegistryItem }) {
               {STATUS_LABEL[item.status]}
             </span>
           )}
-          <ScreenFrame item={item} scale={CARD_SCALE[surface]} />
+          <ScreenFrame
+            item={item}
+            scale={CARD_SCALE[surface]}
+            clampHeight={surface === 'section' ? SECTION_CARD_CLAMP : undefined}
+          />
         </div>
 
         <div className="mt-3 flex items-start gap-2.5">
@@ -57,50 +70,55 @@ function ScreenCard({ item }: { item: RegistryItem }) {
   )
 }
 
-export function Gallery({ surface }: { surface: Surface }) {
+export function Gallery({ category }: { category: CategoryId }) {
   const [query, setQuery] = useState('')
+  const meta = CATEGORY_META[category]
 
   const results = useMemo(() => {
-    const screens = getScreens(surface)
+    const items = getByCategory(category)
     const needle = query.trim().toLowerCase()
-    if (!needle) return screens
-    return screens.filter((item) =>
+    if (!needle) return items
+    return items.filter((item) =>
       `${item.title} ${item.tagline ?? ''} ${item.description} ${(item.tags ?? []).join(' ')}`
         .toLowerCase()
         .includes(needle),
     )
-  }, [surface, query])
+  }, [category, query])
 
-  const tab = (value: Surface, label: string, count: number) => (
+  // Both galleries are wide enough to show as a pill switcher without a
+  // dedicated tabs component, mirroring the app shell's Home/Code toggle.
+  const tab = (value: CategoryId) => (
     <a
+      key={value}
       href={galleryHref(value)}
-      aria-current={surface === value ? 'page' : undefined}
+      aria-current={category === value ? 'page' : undefined}
       className={`flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[13px] font-medium transition ${
-        surface === value
+        category === value
           ? 'bg-background text-foreground shadow-sm'
           : 'text-muted-foreground hover:text-foreground'
       }`}
     >
-      {label}
-      <span className="text-[11.5px] text-muted-foreground">{count}</span>
+      {CATEGORY_META[value].title}
+      <span className="text-[11.5px] text-muted-foreground">{getByCategory(value).length}</span>
     </a>
   )
+
+  const isPhoneGrid = category === 'apps'
 
   return (
     <div className="mx-auto w-full max-w-6xl px-8 py-9">
       <header className="mb-6">
-        <h1 className="text-[26px] font-semibold tracking-tight text-foreground">Apps &amp; Sites</h1>
+        <h1 className="text-[26px] font-semibold tracking-tight text-foreground">{meta.title}</h1>
         <p className="mt-2 max-w-2xl text-[14.5px] leading-relaxed text-muted-foreground">
-          Complete screens rather than parts — full mobile app views and website pages, still plain
-          HTML + Tailwind and still one <code className="font-mono text-[13.5px]">curl</code> away.
+          {meta.blurb} Still plain HTML + Tailwind, and still one{' '}
+          <code className="font-mono text-[13.5px]">curl</code> away.
         </p>
       </header>
 
-      {/* Tabs + search */}
+      {/* Category switcher + search */}
       <div className="mb-7 flex flex-wrap items-center gap-3">
-        <div className="flex rounded-full bg-muted p-[3px]" role="tablist" aria-label="Surface">
-          {tab('app', 'Apps', getScreens('app').length)}
-          {tab('site', 'Sites', getScreens('site').length)}
+        <div className="flex rounded-full bg-muted p-[3px]" role="tablist" aria-label="Category">
+          {GALLERY_CATEGORIES.map(tab)}
         </div>
 
         <div className="relative ml-auto w-full max-w-xs">
@@ -111,7 +129,7 @@ export function Gallery({ surface }: { surface: Surface }) {
           <input
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder={surface === 'app' ? 'Search app screens…' : 'Search site pages…'}
+            placeholder={`Search ${meta.title.toLowerCase()}…`}
             aria-label="Search screens"
             className="w-full rounded-full bg-muted py-2 pl-9 pr-8 text-[13px] text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
           />
@@ -132,7 +150,7 @@ export function Gallery({ surface }: { surface: Surface }) {
         <div className="flex flex-col items-center rounded-xl border border-dashed border-border px-6 py-14 text-center">
           <p className="text-[14px] font-medium text-foreground">No screens match “{query}”</p>
           <p className="mt-1 text-[13px] text-muted-foreground">
-            Try a shorter term, or browse the other tab.
+            Try a shorter term, or browse the other category.
           </p>
           <button
             type="button"
@@ -145,7 +163,7 @@ export function Gallery({ surface }: { surface: Surface }) {
       ) : (
         <div
           className={`grid gap-x-5 gap-y-7 ${
-            surface === 'app'
+            isPhoneGrid
               ? 'grid-cols-2 md:grid-cols-3 xl:grid-cols-4'
               : 'grid-cols-1 md:grid-cols-2 xl:grid-cols-3'
           }`}

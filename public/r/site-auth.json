@@ -3,7 +3,7 @@
   "name": "site-auth",
   "title": "Sign In",
   "description": "A split authentication page: social and credential sign-in with remember-me on one side, a dark testimonial panel with stats on the other.",
-  "category": "apps",
+  "category": "sites",
   "type": "html",
   "version": "0.1.0",
   "tailwind": "^4.0.0",

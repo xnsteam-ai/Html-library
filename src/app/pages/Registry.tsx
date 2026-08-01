@@ -24,7 +24,8 @@ const INDEX_SHAPE = `{
   "baseUrl": "${PAGES_URL}/r",
   "rawBaseUrl": "${RAW_URL}",
   "categories": [
-    { "name": "apps",  "title": "Apps & Sites",   "count": 11 },
+    { "name": "apps",  "title": "Apps",           "count": 6 },
+    { "name": "sites", "title": "Sites",          "count": 17 },
     { "name": "agent", "title": "Agent Elements", "count": 19 },
     { "name": "ui",    "title": "UI Elements",    "count": 8 }
   ],
@@ -112,9 +113,10 @@ npm run build:registry   # regenerate public/r, then commit both`}
           <Code>meta.json</Code> takes <Code>name</Code> (must equal the folder), <Code>title</Code>,{' '}
           <Code>description</Code>, <Code>category</Code>, and optionally <Code>order</Code>,{' '}
           <Code>tags</Code>, <Code>previewBg</Code> and <Code>previewHeight</Code>. Items in{' '}
-          <Code>apps</Code> additionally require <Code>surface</Code> (<Code>"app"</Code> or{' '}
-          <Code>"site"</Code>), which decides the gallery tab and the device frame, and may set{' '}
-          <Code>tagline</Code> and <Code>status</Code>.
+          <Code>apps</Code> or <Code>sites</Code> additionally require <Code>surface</Code> —{' '}
+          <Code>"app"</Code> (390×844) for Apps, <Code>"site"</Code> (1280×800) or{' '}
+          <Code>"section"</Code> (1280 wide, natural height) for Sites — which decides the device
+          frame, and may set <Code>tagline</Code> and <Code>status</Code>.
         </P>
       </Section>
 
@@ -131,7 +133,8 @@ npm run build:registry   # regenerate public/r, then commit both`}
             <>a name that disagrees with its folder, or a duplicate name</>,
             <>an unknown category, or a missing required field in <Code>meta.json</Code></>,
             <>
-              an <Code>apps</Code> item without a valid <Code>surface</Code>
+              an <Code>apps</Code> or <Code>sites</Code> item without a valid{' '}
+              <Code>surface</Code> for its category
             </>,
           ]}
         />

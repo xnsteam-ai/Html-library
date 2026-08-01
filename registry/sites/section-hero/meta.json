@@ -1,0 +1,11 @@
+{
+  "name": "section-hero",
+  "title": "Hero",
+  "description": "A centred marketing hero: announcement pill, large headline, supporting copy, dual calls to action, and avatar social proof.",
+  "category": "sites",
+  "surface": "section",
+  "tagline": "Headline, CTAs & proof",
+  "status": "new",
+  "order": 20,
+  "tags": ["hero", "marketing", "landing"]
+}

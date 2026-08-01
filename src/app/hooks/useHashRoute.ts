@@ -1,17 +1,16 @@
 import { useEffect, useState } from 'react'
 
-import type { Surface } from '../../registry'
+import type { CategoryId } from '../../registry'
 
 export type Route =
   | { kind: 'doc'; slug: string }
   | { kind: 'component'; name: string }
   | { kind: 'preview'; name: string }
-  | { kind: 'gallery'; surface: Surface }
+  | { kind: 'gallery'; category: CategoryId }
   | { kind: 'not-found'; path: string }
 
 const DOC_SLUGS = ['introduction', 'installation', 'registry', 'theming', 'use-cases']
-
-export const GALLERY_SLUG = 'apps-and-sites'
+const GALLERY_CATEGORY_SLUGS: CategoryId[] = ['apps', 'sites']
 
 export function parseHash(hash: string): Route {
   const path = hash.replace(/^#\/?/, '').replace(/\/$/, '')
@@ -20,9 +19,13 @@ export function parseHash(hash: string): Route {
   const [head, tail] = path.split('/')
   if (head === 'component' && tail) return { kind: 'component', name: tail }
   if (head === 'preview' && tail) return { kind: 'preview', name: tail }
-  if (head === GALLERY_SLUG) {
-    if (!tail || tail === 'apps') return { kind: 'gallery', surface: 'app' }
-    if (tail === 'sites') return { kind: 'gallery', surface: 'site' }
+  if (!tail && GALLERY_CATEGORY_SLUGS.includes(head as CategoryId)) {
+    return { kind: 'gallery', category: head as CategoryId }
+  }
+  // Apps and Sites used to share one gallery at #/apps-and-sites[/sites];
+  // keep old links landing somewhere sensible rather than 404ing.
+  if (head === 'apps-and-sites') {
+    return { kind: 'gallery', category: tail === 'sites' ? 'sites' : 'apps' }
   }
   if (!tail && DOC_SLUGS.includes(head)) return { kind: 'doc', slug: head }
   return { kind: 'not-found', path }
@@ -58,6 +61,6 @@ export function previewHref(name: string) {
   return `#/preview/${name}`
 }
 
-export function galleryHref(surface: Surface = 'app') {
-  return surface === 'site' ? `#/${GALLERY_SLUG}/sites` : `#/${GALLERY_SLUG}`
+export function galleryHref(category: CategoryId) {
+  return `#/${category}`
 }

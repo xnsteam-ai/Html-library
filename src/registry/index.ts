@@ -1,7 +1,11 @@
-export type CategoryId = 'apps' | 'agent' | 'ui'
+export type CategoryId = 'apps' | 'sites' | 'agent' | 'ui'
 
-/** Whole-screen items declare which device they were drawn for. */
-export type Surface = 'app' | 'site'
+/**
+ * Category decides where an item lives; surface decides how it draws. Keeping
+ * them separate is what lets Apps and Sites be independent sections while a
+ * site page and a page section still share the same browser chrome.
+ */
+export type Surface = 'app' | 'site' | 'section'
 
 export interface ComponentMeta {
   name: string
@@ -12,7 +16,7 @@ export interface ComponentMeta {
   tags?: string[]
   previewBg?: 'plain' | 'muted' | 'app'
   previewHeight?: number
-  /** Screens only — drives the Apps/Sites tabs and which frame is drawn. */
+  /** Apps & Sites only — which chrome is drawn and at what size. */
   surface?: Surface
   /** Short line under the name in the gallery; falls back to `description`. */
   tagline?: string
@@ -30,28 +34,44 @@ export interface Category {
   items: RegistryItem[]
 }
 
-export const CATEGORY_META: Record<CategoryId, { title: string; blurb: string; order: number }> = {
+/** Categories with a `gallery` get a browsable grid of their own. */
+export const CATEGORY_META: Record<
+  CategoryId,
+  { title: string; blurb: string; order: number; gallery?: boolean }
+> = {
   apps: {
-    title: 'Apps & Sites',
-    blurb: 'Complete app screens and website pages, browsable as a gallery.',
+    title: 'Apps',
+    blurb: 'Complete mobile app screens, drawn at 390×844.',
     order: 1,
+    gallery: true,
+  },
+  sites: {
+    title: 'Sites',
+    blurb: 'Website pages and the marketing sections they are built from.',
+    order: 2,
+    gallery: true,
   },
   agent: {
     title: 'Agent Elements',
     blurb: 'Chat surfaces, composers and tool-call cards for agent interfaces.',
-    order: 2,
+    order: 3,
   },
   ui: {
     title: 'UI Elements',
     blurb: 'General-purpose primitives that pair with the agent set.',
-    order: 3,
+    order: 4,
   },
 }
 
-/** Pixel size each screen is authored at, before the gallery scales it down. */
-export const FRAME_SIZE: Record<Surface, { width: number; height: number }> = {
+/**
+ * Authored width per surface, plus a fixed height where there is one. Sections
+ * are authored at a fixed width but grow with their content, so their height is
+ * measured at render time instead.
+ */
+export const FRAME_SIZE: Record<Surface, { width: number; height: number | 'auto' }> = {
   app: { width: 390, height: 844 },
   site: { width: 1280, height: 800 },
+  section: { width: 1280, height: 'auto' },
 }
 
 // The docs app reads the registry sources directly, so the site can never drift
@@ -97,12 +117,15 @@ export function getComponent(name: string): RegistryItem | undefined {
   return components.find((item) => item.name === name)
 }
 
-/** Screens in the Apps & Sites gallery, optionally narrowed to one surface. */
-export function getScreens(surface?: Surface): RegistryItem[] {
-  return components.filter(
-    (item) => item.category === 'apps' && (!surface || item.surface === surface),
-  )
+/** Everything in one category, in sidebar order. */
+export function getByCategory(category: CategoryId): RegistryItem[] {
+  return components.filter((item) => item.category === category)
 }
+
+/** Categories that browse as a gallery rather than a flat list. */
+export const GALLERY_CATEGORIES = (Object.keys(CATEGORY_META) as CategoryId[]).filter(
+  (id) => CATEGORY_META[id].gallery,
+)
 
 export const REPO = 'xnsteam-ai/Html-library'
 export const REPO_URL = `https://github.com/${REPO}`

@@ -1,0 +1,10 @@
+{
+  "name": "section-bento",
+  "title": "Bento Grid",
+  "description": "A mixed-size feature grid: one large panel with a bar chart, three supporting tiles, and a wide closing tile.",
+  "category": "sites",
+  "surface": "section",
+  "tagline": "Mixed-size feature grid",
+  "order": 22,
+  "tags": ["bento", "features", "grid"]
+}

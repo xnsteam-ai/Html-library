@@ -1,0 +1,23 @@
+{
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
+  "name": "section-stats",
+  "title": "Stats",
+  "description": "A four-up metric row on a dark band, with a heading and supporting line.",
+  "category": "sites",
+  "type": "html",
+  "version": "0.1.0",
+  "tailwind": "^4.0.0",
+  "tags": [
+    "stats",
+    "metrics",
+    "numbers"
+  ],
+  "surface": "section",
+  "files": [
+    {
+      "path": "section-stats.html",
+      "type": "html",
+      "content": "<!-- Stats Section — a four-up metric row on a dark band -->\n<section class=\"w-full bg-gray-900 px-6 py-20 dark:bg-neutral-900\">\n  <div class=\"mx-auto max-w-5xl\">\n    <div class=\"mx-auto max-w-lg text-center\">\n      <h2 class=\"text-[28px] font-semibold tracking-tight text-white\">Numbers, not adjectives</h2>\n      <p class=\"mt-3 text-[14.5px] leading-relaxed text-white/50\">\n        Pulled from the last 90 days across every workspace on the platform.\n      </p>\n    </div>\n\n    <div class=\"mt-12 grid grid-cols-2 gap-8 md:grid-cols-4\">\n      <div class=\"text-center\">\n        <p class=\"text-[36px] font-semibold tracking-tight text-white\">14×</p>\n        <p class=\"mt-1 text-[13px] text-white/50\">Faster releases</p>\n      </div>\n      <div class=\"text-center\">\n        <p class=\"text-[36px] font-semibold tracking-tight text-white\">99.99%</p>\n        <p class=\"mt-1 text-[13px] text-white/50\">Deploy success rate</p>\n      </div>\n      <div class=\"text-center\">\n        <p class=\"text-[36px] font-semibold tracking-tight text-white\">3.2k</p>\n        <p class=\"mt-1 text-[13px] text-white/50\">Teams onboard</p>\n      </div>\n      <div class=\"text-center\">\n        <p class=\"text-[36px] font-semibold tracking-tight text-white\">42s</p>\n        <p class=\"mt-1 text-[13px] text-white/50\">Median build time</p>\n      </div>\n    </div>\n  </div>\n</section>\n"
+    }
+  ]
+}

@@ -27,12 +27,16 @@ const PAGES_URL = 'https://xnsteam-ai.github.io/Html-library'
 const RAW_URL = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/public/r`
 
 const CATEGORIES = {
-  apps: { title: 'Apps & Sites', order: 1 },
-  agent: { title: 'Agent Elements', order: 2 },
-  ui: { title: 'UI Elements', order: 3 },
+  apps: { title: 'Apps', order: 1 },
+  sites: { title: 'Sites', order: 2 },
+  agent: { title: 'Agent Elements', order: 3 },
+  ui: { title: 'UI Elements', order: 4 },
 }
 
-const SURFACES = ['app', 'site']
+// Categories whose items are whole screens or page sections, and so must
+// declare how they are drawn.
+const FRAMED_CATEGORIES = ['apps', 'sites']
+const SURFACES = ['app', 'site', 'section']
 
 const checkOnly = process.argv.includes('--check')
 const errors = []
@@ -93,9 +97,16 @@ function validateMeta(id, meta) {
   if (meta.tags && !Array.isArray(meta.tags)) {
     fail(id, '"tags" must be an array')
   }
-  // Screens drive the gallery's Apps/Sites tabs, so the surface is required there.
-  if (meta.category === 'apps' && !SURFACES.includes(meta.surface)) {
-    fail(id, `"surface" must be one of ${SURFACES.join(', ')} for Apps & Sites items`)
+  // Framed items decide their own chrome, so the surface is required there.
+  if (FRAMED_CATEGORIES.includes(meta.category) && !SURFACES.includes(meta.surface)) {
+    fail(id, `"surface" must be one of ${SURFACES.join(', ')} for ${meta.category} items`)
+  }
+  // A phone frame in the Sites gallery (or vice versa) is always a mistake.
+  if (meta.category === 'apps' && meta.surface && meta.surface !== 'app') {
+    fail(id, `apps items must use surface "app", not "${meta.surface}"`)
+  }
+  if (meta.category === 'sites' && meta.surface === 'app') {
+    fail(id, 'sites items must use surface "site" or "section", not "app"')
   }
   if (meta.surface && !SURFACES.includes(meta.surface)) {
     fail(id, `unknown surface "${meta.surface}"`)

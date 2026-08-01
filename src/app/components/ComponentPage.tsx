@@ -19,8 +19,8 @@ const SURFACES: Record<string, string> = {
 }
 
 function Preview({ item }: { item: RegistryItem }) {
-  // Whole screens get device chrome at their authored size; parts render inline.
-  if (item.category === 'apps') {
+  // Whole screens and page sections get device chrome; parts render inline.
+  if (item.category === 'apps' || item.category === 'sites') {
     return (
       <div className="flex justify-center rounded-xl border border-border bg-muted p-6">
         <ScreenFrame item={item} fit interactive />

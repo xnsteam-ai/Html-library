@@ -1,0 +1,10 @@
+{
+  "name": "section-footer",
+  "title": "Footer",
+  "description": "A five-column footer: brand blurb, four link groups, and a legal row with social icons.",
+  "category": "sites",
+  "surface": "section",
+  "tagline": "Link columns & legal row",
+  "order": 31,
+  "tags": ["footer", "navigation", "legal"]
+}

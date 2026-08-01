@@ -2,9 +2,13 @@
   "name": "site-docs",
   "title": "Documentation",
   "description": "A three-column docs layout: search bar with shortcut, grouped nav, article with breadcrumb, code block, callout and options table, plus an on-this-page rail.",
-  "category": "apps",
+  "category": "sites",
   "surface": "site",
   "tagline": "Nav, article & page rail",
   "order": 10,
-  "tags": ["docs", "layout", "reference"]
+  "tags": [
+    "docs",
+    "layout",
+    "reference"
+  ]
 }

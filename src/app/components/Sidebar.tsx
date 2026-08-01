@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ChevronsLeft, Github, LayoutGrid, Moon, Search, Star, Sun } from 'lucide-react'
-import { categories, REPO, REPO_URL } from '../../registry'
+import { CATEGORY_META, categories, REPO, REPO_URL } from '../../registry'
 import { componentHref, docHref, galleryHref, type Route } from '../hooks/useHashRoute'
 import { useTheme } from '../hooks/useTheme'
 import { Logo } from './Logo'
@@ -100,16 +100,21 @@ export function Sidebar({ route, onCollapse, onOpenSearch }: SidebarProps) {
           ))}
         </ul>
 
-        {categories.map((category) => (
+        {categories.map((category) => {
+          const isGallery = Boolean(CATEGORY_META[category.id].gallery)
+          const isActiveGallery = route.kind === 'gallery' && route.category === category.id
+
+          return (
           <div key={category.id} className="pt-3">
             <div className="mb-1 border-t border-border pt-3">
-              {/* Apps & Sites opens a gallery; the other sections are plain labels. */}
-              {category.id === 'apps' ? (
+              {/* Apps and Sites each open their own gallery; the other
+                  sections are plain labels. */}
+              {isGallery ? (
                 <a
-                  href={galleryHref()}
-                  aria-current={route.kind === 'gallery' ? 'page' : undefined}
+                  href={galleryHref(category.id)}
+                  aria-current={isActiveGallery ? 'page' : undefined}
                   className={`mx-0 flex items-center gap-1 rounded-md px-2.5 py-1 text-[11px] font-medium uppercase tracking-wide transition ${
-                    route.kind === 'gallery'
+                    isActiveGallery
                       ? 'bg-subtle text-foreground'
                       : 'text-muted-foreground/80 hover:bg-muted hover:text-foreground'
                   }`}
@@ -141,7 +146,8 @@ export function Sidebar({ route, onCollapse, onOpenSearch }: SidebarProps) {
               ))}
             </ul>
           </div>
-        ))}
+          )
+        })}
       </nav>
 
       {/* CTA */}

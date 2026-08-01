@@ -61,19 +61,26 @@ Do not fake what genuinely needs JavaScript (clipboard copy, live filtering, app
 }
 ```
 
-- `name` must equal the folder name; `category` must equal the parent folder (`apps`, `agent` or `ui`).
+- `name` must equal the folder name; `category` must equal the parent folder (`apps`, `sites`, `agent` or `ui`).
 - `order` controls sidebar position within the category.
 - `previewBg` is `plain`, `muted` or `app`; `previewHeight` is the minimum preview height in pixels.
 
-### Whole screens (`registry/apps/`)
+### Apps (`registry/apps/`)
 
-Items in `apps` are complete screens rather than parts, and appear in the Apps & Sites gallery.
+Complete mobile screens, browsable in the Apps gallery.
 
-- `surface` is **required**: `"app"` for mobile screens, `"site"` for desktop pages. The build fails without it.
-- Author at the exact frame size — `h-[844px] w-[390px]` for apps, `h-[800px] w-[1280px]` for sites — since the gallery scales that box down and the detail view fits it to the column.
-- `tagline` is the short line under the name in the grid; it falls back to `description`.
-- `status` is optional, `"new"` or `"updated"`, and renders as a badge on the card.
-- Include the platform chrome the screen would really have — status bar and home indicator for apps — so previews read as screens rather than floating panels.
+- `surface` is **required** and must be `"app"`. The build rejects anything else here.
+- Author at the exact frame size — `h-[844px] w-[390px]` — since the gallery scales that box down and the detail view fits it to the column.
+- Include the platform chrome a real screen would have — status bar, home indicator — so previews read as screens rather than floating panels.
+- `tagline` is the short line under the name in the grid; it falls back to `description`. `status` is optional, `"new"` or `"updated"`, and renders as a badge on the card.
+
+### Sites (`registry/sites/`)
+
+Website pages and the marketing sections a page is built from, browsable in the Sites gallery. Both share the browser-chrome frame; they differ in `surface`:
+
+- **`surface: "site"`** — a complete page, authored at the exact `h-[800px] w-[1280px]` frame. Use for something meant to be seen as a whole page (a dashboard, a docs layout).
+- **`surface: "section"`** — a single reusable block, authored `w-full` at **1280px wide with no fixed height** (`<section class="w-full …">`, height comes from the content). Use for anything meant to be composed with other sections — hero, features, pricing, FAQ, footer. The frontend measures the rendered height itself; do not set an explicit height on the section.
+- `tagline` and `status` work the same as in Apps.
 
 ## Before opening a pull request
 

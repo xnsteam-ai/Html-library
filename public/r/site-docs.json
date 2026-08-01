@@ -3,7 +3,7 @@
   "name": "site-docs",
   "title": "Documentation",
   "description": "A three-column docs layout: search bar with shortcut, grouped nav, article with breadcrumb, code block, callout and options table, plus an on-this-page rail.",
-  "category": "apps",
+  "category": "sites",
   "type": "html",
   "version": "0.1.0",
   "tailwind": "^4.0.0",

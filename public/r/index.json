@@ -10,8 +10,13 @@
   "categories": [
     {
       "name": "apps",
-      "title": "Apps & Sites",
-      "count": 11
+      "title": "Apps",
+      "count": 6
+    },
+    {
+      "name": "sites",
+      "title": "Sites",
+      "count": 17
     },
     {
       "name": "agent",
@@ -107,7 +112,7 @@
       "name": "site-landing",
       "title": "Landing Page",
       "description": "A marketing home: nav bar, announcement pill, large hero with dual calls to action, logo social proof, and a three-column feature row.",
-      "category": "apps",
+      "category": "sites",
       "tags": [
         "marketing",
         "hero",
@@ -120,7 +125,7 @@
       "name": "site-pricing",
       "title": "Pricing Page",
       "description": "Three pricing tiers with a monthly/yearly toggle, a highlighted popular plan, checked feature lists, and an FAQ strip.",
-      "category": "apps",
+      "category": "sites",
       "tags": [
         "pricing",
         "marketing",
@@ -133,7 +138,7 @@
       "name": "site-dashboard",
       "title": "Dashboard",
       "description": "A product app shell: navigation sidebar with account footer, stat tiles with trends, a bar chart with range toggle, and a status table.",
-      "category": "apps",
+      "category": "sites",
       "tags": [
         "dashboard",
         "admin",
@@ -146,7 +151,7 @@
       "name": "site-docs",
       "title": "Documentation",
       "description": "A three-column docs layout: search bar with shortcut, grouped nav, article with breadcrumb, code block, callout and options table, plus an on-this-page rail.",
-      "category": "apps",
+      "category": "sites",
       "tags": [
         "docs",
         "layout",
@@ -159,7 +164,7 @@
       "name": "site-auth",
       "title": "Sign In",
       "description": "A split authentication page: social and credential sign-in with remember-me on one side, a dark testimonial panel with stats on the other.",
-      "category": "apps",
+      "category": "sites",
       "tags": [
         "auth",
         "login",
@@ -167,6 +172,162 @@
       ],
       "url": "https://xnsteam-ai.github.io/Html-library/r/site-auth.json",
       "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/site-auth.json"
+    },
+    {
+      "name": "section-hero",
+      "title": "Hero",
+      "description": "A centred marketing hero: announcement pill, large headline, supporting copy, dual calls to action, and avatar social proof.",
+      "category": "sites",
+      "tags": [
+        "hero",
+        "marketing",
+        "landing"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/section-hero.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/section-hero.json"
+    },
+    {
+      "name": "section-features",
+      "title": "Features",
+      "description": "A six-item feature grid with icon tiles, an eyebrow label and a centred section heading.",
+      "category": "sites",
+      "tags": [
+        "features",
+        "grid",
+        "marketing"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/section-features.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/section-features.json"
+    },
+    {
+      "name": "section-bento",
+      "title": "Bento Grid",
+      "description": "A mixed-size feature grid: one large panel with a bar chart, three supporting tiles, and a wide closing tile.",
+      "category": "sites",
+      "tags": [
+        "bento",
+        "features",
+        "grid"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/section-bento.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/section-bento.json"
+    },
+    {
+      "name": "section-pricing",
+      "title": "Pricing",
+      "description": "Three pricing tiers with a working monthly/yearly toggle that swaps the price, a highlighted popular plan, and checked feature lists.",
+      "category": "sites",
+      "tags": [
+        "pricing",
+        "plans",
+        "toggle"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/section-pricing.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/section-pricing.json"
+    },
+    {
+      "name": "section-testimonials",
+      "title": "Testimonials",
+      "description": "A working quote slider: three testimonials switched by clickable dot navigation, no JavaScript.",
+      "category": "sites",
+      "tags": [
+        "testimonials",
+        "slider",
+        "social-proof"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/section-testimonials.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/section-testimonials.json"
+    },
+    {
+      "name": "section-faq",
+      "title": "FAQ",
+      "description": "A five-question accordion built on native details/summary, with a rotating plus icon and a contact line.",
+      "category": "sites",
+      "tags": [
+        "faq",
+        "accordion",
+        "support"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/section-faq.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/section-faq.json"
+    },
+    {
+      "name": "section-cta",
+      "title": "CTA",
+      "description": "A dark closing call-to-action banner with decorative gradients and dual actions.",
+      "category": "sites",
+      "tags": [
+        "cta",
+        "banner",
+        "conversion"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/section-cta.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/section-cta.json"
+    },
+    {
+      "name": "section-stats",
+      "title": "Stats",
+      "description": "A four-up metric row on a dark band, with a heading and supporting line.",
+      "category": "sites",
+      "tags": [
+        "stats",
+        "metrics",
+        "numbers"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/section-stats.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/section-stats.json"
+    },
+    {
+      "name": "section-logo-cloud",
+      "title": "Logo Cloud",
+      "description": "A compact social-proof band: an eyebrow label above a row of muted customer wordmarks.",
+      "category": "sites",
+      "tags": [
+        "logo-cloud",
+        "social-proof",
+        "trust"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/section-logo-cloud.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/section-logo-cloud.json"
+    },
+    {
+      "name": "section-team",
+      "title": "Team",
+      "description": "A four-up team grid: gradient avatar, name and role, with a heading and supporting line above.",
+      "category": "sites",
+      "tags": [
+        "team",
+        "about",
+        "bios"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/section-team.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/section-team.json"
+    },
+    {
+      "name": "section-newsletter",
+      "title": "Newsletter",
+      "description": "A real email subscribe form with native required validation, an icon tile and a supporting line.",
+      "category": "sites",
+      "tags": [
+        "newsletter",
+        "form",
+        "email"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/section-newsletter.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/section-newsletter.json"
+    },
+    {
+      "name": "section-footer",
+      "title": "Footer",
+      "description": "A five-column footer: brand blurb, four link groups, and a legal row with social icons.",
+      "category": "sites",
+      "tags": [
+        "footer",
+        "navigation",
+        "legal"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/section-footer.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/section-footer.json"
     },
     {
       "name": "agent-chat",

@@ -2,9 +2,13 @@
   "name": "site-auth",
   "title": "Sign In",
   "description": "A split authentication page: social and credential sign-in with remember-me on one side, a dark testimonial panel with stats on the other.",
-  "category": "apps",
+  "category": "sites",
   "surface": "site",
   "tagline": "Split sign-in & proof",
   "order": 11,
-  "tags": ["auth", "login", "split"]
+  "tags": [
+    "auth",
+    "login",
+    "split"
+  ]
 }

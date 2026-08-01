@@ -1,0 +1,11 @@
+{
+  "name": "section-features",
+  "title": "Features",
+  "description": "A six-item feature grid with icon tiles, an eyebrow label and a centred section heading.",
+  "category": "sites",
+  "surface": "section",
+  "tagline": "Icon grid & heading",
+  "status": "new",
+  "order": 21,
+  "tags": ["features", "grid", "marketing"]
+}

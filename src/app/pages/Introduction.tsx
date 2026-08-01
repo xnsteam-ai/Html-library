@@ -1,5 +1,5 @@
 import { ArrowUpRight } from 'lucide-react'
-import { categories, components, PAGES_URL, REPO_URL } from '../../registry'
+import { CATEGORY_META, categories, components, PAGES_URL, REPO_URL } from '../../registry'
 import { componentHref, docHref, galleryHref } from '../hooks/useHashRoute'
 import { Callout, Code, DocPage, List, P, Section } from '../components/Prose'
 
@@ -40,22 +40,21 @@ export function Introduction() {
         />
       </Section>
 
-      <Section title="The three sets">
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <Section title="The four sets">
+        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
           {categories.map((category) => {
             const first = category.items[0]
-            const href = category.id === 'apps' ? galleryHref() : componentHref(first.name)
-            const cta = category.id === 'apps' ? 'Browse the gallery' : `Start with ${first.title}`
+            const isGallery = Boolean(CATEGORY_META[category.id].gallery)
+            const href = isGallery ? galleryHref(category.id) : componentHref(first.name)
+            const cta = isGallery ? 'Browse the gallery' : `Start with ${first.title}`
 
             return (
               <div key={category.id} className="flex flex-col rounded-xl border border-border p-4">
-                <div className="flex items-baseline justify-between gap-2">
-                  <h3 className="text-[14.5px] font-semibold text-foreground">{category.title}</h3>
-                  <span className="shrink-0 text-[12px] text-muted-foreground">
-                    {category.items.length} components
-                  </span>
-                </div>
-                <p className="mt-1 flex-1 text-[13px] leading-relaxed text-muted-foreground">
+                <h3 className="text-[14.5px] font-semibold text-foreground">{category.title}</h3>
+                <span className="mt-0.5 text-[11.5px] text-muted-foreground">
+                  {category.items.length} components
+                </span>
+                <p className="mt-2 flex-1 text-[13px] leading-relaxed text-muted-foreground">
                   {category.blurb}
                 </p>
                 <a

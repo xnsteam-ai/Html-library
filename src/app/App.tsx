@@ -40,9 +40,7 @@ function NotFound({ path }: { path: string }) {
 
 function breadcrumb(route: Route): string {
   if (route.kind === 'doc') return DOC_TITLES[route.slug] ?? 'Docs'
-  if (route.kind === 'gallery') {
-    return `${CATEGORY_META.apps.title} · ${route.surface === 'site' ? 'Sites' : 'Apps'}`
-  }
+  if (route.kind === 'gallery') return CATEGORY_META[route.category].title
   if (route.kind === 'component') {
     const item = getComponent(route.name)
     return item ? `${CATEGORY_META[item.category].title} · ${item.title}` : 'Not found'
@@ -51,9 +49,9 @@ function breadcrumb(route: Route): string {
 }
 
 function Content({ route }: { route: Route }) {
-  // Keyed by surface so switching tabs clears the previous tab's search term,
-  // which would otherwise leave the new tab looking empty.
-  if (route.kind === 'gallery') return <Gallery key={route.surface} surface={route.surface} />
+  // Keyed by category so switching galleries clears the previous one's search
+  // term, which would otherwise leave the new gallery looking empty.
+  if (route.kind === 'gallery') return <Gallery key={route.category} category={route.category} />
   if (route.kind === 'component') {
     const item = getComponent(route.name)
     return item ? <ComponentPage item={item} /> : <NotFound path={`component/${route.name}`} />

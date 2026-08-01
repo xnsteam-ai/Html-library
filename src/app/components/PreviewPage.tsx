@@ -26,7 +26,7 @@ export function PreviewPage({ name }: { name: string }) {
     )
   }
 
-  const isScreen = item.category === 'apps'
+  const isScreen = item.category === 'apps' || item.category === 'sites'
 
   return (
     <div className="relative min-h-full bg-background">

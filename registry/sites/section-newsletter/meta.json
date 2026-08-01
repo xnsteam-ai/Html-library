@@ -1,0 +1,10 @@
+{
+  "name": "section-newsletter",
+  "title": "Newsletter",
+  "description": "A real email subscribe form with native required validation, an icon tile and a supporting line.",
+  "category": "sites",
+  "surface": "section",
+  "tagline": "Real subscribe form",
+  "order": 30,
+  "tags": ["newsletter", "form", "email"]
+}

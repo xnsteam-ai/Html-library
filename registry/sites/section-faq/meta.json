@@ -1,0 +1,11 @@
+{
+  "name": "section-faq",
+  "title": "FAQ",
+  "description": "A five-question accordion built on native details/summary, with a rotating plus icon and a contact line.",
+  "category": "sites",
+  "surface": "section",
+  "tagline": "Working accordion",
+  "status": "new",
+  "order": 25,
+  "tags": ["faq", "accordion", "support"]
+}
