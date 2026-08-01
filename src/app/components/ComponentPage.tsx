@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Check, Code2, Copy, Eye, Github } from 'lucide-react'
+import { Check, Code2, Copy, ExternalLink, Eye, Github } from 'lucide-react'
 import {
   CATEGORY_META,
   rawRegistryUrl,
@@ -8,6 +8,7 @@ import {
   type RegistryItem,
 } from '../../registry'
 import { useCopy } from '../hooks/useCopy'
+import { previewHref } from '../hooks/useHashRoute'
 import { CodeBlock } from './CodeBlock'
 import { ScreenFrame } from './ScreenFrame'
 
@@ -113,14 +114,26 @@ export function ComponentPage({ item }: { item: RegistryItem }) {
           </button>
         </div>
 
-        <button
-          type="button"
-          onClick={() => copy(item.html)}
-          className="flex items-center gap-1.5 rounded-lg border border-border px-2.5 py-1.5 text-[12.5px] font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground"
-        >
-          {copied ? <Check size={13} /> : <Copy size={13} />}
-          {copied ? 'Copied' : 'Copy HTML'}
-        </button>
+        <div className="flex items-center gap-2">
+          <a
+            href={previewHref(item.name)}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-1.5 rounded-lg border border-border px-2.5 py-1.5 text-[12.5px] font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground"
+            title="Open this component full screen in a new tab"
+          >
+            <ExternalLink size={13} />
+            Open in new tab
+          </a>
+          <button
+            type="button"
+            onClick={() => copy(item.html)}
+            className="flex items-center gap-1.5 rounded-lg border border-border px-2.5 py-1.5 text-[12.5px] font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground"
+          >
+            {copied ? <Check size={13} /> : <Copy size={13} />}
+            {copied ? 'Copied' : 'Copy HTML'}
+          </button>
+        </div>
       </div>
 
       {tab === 'preview' ? (

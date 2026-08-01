@@ -5,6 +5,7 @@ import type { Surface } from '../../registry'
 export type Route =
   | { kind: 'doc'; slug: string }
   | { kind: 'component'; name: string }
+  | { kind: 'preview'; name: string }
   | { kind: 'gallery'; surface: Surface }
   | { kind: 'not-found'; path: string }
 
@@ -18,6 +19,7 @@ export function parseHash(hash: string): Route {
 
   const [head, tail] = path.split('/')
   if (head === 'component' && tail) return { kind: 'component', name: tail }
+  if (head === 'preview' && tail) return { kind: 'preview', name: tail }
   if (head === GALLERY_SLUG) {
     if (!tail || tail === 'apps') return { kind: 'gallery', surface: 'app' }
     if (tail === 'sites') return { kind: 'gallery', surface: 'site' }
@@ -49,6 +51,11 @@ export function docHref(slug: string) {
 
 export function componentHref(name: string) {
   return `#/component/${name}`
+}
+
+/** Chrome-free full-screen view, meant to be opened in its own tab. */
+export function previewHref(name: string) {
+  return `#/preview/${name}`
 }
 
 export function galleryHref(surface: Surface = 'app') {

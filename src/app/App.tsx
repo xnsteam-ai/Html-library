@@ -4,6 +4,7 @@ import { CATEGORY_META, getComponent } from '../registry'
 import { CommandPalette } from './components/CommandPalette'
 import { ComponentPage } from './components/ComponentPage'
 import { Gallery } from './components/Gallery'
+import { PreviewPage } from './components/PreviewPage'
 import { Sidebar } from './components/Sidebar'
 import { docHref, useHashRoute, type Route } from './hooks/useHashRoute'
 import { Installation } from './pages/Installation'
@@ -58,6 +59,8 @@ function Content({ route }: { route: Route }) {
     return item ? <ComponentPage item={item} /> : <NotFound path={`component/${route.name}`} />
   }
   if (route.kind === 'not-found') return <NotFound path={route.path} />
+  // Handled by App before the shell renders; listed so the switch below narrows.
+  if (route.kind === 'preview') return <PreviewPage name={route.name} />
 
   switch (route.slug) {
     case 'installation':
@@ -93,6 +96,9 @@ export default function App() {
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
   }, [])
+
+  // The full-screen preview is deliberately chrome-free: no sidebar, no header.
+  if (route.kind === 'preview') return <PreviewPage name={route.name} />
 
   return (
     <div className="flex h-full w-full overflow-hidden bg-background">

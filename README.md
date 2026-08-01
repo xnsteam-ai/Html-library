@@ -8,7 +8,7 @@ No package to install, no framework to adopt. Copy the markup, or fetch it over 
 - **Genuinely interactive, with zero JavaScript** — menus open, tabs switch panels, checkboxes tick, alerts dismiss, switches flip. Built on `<details>`/`<summary>` and hidden radios/checkboxes driving `peer-checked:` / `has-checked:` / `group-has-[…]:`
 - **Light and dark** — every component carries `dark:` variants
 - **Self-contained** — no scripts, no external stylesheets, inline SVG icons
-- **Browsable** — a React docs app with live previews, search (⌘K), per-component copy, and a gallery view for whole screens
+- **Browsable** — a React docs app with live previews, search (⌘K), per-component copy, a gallery view for whole screens, and an **Open in new tab** control that renders any component full screen with no docs chrome (`#/preview/<name>`)
 
 ```
 registry/<category>/<name>/component.html   source of truth

@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
-import { Search, X } from 'lucide-react'
+import { ExternalLink, Search, X } from 'lucide-react'
 import { getScreens, type RegistryItem, type Surface } from '../../registry'
-import { componentHref, galleryHref } from '../hooks/useHashRoute'
+import { componentHref, galleryHref, previewHref } from '../hooks/useHashRoute'
 import { ScreenFrame } from './ScreenFrame'
 
 // Card previews are scaled to roughly a third of the authored size; sites are
@@ -14,31 +14,46 @@ const STATUS_LABEL = { new: 'New', updated: 'Updated' } as const
 function ScreenCard({ item }: { item: RegistryItem }) {
   const surface = item.surface ?? 'app'
 
+  // The card is a link, so the full-screen control sits outside it — nesting
+  // anchors is invalid and would swallow the card's own click.
   return (
-    <a href={componentHref(item.name)} className="group block">
-      <div className="relative flex items-center justify-center overflow-hidden rounded-2xl bg-muted p-5 transition group-hover:bg-subtle">
-        {item.status && (
-          <span className="absolute left-3 top-3 z-10 rounded-md bg-background/90 px-2 py-0.5 text-[11px] font-medium text-foreground shadow-sm backdrop-blur">
-            {STATUS_LABEL[item.status]}
-          </span>
-        )}
-        <ScreenFrame item={item} scale={CARD_SCALE[surface]} />
-      </div>
+    <div className="group relative">
+      <a
+        href={previewHref(item.name)}
+        target="_blank"
+        rel="noreferrer"
+        className="absolute right-3 top-3 z-20 flex items-center gap-1 rounded-lg border border-border bg-background/95 px-2 py-1 text-[11.5px] font-medium text-muted-foreground opacity-0 shadow-sm backdrop-blur transition hover:text-foreground focus-visible:opacity-100 group-hover:opacity-100"
+        title="Open full screen in a new tab"
+      >
+        <ExternalLink size={11} />
+        Full screen
+      </a>
 
-      <div className="mt-3 flex items-start gap-2.5">
-        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary text-[13px] font-semibold text-primary-foreground">
-          {item.title.charAt(0)}
-        </span>
-        <span className="min-w-0">
-          <span className="block truncate text-[14px] font-medium text-foreground">
-            {item.title}
+      <a href={componentHref(item.name)} className="block">
+        <div className="relative flex items-center justify-center overflow-hidden rounded-2xl bg-muted p-5 transition group-hover:bg-subtle">
+          {item.status && (
+            <span className="absolute left-3 top-3 z-10 rounded-md bg-background/90 px-2 py-0.5 text-[11px] font-medium text-foreground shadow-sm backdrop-blur">
+              {STATUS_LABEL[item.status]}
+            </span>
+          )}
+          <ScreenFrame item={item} scale={CARD_SCALE[surface]} />
+        </div>
+
+        <div className="mt-3 flex items-start gap-2.5">
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary text-[13px] font-semibold text-primary-foreground">
+            {item.title.charAt(0)}
           </span>
-          <span className="block truncate text-[12.5px] text-muted-foreground">
-            {item.tagline ?? item.description}
+          <span className="min-w-0">
+            <span className="block truncate text-[14px] font-medium text-foreground">
+              {item.title}
+            </span>
+            <span className="block truncate text-[12.5px] text-muted-foreground">
+              {item.tagline ?? item.description}
+            </span>
           </span>
-        </span>
-      </div>
-    </a>
+        </div>
+      </a>
+    </div>
   )
 }
 
