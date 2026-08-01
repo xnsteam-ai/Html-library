@@ -26,8 +26,6 @@ export function PreviewPage({ name }: { name: string }) {
     )
   }
 
-  const isScreen = item.category === 'apps' || item.category === 'sites'
-
   return (
     <div className="relative min-h-full bg-background">
       {/* Floating controls, deliberately out of the way of the component itself */}
@@ -50,20 +48,28 @@ export function PreviewPage({ name }: { name: string }) {
         </button>
       </div>
 
-      <Rendered item={item} isScreen={isScreen} />
+      <Rendered item={item} />
     </div>
   )
 }
 
-function Rendered({ item, isScreen }: { item: RegistryItem; isScreen: boolean }) {
-  // Screens are authored at a fixed size, so centre them rather than stretching.
-  if (isScreen) {
+// No frame, no card, no border, no padding box around the markup — this route
+// exists so a component renders exactly as it would if you'd navigated to it
+// directly, not as a boxed-up preview of itself.
+function Rendered({ item }: { item: RegistryItem }) {
+  // Sections are authored `w-full` and meant to fill whatever page they sit
+  // in, so let them do exactly that — full width, natural height.
+  if (item.surface === 'section') {
+    return <div dangerouslySetInnerHTML={{ __html: item.html }} />
+  }
+
+  // Apps and full site pages are authored at one fixed pixel size (390×844,
+  // 1280×800). Centre that box on the viewport — no card, no border, no
+  // shadow — so it reads as the real screen rather than a preview thumbnail.
+  if (item.category === 'apps' || item.category === 'sites') {
     return (
-      <div className="flex min-h-screen items-start justify-center overflow-auto p-6">
-        <div
-          className="shrink-0 overflow-hidden rounded-xl border border-border shadow-sm"
-          dangerouslySetInnerHTML={{ __html: item.html }}
-        />
+      <div className="flex min-h-screen items-start justify-center overflow-auto">
+        <div dangerouslySetInnerHTML={{ __html: item.html }} />
       </div>
     )
   }
