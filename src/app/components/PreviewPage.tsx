@@ -2,6 +2,7 @@ import { ArrowLeft, Moon, Sun } from 'lucide-react'
 import { getComponent, type RegistryItem } from '../../registry'
 import { componentHref } from '../hooks/useHashRoute'
 import { useTheme } from '../hooks/useTheme'
+import { ScreenFrame } from './ScreenFrame'
 
 /**
  * The component on its own, with no docs chrome — the target of every
@@ -63,13 +64,11 @@ function Rendered({ item }: { item: RegistryItem }) {
     return <div dangerouslySetInnerHTML={{ __html: item.html }} />
   }
 
-  // Apps and full site pages are authored at one fixed pixel size (390×844,
-  // 1280×800). Centre that box on the viewport — no card, no border, no
-  // shadow — so it reads as the real screen rather than a preview thumbnail.
+  // Apps and Sites are wrapped in their single device frame and fit to the viewport.
   if (item.category === 'apps' || item.category === 'sites') {
     return (
-      <div className="flex min-h-screen items-start justify-center overflow-auto">
-        <div dangerouslySetInnerHTML={{ __html: item.html }} />
+      <div className="flex min-h-screen items-center justify-center p-6 md:p-12 bg-background">
+        <ScreenFrame item={item} fit interactive />
       </div>
     )
   }

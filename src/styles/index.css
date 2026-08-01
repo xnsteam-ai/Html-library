@@ -1,2 +1,29 @@
 @import './tailwind.css';
 @import './theme.css';
+
+/* ── Shiki code block overrides ─────────────────────────────────────────── */
+/* Strip the inline background Shiki emits so our wrapper colour takes over. */
+.shiki-wrap .shiki {
+  background: transparent !important;
+  margin: 0;
+  padding: 1.1rem 1.25rem;
+  font-size: 13px;
+  line-height: 1.7;
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+}
+
+.shiki-wrap .shiki code {
+  background: transparent !important;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+/* Shiki dual-theme: honour dark/light via the CSS variables it emits */
+.shiki-wrap .shiki span {
+  color: var(--shiki-dark) !important;
+}
+
+/* Light mode fallback — app is dark by default but keep it readable if ever needed */
+:root:not(.dark) .shiki-wrap .shiki span {
+  color: var(--shiki-light) !important;
+}

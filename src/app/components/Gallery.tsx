@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { ExternalLink, Search, X } from 'lucide-react'
+import { Check, Copy, ExternalLink, Search, X } from 'lucide-react'
 import {
   CATEGORY_META,
   GALLERY_CATEGORIES,
@@ -9,50 +9,93 @@ import {
   type Surface,
 } from '../../registry'
 import { componentHref, galleryHref, previewHref } from '../hooks/useHashRoute'
+import { useCopy } from '../hooks/useCopy'
+import { toStandaloneHtml } from '../lib/standaloneHtml'
 import { ScreenFrame } from './ScreenFrame'
 
 // Card previews are scaled to roughly a third of the authored size; sites are
 // far wider than phones, so each surface needs its own factor to land on
 // similar card heights. Sections additionally clamp to a fixed authored
 // height so a long section still yields a tidy card.
-const CARD_SCALE: Record<Surface, number> = { app: 0.42, site: 0.22, section: 0.28 }
+const CARD_SCALE: Record<Surface, number> = { app: 0.88, site: 0.22, section: 0.28 }
 const SECTION_CARD_CLAMP = 420
 
 const STATUS_LABEL = { new: 'New', updated: 'Updated' } as const
 
-function ScreenCard({ item }: { item: RegistryItem }) {
-  const surface = item.surface ?? 'app'
+function AppCard({ item }: { item: RegistryItem }) {
+  const { copied, copy } = useCopy()
 
-  // The card is a link, so the full-screen control sits outside it — nesting
-  // anchors is invalid and would swallow the card's own click.
   return (
-    <div className="group relative">
-      <a
-        href={previewHref(item.name)}
-        target="_blank"
-        rel="noreferrer"
-        className="absolute right-3 top-3 z-20 flex items-center gap-1 rounded-lg border border-border bg-background/95 px-2 py-1 text-[11.5px] font-medium text-muted-foreground opacity-0 shadow-sm backdrop-blur transition hover:text-foreground focus-visible:opacity-100 group-hover:opacity-100"
-        title="Open full screen in a new tab"
-      >
-        <ExternalLink size={11} />
-        Full screen
+    <div className="flex flex-col items-center gap-3">
+      {/* Phone frame sits directly, no outer card wrapper */}
+      <a href={componentHref(item.name)} className="relative block">
+        {item.status && (
+          <span className="absolute left-3 top-3 z-10 rounded-md bg-background/90 px-2 py-0.5 text-[11px] font-medium text-foreground shadow-sm backdrop-blur">
+            {STATUS_LABEL[item.status]}
+          </span>
+        )}
+        <ScreenFrame item={item} scale={CARD_SCALE['app']} />
       </a>
 
-      <a href={componentHref(item.name)} className="block">
-        <div className="relative flex items-center justify-center overflow-hidden rounded-2xl bg-muted p-5 transition group-hover:bg-subtle">
-          {item.status && (
-            <span className="absolute left-3 top-3 z-10 rounded-md bg-background/90 px-2 py-0.5 text-[11px] font-medium text-foreground shadow-sm backdrop-blur">
-              {STATUS_LABEL[item.status]}
-            </span>
-          )}
-          <ScreenFrame
-            item={item}
-            scale={CARD_SCALE[surface]}
-            clampHeight={surface === 'section' ? SECTION_CARD_CLAMP : undefined}
-          />
-        </div>
+      {/* Title row below the phone */}
+      <div className="w-full text-center">
+        <a href={componentHref(item.name)} className="block">
+          <span className="block truncate text-[13.5px] font-medium text-foreground">
+            {item.title}
+          </span>
+          <span className="block truncate text-[12px] text-muted-foreground">
+            {item.tagline ?? item.description}
+          </span>
+        </a>
 
-        <div className="mt-3 flex items-start gap-2.5">
+        <div className="mt-2 flex items-center justify-center gap-2">
+          <a
+            href={previewHref(item.name)}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-1.5 rounded-lg border border-border px-3 py-1.5 text-[12px] font-medium text-foreground transition hover:bg-subtle"
+          >
+            <ExternalLink size={12} />
+            Preview
+          </a>
+          <button
+            type="button"
+            onClick={() => copy(toStandaloneHtml(item))}
+            className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg border border-border text-muted-foreground transition hover:bg-subtle hover:text-foreground"
+            title="Copy HTML"
+          >
+            {copied ? <Check size={13} /> : <Copy size={13} />}
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function ScreenCard({ item }: { item: RegistryItem }) {
+  const surface = item.surface ?? 'app'
+  const { copied, copy } = useCopy()
+
+  // Two separate anchors to the same href (image + title row) instead of one
+  // wrapping anchor, so the footer's own action row can sit alongside them
+  // without nesting an interactive element inside a link.
+  return (
+    <div className="overflow-hidden rounded-2xl border border-border bg-muted shadow-sm transition hover:shadow-md">
+      <a href={componentHref(item.name)} className="relative flex items-center justify-center bg-muted">
+        {item.status && (
+          <span className="absolute left-3 top-3 z-10 rounded-md bg-background/90 px-2 py-0.5 text-[11px] font-medium text-foreground shadow-sm backdrop-blur">
+            {STATUS_LABEL[item.status]}
+          </span>
+        )}
+        <ScreenFrame
+          item={item}
+          scale={CARD_SCALE[surface]}
+          clampHeight={surface === 'section' ? SECTION_CARD_CLAMP : undefined}
+        />
+      </a>
+
+      <div className="border-t border-border p-4">
+        <a href={componentHref(item.name)} className="flex items-start gap-2.5">
           <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary text-[13px] font-semibold text-primary-foreground">
             {item.title.charAt(0)}
           </span>
@@ -64,8 +107,28 @@ function ScreenCard({ item }: { item: RegistryItem }) {
               {item.tagline ?? item.description}
             </span>
           </span>
+        </a>
+
+        <div className="mt-3 flex items-center gap-2">
+          <a
+            href={previewHref(item.name)}
+            target="_blank"
+            rel="noreferrer"
+            className="flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-border py-2 text-[12.5px] font-medium text-foreground transition hover:bg-subtle"
+          >
+            <ExternalLink size={13} />
+            Open full screen
+          </a>
+          <button
+            type="button"
+            onClick={() => copy(toStandaloneHtml(item))}
+            className="flex h-[34px] w-[34px] shrink-0 items-center justify-center rounded-lg border border-border text-muted-foreground transition hover:bg-subtle hover:text-foreground"
+            title="Copy HTML"
+          >
+            {copied ? <Check size={14} /> : <Copy size={14} />}
+          </button>
         </div>
-      </a>
+      </div>
     </div>
   )
 }
@@ -94,7 +157,7 @@ export function Gallery({ category }: { category: CategoryId }) {
       aria-current={category === value ? 'page' : undefined}
       className={`flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[13px] font-medium transition ${
         category === value
-          ? 'bg-background text-foreground shadow-sm dark:bg-subtle'
+          ? 'bg-white dark:bg-neutral-700 text-foreground shadow-sm'
           : 'text-muted-foreground hover:text-foreground'
       }`}
     >
@@ -117,7 +180,7 @@ export function Gallery({ category }: { category: CategoryId }) {
 
       {/* Category switcher + search */}
       <div className="mb-7 flex flex-wrap items-center gap-3">
-        <div className="flex rounded-full bg-muted p-[3px]" role="tablist" aria-label="Category">
+        <div className="flex rounded-full bg-neutral-200 dark:bg-neutral-800 p-[3px]" role="tablist" aria-label="Category">
           {GALLERY_CATEGORIES.map(tab)}
         </div>
 
@@ -131,7 +194,7 @@ export function Gallery({ category }: { category: CategoryId }) {
             onChange={(event) => setQuery(event.target.value)}
             placeholder={`Search ${meta.title.toLowerCase()}…`}
             aria-label="Search screens"
-            className="w-full rounded-full bg-muted py-2 pl-9 pr-8 text-[13px] text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+            className="w-full rounded-full bg-neutral-200 dark:bg-neutral-800 py-2 pl-9 pr-8 text-[13px] text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
           />
           {query && (
             <button
@@ -162,15 +225,19 @@ export function Gallery({ category }: { category: CategoryId }) {
         </div>
       ) : (
         <div
-          className={`grid gap-x-5 gap-y-7 ${
+          className={`grid gap-x-6 gap-y-10 ${
             isPhoneGrid
-              ? 'grid-cols-2 md:grid-cols-3 xl:grid-cols-4'
+              ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
               : 'grid-cols-1 md:grid-cols-2 xl:grid-cols-3'
           }`}
         >
-          {results.map((item) => (
-            <ScreenCard key={item.name} item={item} />
-          ))}
+          {results.map((item) =>
+            isPhoneGrid ? (
+              <AppCard key={item.name} item={item} />
+            ) : (
+              <ScreenCard key={item.name} item={item} />
+            ),
+          )}
         </div>
       )}
     </div>

@@ -1,104 +1,96 @@
-import { useMemo } from 'react'
+import { useEffect, useState } from 'react'
 import { Check, Copy } from 'lucide-react'
+import { createHighlighter, type Highlighter } from 'shiki'
 import { useCopy } from '../hooks/useCopy'
 
-type Token = { text: string; className: string }
+// ---------------------------------------------------------------------------
+// Shiki singleton — created once, reused for every CodeBlock on the page.
+// ---------------------------------------------------------------------------
+let highlighterPromise: Promise<Highlighter> | null = null
 
-const TAG = 'text-sky-700 dark:text-sky-300'
-const ATTR = 'text-violet-700 dark:text-violet-300'
-const VALUE = 'text-emerald-700 dark:text-emerald-300'
-const COMMENT = 'text-gray-400 dark:text-gray-500'
-const PLAIN = 'text-gray-700 dark:text-gray-300'
-
-/**
- * Tiny HTML tokenizer — enough colour for copy-paste snippets without pulling
- * in a syntax-highlighting dependency.
- */
-function tokenizeHtml(code: string): Token[] {
-  const tokens: Token[] = []
-  const pattern = /<!--[\s\S]*?-->|<\/?[A-Za-z][^>]*>/g
-  let cursor = 0
-  let match: RegExpExecArray | null
-
-  while ((match = pattern.exec(code))) {
-    if (match.index > cursor) {
-      tokens.push({ text: code.slice(cursor, match.index), className: PLAIN })
-    }
-    const chunk = match[0]
-
-    if (chunk.startsWith('<!--')) {
-      tokens.push({ text: chunk, className: COMMENT })
-    } else {
-      const inner = /^(<\/?)([A-Za-z][\w-]*)([\s\S]*?)(\/?>)$/.exec(chunk)
-      if (!inner) {
-        tokens.push({ text: chunk, className: PLAIN })
-      } else {
-        const [, open, tagName, attrs, close] = inner
-        tokens.push({ text: open + tagName, className: TAG })
-
-        const attrPattern = /([\w:@-]+)(\s*=\s*)("[^"]*"|'[^']*')|(\s+)|([^\s]+)/g
-        let attrMatch: RegExpExecArray | null
-        while ((attrMatch = attrPattern.exec(attrs))) {
-          const [full, name, equals, value, space, other] = attrMatch
-          if (name) {
-            tokens.push({ text: name, className: ATTR })
-            tokens.push({ text: equals, className: PLAIN })
-            tokens.push({ text: value, className: VALUE })
-          } else {
-            tokens.push({ text: space ?? other ?? full, className: PLAIN })
-          }
-        }
-        tokens.push({ text: close, className: TAG })
-      }
-    }
-    cursor = match.index + chunk.length
+function getHighlighter(): Promise<Highlighter> {
+  if (!highlighterPromise) {
+    highlighterPromise = createHighlighter({
+      themes: ['github-dark-dimmed', 'github-light'],
+      langs: ['html', 'bash', 'text'],
+    })
   }
-
-  if (cursor < code.length) tokens.push({ text: code.slice(cursor), className: PLAIN })
-  return tokens
+  return highlighterPromise
 }
 
+// ---------------------------------------------------------------------------
+// Props
+// ---------------------------------------------------------------------------
 interface CodeBlockProps {
   code: string
   language?: 'html' | 'bash' | 'text'
   filename?: string
   /** Tailwind max-height utility for the scroll area. */
   maxHeight?: string
+  /**
+   * What the Copy button actually places on the clipboard, if different from
+   * the displayed `code` — e.g. a standalone document (Tailwind CDN + doctype)
+   * for a bare registry fragment, so it renders correctly in any online HTML
+   * previewer instead of showing unstyled markup.
+   */
+  copyCode?: string
 }
 
-export function CodeBlock({ code, language = 'html', filename, maxHeight }: CodeBlockProps) {
+// ---------------------------------------------------------------------------
+// Component
+// ---------------------------------------------------------------------------
+export function CodeBlock({ code, language = 'html', filename, maxHeight, copyCode }: CodeBlockProps) {
   const { copied, copy } = useCopy()
-  const tokens = useMemo(
-    () => (language === 'html' ? tokenizeHtml(code) : [{ text: code, className: PLAIN }]),
-    [code, language],
-  )
+  const [html, setHtml] = useState<string | null>(null)
+
+  useEffect(() => {
+    let cancelled = false
+    getHighlighter().then((hl) => {
+      if (cancelled) return
+      const out = hl.codeToHtml(code, {
+        lang: language === 'text' ? 'text' : language,
+        themes: {
+          dark: 'github-dark-dimmed',
+          light: 'github-light',
+        },
+        defaultColor: false,
+      })
+      setHtml(out)
+    })
+    return () => { cancelled = true }
+  }, [code, language])
 
   return (
     <div className="overflow-hidden rounded-xl border border-border bg-background">
+      {/* Header bar — original theme colors */}
       <div className="flex items-center justify-between border-b border-border bg-muted px-3 py-1.5 dark:bg-[#0a0a0a]">
         <span className="font-mono text-[11px] text-muted-foreground">
           {filename ?? (language === 'bash' ? 'terminal' : language)}
         </span>
         <button
           type="button"
-          onClick={() => copy(code)}
+          onClick={() => copy(copyCode ?? code)}
+          title={copyCode ? 'Copies a standalone HTML file — Tailwind included — that previews correctly anywhere' : undefined}
           className="flex items-center gap-1 rounded-md px-1.5 py-1 text-[11px] font-medium text-muted-foreground transition hover:bg-subtle hover:text-foreground"
         >
           {copied ? <Check size={12} /> : <Copy size={12} />}
           {copied ? 'Copied' : 'Copy'}
         </button>
       </div>
-      <pre
-        className={`scrollbar-thin overflow-auto px-3.5 py-3 font-mono text-[12.5px] leading-relaxed ${maxHeight ?? 'max-h-[520px]'}`}
-      >
-        <code>
-          {tokens.map((token, index) => (
-            <span key={index} className={token.className}>
-              {token.text}
-            </span>
-          ))}
-        </code>
-      </pre>
+
+      {/* Code area — Shiki syntax colours, app background */}
+      <div className={`scrollbar-thin overflow-auto bg-background ${maxHeight ?? 'max-h-[600px]'}`}>
+        {html ? (
+          <div
+            className="shiki-wrap text-[13px] leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
+        ) : (
+          <pre className="px-5 py-4 font-mono text-[13px] leading-relaxed text-[#adbac7] opacity-40">
+            <code>{code}</code>
+          </pre>
+        )}
+      </div>
     </div>
   )
 }

@@ -9,20 +9,30 @@ import {
 } from '../../registry'
 import { useCopy } from '../hooks/useCopy'
 import { previewHref } from '../hooks/useHashRoute'
+import { toStandaloneHtml } from '../lib/standaloneHtml'
 import { CodeBlock } from './CodeBlock'
 import { ScreenFrame } from './ScreenFrame'
 
 const SURFACES: Record<string, string> = {
   plain: 'bg-background',
-  muted: 'bg-muted',
+  muted: 'bg-neutral-100 dark:bg-neutral-900/40',
   app: 'bg-subtle',
 }
 
 function Preview({ item }: { item: RegistryItem }) {
-  // Whole screens and page sections get device chrome; parts render inline.
-  if (item.category === 'apps' || item.category === 'sites') {
+  // Apps: phone floats directly on the page — no outer container.
+  if (item.category === 'apps') {
     return (
-      <div className="flex justify-center rounded-xl border border-border bg-muted p-6 dark:bg-[#0a0a0a]">
+      <div className="flex justify-center py-6">
+        <ScreenFrame item={item} fit interactive />
+      </div>
+    )
+  }
+
+  // Sites: render centered directly, no outer padding/border container.
+  if (item.category === 'sites') {
+    return (
+      <div className="flex justify-center py-6">
         <ScreenFrame item={item} fit interactive />
       </div>
     )
@@ -127,8 +137,9 @@ export function ComponentPage({ item }: { item: RegistryItem }) {
           </a>
           <button
             type="button"
-            onClick={() => copy(item.html)}
+            onClick={() => copy(toStandaloneHtml(item))}
             className="flex items-center gap-1.5 rounded-lg border border-border px-2.5 py-1.5 text-[12.5px] font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground"
+            title="Copies a standalone HTML file — Tailwind included — that previews correctly anywhere"
           >
             {copied ? <Check size={13} /> : <Copy size={13} />}
             {copied ? 'Copied' : 'Copy HTML'}
@@ -139,7 +150,12 @@ export function ComponentPage({ item }: { item: RegistryItem }) {
       {tab === 'preview' ? (
         <Preview item={item} />
       ) : (
-        <CodeBlock code={item.html} filename={`${item.name}.html`} maxHeight="max-h-[640px]" />
+        <CodeBlock
+          code={item.html}
+          copyCode={toStandaloneHtml(item)}
+          filename={`${item.name}.html`}
+          maxHeight="max-h-[640px]"
+        />
       )}
 
       {/* Install */}

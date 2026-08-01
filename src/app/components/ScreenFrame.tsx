@@ -117,16 +117,6 @@ function PhoneFrame({ children }: { children: ReactNode }) {
 function BrowserFrame({ children }: { children: ReactNode }) {
   return (
     <div className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm dark:border-white/10 dark:bg-neutral-900">
-      <div className="flex items-center gap-2 border-b border-gray-200 bg-gray-50 px-3 py-2 dark:border-white/10 dark:bg-white/5">
-        <span className="flex gap-1.5">
-          <span className="h-2.5 w-2.5 rounded-full bg-gray-300 dark:bg-white/20" />
-          <span className="h-2.5 w-2.5 rounded-full bg-gray-300 dark:bg-white/20" />
-          <span className="h-2.5 w-2.5 rounded-full bg-gray-300 dark:bg-white/20" />
-        </span>
-        <span className="mx-auto rounded-md bg-white px-8 py-0.5 text-[10px] text-gray-400 dark:bg-neutral-950 dark:text-gray-500">
-          example.com
-        </span>
-      </div>
       {children}
     </div>
   )
