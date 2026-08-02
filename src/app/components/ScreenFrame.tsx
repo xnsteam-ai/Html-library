@@ -98,7 +98,9 @@ function ScaledScreen({
       >
         <div
           ref={contentRef}
-          className={interactive ? undefined : 'pointer-events-none select-none'}
+          className={`${interactive ? '' : 'pointer-events-none select-none'} ${
+            surface === 'app' ? '[&>div]:pt-[38px] [&>div]:pb-[16px]' : ''
+          }`}
           dangerouslySetInnerHTML={{ __html: html }}
         />
         {surface === 'app' && (
