@@ -80,6 +80,7 @@ function ScaledScreen({
   clampHeight?: number
   contentRef?: React.Ref<HTMLDivElement>
   isSiteOrSection?: boolean
+  surface?: Surface
 }) {
   const visibleHeight = clampHeight ? Math.min(height, clampHeight) : height
 
@@ -92,13 +93,28 @@ function ScaledScreen({
     >
       <div
         style={{ width, height, transform: `scale(${scale})`, transformOrigin: 'top left' }}
-        className="overflow-hidden"
+        className="relative overflow-hidden"
       >
         <div
           ref={contentRef}
           className={interactive ? undefined : 'pointer-events-none select-none'}
           dangerouslySetInnerHTML={{ __html: html }}
         />
+        {surface === 'app' && (
+          <>
+            <div className="pointer-events-none absolute left-0 right-0 top-0 z-10 flex items-center justify-between px-6 pb-1 pt-3.5">
+              <span className="text-[13px] font-semibold text-foreground dark:text-gray-100">9:41</span>
+              <div className="flex items-center gap-1.5 text-foreground dark:text-gray-100">
+                <svg className="h-3 w-4" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1" /><rect x="5" y="5" width="3" height="7" rx="1" /><rect x="10" y="2" width="3" height="10" rx="1" /><rect x="15" y="0" width="3" height="12" rx="1" opacity="0.35" /></svg>
+                <svg className="h-3 w-4" viewBox="0 0 16 12" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"><path d="M1 4.5a10 10 0 0114 0M3.5 7.5a6.5 6.5 0 019 0M7 10.5l1 1 1-1" /></svg>
+                <svg className="h-3 w-6" viewBox="0 0 26 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="3" stroke="currentColor" opacity="0.4" /><rect x="2" y="2" width="15" height="8" rx="1.5" fill="currentColor" /><path d="M23 4v4a2.5 2.5 0 000-4z" fill="currentColor" opacity="0.5" /></svg>
+              </div>
+            </div>
+            <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 flex justify-center pb-2 pt-1">
+              <span className="h-1 w-32 rounded-full bg-gray-900/80 dark:bg-white/60"></span>
+            </div>
+          </>
+        )}
       </div>
     </div>
   )
@@ -166,6 +182,7 @@ export function ScreenFrame({
       clampHeight={clampHeight}
       contentRef={isAuto ? contentRef : undefined}
       isSiteOrSection={!unframed && (surface === 'site' || surface === 'section')}
+      surface={surface}
     />
   )
   const framed = (!unframed && surface === 'app') ? <PhoneFrame>{screen}</PhoneFrame> : screen
