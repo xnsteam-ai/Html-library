@@ -9,7 +9,6 @@ import {
   type Surface,
 } from '../../registry'
 import { componentHref, galleryHref, previewHref } from '../hooks/useHashRoute'
-import { useCopy } from '../hooks/useCopy'
 import { toStandaloneHtml } from '../lib/standaloneHtml'
 import { ScreenFrame } from './ScreenFrame'
 
@@ -74,60 +73,35 @@ function AppCard({ item }: { item: RegistryItem }) {
 
 function ScreenCard({ item }: { item: RegistryItem }) {
   const surface = item.surface ?? 'app'
-  const { copied, copy } = useCopy()
 
-  // Two separate anchors to the same href (image + title row) instead of one
-  // wrapping anchor, so the footer's own action row can sit alongside them
-  // without nesting an interactive element inside a link.
   return (
-    <div className="overflow-hidden rounded-2xl border border-border bg-muted shadow-sm transition hover:shadow-md">
-      <a href={componentHref(item.name)} className="relative flex items-center justify-center bg-muted">
-        {item.status && (
-          <span className="absolute left-3 top-3 z-10 rounded-md bg-background/90 px-2 py-0.5 text-[11px] font-medium text-foreground shadow-sm backdrop-blur">
-            {STATUS_LABEL[item.status]}
-          </span>
-        )}
+    <div className="flex flex-col group">
+      <a 
+        href={componentHref(item.name)} 
+        className="relative flex items-center justify-center overflow-hidden rounded-xl border border-border bg-muted shadow-sm transition hover:shadow-md"
+      >
         <ScreenFrame
           item={item}
           scale={CARD_SCALE[surface]}
           clampHeight={surface === 'section' ? SECTION_CARD_CLAMP : undefined}
         />
       </a>
-
-      <div className="border-t border-border p-4">
-        <a href={componentHref(item.name)} className="flex items-start gap-2.5">
-          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary text-[13px] font-semibold text-primary-foreground">
-            {item.title.charAt(0)}
-          </span>
-          <span className="min-w-0">
-            <span className="block truncate text-[14px] font-medium text-foreground">
-              {item.title}
-            </span>
-            <span className="block truncate text-[12.5px] text-muted-foreground">
-              {item.tagline ?? item.description}
-            </span>
-          </span>
+      
+      <div className="mt-4 flex items-center gap-2.5 px-1">
+        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-foreground text-[11px] font-bold text-background">
+          {item.title.charAt(0)}
+        </span>
+        <a 
+          href={componentHref(item.name)} 
+          className="truncate text-[14.5px] font-semibold tracking-tight text-foreground group-hover:text-primary transition-colors"
+        >
+          {item.title}
         </a>
-
-        <div className="mt-3 flex items-center gap-2">
-          <a
-            href={previewHref(item.name)}
-            target="_blank"
-            rel="noreferrer"
-            className="flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-border py-2 text-[12.5px] font-medium text-foreground transition hover:bg-subtle"
-          >
-            <ExternalLink size={13} />
-            Open full screen
-          </a>
-          <button
-            type="button"
-            onClick={() => copy(toStandaloneHtml(item))}
-            className="flex h-[34px] w-[34px] shrink-0 items-center justify-center rounded-lg border border-border text-muted-foreground transition hover:bg-subtle hover:text-foreground"
-            title="Copy HTML"
-          >
-            {copied ? <Check size={14} /> : <Copy size={14} />}
-          </button>
-        </div>
+        {item.status && (
+          <span className="ml-auto rounded-full bg-subtle px-2 py-0.5 text-[10px] font-medium text-muted-foreground">
+            {STATUS_LABEL[item.status]}
+          </span>
+        )}
       </div>
     </div>
   )
