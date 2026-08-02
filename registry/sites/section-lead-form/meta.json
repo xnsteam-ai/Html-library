@@ -1,0 +1,11 @@
+{
+  "name": "section-lead-form",
+  "title": "Lead Gen Form",
+  "description": "A long-form informational page — savings, benefits and contractor copy — ending in a multi-fieldset request form with a real radio-scale question. Auto-height, so nothing is clipped.",
+  "category": "sites",
+  "surface": "section",
+  "tagline": "Info page & request form",
+  "status": "new",
+  "order": 35,
+  "tags": ["form", "lead gen", "landing", "long-form"]
+}

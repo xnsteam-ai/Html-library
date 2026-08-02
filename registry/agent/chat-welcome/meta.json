@@ -1,0 +1,11 @@
+{
+  "name": "chat-welcome",
+  "title": "Chat Welcome",
+  "description": "The empty-state screen before any messages exist: a centred greeting above a rounded composer with a teal send button and a scroll-to-bottom affordance.",
+  "category": "agent",
+  "order": 22,
+  "status": "new",
+  "tags": ["chat", "empty state", "composer", "welcome"],
+  "previewBg": "plain",
+  "previewHeight": 380
+}

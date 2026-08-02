@@ -1,0 +1,11 @@
+{
+  "name": "prompt-composer",
+  "title": "Prompt Composer",
+  "description": "A rounded message box with an inline toolbar — attachment, agent and model pickers on the left, send on the right. The shell lights up on focus-within.",
+  "category": "ui",
+  "order": 10,
+  "status": "new",
+  "tags": ["textarea", "composer", "toolbar", "form"],
+  "previewBg": "plain",
+  "previewHeight": 220
+}

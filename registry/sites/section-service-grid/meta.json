@@ -1,0 +1,11 @@
+{
+  "name": "section-service-grid",
+  "title": "Service Grid",
+  "description": "A 2×2 directory of service categories, each a pastel panel with tag pills and an Explore footer, above a filter header with a live status dot.",
+  "category": "sites",
+  "surface": "section",
+  "tagline": "Categories & tag pills",
+  "status": "new",
+  "order": 34,
+  "tags": ["services", "directory", "cards", "grid"]
+}

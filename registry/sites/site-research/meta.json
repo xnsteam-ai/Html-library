@@ -1,0 +1,11 @@
+{
+  "name": "site-research",
+  "title": "Research Home",
+  "description": "A publication home page: translucent nav, centred prompt hero with quick-action pills, a bento lead story and a recent-news row. Thumbnails are CSS gradients.",
+  "category": "sites",
+  "surface": "site",
+  "tagline": "Prompt hero & bento",
+  "status": "new",
+  "order": 13,
+  "tags": ["landing", "editorial", "bento", "search"]
+}

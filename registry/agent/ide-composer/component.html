@@ -1,0 +1,63 @@
+<!--
+  IDE Composer — a dark, IDE-embedded prompt bar: session placeholder with a
+  blinking caret, a middle row of mode toggles, and a bottom action strip.
+  Keyframes can't be expressed as Tailwind utilities, so this file carries one
+  scoped <style> block. Class names are prefixed `ic-` to avoid collisions.
+-->
+<style>
+  @keyframes ic-blink { 0%, 100% { opacity: 1 } 50% { opacity: 0 } }
+  .ic-blink { animation: ic-blink 1s infinite; }
+  @media (prefers-reduced-motion: reduce) {
+    .ic-blink { animation: none; }
+  }
+</style>
+
+<div class="mx-auto w-full max-w-lg font-sans antialiased">
+  <div class="relative z-[1] flex w-full flex-col overflow-hidden rounded-xl border border-[#4f4f4f] bg-[#2e2e2e] p-2">
+    <!-- Session placeholder -->
+    <div class="relative mb-1 flex min-h-[44px] cursor-text items-center rounded-lg bg-[#3a3a3a] p-2">
+      <span class="pl-2 text-sm text-white opacity-50">New Session (Ctrl+N)</span>
+      <div class="ic-blink absolute left-2.5 top-1/2 h-4 w-0.5 -translate-y-1/2 bg-white"></div>
+    </div>
+
+    <!-- Middle button row -->
+    <div class="flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-1">
+        <button type="button" aria-label="Add" class="inline-flex size-7 items-center justify-center rounded-md bg-[#3a3a3a] text-white transition hover:bg-[#4f4f4f]">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5v14" /></svg>
+        </button>
+        <button type="button" class="inline-flex h-7 items-center gap-1 rounded-md bg-[#3a3a3a] px-2 text-xs text-white transition hover:bg-[#4f4f4f]">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6" /><path d="m8 6-6 6 6 6" /></svg>
+          Code
+        </button>
+        <button type="button" class="inline-flex h-7 items-center rounded-md bg-[#3a3a3a] px-2 text-xs text-[#f9fafb] transition hover:bg-[#4f4f4f]">Sonnet 4.6</button>
+      </div>
+
+      <div class="flex items-center gap-1">
+        <span role="status" aria-label="Loading" class="size-4 animate-spin rounded-full border-2 border-[#d1d5db] border-t-transparent opacity-70 motion-reduce:animate-none"></span>
+        <button type="button" disabled class="inline-flex cursor-not-allowed items-center gap-1 rounded-md bg-[#3a3a3a] px-2 text-xs text-[#d1d5db] opacity-65">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="9" /></svg>
+          Cascade
+        </button>
+        <button type="button" aria-label="Toggle microphone" class="inline-flex size-7 items-center justify-center rounded-md bg-[#3a3a3a] text-[#d1d5db] transition hover:bg-[#4f4f4f]">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19v3" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><rect x="9" y="2" width="6" height="13" rx="3" /></svg>
+        </button>
+        <button type="button" disabled aria-label="Send" class="inline-flex size-7 items-center justify-center rounded-full bg-[#a3a3a3] text-black opacity-60">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7" /></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Bottom action bar -->
+    <div class="relative -mx-2 -mt-6 flex flex-nowrap items-center gap-1 rounded-b-xl bg-[#3a3a3a] px-2 pb-1.5 pt-8">
+      <button type="button" disabled class="inline-flex h-7 cursor-not-allowed items-center gap-1 rounded-md bg-[#3a3a3a] px-2 text-xs text-[#d1d5db] opacity-60 hover:bg-[#4f4f4f]">
+        <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2" /><path d="M2 18h20" /></svg>
+        Local
+      </button>
+      <button type="button" disabled class="inline-flex h-7 cursor-not-allowed items-center gap-1 rounded-md bg-[#3a3a3a] px-2 text-xs text-[#d1d5db] opacity-60 hover:bg-[#4f4f4f]">
+        <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="2" /><path d="m6 6 6-4 6 4" /></svg>
+        Remote
+      </button>
+    </div>
+  </div>
+</div>

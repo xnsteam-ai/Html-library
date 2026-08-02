@@ -16,17 +16,17 @@
     {
       "name": "sites",
       "title": "Sites",
-      "count": 17
+      "count": 24
     },
     {
       "name": "agent",
       "title": "Agent Elements",
-      "count": 19
+      "count": 21
     },
     {
       "name": "ui",
       "title": "UI Elements",
-      "count": 8
+      "count": 13
     }
   ],
   "items": [
@@ -172,6 +172,48 @@
       ],
       "url": "https://xnsteam-ai.github.io/Html-library/r/site-auth.json",
       "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/site-auth.json"
+    },
+    {
+      "name": "site-agents",
+      "title": "Agents Landing",
+      "description": "A warm-toned product landing page: sticky nav with dropdown affordances, breadcrumb strip, split hero with a node-graph illustration, and a partner logo wall.",
+      "category": "sites",
+      "tags": [
+        "landing",
+        "marketing",
+        "hero",
+        "product"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/site-agents.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/site-agents.json"
+    },
+    {
+      "name": "site-research",
+      "title": "Research Home",
+      "description": "A publication home page: translucent nav, centred prompt hero with quick-action pills, a bento lead story and a recent-news row. Thumbnails are CSS gradients.",
+      "category": "sites",
+      "tags": [
+        "landing",
+        "editorial",
+        "bento",
+        "search"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/site-research.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/site-research.json"
+    },
+    {
+      "name": "site-fintech-hero",
+      "title": "Fintech Hero",
+      "description": "A full-bleed gradient backdrop with a floating pill nav and a footer-anchored headline — the composition that pairs a bold claim with feature chips below the fold.",
+      "category": "sites",
+      "tags": [
+        "landing",
+        "hero",
+        "fintech",
+        "gradient"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/site-fintech-hero.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/site-fintech-hero.json"
     },
     {
       "name": "section-hero",
@@ -328,6 +370,62 @@
       ],
       "url": "https://xnsteam-ai.github.io/Html-library/r/section-footer.json",
       "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/section-footer.json"
+    },
+    {
+      "name": "section-customer-stories",
+      "title": "Customer Stories",
+      "description": "A two-column case-study grid pairing a square brand-locked thumbnail with a headline, summary and inline link. Thumbnails are CSS gradients, so nothing is fetched.",
+      "category": "sites",
+      "tags": [
+        "customers",
+        "case study",
+        "marketing",
+        "grid"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/section-customer-stories.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/section-customer-stories.json"
+    },
+    {
+      "name": "section-plan-picker",
+      "title": "Plan Picker",
+      "description": "Credit-based pricing tiers with a per-month allowance box, indented model lists, and a highlighted plan wrapped in a dark shell with an amber call to action.",
+      "category": "sites",
+      "tags": [
+        "pricing",
+        "plans",
+        "credits",
+        "upgrade"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/section-plan-picker.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/section-plan-picker.json"
+    },
+    {
+      "name": "section-service-grid",
+      "title": "Service Grid",
+      "description": "A 2×2 directory of service categories, each a pastel panel with tag pills and an Explore footer, above a filter header with a live status dot.",
+      "category": "sites",
+      "tags": [
+        "services",
+        "directory",
+        "cards",
+        "grid"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/section-service-grid.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/section-service-grid.json"
+    },
+    {
+      "name": "section-lead-form",
+      "title": "Lead Gen Form",
+      "description": "A long-form informational page — savings, benefits and contractor copy — ending in a multi-fieldset request form with a real radio-scale question. Auto-height, so nothing is clipped.",
+      "category": "sites",
+      "tags": [
+        "form",
+        "lead gen",
+        "landing",
+        "long-form"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/section-lead-form.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/section-lead-form.json"
     },
     {
       "name": "agent-chat",
@@ -577,6 +675,34 @@
       "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/tool-group.json"
     },
     {
+      "name": "ide-composer",
+      "title": "IDE Composer",
+      "description": "A dark, IDE-embedded prompt bar: session placeholder with a blinking caret, mode toggle row, and a bottom Local/Remote action strip. Always dark, like the editor panel it depicts.",
+      "category": "agent",
+      "tags": [
+        "composer",
+        "ide",
+        "dark",
+        "toolbar"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/ide-composer.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/ide-composer.json"
+    },
+    {
+      "name": "chat-welcome",
+      "title": "Chat Welcome",
+      "description": "The empty-state screen before any messages exist: a centred greeting above a rounded composer with a teal send button and a scroll-to-bottom affordance.",
+      "category": "agent",
+      "tags": [
+        "chat",
+        "empty state",
+        "composer",
+        "welcome"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/chat-welcome.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/chat-welcome.json"
+    },
+    {
       "name": "button",
       "title": "Button",
       "description": "Primary, secondary, ghost, destructive and link buttons across four sizes, with loading, disabled and icon states.",
@@ -679,6 +805,76 @@
       ],
       "url": "https://xnsteam-ai.github.io/Html-library/r/empty-state.json",
       "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/empty-state.json"
+    },
+    {
+      "name": "radio-card-group",
+      "title": "Radio Card Group",
+      "description": "Selectable plan cards backed by native radio inputs — checked, hover and disabled states are driven entirely by CSS, so selection works without JavaScript.",
+      "category": "ui",
+      "tags": [
+        "radio",
+        "form",
+        "selection",
+        "pricing"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/radio-card-group.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/radio-card-group.json"
+    },
+    {
+      "name": "prompt-composer",
+      "title": "Prompt Composer",
+      "description": "A rounded message box with an inline toolbar — attachment, agent and model pickers on the left, send on the right. The shell lights up on focus-within.",
+      "category": "ui",
+      "tags": [
+        "textarea",
+        "composer",
+        "toolbar",
+        "form"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/prompt-composer.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/prompt-composer.json"
+    },
+    {
+      "name": "auth-card",
+      "title": "Auth Card",
+      "description": "A sign-in panel with crosshair corner marks and bleeding hairlines — email and password fields, a primary action, and GitHub / Google providers.",
+      "category": "ui",
+      "tags": [
+        "auth",
+        "login",
+        "form",
+        "card"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/auth-card.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/auth-card.json"
+    },
+    {
+      "name": "badge-pill",
+      "title": "Badge Pill",
+      "description": "shadcn-style semantic badge variants — default, secondary, outline and destructive — for labelling status inside a larger component.",
+      "category": "ui",
+      "tags": [
+        "badge",
+        "label",
+        "variants",
+        "status"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/badge-pill.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/badge-pill.json"
+    },
+    {
+      "name": "login-glass",
+      "title": "Login Glass",
+      "description": "A translucent, glassmorphic auth card floating over two soft drifting blobs — email, password and a full-width primary action.",
+      "category": "ui",
+      "tags": [
+        "auth",
+        "login",
+        "glassmorphism",
+        "form"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/login-glass.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/login-glass.json"
     }
   ]
 }

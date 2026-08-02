@@ -1,0 +1,11 @@
+{
+  "name": "radio-card-group",
+  "title": "Radio Card Group",
+  "description": "Selectable plan cards backed by native radio inputs — checked, hover and disabled states are driven entirely by CSS, so selection works without JavaScript.",
+  "category": "ui",
+  "order": 9,
+  "status": "new",
+  "tags": ["radio", "form", "selection", "pricing"],
+  "previewBg": "plain",
+  "previewHeight": 320
+}

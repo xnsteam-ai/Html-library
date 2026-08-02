@@ -1,0 +1,11 @@
+{
+  "name": "section-plan-picker",
+  "title": "Plan Picker",
+  "description": "Credit-based pricing tiers with a per-month allowance box, indented model lists, and a highlighted plan wrapped in a dark shell with an amber call to action.",
+  "category": "sites",
+  "surface": "section",
+  "tagline": "Credit tiers & upgrade",
+  "status": "new",
+  "order": 33,
+  "tags": ["pricing", "plans", "credits", "upgrade"]
+}

@@ -1,0 +1,152 @@
+<!--
+  Research — a publication home page: translucent nav, centred prompt hero
+  with quick-action pills, a bento lead story, and a recent-news row.
+  Drawn at 1280×800. Every thumbnail is a CSS gradient, so nothing is fetched.
+-->
+<div class="h-[800px] w-[1280px] overflow-hidden bg-white font-sans text-black antialiased dark:bg-neutral-950 dark:text-gray-100">
+  <!-- Nav -->
+  <header class="w-full border-b border-black/5 bg-white/70 backdrop-blur-md dark:border-white/10 dark:bg-neutral-950/70">
+    <nav class="mx-auto flex h-16 max-w-7xl items-center justify-between px-8" aria-label="Global">
+      <div class="flex flex-1 items-center gap-2">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="text-black dark:text-white">
+          <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM11 19.93C7.06 19.43 4 16.05 4 12C4 7.95 7.06 4.57 11 4.07V19.93ZM13 4.07C16.94 4.57 20 7.95 20 12C20 16.05 16.94 19.43 13 19.93V4.07Z" fill="currentColor" />
+        </svg>
+        <span class="text-lg font-semibold tracking-tight">Aperture</span>
+      </div>
+
+      <div class="flex gap-x-8">
+        <a href="#" class="text-sm font-medium text-[#333333] transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white">Research</a>
+        <a href="#" class="text-sm font-medium text-[#333333] transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white">Products</a>
+        <a href="#" class="text-sm font-medium text-[#333333] transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white">Business</a>
+        <a href="#" class="text-sm font-medium text-[#333333] transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white">Developers</a>
+        <a href="#" class="text-sm font-medium text-[#333333] transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white">Company</a>
+      </div>
+
+      <div class="flex flex-1 items-center justify-end gap-3">
+        <a href="#" class="rounded-full px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-[#f5f5f5] dark:text-white dark:hover:bg-white/10">Log in</a>
+        <a href="#" class="rounded-full bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#333333] dark:bg-white dark:text-neutral-900 dark:hover:bg-gray-200">Try it free ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="px-8 pt-12">
+    <!-- Hero -->
+    <section class="mx-auto max-w-4xl text-center">
+      <h1 class="mb-8 text-4xl font-semibold tracking-tight text-black md:text-5xl dark:text-gray-100">What can I help with?</h1>
+
+      <!-- Composer -->
+      <div class="mx-auto mb-8 max-w-[640px] text-left">
+        <form class="w-full overflow-hidden rounded-[24px] border border-[#e5e7eb] bg-white shadow-sm transition-colors focus-within:border-[#d1d5db] focus-within:ring-1 focus-within:ring-[#f3f4f6] dark:border-white/15 dark:bg-neutral-900 dark:focus-within:border-white/25 dark:focus-within:ring-white/10">
+          <label for="sr-message" class="sr-only">Message</label>
+          <textarea
+            id="sr-message"
+            rows="2"
+            placeholder="Send a message…"
+            class="block w-full resize-none bg-transparent px-4 pb-2 pt-4 text-[15px] leading-relaxed text-gray-800 outline-none placeholder:text-[#9ca3af] dark:text-gray-100 dark:placeholder:text-gray-500"
+          ></textarea>
+
+          <div class="flex items-center justify-between px-3 pb-3 pt-1">
+            <div class="flex items-center gap-0.5">
+              <button type="button" class="rounded-lg p-1.5 text-[#9ca3af] transition-colors hover:bg-gray-50 hover:text-gray-600 dark:hover:bg-white/10 dark:hover:text-gray-200" aria-label="Add attachment">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+              </button>
+              <button type="button" class="flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-[13px] text-[#6b7280] transition-colors hover:bg-gray-50 hover:text-gray-800 dark:text-gray-400 dark:hover:bg-white/10 dark:hover:text-gray-100" aria-haspopup="listbox" aria-expanded="false">
+                <svg class="text-[#9ca3af]" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4Zm0 0c2 2.67 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.33-6 4Z" />
+                </svg>
+                Agent
+                <svg class="ml-0.5 text-[#9ca3af] opacity-70" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+            </div>
+
+            <button type="submit" class="mr-1 flex h-[30px] w-[30px] items-center justify-center rounded-full bg-[#f3f4f6] text-[#9ca3af] transition-all hover:bg-[#e5e7eb] hover:text-gray-700 dark:bg-white/10 dark:hover:bg-white/20 dark:hover:text-gray-100" aria-label="Send message">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 19V5M5 12l7-7 7 7" />
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Quick actions -->
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="#" class="rounded-full border border-gray-200 px-4 py-2 text-sm font-medium text-[#333333] transition-colors hover:bg-gray-50 dark:border-white/15 dark:text-gray-300 dark:hover:bg-white/10">Learn about Business</a>
+        <a href="#" class="rounded-full border border-gray-200 px-4 py-2 text-sm font-medium text-[#333333] transition-colors hover:bg-gray-50 dark:border-white/15 dark:text-gray-300 dark:hover:bg-white/10">Start a chat</a>
+        <a href="#" class="rounded-full border border-gray-200 px-4 py-2 text-sm font-medium text-[#333333] transition-colors hover:bg-gray-50 dark:border-white/15 dark:text-gray-300 dark:hover:bg-white/10">Research</a>
+        <a href="#" class="rounded-full border border-gray-200 px-4 py-2 text-sm font-medium text-[#333333] transition-colors hover:bg-gray-50 dark:border-white/15 dark:text-gray-300 dark:hover:bg-white/10">API Platform</a>
+        <a href="#" class="px-4 py-2 text-sm font-medium text-[#333333] underline-offset-4 transition-all hover:underline dark:text-gray-300">More</a>
+      </div>
+    </section>
+
+    <!-- Bento -->
+    <section class="mx-auto mt-14 max-w-7xl">
+      <div class="grid grid-cols-4 gap-6">
+        <a href="#" class="group col-span-3 flex flex-col gap-4">
+          <div class="relative aspect-[21/9] overflow-hidden rounded-2xl bg-[linear-gradient(120deg,#6366f1_0%,#a855f7_45%,#ec4899_100%)]">
+            <div class="absolute inset-0 bg-black/10 transition-colors duration-500 group-hover:bg-transparent"></div>
+          </div>
+          <div>
+            <h3 class="mb-2 text-2xl font-semibold transition-colors group-hover:text-blue-600 dark:text-gray-100">
+              Frontier intelligence that scales with your ambition
+            </h3>
+            <p class="text-sm font-medium text-[#666666] dark:text-gray-400">Product <span class="mx-2">•</span> 18 min read</p>
+          </div>
+        </a>
+
+        <div class="col-span-1 grid grid-cols-1 gap-6">
+          <a href="#" class="group flex flex-col gap-3">
+            <div class="relative aspect-square overflow-hidden rounded-2xl bg-[linear-gradient(140deg,#f59e0b_0%,#ef4444_100%)]"></div>
+            <div>
+              <h4 class="mb-1 text-base font-semibold leading-tight transition-colors group-hover:text-blue-600 dark:text-gray-100">
+                Launching Health in the assistant
+              </h4>
+              <p class="text-xs font-medium text-[#666666] dark:text-gray-400">Product <span class="mx-1">•</span> Jul 23 <span class="mx-1">•</span> 7 min</p>
+            </div>
+          </a>
+          <a href="#" class="group flex flex-col gap-3">
+            <div class="relative aspect-square overflow-hidden rounded-2xl bg-[linear-gradient(140deg,#0ea5e9_0%,#14b8a6_100%)]"></div>
+            <div>
+              <h4 class="mb-1 text-base font-semibold leading-tight transition-colors group-hover:text-blue-600 dark:text-gray-100">
+                Take on your most ambitious work
+              </h4>
+              <p class="text-xs font-medium text-[#666666] dark:text-gray-400">5 min read</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent news -->
+    <section class="mx-auto mt-12 max-w-7xl">
+      <div class="mb-6 flex items-baseline justify-between">
+        <h2 class="text-2xl font-semibold dark:text-gray-100">Recent news</h2>
+        <a href="#" class="text-sm font-medium underline-offset-4 hover:underline dark:text-gray-300">View more</a>
+      </div>
+
+      <div class="grid grid-cols-2 gap-8">
+        <a href="#" class="group flex items-center gap-6">
+          <div class="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl bg-[linear-gradient(135deg,#1e293b_0%,#64748b_100%)]"></div>
+          <div>
+            <h3 class="mb-1 text-base font-semibold leading-snug transition-colors group-hover:text-blue-600 dark:text-gray-100">
+              Advancing the price-performance frontier
+            </h3>
+            <p class="text-xs font-medium text-[#666666] dark:text-gray-400">Research <span class="mx-1">•</span> Jun 12</p>
+          </div>
+        </a>
+        <a href="#" class="group flex items-center gap-6">
+          <div class="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl bg-[linear-gradient(135deg,#7c3aed_0%,#22d3ee_100%)]"></div>
+          <div>
+            <h3 class="mb-1 text-base font-semibold leading-snug transition-colors group-hover:text-blue-600 dark:text-gray-100">
+              A safety framework for long-running agents
+            </h3>
+            <p class="text-xs font-medium text-[#666666] dark:text-gray-400">Safety <span class="mx-1">•</span> Jun 4</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+</div>

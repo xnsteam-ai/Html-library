@@ -1,0 +1,11 @@
+{
+  "name": "site-agents",
+  "title": "Agents Landing",
+  "description": "A warm-toned product landing page: sticky nav with dropdown affordances, breadcrumb strip, split hero with a node-graph illustration, and a partner logo wall.",
+  "category": "sites",
+  "surface": "site",
+  "tagline": "Hero, nav & logo wall",
+  "status": "new",
+  "order": 12,
+  "tags": ["landing", "marketing", "hero", "product"]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "auth-card",
+  "title": "Auth Card",
+  "description": "A sign-in panel with crosshair corner marks and bleeding hairlines — email and password fields, a primary action, and GitHub / Google providers.",
+  "category": "ui",
+  "order": 11,
+  "status": "new",
+  "tags": ["auth", "login", "form", "card"],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

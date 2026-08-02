@@ -1,0 +1,23 @@
+{
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
+  "name": "chat-welcome",
+  "title": "Chat Welcome",
+  "description": "The empty-state screen before any messages exist: a centred greeting above a rounded composer with a teal send button and a scroll-to-bottom affordance.",
+  "category": "agent",
+  "type": "html",
+  "version": "0.1.0",
+  "tailwind": "^4.0.0",
+  "tags": [
+    "chat",
+    "empty state",
+    "composer",
+    "welcome"
+  ],
+  "files": [
+    {
+      "path": "chat-welcome.html",
+      "type": "html",
+      "content": "<!--\n  Chat Welcome — the empty-state screen before any messages: a centred\n  greeting above a rounded composer with a teal send button and a\n  scroll-to-bottom affordance parked above it.\n-->\n<div class=\"mx-auto flex w-full max-w-2xl flex-col items-center gap-10 px-6 py-10\">\n  <div class=\"w-full text-center\">\n    <h1 class=\"text-2xl font-semibold text-gray-900 dark:text-gray-100\">Hello there!</h1>\n    <p class=\"text-2xl text-gray-500 opacity-65 dark:text-gray-400\">How can I help you today?</p>\n  </div>\n\n  <div class=\"relative w-full\">\n    <!-- Scroll-to-bottom affordance, parked above the composer -->\n    <button\n      type=\"button\"\n      aria-label=\"Scroll to bottom\"\n      class=\"absolute -top-14 left-1/2 z-10 flex h-9 w-9 -translate-x-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-500 shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition hover:bg-gray-100 hover:text-gray-900 dark:border-white/15 dark:bg-neutral-900 dark:text-gray-400 dark:hover:bg-white/10 dark:hover:text-gray-100\"\n    >\n      <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m6 9 6 6 6-6\" /></svg>\n    </button>\n\n    <form class=\"flex w-full flex-col rounded-2xl border border-gray-200 bg-white transition focus-within:border-[#20b8cd] focus-within:ring-[3px] focus-within:ring-[#20b8cd]/15 dark:border-white/15 dark:bg-neutral-900\">\n      <label for=\"cw-message\" class=\"sr-only\">Message</label>\n      <textarea\n        id=\"cw-message\"\n        rows=\"1\"\n        placeholder=\"Send a message…\"\n        class=\"min-h-[3.5rem] w-full resize-none bg-transparent px-4 pb-2 pt-3 text-[14px] leading-relaxed text-gray-900 outline-none placeholder:text-gray-500 dark:text-gray-100 dark:placeholder:text-gray-400\"\n      ></textarea>\n      <div class=\"flex items-center justify-end px-2 pb-2\">\n        <button\n          type=\"submit\"\n          aria-label=\"Send message\"\n          class=\"flex h-8 w-8 items-center justify-center rounded-full bg-[#20b8cd] text-black transition hover:opacity-85\"\n        >\n          <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\"><path d=\"M13.854 8.14576L8.854 3.14576C8.659 2.95076 8.342 2.95076 8.147 3.14576C7.952 3.34076 7.952 3.65776 8.147 3.85276L12.293 7.99876H2.5C2.224 7.99876 2 8.22276 2 8.49876C2 8.77476 2.224 8.99876 2.5 8.99876H12.293L8.147 13.1448C7.952 13.3398 7.952 13.6568 8.147 13.8518C8.245 13.9498 8.373 13.9978 8.501 13.9978C8.629 13.9978 8.757 13.9488 8.855 13.8518L13.855 8.85176C14.05 8.65676 14.05 8.33976 13.855 8.14476L13.854 8.14576Z\" /></svg>\n        </button>\n      </div>\n    </form>\n  </div>\n</div>\n"
+    }
+  ]
+}

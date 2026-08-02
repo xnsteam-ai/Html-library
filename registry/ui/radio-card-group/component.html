@@ -1,0 +1,95 @@
+<!--
+  Radio Card Group — selectable plan cards.
+  Selection is real: each card wraps a native radio input. The marker uses
+  `peer-checked` (direct sibling) and the card shell / inner dot use the
+  id-qualified `has-[#id:checked]` form, so the control works with no
+  JavaScript. Ids are prefixed `rcg-` so several screens can share a page.
+-->
+<div class="mx-auto w-full max-w-2xl">
+  <fieldset>
+    <legend class="mb-3 text-[13px] font-medium text-gray-900 dark:text-gray-100">Choose a plan</legend>
+
+    <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+      <!-- Starter — selected by default -->
+      <label
+        for="rcg-starter"
+        class="group/starter relative flex cursor-pointer items-start gap-3 rounded-xl border border-gray-200 bg-white p-4 transition hover:bg-gray-50 has-[#rcg-starter:checked]:border-gray-900 has-[#rcg-starter:checked]:ring-1 has-[#rcg-starter:checked]:ring-gray-900 dark:border-white/15 dark:bg-neutral-900 dark:hover:bg-white/5 dark:has-[#rcg-starter:checked]:border-white dark:has-[#rcg-starter:checked]:ring-white"
+      >
+        <input id="rcg-starter" type="radio" name="rcg-plan" class="peer sr-only" checked />
+        <span
+          class="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-gray-300 transition peer-checked:border-gray-900 peer-checked:bg-gray-900 dark:border-white/25 dark:peer-checked:border-white dark:peer-checked:bg-white"
+        >
+          <span class="h-1.5 w-1.5 rounded-full bg-white opacity-0 transition group-has-[#rcg-starter:checked]/starter:opacity-100 dark:bg-neutral-900"></span>
+        </span>
+        <span class="grid gap-0.5">
+          <span class="text-[13.5px] font-semibold text-gray-900 dark:text-gray-100">Starter</span>
+          <span class="text-[12px] leading-relaxed text-gray-500 dark:text-gray-400">
+            Perfect for side projects and learning.
+          </span>
+          <span class="mt-1.5 text-[13px] font-semibold text-gray-900 dark:text-gray-100">$9/month</span>
+        </span>
+      </label>
+
+      <!-- Pro -->
+      <label
+        for="rcg-pro"
+        class="group/pro relative flex cursor-pointer items-start gap-3 rounded-xl border border-gray-200 bg-white p-4 transition hover:bg-gray-50 has-[#rcg-pro:checked]:border-gray-900 has-[#rcg-pro:checked]:ring-1 has-[#rcg-pro:checked]:ring-gray-900 dark:border-white/15 dark:bg-neutral-900 dark:hover:bg-white/5 dark:has-[#rcg-pro:checked]:border-white dark:has-[#rcg-pro:checked]:ring-white"
+      >
+        <input id="rcg-pro" type="radio" name="rcg-plan" class="peer sr-only" />
+        <span
+          class="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-gray-300 transition peer-checked:border-gray-900 peer-checked:bg-gray-900 dark:border-white/25 dark:peer-checked:border-white dark:peer-checked:bg-white"
+        >
+          <span class="h-1.5 w-1.5 rounded-full bg-white opacity-0 transition group-has-[#rcg-pro:checked]/pro:opacity-100 dark:bg-neutral-900"></span>
+        </span>
+        <span class="grid gap-0.5">
+          <span class="flex items-center gap-1.5 text-[13.5px] font-semibold text-gray-900 dark:text-gray-100">
+            Pro
+            <span class="rounded-full bg-gray-900 px-1.5 py-0.5 text-[10px] font-medium text-white dark:bg-white dark:text-neutral-900">
+              Popular
+            </span>
+          </span>
+          <span class="text-[12px] leading-relaxed text-gray-500 dark:text-gray-400">
+            For teams shipping to production.
+          </span>
+          <span class="mt-1.5 text-[13px] font-semibold text-gray-900 dark:text-gray-100">$29/month</span>
+        </span>
+      </label>
+
+      <!-- Scale -->
+      <label
+        for="rcg-scale"
+        class="group/scale relative flex cursor-pointer items-start gap-3 rounded-xl border border-gray-200 bg-white p-4 transition hover:bg-gray-50 has-[#rcg-scale:checked]:border-gray-900 has-[#rcg-scale:checked]:ring-1 has-[#rcg-scale:checked]:ring-gray-900 dark:border-white/15 dark:bg-neutral-900 dark:hover:bg-white/5 dark:has-[#rcg-scale:checked]:border-white dark:has-[#rcg-scale:checked]:ring-white"
+      >
+        <input id="rcg-scale" type="radio" name="rcg-plan" class="peer sr-only" />
+        <span
+          class="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-gray-300 transition peer-checked:border-gray-900 peer-checked:bg-gray-900 dark:border-white/25 dark:peer-checked:border-white dark:peer-checked:bg-white"
+        >
+          <span class="h-1.5 w-1.5 rounded-full bg-white opacity-0 transition group-has-[#rcg-scale:checked]/scale:opacity-100 dark:bg-neutral-900"></span>
+        </span>
+        <span class="grid gap-0.5">
+          <span class="text-[13.5px] font-semibold text-gray-900 dark:text-gray-100">Scale</span>
+          <span class="text-[12px] leading-relaxed text-gray-500 dark:text-gray-400">
+            Higher limits and priority support.
+          </span>
+          <span class="mt-1.5 text-[13px] font-semibold text-gray-900 dark:text-gray-100">$99/month</span>
+        </span>
+      </label>
+
+      <!-- Enterprise — disabled -->
+      <label
+        for="rcg-enterprise"
+        class="relative flex cursor-not-allowed items-start gap-3 rounded-xl border border-gray-200 bg-gray-50 p-4 opacity-60 dark:border-white/10 dark:bg-white/5"
+      >
+        <input id="rcg-enterprise" type="radio" name="rcg-plan" class="sr-only" disabled />
+        <span class="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-gray-300 dark:border-white/20"></span>
+        <span class="grid gap-0.5">
+          <span class="text-[13.5px] font-semibold text-gray-900 dark:text-gray-100">Enterprise</span>
+          <span class="text-[12px] leading-relaxed text-gray-500 dark:text-gray-400">
+            Contact sales for custom terms.
+          </span>
+          <span class="mt-1.5 text-[13px] font-semibold text-gray-500 dark:text-gray-400">Talk to us</span>
+        </span>
+      </label>
+    </div>
+  </fieldset>
+</div>

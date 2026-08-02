@@ -1,0 +1,11 @@
+{
+  "name": "login-glass",
+  "title": "Login Glass",
+  "description": "A translucent, glassmorphic auth card floating over two soft drifting blobs — email, password and a full-width primary action.",
+  "category": "ui",
+  "order": 13,
+  "status": "new",
+  "tags": ["auth", "login", "glassmorphism", "form"],
+  "previewBg": "muted",
+  "previewHeight": 480
+}

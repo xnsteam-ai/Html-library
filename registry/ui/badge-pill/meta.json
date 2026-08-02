@@ -1,0 +1,11 @@
+{
+  "name": "badge-pill",
+  "title": "Badge Pill",
+  "description": "shadcn-style semantic badge variants — default, secondary, outline and destructive — for labelling status inside a larger component.",
+  "category": "ui",
+  "order": 12,
+  "status": "new",
+  "tags": ["badge", "label", "variants", "status"],
+  "previewBg": "plain",
+  "previewHeight": 140
+}

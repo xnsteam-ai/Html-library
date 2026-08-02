@@ -1,0 +1,126 @@
+<!--
+  Agents — a product landing page: sticky nav, breadcrumb strip, split hero
+  with a node-graph illustration, and a partner logo wall. Drawn at 1280×800.
+  All logos are inline SVG so the page never reaches the network.
+-->
+<div class="flex h-[800px] w-[1280px] flex-col overflow-hidden bg-[#FDFCFB] font-sans text-[#1D1D1F] antialiased dark:bg-neutral-950 dark:text-gray-100">
+  <!-- Header -->
+  <header class="w-full shrink-0 bg-[#FDFCFB]/80 backdrop-blur-sm dark:bg-neutral-950/80">
+    <div class="mx-auto w-full max-w-7xl px-8">
+      <div class="flex h-16 items-center justify-between">
+        <div class="flex items-center gap-2">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="text-[#DD795D]">
+            <path d="M12 1.5L14.39 8.61L21.5 10.5L16.25 15.63L17.64 22.5L12 18.77L6.36 22.5L7.75 15.63L2.5 10.5L9.61 8.61L12 1.5Z" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span class="text-xl font-medium text-[#1D1D1F] dark:text-gray-100">Claude</span>
+        </div>
+
+        <nav class="hidden items-center gap-6 text-sm font-medium text-[#555555] md:flex dark:text-gray-400">
+          <a href="#" class="flex items-center gap-1 transition-colors hover:text-[#1D1D1F] dark:hover:text-gray-100">
+            Meet Claude
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </a>
+          <a href="#" class="flex items-center gap-1 transition-colors hover:text-[#1D1D1F] dark:hover:text-gray-100">
+            Platform
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </a>
+          <a href="#" class="flex items-center gap-1 transition-colors hover:text-[#1D1D1F] dark:hover:text-gray-100">
+            Solutions
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </a>
+          <a href="#" class="transition-colors hover:text-[#1D1D1F] dark:hover:text-gray-100">Pricing</a>
+          <a href="#" class="flex items-center gap-1 transition-colors hover:text-[#1D1D1F] dark:hover:text-gray-100">
+            Resources
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </a>
+        </nav>
+
+        <div class="flex items-center gap-2">
+          <a href="#" class="hidden text-sm font-medium text-[#555555] transition-colors hover:text-[#1D1D1F] sm:inline-block dark:text-gray-400 dark:hover:text-gray-100">Login</a>
+          <a href="#" class="rounded-md border border-[#E5E5E5] px-4 py-2 text-sm font-medium transition-colors hover:bg-zinc-100 dark:border-white/15 dark:hover:bg-white/10">Contact sales</a>
+          <a href="#" class="rounded-md bg-[#1D1D1F] px-4 py-2 text-sm font-medium text-[#FDFCFB] transition-colors hover:bg-zinc-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-gray-200">Try Claude</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <div class="shrink-0 border-b border-[#E5E5E5] dark:border-white/10">
+    <div class="mx-auto w-full max-w-7xl px-8">
+      <div class="flex h-12 items-center justify-between text-sm text-[#555555] dark:text-gray-400">
+        <div>
+          <span class="cursor-pointer hover:underline">Solutions</span> / <span>Agents</span>
+        </div>
+        <a href="#" class="flex items-center gap-1">
+          Explore here
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main class="flex-grow">
+    <!-- Hero -->
+    <div class="mx-auto w-full max-w-7xl px-8 py-20">
+      <div class="grid items-center gap-16 lg:grid-cols-2">
+        <div class="relative order-last flex justify-center lg:order-first">
+          <svg viewBox="0 0 400 300" class="h-auto w-full max-w-md" aria-hidden="true">
+            <g class="text-[#DD795D]">
+              <circle cx="140" cy="60" r="20" fill="currentColor" />
+              <circle cx="260" cy="60" r="20" fill="currentColor" />
+              <circle cx="60" cy="150" r="20" fill="currentColor" />
+              <circle cx="200" cy="150" r="20" fill="currentColor" />
+              <circle cx="340" cy="150" r="20" fill="currentColor" />
+              <circle cx="140" cy="240" r="20" fill="currentColor" />
+              <circle cx="260" cy="240" r="20" fill="currentColor" />
+              <path d="M140 60 L 60 150 L 140 240 L 200 150 Z" stroke="currentColor" stroke-width="6" fill="none" />
+              <path d="M260 60 L 200 150 L 260 240 L 340 150 Z" stroke="currentColor" stroke-width="6" fill="none" />
+              <line x1="140" y1="60" x2="260" y2="60" stroke="currentColor" stroke-width="6" />
+              <line x1="140" y1="240" x2="260" y2="240" stroke="currentColor" stroke-width="6" />
+            </g>
+            <path d="M90 200 C 80 190, 60 180, 50 190 C 40 200, 40 220, 50 230 C 60 240, 80 250, 90 250 C 100 250, 110 245, 115 240 C 120 235, 125 225, 120 215 C 115 205, 105 205, 100 210 C 95 215, 95 225, 100 230 C 105 235, 115 235, 120 230 C 125 225, 130 215, 125 205 C 120 195, 110 195, 105 200" stroke="currentColor" class="text-[#1D1D1F] dark:text-gray-100" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+
+        <div class="text-center lg:text-left">
+          <h1 class="text-balance font-serif text-5xl font-medium leading-tight text-[#1D1D1F] sm:text-6xl lg:text-7xl dark:text-gray-100">
+            Make AI agents <br class="hidden lg:block" /> your unfair advantage
+          </h1>
+          <p class="mx-auto mt-6 max-w-md text-lg leading-relaxed text-[#555555] lg:mx-0 dark:text-gray-400">
+            With Claude, you can build AI agents that plan, act, and collaborate more effectively.
+          </p>
+          <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
+            <button type="button" class="min-h-[44px] w-full rounded-lg bg-[#1D1D1F] px-6 py-3 text-base font-medium text-[#FDFCFB] transition-all duration-200 hover:bg-zinc-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-900 focus-visible:ring-offset-2 sm:w-auto dark:bg-white dark:text-neutral-900 dark:hover:bg-gray-200 dark:focus-visible:ring-white dark:focus-visible:ring-offset-neutral-950">
+              Start building
+            </button>
+            <button type="button" class="min-h-[44px] w-full rounded-lg bg-zinc-200/70 px-6 py-3 text-base font-medium text-[#1D1D1F] transition-all duration-200 hover:bg-zinc-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 focus-visible:ring-offset-2 sm:w-auto dark:bg-white/10 dark:text-gray-100 dark:hover:bg-white/15">
+              Contact sales
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Partner logos -->
+    <div class="mx-auto w-full max-w-7xl border-t border-[#E5E5E5] px-8 py-16 dark:border-white/10">
+      <div class="grid grid-cols-2 items-center justify-items-center gap-x-8 gap-y-12 text-[#555555] md:grid-cols-4 dark:text-gray-400">
+        <div class="flex items-center gap-2 opacity-70 grayscale dark:opacity-80 dark:invert">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L14.09 8.26L20.5 9.5L16.25 13.5L17.18 19.9L12 16.77L6.82 19.9L7.75 13.5L3.5 9.5L9.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          <span class="text-lg font-bold">FACTORY</span>
+        </div>
+        <div class="flex items-center gap-2 opacity-70 grayscale dark:opacity-80 dark:invert">
+          <svg class="h-6 w-auto" viewBox="0 0 24 24" fill="none"><path d="M3 12L6 15L9 12L6 9L3 12Z" fill="currentColor" /><path d="M6 15L9 18L12 15L9 12L6 15Z" fill="currentColor" /><path d="M9 12L12 9L15 12L12 15L9 12Z" fill="currentColor" /><path d="M12 9L15 6L18 9L15 12L12 9Z" fill="currentColor" /></svg>
+          <span class="text-lg font-bold">Windsurf</span>
+        </div>
+        <div class="flex items-center gap-2 opacity-70 grayscale dark:opacity-80 dark:invert">
+          <svg height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M7.083 14.167L2.917 10l4.166-4.167.98.98L4.876 10l3.187 3.187-.98.98zm5.834-8.334L8.75 10l4.167 4.167.98-.98L10.71 10l3.187-3.187-.98-.98z" /></svg>
+          <span class="text-lg font-semibold">augment code</span>
+        </div>
+        <div class="flex items-center gap-2 opacity-70 grayscale dark:opacity-80 dark:invert">
+          <svg height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor" /><path d="M12.75 16.5H11.25V12.75H8.25V11.25H11.25V7.5H12.75V11.25H15.75V12.75H12.75V16.5Z" fill="#FDFCFB" /></svg>
+          <span class="text-2xl font-bold italic">Bito</span>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,11 @@
+{
+  "name": "site-fintech-hero",
+  "title": "Fintech Hero",
+  "description": "A full-bleed gradient backdrop with a floating pill nav and a footer-anchored headline — the composition that pairs a bold claim with feature chips below the fold.",
+  "category": "sites",
+  "surface": "site",
+  "tagline": "Backdrop hero & chips",
+  "status": "new",
+  "order": 14,
+  "tags": ["landing", "hero", "fintech", "gradient"]
+}

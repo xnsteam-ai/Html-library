@@ -1,0 +1,11 @@
+{
+  "name": "ide-composer",
+  "title": "IDE Composer",
+  "description": "A dark, IDE-embedded prompt bar: session placeholder with a blinking caret, mode toggle row, and a bottom Local/Remote action strip. Always dark, like the editor panel it depicts.",
+  "category": "agent",
+  "order": 21,
+  "status": "new",
+  "tags": ["composer", "ide", "dark", "toolbar"],
+  "previewBg": "app",
+  "previewHeight": 260
+}
