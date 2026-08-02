@@ -43,12 +43,14 @@ function Rendered({ text }: { text: string }) {
 
     if (trimmed.startsWith('### ')) {
       flushFields(`fields-${index}`)
+      const title = trimmed.slice(4)
+      const formattedTitle = title.charAt(0).toUpperCase() + title.slice(1).toLowerCase()
       blocks.push(
         <h3
           key={index}
-          className="mb-2 mt-6 border-b border-border pb-1.5 font-mono text-[12px] font-semibold uppercase tracking-wider text-foreground first:mt-0"
+          className="mb-2 mt-6 border-b border-border pb-1.5 text-[14px] font-semibold text-foreground first:mt-0"
         >
-          {trimmed.slice(4)}
+          {formattedTitle}
         </h3>,
       )
       return
