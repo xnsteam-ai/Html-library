@@ -50,7 +50,7 @@ export function Sidebar({ route, onCollapse, onOpenSearch }: SidebarProps) {
   const isComponentActive = (name: string) => route.kind === 'component' && route.name === name
 
   return (
-    <aside className="dark flex h-full w-[264px] min-w-[264px] flex-col border-r border-border bg-[#101010]">
+    <aside className="flex h-full w-[264px] min-w-[264px] flex-col border-r border-border bg-background">
       {/* Brand */}
       <div className="flex items-center gap-2 px-4 pb-2 pt-4">
         <Logo />
@@ -72,7 +72,7 @@ export function Sidebar({ route, onCollapse, onOpenSearch }: SidebarProps) {
         <button
           type="button"
           onClick={onOpenSearch}
-          className="flex w-full items-center gap-2 rounded-lg border border-border bg-[#0a0a0a] px-2.5 py-2 text-left transition hover:border-white/15 hover:bg-white/[0.03]"
+          className="flex w-full items-center gap-2 rounded-lg border border-border bg-muted dark:bg-[#0a0a0a] px-2.5 py-2 text-left transition hover:bg-subtle dark:hover:border-white/15 dark:hover:bg-white/[0.03]"
         >
           <Search size={14} className="text-muted-foreground" />
           <span className="flex-1 text-[13px] text-muted-foreground">Search…</span>
