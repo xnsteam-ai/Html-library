@@ -71,6 +71,7 @@ function ScaledScreen({
   clampHeight,
   contentRef,
   isSiteOrSection = false,
+  surface = 'app',
 }: {
   html: string
   width: number
