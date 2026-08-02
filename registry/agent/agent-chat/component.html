@@ -10,15 +10,15 @@
       <span class="flex h-6 w-6 items-center justify-center rounded-md bg-gray-900 text-[11px] font-semibold text-white dark:bg-white dark:text-neutral-900">A</span>
       <div class="flex flex-col leading-tight">
         <span class="text-[13px] font-medium text-gray-900 dark:text-gray-100">Support agent</span>
-        <span class="text-[11px] text-gray-500 dark:text-gray-400">Connected · 4 tools</span>
+        <span class="text-[11px] text-gray-600 dark:text-gray-400">Connected · 4 tools</span>
       </div>
     </div>
     <div class="flex items-center gap-1">
-      <button type="button" class="rounded-md p-1.5 text-gray-500 transition hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-white/10 dark:hover:text-gray-100" aria-label="New conversation">
+      <button type="button" class="rounded-md p-1.5 text-gray-600 transition hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-white/10 dark:hover:text-gray-100" aria-label="New conversation">
         <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 5v14M5 12h14" /></svg>
       </button>
       <details class="group/menu relative">
-        <summary class="flex cursor-pointer list-none rounded-md p-1.5 text-gray-500 transition hover:bg-gray-100 hover:text-gray-900 [&::-webkit-details-marker]:hidden dark:text-gray-400 dark:hover:bg-white/10 dark:hover:text-gray-100" aria-label="Conversation settings">
+        <summary class="flex cursor-pointer list-none rounded-md p-1.5 text-gray-600 transition hover:bg-gray-100 hover:text-gray-900 [&::-webkit-details-marker]:hidden dark:text-gray-400 dark:hover:bg-white/10 dark:hover:text-gray-100" aria-label="Conversation settings">
           <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="1.4" /><circle cx="19" cy="12" r="1.4" /><circle cx="5" cy="12" r="1.4" /></svg>
         </summary>
         <div class="absolute right-0 z-10 mt-1 w-44 overflow-hidden rounded-xl border border-gray-200 bg-white p-1 shadow-lg dark:border-white/10 dark:bg-neutral-950">
@@ -51,7 +51,7 @@
         <details open class="group/tool overflow-hidden rounded-lg border border-gray-200 dark:border-white/10">
           <summary class="flex cursor-pointer list-none items-center gap-2 bg-gray-50 px-3 py-2 transition hover:bg-gray-100 [&::-webkit-details-marker]:hidden dark:bg-white/5 dark:hover:bg-white/10">
             <svg class="h-3 w-3 shrink-0 text-gray-400 transition group-open/tool:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6" /></svg>
-            <svg class="h-3.5 w-3.5 text-gray-500 dark:text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6-6-6-6M12 19h8" /></svg>
+            <svg class="h-3.5 w-3.5 text-gray-600 dark:text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6-6-6-6M12 19h8" /></svg>
             <span class="font-mono text-[12px] text-gray-700 dark:text-gray-300">gh run list --limit 3</span>
             <span class="ml-auto rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-medium text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400">done</span>
           </summary>
@@ -90,10 +90,10 @@ success  nightly  main  2d ago</pre>
   <div class="border-t border-gray-200 p-3 dark:border-white/10">
     <div class="rounded-xl border border-gray-200 bg-white focus-within:border-gray-300 dark:border-white/10 dark:bg-neutral-950 dark:focus-within:border-white/20">
       <label for="agent-chat-input" class="sr-only">Message the agent</label>
-      <textarea id="agent-chat-input" rows="2" placeholder="Reply to the agent…" class="w-full resize-none bg-transparent px-3.5 pt-3 text-[14px] text-gray-900 placeholder:text-gray-400 focus:outline-none dark:text-gray-100 dark:placeholder:text-gray-500"></textarea>
+      <textarea id="agent-chat-input" rows="2" placeholder="Reply to the agent…" class="w-full resize-none bg-transparent px-3.5 pt-3 text-[14px] text-gray-900 placeholder:text-gray-400 focus:outline-none dark:text-gray-100 dark:placeholder:text-gray-600"></textarea>
       <div class="flex items-center justify-between px-2.5 pb-2.5">
         <div class="flex items-center gap-1">
-          <label class="flex cursor-pointer rounded-md p-1.5 text-gray-500 transition hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/10" aria-label="Add attachment">
+          <label class="flex cursor-pointer rounded-md p-1.5 text-gray-600 transition hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/10" aria-label="Add attachment">
             <input type="file" class="sr-only" multiple />
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 5v14M5 12h14" /></svg>
           </label>
