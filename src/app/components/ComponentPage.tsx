@@ -29,11 +29,11 @@ function Preview({ item }: { item: RegistryItem }) {
     )
   }
 
-  // Sites: render scaled down to fit, with the container border showing.
+  // Sites: render centered directly with a 500px minimum height container.
   if (item.category === 'sites') {
     return (
-      <div className="w-full pb-6">
-        <ScreenFrame item={item} fit interactive />
+      <div className="w-full flex items-center justify-center min-h-[500px] rounded-xl border border-border bg-white dark:bg-neutral-950 overflow-hidden p-6">
+        <ScreenFrame item={item} fit interactive unframed />
       </div>
     )
   }
@@ -43,7 +43,7 @@ function Preview({ item }: { item: RegistryItem }) {
       className={`scrollbar-thin flex items-center justify-center overflow-auto rounded-xl border border-border p-6 dark:bg-[#0a0a0a] ${
         SURFACES[item.previewBg ?? 'plain']
       }`}
-      style={{ minHeight: item.previewHeight ?? 320 }}
+      style={{ minHeight: item.previewHeight ?? 500 }}
     >
       {/* Registry components are static HTML; Tailwind scans registry/**\/*.html
           so every utility they use exists in this stylesheet. */}
