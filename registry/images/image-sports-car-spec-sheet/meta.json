@@ -13,5 +13,36 @@
     "product"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "composition": {
+      "shotType": "Spec-sheet layout, car plus annotated data",
+      "angle": "Three-quarter, near eye-level",
+      "placement": "Car centred, spec blocks arranged around it",
+      "distance": "Medium-far",
+      "depthOfField": "Deep",
+      "focus": "The car profile"
+    },
+    "environment": {
+      "setting": "Studio / graphic composite",
+      "background": "Clean white ground with green accents, callouts and small type",
+      "depth": "Product plus data layer"
+    },
+    "lighting": {
+      "quality": "Soft, broad",
+      "direction": "Large overhead diffusion, even along the body",
+      "temperature": "Neutral-cool with a green accent",
+      "shadows": "Low contrast; clean gradient on the panels"
+    },
+    "camera": {
+      "lens": "50mm",
+      "quality": "Clean, sharp, catalogue-grade",
+      "artifacts": "None",
+      "aesthetic": "Spec sheet, automotive, technical, clean"
+    },
+    "atmosphere": {
+      "mood": "Informational",
+      "story": "A model laid out with its numbers."
+    }
+  }
 }

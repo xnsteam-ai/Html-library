@@ -13,5 +13,43 @@
     "lookbook"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult male, apparent 30s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Standing full height, hands in pockets, coat open; upright and still",
+      "expression": "Neutral, looking off-camera",
+      "clothing": "Long dark tailored coat over a dark polo and trousers"
+    },
+    "composition": {
+      "shotType": "Full-figure street portrait with an accompanying garment grid",
+      "angle": "Eye-level",
+      "placement": "Figure right, flat-laid garments tiled left",
+      "distance": "Far for the figure, medium for the garments",
+      "depthOfField": "Moderate; street detail readable but soft",
+      "focus": "The coat silhouette"
+    },
+    "environment": {
+      "setting": "Urban street",
+      "background": "Shopfronts and pavement, kept muted and secondary",
+      "depth": "Full scene for the figure, flat white for the garment tiles"
+    },
+    "lighting": {
+      "quality": "Soft overcast",
+      "direction": "Broad ambient daylight, no hard key",
+      "temperature": "Cool neutral, low saturation",
+      "shadows": "Low contrast; open shadows"
+    },
+    "camera": {
+      "lens": "50mm",
+      "quality": "Clean, muted, editorial grade",
+      "artifacts": "None",
+      "aesthetic": "Menswear, lookbook, street style, minimal"
+    },
+    "atmosphere": {
+      "mood": "Understated",
+      "story": "One coat, shown worn and shown flat."
+    }
+  }
 }

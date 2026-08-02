@@ -13,5 +13,43 @@
     "close-up"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Head and shoulders, hair wet-styled and slicked, chin slightly lifted",
+      "expression": "Obscured by oversized sunglasses; mouth set",
+      "clothing": "Wide mirrored sunglasses and a white fur collar"
+    },
+    "composition": {
+      "shotType": "Close beauty-with-product shot",
+      "angle": "Eye-level",
+      "placement": "Subject left, product held vertically right",
+      "distance": "Close",
+      "depthOfField": "Shallow; ground plain",
+      "focus": "The product and the glasses lens"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Flat mid-grey ground",
+      "depth": "Subject plus product"
+    },
+    "lighting": {
+      "quality": "Hard with strong speculars",
+      "direction": "Frontal key with a hard edge, rim on the fur",
+      "temperature": "Cool neutral with a saturated red product accent",
+      "shadows": "High contrast; bright specular on the lens and packaging"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Sharp, glossy, high-saturation beauty grade",
+      "artifacts": "Mirror reflection in the lens",
+      "aesthetic": "Beauty, product, glossy, high-fashion"
+    },
+    "atmosphere": {
+      "mood": "Cool and styled",
+      "story": "A product shot that borrows a whole attitude."
+    }
+  }
 }

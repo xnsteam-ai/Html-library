@@ -23,8 +23,41 @@ export interface ComponentMeta {
   status?: 'new' | 'updated'
   /** How to align the component in standalone preview (e.g. new tab). Defaults to center. */
   previewAlign?: 'top' | 'bottom' | 'center' | 'left' | 'right' | 'fit'
-  /** AI image generation prompt for images category items. */
-  prompt?: string
+  /**
+   * Images only — the structured recreation brief rendered by the Prompt tab.
+   * Every field is optional: a still life has no `subject.age`, and anything
+   * we cannot actually determine from the file (EXIF dates, a person's
+   * descent) is left out rather than guessed at.
+   */
+  prompt?: ImagePromptSpec
+}
+
+/**
+ * A per-image analysis, split along the axes an image model actually needs to
+ * reproduce a shot. Deliberately all-optional — the renderer omits empty
+ * fields instead of emitting "N/A" noise, so a prompt only ever claims what
+ * was really observed.
+ */
+export interface ImagePromptSpec {
+  subject?: {
+    age?: string
+    descent?: string
+    physical?: string
+    expression?: string
+    clothing?: string
+  }
+  composition?: {
+    shotType?: string
+    angle?: string
+    placement?: string
+    distance?: string
+    depthOfField?: string
+    focus?: string
+  }
+  environment?: { setting?: string; background?: string; depth?: string }
+  lighting?: { quality?: string; direction?: string; temperature?: string; shadows?: string }
+  camera?: { lens?: string; quality?: string; artifacts?: string; aesthetic?: string }
+  atmosphere?: { mood?: string; story?: string; micro?: string }
 }
 
 export interface RegistryItem extends ComponentMeta {

@@ -13,5 +13,43 @@
     "editorial"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Full figure mid-movement, one leg lifted, arms extended for balance",
+      "expression": "Not readable — head turned away",
+      "clothing": "All-white loose two-piece"
+    },
+    "composition": {
+      "shotType": "Poster, full figure with lowercase display type",
+      "angle": "Eye-level",
+      "placement": "Figure right, type left",
+      "distance": "Far",
+      "depthOfField": "Deep",
+      "focus": "The figure silhouette"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Flat white ground, nothing else",
+      "depth": "Subject plus typography"
+    },
+    "lighting": {
+      "quality": "Soft, high-key",
+      "direction": "Broad frontal diffusion, near-shadowless",
+      "temperature": "Neutral white on white",
+      "shadows": "Very low contrast; the figure reads by edge alone"
+    },
+    "camera": {
+      "lens": "50mm",
+      "quality": "Clean, minimal, high-key grade",
+      "artifacts": "None",
+      "aesthetic": "Poster, minimal, movement, high-key"
+    },
+    "atmosphere": {
+      "mood": "Light and abstract",
+      "story": "A body used as a graphic mark."
+    }
+  }
 }

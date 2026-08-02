@@ -13,5 +13,43 @@
     "concept art"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Stylised adult figure, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Exaggerated proportions, oversized head and footwear; standing square with hands at the sides",
+      "expression": "Neutral, slightly wry",
+      "clothing": "Oversized layered streetwear, knit hat, chunky trainers"
+    },
+    "composition": {
+      "shotType": "Full figure, product-render framing",
+      "angle": "Eye-level, straight-on",
+      "placement": "Centred",
+      "distance": "Medium",
+      "depthOfField": "Deep — everything sharp",
+      "focus": "The figure silhouette and footwear"
+    },
+    "environment": {
+      "setting": "Studio / render",
+      "background": "Pure white ground with a soft contact shadow",
+      "depth": "Figure only"
+    },
+    "lighting": {
+      "quality": "Soft, even",
+      "direction": "Broad frontal diffusion with light rim",
+      "temperature": "Neutral with saturated garment colour",
+      "shadows": "Low contrast; soft contact shadow"
+    },
+    "camera": {
+      "lens": "N/A — 3D render; reads as a 50mm framing",
+      "quality": "Clean 3D render, smooth surfaces, subtle material texture",
+      "artifacts": "None",
+      "aesthetic": "Character, 3D render, streetwear, collectible"
+    },
+    "atmosphere": {
+      "mood": "Playful and collectible",
+      "story": "A streetwear look rendered as a figurine."
+    }
+  }
 }

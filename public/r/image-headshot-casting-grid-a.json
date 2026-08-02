@@ -13,6 +13,45 @@
     "grid",
     "headshots"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "One sitter across nine matched frames, head angle varying slightly per cell",
+      "expression": "Small controlled variations — neutral through faint smile",
+      "clothing": "Plain dark top, unchanged"
+    },
+    "composition": {
+      "shotType": "Nine-frame headshot grid, matched crops",
+      "angle": "Eye-level, identical",
+      "placement": "Centred per cell",
+      "distance": "Close",
+      "depthOfField": "Shallow, matched",
+      "focus": "The face in each cell"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Flat neutral ground, identical per cell",
+      "depth": "Subject only"
+    },
+    "lighting": {
+      "quality": "Soft, even, unchanged",
+      "direction": "Broad frontal diffusion",
+      "temperature": "Neutral",
+      "shadows": "Very low contrast by design"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Clean, even, reference-grade",
+      "artifacts": "None",
+      "aesthetic": "Casting, headshot, grid, reference"
+    },
+    "atmosphere": {
+      "mood": "Procedural",
+      "story": "A headshot set for a casting database.",
+      "micro": "Variations should stay subtle — this is a reference, not a mood board"
+    }
+  },
   "files": [
     {
       "path": "image-headshot-casting-grid-a.html",

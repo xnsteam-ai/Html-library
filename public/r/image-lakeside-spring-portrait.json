@@ -13,6 +13,44 @@
     "spring",
     "lifestyle"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Seated low near the water, knees drawn up, head turned to camera",
+      "expression": "Soft, faint smile",
+      "clothing": "Pale patterned dress and a wide hat"
+    },
+    "composition": {
+      "shotType": "Full figure in landscape",
+      "angle": "Eye-level, low to the ground",
+      "placement": "Subject centred, water behind",
+      "distance": "Medium-far",
+      "depthOfField": "Moderate; far shore soft",
+      "focus": "The face"
+    },
+    "environment": {
+      "setting": "Lakeside",
+      "background": "Still water, distant bank and blossoming trees",
+      "depth": "Full scene — foreground bank, subject, far shore"
+    },
+    "lighting": {
+      "quality": "Soft natural daylight",
+      "direction": "Open sky, water bounce as fill",
+      "temperature": "Warm-neutral with fresh greens",
+      "shadows": "Low contrast; open shadows"
+    },
+    "camera": {
+      "lens": "50mm",
+      "quality": "Clean, natural, lightly warm grade",
+      "artifacts": "None",
+      "aesthetic": "Spring, outdoor, natural, portrait"
+    },
+    "atmosphere": {
+      "mood": "Unhurried",
+      "story": "An afternoon spent sitting by water."
+    }
+  },
   "files": [
     {
       "path": "image-lakeside-spring-portrait.html",

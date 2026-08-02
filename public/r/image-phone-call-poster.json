@@ -13,6 +13,44 @@
     "tech",
     "portrait"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult male, apparent 30s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Half figure, phone held up beside the head, other hand gesturing",
+      "expression": "Animated, mid-speech",
+      "clothing": "Dark jacket over a light shirt"
+    },
+    "composition": {
+      "shotType": "Poster, half figure plus product inset",
+      "angle": "Eye-level",
+      "placement": "Figure right, product render and type left",
+      "distance": "Medium",
+      "depthOfField": "Deep",
+      "focus": "The phone product render"
+    },
+    "environment": {
+      "setting": "Studio / graphic composite",
+      "background": "Saturated orange ground with large display type",
+      "depth": "Subject plus product and typography"
+    },
+    "lighting": {
+      "quality": "Soft key against a flat ground",
+      "direction": "Frontal diffusion, light rim",
+      "temperature": "Very warm — orange dominant",
+      "shadows": "Moderate contrast; clean product speculars"
+    },
+    "camera": {
+      "lens": "50mm",
+      "quality": "Clean, saturated, advertising grade",
+      "artifacts": "None",
+      "aesthetic": "Poster, product, advertising, warm"
+    },
+    "atmosphere": {
+      "mood": "Busy and current",
+      "story": "A phone sold mid-conversation."
+    }
+  },
   "files": [
     {
       "path": "image-phone-call-poster.html",

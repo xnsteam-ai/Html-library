@@ -13,6 +13,45 @@
     "blue",
     "warm"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Head resting toward one shoulder, hair loose and wavy",
+      "expression": "Eyes closed, calm, mouth soft",
+      "clothing": "Oversized cobalt knit sweater filling the lower frame"
+    },
+    "composition": {
+      "shotType": "Close portrait, head and upper chest",
+      "angle": "Eye-level",
+      "placement": "Centred",
+      "distance": "Intimate",
+      "depthOfField": "Shallow",
+      "focus": "The face, particularly the cheekbone"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Deep blue backdrop matching the knit",
+      "depth": "Subject only"
+    },
+    "lighting": {
+      "quality": "Soft, warm key against a cool ground",
+      "direction": "Key from camera-right, low fill",
+      "temperature": "Warm skin against cool blue — deliberate split",
+      "shadows": "Moderate contrast; soft falloff into the sweater"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Clean, warm-toned, smooth tonal grade",
+      "artifacts": "Slight vignette",
+      "aesthetic": "Portrait, cosy, colour-blocked, warm-cool"
+    },
+    "atmosphere": {
+      "mood": "Quiet comfort",
+      "story": "A portrait taken at the point of relaxing.",
+      "micro": "Closed eyes and a loose jaw — keep the ease"
+    }
+  },
   "files": [
     {
       "path": "image-blue-knit.html",

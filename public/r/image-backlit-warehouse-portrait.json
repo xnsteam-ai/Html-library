@@ -13,6 +13,45 @@
     "industrial",
     "cinematic"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult male, apparent 30s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Standing, hands loose, head slightly lowered, shoulders forward",
+      "expression": "Weary, guarded, looking just off-lens",
+      "clothing": "Layered work jacket over a plain shirt"
+    },
+    "composition": {
+      "shotType": "Medium, waist up",
+      "angle": "Eye-level",
+      "placement": "Centred, deep space behind",
+      "distance": "Medium",
+      "depthOfField": "Moderate; the space stays legible",
+      "focus": "The face"
+    },
+    "environment": {
+      "setting": "Industrial interior",
+      "background": "Warehouse framing, high windows and hanging light, visible but dim",
+      "depth": "Full scene — foreground subject, mid-space, distant windows"
+    },
+    "lighting": {
+      "quality": "Hard shafts through diffusion",
+      "direction": "Strong backlight through high windows, minimal frontal fill",
+      "temperature": "Warm dusty light against cool shadow",
+      "shadows": "Very high contrast; visible light shafts and haze"
+    },
+    "camera": {
+      "lens": "35–50mm",
+      "quality": "Filmic, grainy, desaturated shadow, warm highlight",
+      "artifacts": "Atmospheric haze, mild flare",
+      "aesthetic": "Cinematic, industrial, moody, filmic"
+    },
+    "atmosphere": {
+      "mood": "Tired resolve",
+      "story": "Someone at the end of a shift in a building that dwarfs them.",
+      "micro": "Lowered brow and set mouth — hold the fatigue"
+    }
+  },
   "files": [
     {
       "path": "image-backlit-warehouse-portrait.html",

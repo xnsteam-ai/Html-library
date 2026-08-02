@@ -13,5 +13,36 @@
     "product"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "composition": {
+      "shotType": "Automotive poster, three-quarter front",
+      "angle": "Low, at wheel height",
+      "placement": "Car across the lower two-thirds, wordmark above",
+      "distance": "Medium-far",
+      "depthOfField": "Deep",
+      "focus": "The front wheel arch and headlight"
+    },
+    "environment": {
+      "setting": "Studio / composite",
+      "background": "Flat dark ground with heavy display type",
+      "depth": "Product plus typography"
+    },
+    "lighting": {
+      "quality": "Hard with long controlled speculars",
+      "direction": "Overhead strip lights raking the bodywork, dark surround",
+      "temperature": "Saturated yellow against near-black",
+      "shadows": "Very high contrast; long highlight runs along the panels"
+    },
+    "camera": {
+      "lens": "35mm automotive, slight perspective exaggeration",
+      "quality": "Tack sharp, heavily graded, print finish",
+      "artifacts": "None",
+      "aesthetic": "Poster, automotive, high-contrast, bold type"
+    },
+    "atmosphere": {
+      "mood": "Aggressive presence",
+      "story": "A car photographed to look fast standing still."
+    }
+  }
 }

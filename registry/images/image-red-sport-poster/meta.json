@@ -13,5 +13,43 @@
     "editorial"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Figure in motion, gear and limbs breaking across the frame",
+      "expression": "Obscured — face largely covered by kit",
+      "clothing": "Full technical sportswear in red, white and black"
+    },
+    "composition": {
+      "shotType": "Poster, dynamic diagonal composition",
+      "angle": "Low, dramatic",
+      "placement": "Figure across the diagonal, wordmark centred",
+      "distance": "Medium",
+      "depthOfField": "Moderate; motion in the extremities",
+      "focus": "The wordmark and the nearest gear"
+    },
+    "environment": {
+      "setting": "Composited sky / debris field",
+      "background": "Cloud and fragment texture behind the figure",
+      "depth": "Subject plus composited background and type"
+    },
+    "lighting": {
+      "quality": "Hard, high-key edges",
+      "direction": "Strong top-back key, deep frontal shadow",
+      "temperature": "Saturated red against cool grey",
+      "shadows": "Very high contrast; hard specular on the gear"
+    },
+    "camera": {
+      "lens": "24–35mm wide, exaggerated perspective",
+      "quality": "Sharp, heavily graded, high-clarity poster finish",
+      "artifacts": "Motion streaks, composited debris",
+      "aesthetic": "Poster, sportswear, dynamic, aggressive"
+    },
+    "atmosphere": {
+      "mood": "Explosive",
+      "story": "A sportswear campaign built on impact."
+    }
+  }
 }

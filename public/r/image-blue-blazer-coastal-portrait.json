@@ -13,6 +13,44 @@
     "coastal",
     "editorial"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Head and shoulders, hair tied back, chin slightly raised",
+      "expression": "Obscured by dark sunglasses; mouth relaxed",
+      "clothing": "Navy pinstriped blazer over a light top"
+    },
+    "composition": {
+      "shotType": "Medium close, head and shoulders",
+      "angle": "Low, shooting up against the sky",
+      "placement": "Centred",
+      "distance": "Medium",
+      "depthOfField": "Deep",
+      "focus": "The sunglasses and blazer lapel"
+    },
+    "environment": {
+      "setting": "Outdoors",
+      "background": "Clear saturated blue sky, no ground reference",
+      "depth": "Subject plus sky"
+    },
+    "lighting": {
+      "quality": "Hard sun",
+      "direction": "High side sun with sky as fill",
+      "temperature": "Cool blue with warm skin",
+      "shadows": "High contrast; crisp shadow under the jaw"
+    },
+    "camera": {
+      "lens": "50mm",
+      "quality": "Sharp, saturated, high-clarity daylight grade",
+      "artifacts": "None",
+      "aesthetic": "Editorial, coastal, tailored, vivid"
+    },
+    "atmosphere": {
+      "mood": "Assured",
+      "story": "A tailored look shot against nothing but sky."
+    }
+  },
   "files": [
     {
       "path": "image-blue-blazer-coastal-portrait.html",

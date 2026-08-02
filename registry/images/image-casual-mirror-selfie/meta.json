@@ -13,5 +13,43 @@
     "lifestyle"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Standing at a mirror, phone raised, hip cocked, long dark hair",
+      "expression": "Partly hidden behind the phone; neutral",
+      "clothing": "Fitted black mini dress"
+    },
+    "composition": {
+      "shotType": "Mirror selfie, three-quarter figure",
+      "angle": "Eye-level, phone visible",
+      "placement": "Centred in the mirror",
+      "distance": "Medium",
+      "depthOfField": "Deep",
+      "focus": "The reflection"
+    },
+    "environment": {
+      "setting": "Domestic interior",
+      "background": "Plain wall and door frame, minimal detail",
+      "depth": "Subject plus flat interior"
+    },
+    "lighting": {
+      "quality": "Flat domestic ambient",
+      "direction": "Overhead fixture, no controlled key",
+      "temperature": "Neutral-warm",
+      "shadows": "Low contrast; slightly flat"
+    },
+    "camera": {
+      "lens": "Phone wide, mild distortion",
+      "quality": "Snapshot sharpness, visible noise",
+      "artifacts": "Screen glare, edge stretch",
+      "aesthetic": "Selfie, candid, domestic, phone"
+    },
+    "atmosphere": {
+      "mood": "Plain self-documentation",
+      "story": "An outfit recorded before going out."
+    }
+  }
 }

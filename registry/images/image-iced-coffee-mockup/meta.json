@@ -13,5 +13,36 @@
     "splash"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "composition": {
+      "shotType": "Product hero, single glass",
+      "angle": "Slightly below eye-level",
+      "placement": "Centred",
+      "distance": "Medium-close",
+      "depthOfField": "Shallow; background reduced to warm bokeh",
+      "focus": "Ice cubes and the glass rim"
+    },
+    "environment": {
+      "setting": "Cafe-suggestive studio set",
+      "background": "Warm out-of-focus interior tones, no readable detail",
+      "depth": "Product plus abstracted background"
+    },
+    "lighting": {
+      "quality": "Soft with a hard specular edge",
+      "direction": "Backlight through the glass, soft frontal fill",
+      "temperature": "Warm — amber and caramel",
+      "shadows": "Moderate contrast; bright rim highlights on ice and glass"
+    },
+    "camera": {
+      "lens": "100mm macro feel",
+      "quality": "High sharpness on the glass, creamy falloff, rich grade",
+      "artifacts": "Slight flare, shallow bokeh circles",
+      "aesthetic": "Product photography, appetising, warm, mockup"
+    },
+    "atmosphere": {
+      "mood": "Cool refreshment",
+      "story": "A drink caught the instant the ice lands."
+    }
+  }
 }

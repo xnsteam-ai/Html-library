@@ -190,6 +190,8 @@ function toRegistryItem({ meta, html }, version) {
     tags: meta.tags ?? [],
     // Only whole-screen items carry a surface; parts omit it entirely.
     ...(meta.surface ? { surface: meta.surface } : {}),
+    // Images ship their recreation brief so the JSON is as useful as the page.
+    ...(meta.prompt ? { prompt: meta.prompt } : {}),
     files: [{ path: `${meta.name}.html`, type: 'html', content: html }],
   }
 }

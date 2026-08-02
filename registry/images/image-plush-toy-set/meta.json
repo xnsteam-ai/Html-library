@@ -13,5 +13,36 @@
     "grid"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "composition": {
+      "shotType": "Four-up product grid",
+      "angle": "Straight-on, eye-level per cell",
+      "placement": "One toy centred per cell",
+      "distance": "Medium-close",
+      "depthOfField": "Deep",
+      "focus": "The face of each toy"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Flat pastel sweep behind each item, alternating tones",
+      "depth": "Product only"
+    },
+    "lighting": {
+      "quality": "Very soft, near-shadowless",
+      "direction": "Broad frontal diffusion",
+      "temperature": "Neutral with pastel background tint",
+      "shadows": "Minimal; soft contact shadow"
+    },
+    "camera": {
+      "lens": "50mm, flat",
+      "quality": "Clean, soft, high-key catalogue grade",
+      "artifacts": "None",
+      "aesthetic": "Product, plush, pastel, e-commerce"
+    },
+    "atmosphere": {
+      "mood": "Soft and collectible",
+      "story": "A merchandise line laid out for a store page."
+    }
+  }
 }

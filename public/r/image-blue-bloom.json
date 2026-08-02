@@ -13,6 +13,45 @@
     "floral",
     "blue"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Head and shoulders in profile, chin lifted, hair swept back; the silhouette dissolves into floral particles at the crown and shoulder",
+      "expression": "Eyes closed, serene",
+      "clothing": "Dark structured jacket"
+    },
+    "composition": {
+      "shotType": "Medium portrait, profile",
+      "angle": "Eye-level",
+      "placement": "Subject right of centre, dissolve trailing left",
+      "distance": "Medium",
+      "depthOfField": "Shallow",
+      "focus": "The profile edge — brow, nose, lip"
+    },
+    "environment": {
+      "setting": "Studio / composite",
+      "background": "Near-black field with luminous blue floral fragments drifting off the figure",
+      "depth": "Subject plus particle layer"
+    },
+    "lighting": {
+      "quality": "Hard rim with soft fill",
+      "direction": "Strong blue rim from behind, minimal frontal fill",
+      "temperature": "Cold — electric blue against black",
+      "shadows": "Very high contrast; the rim is the only bright element"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Clean edge detail, deep blacks, stylised composite",
+      "artifacts": "Glow/bloom around the particles",
+      "aesthetic": "Surreal, composite, blue, dramatic"
+    },
+    "atmosphere": {
+      "mood": "Transformation",
+      "story": "A figure coming apart into flowers.",
+      "micro": "Closed eyes and a relaxed jaw — acceptance, not distress"
+    }
+  },
   "files": [
     {
       "path": "image-blue-bloom.html",

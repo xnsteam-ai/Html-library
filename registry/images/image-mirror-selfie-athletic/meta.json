@@ -13,5 +13,43 @@
     "lifestyle"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Standing at a mirror, phone raised, weight on one hip",
+      "expression": "Partly obscured by the phone; relaxed",
+      "clothing": "Cropped athletic top and shorts"
+    },
+    "composition": {
+      "shotType": "Mirror selfie, three-quarter figure",
+      "angle": "Eye-level, phone in frame",
+      "placement": "Centred in the mirror",
+      "distance": "Medium",
+      "depthOfField": "Deep",
+      "focus": "The mirror reflection"
+    },
+    "environment": {
+      "setting": "Domestic interior",
+      "background": "Bathroom or bedroom fittings, wall lights visible",
+      "depth": "Subject plus readable interior"
+    },
+    "lighting": {
+      "quality": "Mixed domestic",
+      "direction": "Overhead and wall fixtures, no controlled key",
+      "temperature": "Warm tungsten",
+      "shadows": "Moderate; hot spots on the fixtures"
+    },
+    "camera": {
+      "lens": "Phone wide, mild distortion",
+      "quality": "Snapshot sharpness, visible noise in shadow",
+      "artifacts": "Screen glare, wide-angle stretch",
+      "aesthetic": "Selfie, candid, domestic, phone"
+    },
+    "atmosphere": {
+      "mood": "Everyday and unstaged",
+      "story": "A gym-kit check in a hallway mirror."
+    }
+  }
 }

@@ -13,6 +13,44 @@
     "blossom",
     "spring"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent late teens–20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Same figure across six frames, dark hair, standing and seated",
+      "expression": "Soft, warm, often smiling",
+      "clothing": "Pale pink and white spring layers"
+    },
+    "composition": {
+      "shotType": "Six-frame grid",
+      "angle": "Eye-level throughout",
+      "placement": "Grid, subject centred per cell",
+      "distance": "Medium",
+      "depthOfField": "Shallow per frame",
+      "focus": "The face in each cell"
+    },
+    "environment": {
+      "setting": "Outdoors under blossom",
+      "background": "Pink blossom and blue sky, softly rendered",
+      "depth": "Subject plus soft background"
+    },
+    "lighting": {
+      "quality": "Soft natural, backlit",
+      "direction": "Sun behind the blossom, sky as fill",
+      "temperature": "Warm pastel",
+      "shadows": "Low contrast; gentle bloom"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Soft, high-key, pastel grade",
+      "artifacts": "Bloom and mild flare",
+      "aesthetic": "Spring, pastel, photobook, soft"
+    },
+    "atmosphere": {
+      "mood": "Gentle and seasonal",
+      "story": "A spring photobook shot in one afternoon."
+    }
+  },
   "files": [
     {
       "path": "image-blossom-grid.html",

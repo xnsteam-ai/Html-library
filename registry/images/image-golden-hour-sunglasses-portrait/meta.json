@@ -13,5 +13,43 @@
     "golden hour"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Head and shoulders, hair tied back, chin slightly raised",
+      "expression": "Obscured by round dark sunglasses; mouth relaxed",
+      "clothing": "Yellow draped top, large gold earrings and layered gold jewellery"
+    },
+    "composition": {
+      "shotType": "Medium close, head and shoulders",
+      "angle": "Eye-level",
+      "placement": "Centred",
+      "distance": "Medium",
+      "depthOfField": "Shallow; ground dark and plain",
+      "focus": "The sunglasses and jewellery"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Deep neutral ground, unlit",
+      "depth": "Subject only"
+    },
+    "lighting": {
+      "quality": "Hard, warm key",
+      "direction": "Strong frontal-side key, low fill",
+      "temperature": "Very warm — gold on gold",
+      "shadows": "High contrast; bright speculars on the metal"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Sharp, saturated, warm-graded",
+      "artifacts": "Specular flare on the lenses",
+      "aesthetic": "Beauty, gold, warm, editorial"
+    },
+    "atmosphere": {
+      "mood": "Glamorous and closed",
+      "story": "A portrait that gives you the styling and not the eyes."
+    }
+  }
 }

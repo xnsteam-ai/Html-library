@@ -13,6 +13,45 @@
     "playful",
     "editorial"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult male, apparent 20s–30s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Standing, holding an ice cream in one hand and a small bouquet in the other, head slightly tilted",
+      "expression": "Light, faint smile, eyes to camera",
+      "clothing": "Pale blue shirt, clear-framed glasses"
+    },
+    "composition": {
+      "shotType": "Medium, waist up",
+      "angle": "Slightly low, sky behind",
+      "placement": "Centred",
+      "distance": "Medium",
+      "depthOfField": "Deep",
+      "focus": "The face and the ice cream"
+    },
+    "environment": {
+      "setting": "Outdoors",
+      "background": "Clear blue sky, no ground reference",
+      "depth": "Subject plus sky"
+    },
+    "lighting": {
+      "quality": "Hard sun with sky fill",
+      "direction": "High side sun, broad sky bounce",
+      "temperature": "Warm subject against cool blue",
+      "shadows": "Moderate contrast; clean highlights"
+    },
+    "camera": {
+      "lens": "50mm",
+      "quality": "Clean, saturated, bright daylight grade",
+      "artifacts": "None",
+      "aesthetic": "Lifestyle, playful, summer, portrait"
+    },
+    "atmosphere": {
+      "mood": "Light-hearted",
+      "story": "Someone holding two nice things at once.",
+      "micro": "Small unforced smile"
+    }
+  },
   "files": [
     {
       "path": "image-ice-cream-flowers-portrait.html",

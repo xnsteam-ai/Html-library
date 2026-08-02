@@ -13,5 +13,43 @@
     "athletic"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Standing, both arms raised behind the head, torso lengthened, weight on one hip",
+      "expression": "Eyes to camera, mouth relaxed",
+      "clothing": "Fitted cropped athletic top and leggings"
+    },
+    "composition": {
+      "shotType": "Medium, thigh up",
+      "angle": "Eye-level",
+      "placement": "Centred",
+      "distance": "Medium",
+      "depthOfField": "Shallow; gym equipment soft behind",
+      "focus": "The torso and face"
+    },
+    "environment": {
+      "setting": "Gym interior",
+      "background": "Racks and equipment reduced to dark soft shapes",
+      "depth": "Subject plus blurred interior"
+    },
+    "lighting": {
+      "quality": "Directional with a hard edge",
+      "direction": "Key from camera-left, strong rim from behind",
+      "temperature": "Cool with warm skin",
+      "shadows": "High contrast; muscle definition emphasised by the raking key"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Sharp, contrasty, cool-graded",
+      "artifacts": "Slight vignette",
+      "aesthetic": "Fitness, athletic, moody gym, editorial"
+    },
+    "atmosphere": {
+      "mood": "Controlled effort",
+      "story": "A pause between sets, held deliberately."
+    }
+  }
 }

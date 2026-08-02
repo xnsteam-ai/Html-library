@@ -13,6 +13,44 @@
     "green",
     "portrait"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent late teens–20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Same figure across six frames, dark hair, varied seated and standing poses",
+      "expression": "Soft, warm, mostly smiling",
+      "clothing": "Green and white outfit, consistent across frames"
+    },
+    "composition": {
+      "shotType": "Six-frame grid, mixed crops",
+      "angle": "Eye-level throughout",
+      "placement": "Grid layout, subject centred per cell",
+      "distance": "Medium",
+      "depthOfField": "Shallow per frame",
+      "focus": "The face in each cell"
+    },
+    "environment": {
+      "setting": "Outdoor, bright",
+      "background": "Sky and soft greenery, kept low-detail",
+      "depth": "Subject plus soft background"
+    },
+    "lighting": {
+      "quality": "Soft natural daylight",
+      "direction": "Open shade with sky fill",
+      "temperature": "Warm-neutral, fresh",
+      "shadows": "Low contrast; open shadows"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Clean, bright, lightly diffused grade",
+      "artifacts": "Mild bloom",
+      "aesthetic": "Idol, photobook, fresh, grid"
+    },
+    "atmosphere": {
+      "mood": "Bright and approachable",
+      "story": "A photobook spread built from one shoot."
+    }
+  },
   "files": [
     {
       "path": "image-idol-grid.html",

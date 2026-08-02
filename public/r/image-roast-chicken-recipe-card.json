@@ -13,6 +13,37 @@
     "recipe",
     "card"
   ],
+  "prompt": {
+    "composition": {
+      "shotType": "Infographic layout, hero food shot plus annotated steps",
+      "angle": "Overhead for the hero, flat for the diagram",
+      "placement": "Hero centred, ingredient and step callouts arranged around it",
+      "distance": "Medium",
+      "depthOfField": "Deep",
+      "focus": "The roast chicken"
+    },
+    "environment": {
+      "setting": "Studio tabletop",
+      "background": "Clean pale ground with herbs and ingredients arranged as callouts",
+      "depth": "Food plus graphic layer"
+    },
+    "lighting": {
+      "quality": "Soft, broad",
+      "direction": "Overhead diffusion with light frontal fill",
+      "temperature": "Warm — golden skin against a neutral ground",
+      "shadows": "Low contrast; gentle contact shadow"
+    },
+    "camera": {
+      "lens": "50mm overhead",
+      "quality": "Crisp, appetising, clean commercial grade",
+      "artifacts": "None",
+      "aesthetic": "Infographic, food, recipe, editorial"
+    },
+    "atmosphere": {
+      "mood": "Instructional and appetising",
+      "story": "A recipe laid out to be followed at a glance."
+    }
+  },
   "files": [
     {
       "path": "image-roast-chicken-recipe-card.html",

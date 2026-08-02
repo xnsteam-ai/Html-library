@@ -13,6 +13,44 @@
     "apparel",
     "editorial"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Full figure mid-stride, arms swinging",
+      "expression": "Not readable at poster scale",
+      "clothing": "Green and white athletic kit"
+    },
+    "composition": {
+      "shotType": "Poster, full figure with stacked type",
+      "angle": "Slightly low",
+      "placement": "Figure right, type left",
+      "distance": "Medium-far",
+      "depthOfField": "Deep",
+      "focus": "The figure and shoe"
+    },
+    "environment": {
+      "setting": "Graphic field",
+      "background": "Flat white and acid-green ground with heavy lettering",
+      "depth": "Subject plus typography"
+    },
+    "lighting": {
+      "quality": "Hard, graphic",
+      "direction": "Frontal key with clean separation",
+      "temperature": "High-key white with a saturated green accent",
+      "shadows": "High contrast; crisp cut-out edges"
+    },
+    "camera": {
+      "lens": "35mm cut-out",
+      "quality": "Poster-flat, high-saturation print grade",
+      "artifacts": "None",
+      "aesthetic": "Poster, sportswear, acid green, bold type"
+    },
+    "atmosphere": {
+      "mood": "Propulsive",
+      "story": "A campaign built on forward motion."
+    }
+  },
   "files": [
     {
       "path": "image-own-the-move-poster.html",

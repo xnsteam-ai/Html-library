@@ -13,6 +13,37 @@
     "skincare",
     "product"
   ],
+  "prompt": {
+    "composition": {
+      "shotType": "Infographic, product hero plus numbered steps",
+      "angle": "Overhead",
+      "placement": "Hero upper-centre, steps listed below",
+      "distance": "Medium",
+      "depthOfField": "Deep",
+      "focus": "The primary product jar"
+    },
+    "environment": {
+      "setting": "Studio tabletop",
+      "background": "Clean white ground with botanical props and green accents",
+      "depth": "Product plus graphic layer"
+    },
+    "lighting": {
+      "quality": "Soft, broad, near-shadowless",
+      "direction": "Large overhead diffusion",
+      "temperature": "Cool-neutral with fresh green",
+      "shadows": "Minimal; light contact shadow"
+    },
+    "camera": {
+      "lens": "50mm overhead",
+      "quality": "Crisp, high-key, clean commercial grade",
+      "artifacts": "None",
+      "aesthetic": "Infographic, skincare, clinical, routine"
+    },
+    "atmosphere": {
+      "mood": "Orderly and clean",
+      "story": "A routine broken into numbered steps."
+    }
+  },
   "files": [
     {
       "path": "image-skincare-routine-card.html",

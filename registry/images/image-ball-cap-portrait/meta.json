@@ -13,5 +13,44 @@
     "neutral"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Shoulder-length wavy auburn hair under a cap; head square, shoulders relaxed",
+      "expression": "Neutral, level, unsmiling",
+      "clothing": "Red and blue ball cap, white tee under a dark blazer"
+    },
+    "composition": {
+      "shotType": "Medium close, head and shoulders",
+      "angle": "Eye-level",
+      "placement": "Centred",
+      "distance": "Medium",
+      "depthOfField": "Shallow; plain backdrop",
+      "focus": "The eyes under the brim"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Flat pale grey backdrop",
+      "depth": "Subject only"
+    },
+    "lighting": {
+      "quality": "Soft, even",
+      "direction": "Broad frontal key, light fill",
+      "temperature": "Neutral",
+      "shadows": "Low contrast; soft brim shadow across the brow"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Clean, natural skin tone, minimal grade",
+      "artifacts": "None",
+      "aesthetic": "Portrait, casual, neutral, studio"
+    },
+    "atmosphere": {
+      "mood": "Plain and direct",
+      "story": "A straightforward headshot in everyday clothes.",
+      "micro": "Level gaze, no performance"
+    }
+  }
 }

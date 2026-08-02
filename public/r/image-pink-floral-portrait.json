@@ -13,6 +13,45 @@
     "playful",
     "pastel"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Head and shoulders, hair styled with a pink headband, hands raised near the face",
+      "expression": "Bright, open smile",
+      "clothing": "Pink knit top with floral detail"
+    },
+    "composition": {
+      "shotType": "Medium close, head and hands",
+      "angle": "Eye-level",
+      "placement": "Centred",
+      "distance": "Medium",
+      "depthOfField": "Shallow; ground plain",
+      "focus": "The face"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Flat pale pink backdrop",
+      "depth": "Subject only"
+    },
+    "lighting": {
+      "quality": "Soft, high-key",
+      "direction": "Broad frontal diffusion, minimal shadow",
+      "temperature": "Warm pastel — pink throughout",
+      "shadows": "Very low contrast; bright and open"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Clean, bright, pastel-graded",
+      "artifacts": "Mild bloom",
+      "aesthetic": "Beauty, pastel, playful, high-key"
+    },
+    "atmosphere": {
+      "mood": "Cheerful",
+      "story": "A portrait styled entirely around one colour.",
+      "micro": "Genuine open smile"
+    }
+  },
   "files": [
     {
       "path": "image-pink-floral-portrait.html",

@@ -13,5 +13,36 @@
     "grid"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "composition": {
+      "shotType": "Three-up product lineup",
+      "angle": "Slightly below can-top, near eye-level",
+      "placement": "Three cans spread evenly across the frame",
+      "distance": "Medium-close",
+      "depthOfField": "Moderate; fruit props soften behind",
+      "focus": "The can faces and labels"
+    },
+    "environment": {
+      "setting": "Studio set with props",
+      "background": "Dark ground dressed with whole and cut fruit matched to each flavour, water droplets",
+      "depth": "Product plus prop layer"
+    },
+    "lighting": {
+      "quality": "Hard with controlled speculars",
+      "direction": "Side and back keys to rim the cans, soft frontal fill",
+      "temperature": "Saturated warm fruit tones on a dark ground",
+      "shadows": "High contrast; bright rim highlights, deep shadow between cans"
+    },
+    "camera": {
+      "lens": "100mm product",
+      "quality": "Tack sharp on labels, rich saturation, commercial grade",
+      "artifacts": "Deliberate droplet speculars",
+      "aesthetic": "Product, beverage, vivid, commercial"
+    },
+    "atmosphere": {
+      "mood": "Fresh and punchy",
+      "story": "A flavour range shown with its ingredients."
+    }
+  }
 }

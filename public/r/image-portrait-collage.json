@@ -13,6 +13,44 @@
     "polaroid",
     "print"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "One sitter repeated across many small prints — long dark hair, varied head angles",
+      "expression": "Range from neutral to softly smiling",
+      "clothing": "Simple dark and light tops"
+    },
+    "composition": {
+      "shotType": "Scattered print collage, mixed crops",
+      "angle": "Eye-level throughout",
+      "placement": "Overlapping prints across the full frame",
+      "distance": "Close to medium",
+      "depthOfField": "Shallow within each print",
+      "focus": "The largest central print"
+    },
+    "environment": {
+      "setting": "Studio, restaged as a physical layout",
+      "background": "Pale surface beneath the scattered prints",
+      "depth": "Prints on a single plane"
+    },
+    "lighting": {
+      "quality": "Soft, even",
+      "direction": "Broad frontal, matched per print",
+      "temperature": "Neutral",
+      "shadows": "Low contrast"
+    },
+    "camera": {
+      "lens": "85mm originals",
+      "quality": "Clean, with print edges and slight paper drop-shadow",
+      "artifacts": "Simulated print borders",
+      "aesthetic": "Collage, polaroid, casting, portrait"
+    },
+    "atmosphere": {
+      "mood": "Familiar and archival",
+      "story": "A sitting laid out on a table to choose from."
+    }
+  },
   "files": [
     {
       "path": "image-portrait-collage.html",

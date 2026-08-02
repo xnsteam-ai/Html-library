@@ -13,6 +13,45 @@
     "lifestyle",
     "outdoor"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Head and shoulders turned slightly, long hair loose over one shoulder",
+      "expression": "Warm, soft smile, eyes to camera",
+      "clothing": "Light casual top; a small flower tucked at the ear"
+    },
+    "composition": {
+      "shotType": "Medium close, head and shoulders",
+      "angle": "Eye-level",
+      "placement": "Centred",
+      "distance": "Medium",
+      "depthOfField": "Shallow; interior warm and soft behind",
+      "focus": "The eyes"
+    },
+    "environment": {
+      "setting": "Warm interior",
+      "background": "Wooden and soft furnishing tones, unreadable detail",
+      "depth": "Subject plus soft background"
+    },
+    "lighting": {
+      "quality": "Soft, warm",
+      "direction": "Window key from camera-left, gentle fill",
+      "temperature": "Warm — amber ambient",
+      "shadows": "Low contrast; soft modelling"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Clean, warm, gently diffused grade",
+      "artifacts": "Mild bloom",
+      "aesthetic": "Portrait, warm, casual, natural light"
+    },
+    "atmosphere": {
+      "mood": "Easy warmth",
+      "story": "A relaxed portrait in a comfortable room.",
+      "micro": "Genuine soft smile — nothing held"
+    }
+  },
   "files": [
     {
       "path": "image-casual-outdoor-portrait.html",

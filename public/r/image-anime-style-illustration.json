@@ -13,6 +13,44 @@
     "scenic",
     "character"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Illustrated young adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Standing in a field, long dark hair, dress lifting in the wind, one arm raised",
+      "expression": "Serene, eyes toward the sky",
+      "clothing": "Layered green dress with a full skirt"
+    },
+    "composition": {
+      "shotType": "Full figure in landscape",
+      "angle": "Low, looking up past the subject",
+      "placement": "Centred, horizon low",
+      "distance": "Medium-far",
+      "depthOfField": "Flat — illustrated depth via layering",
+      "focus": "The figure against the sky"
+    },
+    "environment": {
+      "setting": "Illustrated meadow",
+      "background": "Poppies and tall grass in the foreground, cloud-stacked sky above",
+      "depth": "Full scene — foreground flowers, figure, sky"
+    },
+    "lighting": {
+      "quality": "Rendered soft daylight",
+      "direction": "Implied high backlight with broad sky fill",
+      "temperature": "Warm greens and reds against a bright blue sky",
+      "shadows": "Moderate contrast; painterly highlight on the fabric"
+    },
+    "camera": {
+      "lens": "N/A — illustration; reads as a wide lens",
+      "quality": "Painterly digital rendering, visible brush texture, no photographic grain",
+      "artifacts": "None",
+      "aesthetic": "Anime, illustration, painterly, scenic"
+    },
+    "atmosphere": {
+      "mood": "Windswept calm",
+      "story": "A character standing in a field as the weather turns."
+    }
+  },
   "files": [
     {
       "path": "image-anime-style-illustration.html",

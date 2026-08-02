@@ -13,6 +13,45 @@
     "warm",
     "editorial"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult male, apparent 30s–40s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Head and shoulders, chin lifted and turned up and away, short dark hair",
+      "expression": "Looking up and off-lens, mouth closed, contemplative",
+      "clothing": "Fitted black polo shirt"
+    },
+    "composition": {
+      "shotType": "Medium close, head and shoulders",
+      "angle": "Slightly low, following the raised chin",
+      "placement": "Centred",
+      "distance": "Medium",
+      "depthOfField": "Shallow; ground falls off",
+      "focus": "The jawline and eyes"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Warm orange-to-black graduated backdrop",
+      "depth": "Subject only"
+    },
+    "lighting": {
+      "quality": "Hard key with a warm ground glow",
+      "direction": "Key from camera-left above, backdrop lit separately in orange",
+      "temperature": "Very warm — amber ground against neutral skin",
+      "shadows": "High contrast; deep shadow on the off side"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Sharp, warm-graded, rich shadow detail",
+      "artifacts": "Slight vignette",
+      "aesthetic": "Portrait, warm, dramatic, editorial"
+    },
+    "atmosphere": {
+      "mood": "Reflective",
+      "story": "A portrait caught looking at something out of frame.",
+      "micro": "Raised chin and unfocused gaze — thought, not pose"
+    }
+  },
   "files": [
     {
       "path": "image-studio-portrait-warm.html",

@@ -13,5 +13,44 @@
     "dark"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult male, apparent 20s–30s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Head and shoulders, hand raised to the chin, hair swept back, head slightly lowered",
+      "expression": "Intent, brooding, eyes to camera",
+      "clothing": "Dark turtleneck; a watch visible on the raised wrist"
+    },
+    "composition": {
+      "shotType": "Medium close, head and hand",
+      "angle": "Eye-level",
+      "placement": "Centred",
+      "distance": "Medium",
+      "depthOfField": "Shallow; ground falls to black",
+      "focus": "The eyes and the hand at the jaw"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Near-black backdrop",
+      "depth": "Subject only"
+    },
+    "lighting": {
+      "quality": "Hard, tightly controlled",
+      "direction": "Narrow key from camera-left, deep unfilled shadow on the right",
+      "temperature": "Monochrome — rendered black and white",
+      "shadows": "Very high contrast; sculpted cheek and jaw shadow"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Black and white, high micro-contrast, deep blacks, fine grain",
+      "artifacts": "Slight vignette",
+      "aesthetic": "Monochrome, low-key, dramatic, editorial"
+    },
+    "atmosphere": {
+      "mood": "Brooding control",
+      "story": "A portrait built entirely out of one light and a lot of shadow.",
+      "micro": "Held gaze under a lowered brow"
+    }
+  }
 }

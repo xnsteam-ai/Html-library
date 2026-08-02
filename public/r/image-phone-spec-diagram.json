@@ -13,6 +13,37 @@
     "diagram",
     "phone"
   ],
+  "prompt": {
+    "composition": {
+      "shotType": "Product hero plus technical exploded diagram",
+      "angle": "Straight-on for the render, flat overhead for the line art",
+      "placement": "Device upper area, annotated schematic below",
+      "distance": "Medium",
+      "depthOfField": "Deep",
+      "focus": "The device body and callout lines"
+    },
+    "environment": {
+      "setting": "Studio / vector composite",
+      "background": "Warm neutral ground with fine technical line work and callout labels",
+      "depth": "Product plus diagram layer"
+    },
+    "lighting": {
+      "quality": "Soft studio with controlled speculars",
+      "direction": "Broad frontal diffusion, edge light down the chassis",
+      "temperature": "Warm neutral with an orange device accent",
+      "shadows": "Low contrast; clean gradient on the metal edge"
+    },
+    "camera": {
+      "lens": "50mm product render",
+      "quality": "Very clean, sharp, catalogue grade",
+      "artifacts": "None",
+      "aesthetic": "Product, technical, diagram, spec sheet"
+    },
+    "atmosphere": {
+      "mood": "Explanatory",
+      "story": "A device broken down into its parts."
+    }
+  },
   "files": [
     {
       "path": "image-phone-spec-diagram.html",

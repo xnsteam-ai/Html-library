@@ -13,6 +13,37 @@
     "coastal",
     "van"
   ],
+  "prompt": {
+    "composition": {
+      "shotType": "Wide landscape with a vehicle as anchor",
+      "angle": "Eye-level, slightly elevated",
+      "placement": "Van left of centre, road leading right, horizon high",
+      "distance": "Far",
+      "depthOfField": "Deep — foreground flowers to distant headland sharp",
+      "focus": "The van against the coastline"
+    },
+    "environment": {
+      "setting": "Coastal road",
+      "background": "Ocean, headland and hillside; dense yellow wildflowers across the foreground",
+      "depth": "Full scene — foreground, midground vehicle, distant coast"
+    },
+    "lighting": {
+      "quality": "Warm low sun with soft haze",
+      "direction": "Low side-back sun, sky as broad fill",
+      "temperature": "Very warm — gold over blue-green sea",
+      "shadows": "Moderate-high contrast; long shadows, glowing highlights"
+    },
+    "camera": {
+      "lens": "24–35mm wide",
+      "quality": "Rich, saturated, warm-graded landscape finish",
+      "artifacts": "Sun flare, slight haze",
+      "aesthetic": "Travel, golden hour, landscape, wanderlust"
+    },
+    "atmosphere": {
+      "mood": "Open-road calm",
+      "story": "A stop on a coast road with nowhere to be."
+    }
+  },
   "files": [
     {
       "path": "image-coastal-road-trip.html",

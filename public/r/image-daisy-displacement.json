@@ -13,6 +13,44 @@
     "floral",
     "surreal"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s–30s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Pale blonde hair pulled back; head square to camera, face bisected by a horizontal displacement slice",
+      "expression": "Neutral, unreadable — deliberately interrupted",
+      "clothing": "Pale high-neck knit; a single white daisy sits where one eye would be"
+    },
+    "composition": {
+      "shotType": "Close portrait, head and shoulders",
+      "angle": "Eye-level",
+      "placement": "Centred",
+      "distance": "Intimate",
+      "depthOfField": "Shallow, background reduced to flat tone",
+      "focus": "The daisy and the glitch seam"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Flat pale grey-green backdrop, no detail",
+      "depth": "Subject only"
+    },
+    "lighting": {
+      "quality": "Soft, even",
+      "direction": "Frontal, slightly elevated",
+      "temperature": "Cool and desaturated, near-pastel",
+      "shadows": "Very low contrast; gentle modelling only"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Smooth, soft-focus grade with deliberate digital displacement",
+      "artifacts": "Horizontal slice/glitch offset is intentional",
+      "aesthetic": "Surreal, glitch, pastel, conceptual"
+    },
+    "atmosphere": {
+      "mood": "Quiet dissociation",
+      "story": "A portrait interrupted mid-read."
+    }
+  },
   "files": [
     {
       "path": "image-daisy-displacement.html",

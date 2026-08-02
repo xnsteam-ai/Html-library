@@ -13,5 +13,43 @@
     "youth"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Arm extended toward camera, body angled, long dark hair under a cap",
+      "expression": "Slight smile, direct to lens",
+      "clothing": "Bucket cap, white cropped two-piece"
+    },
+    "composition": {
+      "shotType": "Selfie, three-quarter figure",
+      "angle": "Slightly high, arm-length",
+      "placement": "Subject centred, tilted frame",
+      "distance": "Intimate — arm length",
+      "depthOfField": "Deep",
+      "focus": "The face"
+    },
+    "environment": {
+      "setting": "Outdoor, urban",
+      "background": "Pale wall and sky, low detail",
+      "depth": "Subject plus flat background"
+    },
+    "lighting": {
+      "quality": "Soft overcast daylight",
+      "direction": "Broad frontal ambient",
+      "temperature": "Neutral, slightly cool",
+      "shadows": "Low contrast"
+    },
+    "camera": {
+      "lens": "Phone wide, visible edge distortion",
+      "quality": "Snapshot sharpness, light compression artifacts",
+      "artifacts": "Wide-angle stretch at the frame edge",
+      "aesthetic": "Selfie, streetwear, candid, phone"
+    },
+    "atmosphere": {
+      "mood": "Casual confidence",
+      "story": "A quick outfit check posted as-is."
+    }
+  }
 }

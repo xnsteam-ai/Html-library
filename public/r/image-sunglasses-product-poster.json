@@ -13,6 +13,37 @@
     "eyewear",
     "editorial"
   ],
+  "prompt": {
+    "composition": {
+      "shotType": "Product hero, single pair centred",
+      "angle": "Slightly above, looking down on the frames",
+      "placement": "Centred under the wordmark",
+      "distance": "Close",
+      "depthOfField": "Deep — frames fully sharp",
+      "focus": "The lens and hinge"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Graduated pale blue-white ground, subtle reflection beneath",
+      "depth": "Product plus reflection"
+    },
+    "lighting": {
+      "quality": "Soft with crisp speculars",
+      "direction": "Broad overhead diffusion, edge light on the frame",
+      "temperature": "Cool neutral",
+      "shadows": "Low contrast; clean bright highlights on the lens"
+    },
+    "camera": {
+      "lens": "100mm product",
+      "quality": "Tack sharp, clean, catalogue grade",
+      "artifacts": "Deliberate surface reflection",
+      "aesthetic": "Product, eyewear, clean, commercial"
+    },
+    "atmosphere": {
+      "mood": "Crisp and premium",
+      "story": "A pair of frames presented on their own merits."
+    }
+  },
   "files": [
     {
       "path": "image-sunglasses-product-poster.html",

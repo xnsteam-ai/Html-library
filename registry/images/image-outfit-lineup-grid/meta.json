@@ -13,5 +13,43 @@
     "grid"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult male, apparent 30s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Same figure across several frames — walking, standing, seated on steps",
+      "expression": "Neutral throughout, mostly looking away",
+      "clothing": "A single muted outfit, also shown flat-laid"
+    },
+    "composition": {
+      "shotType": "Six-up grid mixing worn shots with flat lays",
+      "angle": "Eye-level for worn frames, overhead for the flats",
+      "placement": "Grid, one look per cell",
+      "distance": "Medium to far",
+      "depthOfField": "Moderate",
+      "focus": "The garment in each cell"
+    },
+    "environment": {
+      "setting": "Urban exterior plus studio flats",
+      "background": "Street and stairwell for the worn frames, white sweep for the flats",
+      "depth": "Mixed — full scene and product-only"
+    },
+    "lighting": {
+      "quality": "Soft overcast outdoors, broad diffusion in studio",
+      "direction": "Ambient daylight; overhead diffusion for the flats",
+      "temperature": "Cool neutral, low saturation",
+      "shadows": "Low contrast throughout"
+    },
+    "camera": {
+      "lens": "50mm",
+      "quality": "Clean, muted, lookbook grade",
+      "artifacts": "None",
+      "aesthetic": "Lookbook, menswear, grid, minimal"
+    },
+    "atmosphere": {
+      "mood": "Systematic",
+      "story": "One outfit documented worn and unworn."
+    }
+  }
 }

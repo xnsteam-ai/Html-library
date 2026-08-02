@@ -13,5 +13,44 @@
     "editorial"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Standing, one arm raised behind the head, torso angled",
+      "expression": "Direct to camera, mouth closed",
+      "clothing": "Pale blue athletic two-piece"
+    },
+    "composition": {
+      "shotType": "Medium, thigh up",
+      "angle": "Eye-level",
+      "placement": "Centred",
+      "distance": "Medium",
+      "depthOfField": "Shallow; ground falls to black",
+      "focus": "The face and shoulder line"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Near-black backdrop with a faint warm spill",
+      "depth": "Subject only"
+    },
+    "lighting": {
+      "quality": "Hard, raking",
+      "direction": "Strong side key, deep unfilled shadow on the far side",
+      "temperature": "Cool with warm skin highlights",
+      "shadows": "Very high contrast; strong body modelling"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Sharp, contrasty, dark-graded",
+      "artifacts": "Slight vignette",
+      "aesthetic": "Fitness, low-key, editorial, sculpted"
+    },
+    "atmosphere": {
+      "mood": "Assured",
+      "story": "A physique shot that keeps its composure.",
+      "micro": "Steady gaze, no strain"
+    }
+  }
 }

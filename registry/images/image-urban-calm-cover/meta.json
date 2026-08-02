@@ -13,5 +13,43 @@
     "editorial"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Illustrated figure, three-quarter, head turned away",
+      "expression": "Serene, eyes lowered",
+      "clothing": "Soft layered streetwear rendered in flat tones"
+    },
+    "composition": {
+      "shotType": "Cover layout, half figure under a masthead",
+      "angle": "Eye-level",
+      "placement": "Figure centred, type upper-left",
+      "distance": "Medium",
+      "depthOfField": "Flat — illustration, no optical depth",
+      "focus": "The face and shoulder line"
+    },
+    "environment": {
+      "setting": "Illustrated",
+      "background": "Soft gradient ground with minimal graphic marks",
+      "depth": "Figure plus flat ground and typography"
+    },
+    "lighting": {
+      "quality": "Rendered soft light",
+      "direction": "Implied frontal key with gentle gradient shading",
+      "temperature": "Cool pastel with a warm accent",
+      "shadows": "Low contrast; soft airbrushed falloff"
+    },
+    "camera": {
+      "lens": "N/A — illustration; reads as a medium-lens framing",
+      "quality": "Smooth digital rendering, clean gradients, no photographic grain",
+      "artifacts": "None",
+      "aesthetic": "Illustration, cover, pastel, editorial"
+    },
+    "atmosphere": {
+      "mood": "Still and modern",
+      "story": "A magazine cover that wants to feel like a breath out."
+    }
+  }
 }

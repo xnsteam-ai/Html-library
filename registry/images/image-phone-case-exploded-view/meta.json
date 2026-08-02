@@ -13,5 +13,36 @@
     "phone case"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "composition": {
+      "shotType": "Technical exploded product view",
+      "angle": "Three-quarter for the render, flat for the annotation",
+      "placement": "Case centred, layers separated along a diagonal",
+      "distance": "Medium",
+      "depthOfField": "Deep",
+      "focus": "The layer separation and callout lines"
+    },
+    "environment": {
+      "setting": "Studio / vector composite",
+      "background": "Pale technical ground with fine callout rules and labels",
+      "depth": "Product plus diagram layer"
+    },
+    "lighting": {
+      "quality": "Soft with controlled edge speculars",
+      "direction": "Broad diffusion, rim light along each layer",
+      "temperature": "Cool neutral",
+      "shadows": "Low contrast; clean edges on every layer"
+    },
+    "camera": {
+      "lens": "50mm product render",
+      "quality": "Very clean, sharp, technical grade",
+      "artifacts": "None",
+      "aesthetic": "Product, technical, exploded view, diagram"
+    },
+    "atmosphere": {
+      "mood": "Engineered",
+      "story": "A case pulled apart to show what it is made of."
+    }
+  }
 }

@@ -13,5 +13,43 @@
     "editorial"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adults, indeterminate",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Several figures walking left-to-right, bodies smeared by exposure; one figure noticeably more resolved",
+      "expression": "Not readable — faces dissolved by motion",
+      "clothing": "Dark outerwear against a pale ground"
+    },
+    "composition": {
+      "shotType": "Wide-medium, full figures",
+      "angle": "Eye-level",
+      "placement": "Figures spread across the frame",
+      "distance": "Far",
+      "depthOfField": "Deep, but motion blur destroys edge detail",
+      "focus": "The least-blurred figure, right of centre"
+    },
+    "environment": {
+      "setting": "Bright interior or covered walkway",
+      "background": "Near-white wall and floor with almost no detail",
+      "depth": "Subject plus flat bright ground"
+    },
+    "lighting": {
+      "quality": "Very soft, enveloping",
+      "direction": "Broad ambient from the front and above, no distinct source",
+      "temperature": "Cool neutral, near-monochrome",
+      "shadows": "Very low contrast; shadows barely present"
+    },
+    "camera": {
+      "lens": "35–50mm",
+      "quality": "Long-exposure smear, low contrast, airy high-key grade",
+      "artifacts": "Motion blur is the defining artifact",
+      "aesthetic": "Long exposure, minimal, high-key, editorial"
+    },
+    "atmosphere": {
+      "mood": "Anonymous transit",
+      "story": "A crowd passing through a space nobody stops in."
+    }
+  }
 }

@@ -13,6 +13,45 @@
     "flare",
     "warm"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Both hands raised open toward the lens, fingers spread, head tilted back behind them",
+      "expression": "Eyes closed or narrowed against the sun, mouth relaxed",
+      "clothing": "Yellow knit sweater"
+    },
+    "composition": {
+      "shotType": "Medium, hands dominant in the foreground",
+      "angle": "Slightly low, shooting into the sun",
+      "placement": "Hands centred, face behind and above",
+      "distance": "Intimate — hands nearly at the lens",
+      "depthOfField": "Very shallow; hands soft, face sharper",
+      "focus": "The face between the hands"
+    },
+    "environment": {
+      "setting": "Outdoors",
+      "background": "Dark foliage and open sky, reduced to warm shapes",
+      "depth": "Foreground hands, subject, background wash"
+    },
+    "lighting": {
+      "quality": "Hard sun, heavily diffused by flare",
+      "direction": "Direct backlight straight into the lens",
+      "temperature": "Very warm — amber and gold throughout",
+      "shadows": "High contrast crushed by veiling flare; highlights bloom"
+    },
+    "camera": {
+      "lens": "50mm shot wide open",
+      "quality": "Soft, hazy, heavy bloom, low micro-contrast",
+      "artifacts": "Strong veiling flare and sun stars",
+      "aesthetic": "Golden hour, dreamy, backlit, warm"
+    },
+    "atmosphere": {
+      "mood": "Reaching warmth",
+      "story": "Hands raised into the sun, half shielding, half welcoming.",
+      "micro": "Squint and half-smile — pleasure, not discomfort"
+    }
+  },
   "files": [
     {
       "path": "image-sunlit-hands.html",

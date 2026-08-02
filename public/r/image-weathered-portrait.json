@@ -13,6 +13,45 @@
     "texture",
     "cinematic"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Elderly, apparent 60s–70s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Deeply lined face, heavy brow, full grey-white beard, close-cropped hair; head square to camera",
+      "expression": "Direct, unsmiling, appraising",
+      "clothing": "Wire-frame glasses; textured dark collar"
+    },
+    "composition": {
+      "shotType": "Extreme close-up, forehead to beard",
+      "angle": "Eye-level, dead-on",
+      "placement": "Centred, face filling the frame",
+      "distance": "Intimate",
+      "depthOfField": "Shallow; edges of the frame dissolve",
+      "focus": "Eyes behind the lenses"
+    },
+    "environment": {
+      "setting": "Studio / composited",
+      "background": "Dark aqua field broken by liquid and droplet texture overlaying the skin",
+      "depth": "Subject only, with texture treated as an overlay rather than a scene"
+    },
+    "lighting": {
+      "quality": "Hard, raking",
+      "direction": "Strong side key from camera-left, minimal fill",
+      "temperature": "Cool — heavy teal and aqua cast throughout",
+      "shadows": "High contrast; deep shadow on the off side, specular highlights on droplets"
+    },
+    "camera": {
+      "lens": "85–105mm, close-focus",
+      "quality": "Hyper-detailed skin texture, heavy micro-contrast, sharpened grade",
+      "artifacts": "Chromatic fringing in the droplet texture",
+      "aesthetic": "Cinematic, hyper-real, textural, character study"
+    },
+    "atmosphere": {
+      "mood": "Weathered gravity",
+      "story": "A face that has been through weather and is still looking straight at you.",
+      "micro": "Slight asymmetry in the brow; unbroken eye contact"
+    }
+  },
   "files": [
     {
       "path": "image-weathered-portrait.html",

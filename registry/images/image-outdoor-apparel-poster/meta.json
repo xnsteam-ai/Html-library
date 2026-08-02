@@ -13,5 +13,43 @@
     "editorial"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s–30s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Single figure standing with gear, weight settled, facing camera",
+      "expression": "Obscured by hood and equipment",
+      "clothing": "Heavy technical outdoor kit in red and black"
+    },
+    "composition": {
+      "shotType": "Poster, full figure centred under type",
+      "angle": "Slightly low",
+      "placement": "Figure centred, wordmark above",
+      "distance": "Medium-far",
+      "depthOfField": "Deep",
+      "focus": "The jacket and gear"
+    },
+    "environment": {
+      "setting": "Composited dark ground",
+      "background": "Near-black field with faint terrain texture; large wordmark overlaid",
+      "depth": "Subject plus type"
+    },
+    "lighting": {
+      "quality": "Hard, rimmed",
+      "direction": "Strong back and side keys, low frontal fill",
+      "temperature": "Cool with a saturated red accent",
+      "shadows": "Very high contrast; gear rimmed against black"
+    },
+    "camera": {
+      "lens": "35mm",
+      "quality": "Sharp, contrasty, poster grade",
+      "artifacts": "Slight halation on the rim",
+      "aesthetic": "Poster, outdoor, technical, bold"
+    },
+    "atmosphere": {
+      "mood": "Expedition-ready",
+      "story": "Gear presented as equipment for somewhere hostile."
+    }
+  }
 }

@@ -13,5 +13,36 @@
     "product"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "composition": {
+      "shotType": "Automotive poster, three-quarter front",
+      "angle": "Low, at wheel height",
+      "placement": "Car lower-centre, wordmark large above",
+      "distance": "Medium-far",
+      "depthOfField": "Deep",
+      "focus": "The grille and headlight"
+    },
+    "environment": {
+      "setting": "Studio / composite",
+      "background": "Flat blue ground with a large wordmark",
+      "depth": "Product plus typography"
+    },
+    "lighting": {
+      "quality": "Soft with controlled speculars",
+      "direction": "Broad overhead diffusion, edge light along the body",
+      "temperature": "Cool blue with clean white bodywork",
+      "shadows": "Moderate contrast; smooth gradients on the panels"
+    },
+    "camera": {
+      "lens": "35mm automotive",
+      "quality": "Clean, sharp, poster grade",
+      "artifacts": "None",
+      "aesthetic": "Poster, automotive, blue, brand"
+    },
+    "atmosphere": {
+      "mood": "Composed",
+      "story": "A saloon presented plainly and confidently."
+    }
+  }
 }

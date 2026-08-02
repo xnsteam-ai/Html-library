@@ -13,5 +13,43 @@
     "lifestyle"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Legs and lower body across several frames, plus full-figure shots; feet the recurring subject",
+      "expression": "Not readable — most frames crop above the shoulder",
+      "clothing": "Pastel loungewear and the featured footwear"
+    },
+    "composition": {
+      "shotType": "Six-up lifestyle collage, mixed crops",
+      "angle": "Mixed — overhead, low and eye-level",
+      "placement": "Grid, one vignette per cell",
+      "distance": "Close to medium",
+      "depthOfField": "Shallow per frame",
+      "focus": "The shoe in each cell"
+    },
+    "environment": {
+      "setting": "Domestic interior",
+      "background": "Soft bedding and pastel furnishing, deliberately hazy",
+      "depth": "Subject plus soft interior"
+    },
+    "lighting": {
+      "quality": "Very soft, diffused",
+      "direction": "Window light, heavy diffusion",
+      "temperature": "Warm pastel — pink and cream",
+      "shadows": "Very low contrast; blooming highlights"
+    },
+    "camera": {
+      "lens": "35–50mm",
+      "quality": "Soft, hazy, high-key pastel grade",
+      "artifacts": "Heavy bloom, mild flare",
+      "aesthetic": "Lifestyle, pastel, collage, soft-focus"
+    },
+    "atmosphere": {
+      "mood": "Soft domestic",
+      "story": "A shoe release shot as a morning at home."
+    }
+  }
 }

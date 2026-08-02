@@ -13,5 +13,43 @@
     "movement"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Mid-turn, skirt lifted and flared by the movement, one arm raised",
+      "expression": "Light, unposed",
+      "clothing": "White pleated skirt and pale top"
+    },
+    "composition": {
+      "shotType": "Full figure, vertical",
+      "angle": "Slightly low, looking up",
+      "placement": "Centred, low horizon",
+      "distance": "Far",
+      "depthOfField": "Deep",
+      "focus": "The skirt hem caught mid-flare"
+    },
+    "environment": {
+      "setting": "Outdoors",
+      "background": "Clear blue sky with light cloud, almost no ground detail",
+      "depth": "Subject plus sky"
+    },
+    "lighting": {
+      "quality": "Hard sun with broad sky fill",
+      "direction": "High sun slightly behind, sky bounce fills the front",
+      "temperature": "Warm sun over cool blue",
+      "shadows": "Moderate-high contrast; bright fabric highlights"
+    },
+    "camera": {
+      "lens": "35mm",
+      "quality": "Clean, bright, saturated daylight grade",
+      "artifacts": "Mild flare",
+      "aesthetic": "Summer, movement, bright, fashion"
+    },
+    "atmosphere": {
+      "mood": "Uncomplicated joy",
+      "story": "A turn taken for the sake of the skirt."
+    }
+  }
 }

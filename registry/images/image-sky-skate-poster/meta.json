@@ -13,5 +13,43 @@
     "sport"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Airborne mid-trick, board underfoot, limbs extended",
+      "expression": "Not readable at poster scale",
+      "clothing": "Loose streetwear — light jacket and wide trousers"
+    },
+    "composition": {
+      "shotType": "Full-figure poster composition",
+      "angle": "Low, looking up at the subject",
+      "placement": "Centred in the upper half, type below",
+      "distance": "Medium-far",
+      "depthOfField": "Deep",
+      "focus": "The figure and board silhouette"
+    },
+    "environment": {
+      "setting": "Sky",
+      "background": "Bright cumulus cloud and blue sky filling the frame; large graphic type overlaid",
+      "depth": "Subject plus sky, with typography as a third layer"
+    },
+    "lighting": {
+      "quality": "Hard daylight",
+      "direction": "Backlit from above, sky bounce as fill",
+      "temperature": "Cool blue with clean whites",
+      "shadows": "Punchy contrast; crisp edge separation against cloud"
+    },
+    "camera": {
+      "lens": "24–35mm wide, slight distortion",
+      "quality": "High-clarity, poster-grade saturation",
+      "artifacts": "None noticeable",
+      "aesthetic": "Poster, skate, graphic, sportswear"
+    },
+    "atmosphere": {
+      "mood": "Weightless ambition",
+      "story": "A trick held at its apex, printed as a poster."
+    }
+  }
 }

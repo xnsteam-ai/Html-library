@@ -13,6 +13,44 @@
     "blue",
     "apparel"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Standing beside an oversized character figure, posture upright and casual",
+      "expression": "Not readable — face largely obscured by the composition",
+      "clothing": "All-blue hoodie and joggers matching the mascot"
+    },
+    "composition": {
+      "shotType": "Full figure plus character, vertical",
+      "angle": "Eye-level",
+      "placement": "Both figures centred, side by side",
+      "distance": "Medium-far",
+      "depthOfField": "Deep",
+      "focus": "The mascot face"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Flat blue sweep matching the wardrobe",
+      "depth": "Subject, character, flat ground"
+    },
+    "lighting": {
+      "quality": "Soft, even",
+      "direction": "Broad frontal diffusion",
+      "temperature": "Cool, monochrome blue",
+      "shadows": "Low contrast; soft contact shadow only"
+    },
+    "camera": {
+      "lens": "50mm",
+      "quality": "Clean, saturated, product-render finish",
+      "artifacts": "None",
+      "aesthetic": "Mascot, monochrome, character, merch"
+    },
+    "atmosphere": {
+      "mood": "Friendly and branded",
+      "story": "A character and its merchandise introduced together."
+    }
+  },
   "files": [
     {
       "path": "image-mascot-hoodie.html",

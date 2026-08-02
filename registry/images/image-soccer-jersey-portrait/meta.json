@@ -13,5 +13,43 @@
     "jersey"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Standing, arms folded, long dark hair loose",
+      "expression": "Neutral, level, unsmiling",
+      "clothing": "Striped football jersey and dark sunglasses"
+    },
+    "composition": {
+      "shotType": "Medium, waist up",
+      "angle": "Eye-level",
+      "placement": "Centred",
+      "distance": "Medium",
+      "depthOfField": "Shallow; ground plain",
+      "focus": "The jersey and glasses"
+    },
+    "environment": {
+      "setting": "Interior, plain",
+      "background": "Neutral wall, no detail",
+      "depth": "Subject plus flat ground"
+    },
+    "lighting": {
+      "quality": "Soft, even",
+      "direction": "Broad frontal ambient",
+      "temperature": "Neutral",
+      "shadows": "Low contrast"
+    },
+    "camera": {
+      "lens": "50mm",
+      "quality": "Clean, natural, snapshot-adjacent grade",
+      "artifacts": "None",
+      "aesthetic": "Fashion, sportswear, casual, portrait"
+    },
+    "atmosphere": {
+      "mood": "Cool and unbothered",
+      "story": "A jersey worn as an outfit, not a kit."
+    }
+  }
 }

@@ -13,5 +13,44 @@
     "editorial"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Head and shoulders, hair loose, one hand raised near the chin",
+      "expression": "Soft, warm, faint smile",
+      "clothing": "White ruffled blouse"
+    },
+    "composition": {
+      "shotType": "Medium close, head and shoulders",
+      "angle": "Eye-level",
+      "placement": "Centred",
+      "distance": "Medium",
+      "depthOfField": "Shallow; ground flat",
+      "focus": "The eyes"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Flat saturated blue backdrop",
+      "depth": "Subject only"
+    },
+    "lighting": {
+      "quality": "Soft, even",
+      "direction": "Broad frontal key, light fill",
+      "temperature": "Cool blue ground against warm-neutral skin",
+      "shadows": "Low contrast; gentle modelling"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Clean, bright, gently diffused grade",
+      "artifacts": "Mild bloom",
+      "aesthetic": "Portrait, fresh, blue, studio"
+    },
+    "atmosphere": {
+      "mood": "Light and open",
+      "story": "A simple portrait against a strong colour.",
+      "micro": "Soft unforced smile"
+    }
+  }
 }

@@ -13,5 +13,44 @@
     "youth"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Braided fair hair under a cap, head tilted, shoulders angled",
+      "expression": "Tongue out, eyes crinkled — playful and unguarded",
+      "clothing": "Red-orange cap, oversized white over-ear headphones, layered casual top"
+    },
+    "composition": {
+      "shotType": "Medium close, head and shoulders",
+      "angle": "Eye-level",
+      "placement": "Centred, slightly right",
+      "distance": "Medium",
+      "depthOfField": "Shallow; background softly out of focus",
+      "focus": "Face and headphone cups"
+    },
+    "environment": {
+      "setting": "Interior, non-specific",
+      "background": "Muted mid-tone wall, softly blurred",
+      "depth": "Subject plus soft background"
+    },
+    "lighting": {
+      "quality": "Soft with a warm key",
+      "direction": "Frontal key slightly camera-left, ambient fill",
+      "temperature": "Warm, saturated",
+      "shadows": "Moderate contrast; soft shadow under the cap brim"
+    },
+    "camera": {
+      "lens": "50–85mm",
+      "quality": "Punchy saturated grade, clean detail",
+      "artifacts": "Slight vignette",
+      "aesthetic": "Youthful, pop, colourful, lifestyle"
+    },
+    "atmosphere": {
+      "mood": "Playful energy",
+      "story": "Someone mugging for the camera between tracks.",
+      "micro": "Tongue out and squinting eyes — keep the goofiness, not a posed smile"
+    }
+  }
 }

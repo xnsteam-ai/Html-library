@@ -13,5 +13,36 @@
     "tech"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "composition": {
+      "shotType": "Poster, product with dominant layered type",
+      "angle": "Straight-on",
+      "placement": "Type dominant across the frame, product lower",
+      "distance": "Medium-close",
+      "depthOfField": "Deep",
+      "focus": "The earbud case"
+    },
+    "environment": {
+      "setting": "Graphic field",
+      "background": "Flat acid-green and white ground with overlapping display lettering",
+      "depth": "Product plus typography"
+    },
+    "lighting": {
+      "quality": "Soft, high-key",
+      "direction": "Broad frontal diffusion",
+      "temperature": "High-key white with saturated green",
+      "shadows": "Low contrast; clean product speculars"
+    },
+    "camera": {
+      "lens": "50mm product",
+      "quality": "Clean, flat, high-saturation poster grade",
+      "artifacts": "None",
+      "aesthetic": "Poster, audio, acid green, typographic"
+    },
+    "atmosphere": {
+      "mood": "Loud and light",
+      "story": "Earbuds sold on typography as much as product."
+    }
+  }
 }

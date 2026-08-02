@@ -13,6 +13,44 @@
     "outdoor",
     "golden hour"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Standing in an open field, arms crossed loosely, hair tied back",
+      "expression": "Neutral, looking off-camera",
+      "clothing": "Black athletic crop top and leggings"
+    },
+    "composition": {
+      "shotType": "Medium-full figure outdoors",
+      "angle": "Slightly low",
+      "placement": "Centred, horizon low",
+      "distance": "Medium-far",
+      "depthOfField": "Moderate; the field softens behind",
+      "focus": "The torso and face"
+    },
+    "environment": {
+      "setting": "Open grass field",
+      "background": "Tall grass, distant treeline and overcast sky",
+      "depth": "Full scene — foreground grass, subject, treeline"
+    },
+    "lighting": {
+      "quality": "Soft, broad overcast",
+      "direction": "Dome light with no distinct key",
+      "temperature": "Cool-neutral with green field tones",
+      "shadows": "Low contrast; open shadows"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Clean, natural, lightly cool grade",
+      "artifacts": "None",
+      "aesthetic": "Fitness, outdoor, natural light, athletic"
+    },
+    "atmosphere": {
+      "mood": "Composed and outdoors",
+      "story": "A pause during training in an open field."
+    }
+  },
   "files": [
     {
       "path": "image-athletic-field-portrait.html",

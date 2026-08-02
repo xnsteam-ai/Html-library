@@ -13,6 +13,44 @@
     "fashion",
     "newsprint"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s–30s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Standing, holding an open broadsheet, head turned to camera",
+      "expression": "Cool, direct",
+      "clothing": "Purple blazer over a light top"
+    },
+    "composition": {
+      "shotType": "Three-quarter figure, editorial layout",
+      "angle": "Eye-level",
+      "placement": "Subject right, type and inset left",
+      "distance": "Medium",
+      "depthOfField": "Moderate",
+      "focus": "The face and the blazer shoulder"
+    },
+    "environment": {
+      "setting": "Studio / graphic composite",
+      "background": "Newsprint texture as the ground, script headline and a photo inset overlaid",
+      "depth": "Subject plus print layers"
+    },
+    "lighting": {
+      "quality": "Soft, directional",
+      "direction": "Key from camera-left, moderate fill",
+      "temperature": "Neutral with a purple accent",
+      "shadows": "Moderate contrast"
+    },
+    "camera": {
+      "lens": "50mm",
+      "quality": "Clean, print-styled grade with paper texture",
+      "artifacts": "Deliberate paper grain",
+      "aesthetic": "Editorial, collage, print, fashion"
+    },
+    "atmosphere": {
+      "mood": "Considered and styled",
+      "story": "A look presented as a magazine page."
+    }
+  },
   "files": [
     {
       "path": "image-newsprint-editorial.html",

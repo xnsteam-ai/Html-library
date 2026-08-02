@@ -13,6 +13,45 @@
     "teal",
     "hairstyle"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Short layered dark hair, head square to camera, shoulders low",
+      "expression": "Neutral, level, calm",
+      "clothing": "Teal-blue crew top"
+    },
+    "composition": {
+      "shotType": "Medium close, head and shoulders",
+      "angle": "Eye-level",
+      "placement": "Centred",
+      "distance": "Medium",
+      "depthOfField": "Shallow; ground flat",
+      "focus": "The eyes"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Flat teal backdrop tuned to the top",
+      "depth": "Subject only"
+    },
+    "lighting": {
+      "quality": "Soft, even",
+      "direction": "Broad frontal key, low fill",
+      "temperature": "Cool teal throughout, skin held neutral",
+      "shadows": "Low-moderate contrast"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Clean, cool-graded, natural skin texture",
+      "artifacts": "Slight vignette",
+      "aesthetic": "Portrait, teal, minimal, studio"
+    },
+    "atmosphere": {
+      "mood": "Contained",
+      "story": "A plain portrait with nothing to prove.",
+      "micro": "Level gaze, unforced mouth"
+    }
+  },
   "files": [
     {
       "path": "image-short-hair-teal-portrait.html",

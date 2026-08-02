@@ -13,5 +13,43 @@
     "outdoor"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Standing upright among tall stems, head slightly raised, arms loose at the sides",
+      "expression": "Calm, eyes toward the light",
+      "clothing": "Dark long-sleeved top against the yellow field"
+    },
+    "composition": {
+      "shotType": "Wide, full figure in landscape",
+      "angle": "Low, shooting slightly upward from within the flowers",
+      "placement": "Centred, horizon low",
+      "distance": "Far",
+      "depthOfField": "Moderate; foreground petals soft, subject sharp",
+      "focus": "The figure against the sky"
+    },
+    "environment": {
+      "setting": "Outdoor meadow",
+      "background": "Dense yellow wildflowers to the horizon, bright cumulus and blue sky above, loose petals in the air",
+      "depth": "Full scene — foreground flowers, subject, sky"
+    },
+    "lighting": {
+      "quality": "Hard natural sun with soft sky fill",
+      "direction": "High backlight/side sun, sky as broad fill",
+      "temperature": "Warm sun against cool blue sky",
+      "shadows": "Strong contrast; bright highlights on petals, open shadow on the figure"
+    },
+    "camera": {
+      "lens": "35mm wide, natural perspective",
+      "quality": "Clean, saturated, high-clarity daylight grade",
+      "artifacts": "Mild lens flare",
+      "aesthetic": "Natural, vivid, summer, lifestyle"
+    },
+    "atmosphere": {
+      "mood": "Open-air calm",
+      "story": "A moment of standing still in the middle of a field."
+    }
+  }
 }

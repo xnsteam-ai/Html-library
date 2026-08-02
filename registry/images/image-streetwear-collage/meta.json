@@ -13,5 +13,43 @@
     "fashion"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Four separate frames of the same figure — standing, turning, adjusting sunglasses; consistent build and hair throughout",
+      "expression": "Casual, mostly unsmiling, self-aware",
+      "clothing": "White cropped top, high-waisted shorts or skirt, dark sunglasses"
+    },
+    "composition": {
+      "shotType": "Four-panel collage of full and half-figure frames",
+      "angle": "Eye-level throughout",
+      "placement": "Grid, two by two",
+      "distance": "Medium",
+      "depthOfField": "Moderate; interiors legible behind",
+      "focus": "The subject in each panel"
+    },
+    "environment": {
+      "setting": "Interior — corridor, mirror, doorway",
+      "background": "Domestic and hallway detail visible but secondary",
+      "depth": "Subject plus readable background per panel"
+    },
+    "lighting": {
+      "quality": "Mixed available light",
+      "direction": "Window and overhead ambient, no controlled key",
+      "temperature": "Neutral, slightly cool",
+      "shadows": "Moderate; some blown window highlights"
+    },
+    "camera": {
+      "lens": "Phone-camera wide, mild distortion",
+      "quality": "Snapshot sharpness, light noise in shadows",
+      "artifacts": "Slight overexposure in windows",
+      "aesthetic": "Candid, streetwear, collage, social-media"
+    },
+    "atmosphere": {
+      "mood": "Everyday self-documentation",
+      "story": "A single outfit photographed four ways."
+    }
+  }
 }

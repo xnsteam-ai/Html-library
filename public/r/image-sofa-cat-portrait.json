@@ -13,6 +13,45 @@
     "pet",
     "home"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Seated on a sofa, legs drawn up, one hand toward a cat beside her",
+      "expression": "Soft, relaxed, looking down toward the animal",
+      "clothing": "Cream knit loungewear and long socks"
+    },
+    "composition": {
+      "shotType": "Full figure in an interior",
+      "angle": "Eye-level, seated height",
+      "placement": "Subject centred on the sofa",
+      "distance": "Medium",
+      "depthOfField": "Moderate; room legible behind",
+      "focus": "The subject and the cat"
+    },
+    "environment": {
+      "setting": "Living room",
+      "background": "Sofa, cushions, window light and furnishing detail visible",
+      "depth": "Full scene — foreground floor, subject, room behind"
+    },
+    "lighting": {
+      "quality": "Soft daylight",
+      "direction": "Large window from camera-left, ambient room fill",
+      "temperature": "Warm neutral",
+      "shadows": "Low contrast; open shadows"
+    },
+    "camera": {
+      "lens": "35mm",
+      "quality": "Clean, natural, lightly warm grade",
+      "artifacts": "None",
+      "aesthetic": "Lifestyle, home, cosy, natural light"
+    },
+    "atmosphere": {
+      "mood": "Domestic quiet",
+      "story": "An afternoon at home with the cat.",
+      "micro": "Attention directed at the animal, not the lens"
+    }
+  },
   "files": [
     {
       "path": "image-sofa-cat-portrait.html",

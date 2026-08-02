@@ -13,5 +13,43 @@
     "sport"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Runner mid-stride, body angled into the run",
+      "expression": "Not readable at poster scale",
+      "clothing": "Full running kit"
+    },
+    "composition": {
+      "shotType": "Poster, figure plus product with dominant type",
+      "angle": "Slightly low",
+      "placement": "Figure upper, product and type stacked below",
+      "distance": "Medium-far",
+      "depthOfField": "Deep",
+      "focus": "The shoe"
+    },
+    "environment": {
+      "setting": "Graphic field",
+      "background": "Flat saturated orange-red ground, heavy display lettering",
+      "depth": "Subject plus typography"
+    },
+    "lighting": {
+      "quality": "Hard, graphic",
+      "direction": "Frontal key with strong separation",
+      "temperature": "Very warm — single-hue orange",
+      "shadows": "High contrast; clean cut-out edges"
+    },
+    "camera": {
+      "lens": "35mm cut-out",
+      "quality": "Poster-flat, high-saturation print grade",
+      "artifacts": "None",
+      "aesthetic": "Poster, footwear, sport, bold type"
+    },
+    "atmosphere": {
+      "mood": "Driving",
+      "story": "A running shoe sold on forward motion."
+    }
+  }
 }

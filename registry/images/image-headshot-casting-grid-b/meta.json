@@ -13,5 +13,44 @@
     "headshots"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "One sitter across nine matched frames, warm-toned, slight angle changes per cell",
+      "expression": "Controlled range, neutral through soft smile",
+      "clothing": "Plain top, unchanged"
+    },
+    "composition": {
+      "shotType": "Nine-frame headshot grid, matched crops",
+      "angle": "Eye-level, identical",
+      "placement": "Centred per cell",
+      "distance": "Close",
+      "depthOfField": "Shallow, matched",
+      "focus": "The face in each cell"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Warm neutral ground, identical per cell",
+      "depth": "Subject only"
+    },
+    "lighting": {
+      "quality": "Soft, even, unchanged",
+      "direction": "Broad frontal diffusion",
+      "temperature": "Warm neutral",
+      "shadows": "Very low contrast by design"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Clean, even, warm reference grade",
+      "artifacts": "None",
+      "aesthetic": "Casting, headshot, grid, reference"
+    },
+    "atmosphere": {
+      "mood": "Procedural",
+      "story": "A second casting set, warmer than the first.",
+      "micro": "Keep variation subtle and consistent"
+    }
+  }
 }

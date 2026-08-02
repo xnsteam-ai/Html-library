@@ -13,6 +13,45 @@
     "sport",
     "typography"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult male, apparent 40s–50s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Heavy build, shaved head, arms crossed, squared to camera",
+      "expression": "Hard, direct, unsmiling",
+      "clothing": "Black athletic top"
+    },
+    "composition": {
+      "shotType": "Cover layout, three-quarter figure",
+      "angle": "Slightly low — the subject looms",
+      "placement": "Centred under a masthead",
+      "distance": "Medium",
+      "depthOfField": "Deep",
+      "focus": "The face and folded arms"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Deep red-to-black backdrop; masthead and cover lines overlaid",
+      "depth": "Subject plus typography"
+    },
+    "lighting": {
+      "quality": "Hard, contrasty",
+      "direction": "Twin side keys, deep centre shadow, strong rim",
+      "temperature": "Warm reds against near-black",
+      "shadows": "Very high contrast; sculpted muscle shadow"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Sharp, heavily contrasted, print-ready grade",
+      "artifacts": "Slight halation around the rim light",
+      "aesthetic": "Magazine cover, sport, high-contrast, bold"
+    },
+    "atmosphere": {
+      "mood": "Confrontational",
+      "story": "A cover that wants you to feel outmatched.",
+      "micro": "Set jaw and level stare — hold the challenge"
+    }
+  },
   "files": [
     {
       "path": "image-boxing-cover.html",

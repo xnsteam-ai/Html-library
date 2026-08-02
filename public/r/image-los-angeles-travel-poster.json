@@ -13,6 +13,37 @@
     "travel",
     "city"
   ],
+  "prompt": {
+    "composition": {
+      "shotType": "Illustrated travel poster, wide vista",
+      "angle": "Elevated, looking down over the city",
+      "placement": "Vintage car foreground, palms mid, skyline and hills behind, title banded above",
+      "distance": "Far",
+      "depthOfField": "Flat — illustrated layering",
+      "focus": "The foreground car and palms"
+    },
+    "environment": {
+      "setting": "Illustrated cityscape",
+      "background": "Palms, boulevard, distant towers and hills under a gradient sky",
+      "depth": "Full scene in stacked illustrated layers"
+    },
+    "lighting": {
+      "quality": "Rendered warm daylight",
+      "direction": "Implied low sun from the left casting long shapes",
+      "temperature": "Very warm — retro orange, teal and cream",
+      "shadows": "Moderate contrast; flat poster shading"
+    },
+    "camera": {
+      "lens": "N/A — illustration; wide vista framing",
+      "quality": "Screen-print texture, flat colour fields, deliberate grain",
+      "artifacts": "Simulated print grain and registration texture",
+      "aesthetic": "Travel poster, retro, screen print, illustration"
+    },
+    "atmosphere": {
+      "mood": "Nostalgic optimism",
+      "story": "A city sold the way mid-century travel posters sold everywhere."
+    }
+  },
   "files": [
     {
       "path": "image-los-angeles-travel-poster.html",

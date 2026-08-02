@@ -13,5 +13,44 @@
     "casting reference"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "One sitter across six frames — head turned, three-quarter, profile and straight-on",
+      "expression": "Soft and neutral throughout",
+      "clothing": "Flat cap and a plain top, unchanged across frames"
+    },
+    "composition": {
+      "shotType": "Six-frame contact sheet, matched crops",
+      "angle": "Eye-level, angle varying per frame",
+      "placement": "Centred per cell",
+      "distance": "Medium-close",
+      "depthOfField": "Shallow, matched",
+      "focus": "The face in each cell"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Warm neutral backdrop, identical across frames",
+      "depth": "Subject only"
+    },
+    "lighting": {
+      "quality": "Soft, consistent",
+      "direction": "Frontal key with light fill, unchanged between frames",
+      "temperature": "Warm neutral",
+      "shadows": "Low contrast by design"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Clean, even, reference-grade",
+      "artifacts": "None",
+      "aesthetic": "Contact sheet, casting reference, consistent, portrait"
+    },
+    "atmosphere": {
+      "mood": "Methodical",
+      "story": "A sitter photographed from every angle for reference.",
+      "micro": "Deliberately low-affect — the sheet is about geometry, not mood"
+    }
+  }
 }

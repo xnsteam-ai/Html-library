@@ -13,6 +13,44 @@
     "audio",
     "tech"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Holding the headphones up beside the head, arm raised",
+      "expression": "Light, mouth slightly open",
+      "clothing": "White over-ear headphones, casual light top"
+    },
+    "composition": {
+      "shotType": "Poster, half figure with dominant type",
+      "angle": "Eye-level",
+      "placement": "Figure lower, wordmark stacked above",
+      "distance": "Medium",
+      "depthOfField": "Deep",
+      "focus": "The headphone cups"
+    },
+    "environment": {
+      "setting": "Studio / graphic composite",
+      "background": "Pale grey ground with large display lettering",
+      "depth": "Subject plus typography"
+    },
+    "lighting": {
+      "quality": "Soft, high-key",
+      "direction": "Broad frontal diffusion, light rim",
+      "temperature": "Cool neutral",
+      "shadows": "Low contrast; clean product highlights"
+    },
+    "camera": {
+      "lens": "50mm",
+      "quality": "Clean, bright, product-poster grade",
+      "artifacts": "None",
+      "aesthetic": "Poster, audio, product, high-key"
+    },
+    "atmosphere": {
+      "mood": "Light and current",
+      "story": "Headphones sold as an everyday object."
+    }
+  },
   "files": [
     {
       "path": "image-headphones-product-poster.html",

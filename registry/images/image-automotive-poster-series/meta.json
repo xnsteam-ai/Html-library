@@ -13,5 +13,36 @@
     "editorial"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "composition": {
+      "shotType": "Multi-panel poster series, one model across several crops",
+      "angle": "Mixed — low three-quarter, interior, detail",
+      "placement": "Panels tiled, hero car across the lower band",
+      "distance": "Mixed close to far",
+      "depthOfField": "Deep throughout",
+      "focus": "The car in each panel"
+    },
+    "environment": {
+      "setting": "Studio / composite",
+      "background": "Dark ground with fine rules and small type between panels",
+      "depth": "Product plus graphic layer"
+    },
+    "lighting": {
+      "quality": "Hard with long speculars",
+      "direction": "Overhead strips raking each surface, dark surround",
+      "temperature": "Cool blue against near-black",
+      "shadows": "High contrast; bright highlight runs, deep shadow"
+    },
+    "camera": {
+      "lens": "Mixed 35mm and detail macro",
+      "quality": "Sharp, heavily graded, print finish",
+      "artifacts": "None",
+      "aesthetic": "Poster series, automotive, dark, editorial"
+    },
+    "atmosphere": {
+      "mood": "Considered",
+      "story": "One car examined from several angles at once."
+    }
+  }
 }

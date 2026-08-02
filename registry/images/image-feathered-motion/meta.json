@@ -12,7 +12,45 @@
     "dark",
     "fashion"
   ],
-  "prompt": "High-fashion editorial portrait of a model surrounded by floating black feathers caught mid-air in dynamic motion, moody dark aesthetic, soft dramatic studio lighting, deep shadows, 85mm lens, 8k resolution, cinematic atmosphere.",
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Long dark hair fanned upward and outward as if suspended; head tilted back, chin raised, shoulders squared to camera",
+      "expression": "Eyes closed, lips relaxed — serene rather than posed",
+      "clothing": "Black feathered bodice with dense plumage across the shoulders and chest"
+    },
+    "composition": {
+      "shotType": "Medium portrait, head to mid-torso",
+      "angle": "Eye-level, very slightly below",
+      "placement": "Centred, head in upper third",
+      "distance": "Medium — intimate but not cropped",
+      "depthOfField": "Shallow; background falls to soft grey haze",
+      "focus": "Eyes and the feather edge along the collarbone"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Featureless smoke-grey backdrop with soft tonal falloff, no props",
+      "depth": "Subject plus atmospheric backdrop only"
+    },
+    "lighting": {
+      "quality": "Soft, heavily diffused",
+      "direction": "Broad frontal key slightly above eyeline, gentle fill from below",
+      "temperature": "Neutral-to-cool, desaturated",
+      "shadows": "Low-contrast; shadows open and grey, no hard edges"
+    },
+    "camera": {
+      "lens": "85mm portrait compression",
+      "quality": "Clean, high-detail, fine grain, matte low-contrast grade",
+      "artifacts": "Slight vignette",
+      "aesthetic": "Editorial, dark fashion, ethereal, monochromatic"
+    },
+    "atmosphere": {
+      "mood": "Suspended stillness",
+      "story": "A figure caught mid-fall or mid-float, weightless.",
+      "micro": "Closed eyes and unclenched jaw — calm, not strained"
+    }
+  }
 }

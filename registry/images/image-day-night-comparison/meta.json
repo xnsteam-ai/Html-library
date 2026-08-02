@@ -13,5 +13,44 @@
     "split"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Same figure twice, matched framing and pose; hair and features identical across both halves",
+      "expression": "Neutral in both halves — the variable is light, not expression",
+      "clothing": "Pale top left, warmer top right"
+    },
+    "composition": {
+      "shotType": "Split-panel comparison, matched head-and-shoulders",
+      "angle": "Eye-level, identical both sides",
+      "placement": "One subject per half, labelled Day and Night",
+      "distance": "Medium-close",
+      "depthOfField": "Shallow, matched",
+      "focus": "The face in each half"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Pale flat ground left, darker warm ground right",
+      "depth": "Subject only, per panel"
+    },
+    "lighting": {
+      "quality": "Soft both sides — the comparison is temperature, not quality",
+      "direction": "Frontal key in both; cooler and higher left, warmer and lower right",
+      "temperature": "Cool daylight left, warm tungsten right",
+      "shadows": "Low contrast left, slightly deeper shadow right"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Clean, matched, minimal grade so the lighting reads as the difference",
+      "artifacts": "None",
+      "aesthetic": "Comparison, reference, lighting study, beauty"
+    },
+    "atmosphere": {
+      "mood": "Instructional",
+      "story": "The same face shown under two lighting setups.",
+      "micro": "Keep both halves expressionally identical — only the light should change"
+    }
+  }
 }

@@ -13,6 +13,45 @@
     "studio",
     "elegant"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Head turned three-quarter, hair pulled back tight, one hand raised to frame the jaw",
+      "expression": "Direct, calm, lips closed",
+      "clothing": "Fine jewellery; simple dark neckline"
+    },
+    "composition": {
+      "shotType": "Beauty portrait, head and hand",
+      "angle": "Eye-level",
+      "placement": "Subject centred inside a circular graphic",
+      "distance": "Close",
+      "depthOfField": "Shallow",
+      "focus": "The eyes and the jawline the hand frames"
+    },
+    "environment": {
+      "setting": "Studio / graphic composite",
+      "background": "Flat dark ground with a large teal circle behind the head",
+      "depth": "Subject plus graphic layer"
+    },
+    "lighting": {
+      "quality": "Soft, sculpted beauty light",
+      "direction": "Frontal key above with fill below, clean catchlights",
+      "temperature": "Warm skin against a cool teal ground",
+      "shadows": "Moderate-high contrast; luminous skin"
+    },
+    "camera": {
+      "lens": "100mm",
+      "quality": "High skin detail, smooth retouch-grade tonality",
+      "artifacts": "None",
+      "aesthetic": "Beauty, editorial, graphic, teal"
+    },
+    "atmosphere": {
+      "mood": "Elegant control",
+      "story": "A beauty shot where the hand does the composing.",
+      "micro": "Steady eyes, relaxed fingers — poise without tension"
+    }
+  },
   "files": [
     {
       "path": "image-beauty-hand-on-face.html",

@@ -13,6 +13,44 @@
     "couple",
     "sky"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Two illustrated young adults, apparent late teens–20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Standing side by side seen from behind and slightly turned, one with a backpack; both looking upward",
+      "expression": "Not readable — faces mostly turned away",
+      "clothing": "School-style uniforms in white and dark blue"
+    },
+    "composition": {
+      "shotType": "Medium-full, two figures",
+      "angle": "Eye-level, from behind and slightly to one side",
+      "placement": "Figures centred, sky dominating the upper frame",
+      "distance": "Medium",
+      "depthOfField": "Flat — illustrated layering",
+      "focus": "The two figures against the sky"
+    },
+    "environment": {
+      "setting": "Illustrated station platform / roadside",
+      "background": "Fencing, signage and greenery below a large cumulus sky",
+      "depth": "Full scene — foreground path, figures, sky"
+    },
+    "lighting": {
+      "quality": "Rendered bright daylight",
+      "direction": "Implied high sun with broad sky fill",
+      "temperature": "Bright and saturated — blue sky, green foliage",
+      "shadows": "Moderate contrast; clean cel shading"
+    },
+    "camera": {
+      "lens": "N/A — illustration; reads as a medium lens",
+      "quality": "Clean digital rendering, flat fills with soft gradient skies",
+      "artifacts": "None",
+      "aesthetic": "Anime, illustration, summer, scenic"
+    },
+    "atmosphere": {
+      "mood": "Shared pause",
+      "story": "Two people stopping to look up on the way somewhere."
+    }
+  },
   "files": [
     {
       "path": "image-anime-couple-illustration.html",

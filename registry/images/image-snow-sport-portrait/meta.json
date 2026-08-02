@@ -13,5 +13,43 @@
     "blue"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Head and shoulders, goggles up on the helmet, chin slightly raised",
+      "expression": "Calm, looking off-frame",
+      "clothing": "Blue technical shell, helmet and mirrored goggles"
+    },
+    "composition": {
+      "shotType": "Medium close, head and shoulders",
+      "angle": "Slightly low",
+      "placement": "Centred",
+      "distance": "Medium",
+      "depthOfField": "Shallow; sky soft behind",
+      "focus": "The goggles and helmet edge"
+    },
+    "environment": {
+      "setting": "Outdoors, altitude",
+      "background": "Flat overcast sky, no terrain reference",
+      "depth": "Subject plus sky"
+    },
+    "lighting": {
+      "quality": "Soft, very broad",
+      "direction": "Overcast dome light, even from all sides",
+      "temperature": "Cool — blue throughout",
+      "shadows": "Low contrast; soft modelling, bright speculars on the goggles"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Clean, cool-graded, crisp on technical fabric",
+      "artifacts": "Mirror reflection in the goggle lens",
+      "aesthetic": "Sport, technical, cool, portrait"
+    },
+    "atmosphere": {
+      "mood": "Composed before the run",
+      "story": "A pause at the top of the slope."
+    }
+  }
 }

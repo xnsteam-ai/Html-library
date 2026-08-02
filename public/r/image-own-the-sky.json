@@ -13,6 +13,44 @@
     "typography",
     "blue"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Full figure mid-stride or mid-jump, arms out for balance",
+      "expression": "Not readable at poster scale",
+      "clothing": "Blue and white sportswear"
+    },
+    "composition": {
+      "shotType": "Poster, full figure with dominant type",
+      "angle": "Slightly low",
+      "placement": "Figure centred, type stacked over and under",
+      "distance": "Medium-far",
+      "depthOfField": "Deep",
+      "focus": "The figure silhouette"
+    },
+    "environment": {
+      "setting": "Graphic field",
+      "background": "Flat saturated blue ground with heavy display lettering",
+      "depth": "Subject plus typography, no real environment"
+    },
+    "lighting": {
+      "quality": "Hard, graphic",
+      "direction": "Frontal key with strong edge separation",
+      "temperature": "Cold, single-hue blue",
+      "shadows": "High contrast; clean cut-out edges"
+    },
+    "camera": {
+      "lens": "35mm cut-out",
+      "quality": "Poster-flat, high-saturation, print grade",
+      "artifacts": "None",
+      "aesthetic": "Poster, sportswear, graphic, bold type"
+    },
+    "atmosphere": {
+      "mood": "Assertive",
+      "story": "A sportswear campaign shouting its slogan."
+    }
+  },
   "files": [
     {
       "path": "image-own-the-sky.html",

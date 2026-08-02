@@ -13,6 +13,45 @@
     "contact sheet",
     "denim"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Same fair-haired figure across nine frames, hair and framing consistent, only the face changing",
+      "expression": "Full range — laughing, surprised, pouting, deadpan, heart-hands",
+      "clothing": "Light denim jacket over a white top, consistent across all nine"
+    },
+    "composition": {
+      "shotType": "Nine-frame grid, matched head-and-shoulders crops",
+      "angle": "Eye-level, identical per frame",
+      "placement": "Centred in each cell",
+      "distance": "Medium-close",
+      "depthOfField": "Shallow, consistent across frames",
+      "focus": "The face in each cell"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Flat pale backdrop, identical in every frame",
+      "depth": "Subject only"
+    },
+    "lighting": {
+      "quality": "Soft, even, unchanged between frames",
+      "direction": "Broad frontal key, minimal shadow",
+      "temperature": "Neutral-warm",
+      "shadows": "Low contrast; consistent by design"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Clean, even, catalogue-grade",
+      "artifacts": "None",
+      "aesthetic": "Contact sheet, reference, consistent, casting"
+    },
+    "atmosphere": {
+      "mood": "Working range",
+      "story": "One performer running through their expressions for a casting file.",
+      "micro": "The point is the variation — keep each frame distinct"
+    }
+  },
   "files": [
     {
       "path": "image-expression-grid.html",

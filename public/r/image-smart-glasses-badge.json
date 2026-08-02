@@ -13,6 +13,45 @@
     "wearable",
     "badge"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Head and shoulders square to camera, hair pulled back",
+      "expression": "Broad open smile, direct to lens",
+      "clothing": "Blue-tinted smart glasses; a circular product badge overlays the lower frame"
+    },
+    "composition": {
+      "shotType": "Close product-on-model shot",
+      "angle": "Eye-level",
+      "placement": "Centred, ringed by a graphic halo",
+      "distance": "Close",
+      "depthOfField": "Deep",
+      "focus": "The glasses frame and lens"
+    },
+    "environment": {
+      "setting": "Studio / graphic composite",
+      "background": "Pure white ground with a circular graphic device behind the head",
+      "depth": "Subject plus graphic layer"
+    },
+    "lighting": {
+      "quality": "Soft, high-key",
+      "direction": "Broad frontal diffusion, minimal shadow",
+      "temperature": "Cool neutral with a blue lens accent",
+      "shadows": "Very low contrast; near-shadowless"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Clean, bright, high-key commercial grade",
+      "artifacts": "Specular highlight across the lens",
+      "aesthetic": "Product, wearable, high-key, commercial"
+    },
+    "atmosphere": {
+      "mood": "Bright and friendly",
+      "story": "A wearable sold on an easy smile.",
+      "micro": "Genuine open smile — the product is the excuse"
+    }
+  },
   "files": [
     {
       "path": "image-smart-glasses-badge.html",

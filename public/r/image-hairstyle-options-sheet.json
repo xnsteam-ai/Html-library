@@ -13,6 +13,45 @@
     "hairstyle",
     "grid"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "One sitter shown with several different hairstyles, plus isolated eye and detail crops",
+      "expression": "Neutral throughout — reference, not performance",
+      "clothing": "Plain black top, unchanged across every cell"
+    },
+    "composition": {
+      "shotType": "Reference grid — full head shots plus macro detail crops",
+      "angle": "Eye-level for heads, macro for the detail rows",
+      "placement": "Regular grid, styles above, details below",
+      "distance": "Medium-close to macro",
+      "depthOfField": "Shallow, matched",
+      "focus": "The hairline and the eye crops"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Flat white ground, identical per cell",
+      "depth": "Subject only"
+    },
+    "lighting": {
+      "quality": "Soft, even, unchanged",
+      "direction": "Broad frontal diffusion",
+      "temperature": "Neutral, colour-accurate",
+      "shadows": "Very low contrast by design"
+    },
+    "camera": {
+      "lens": "85mm, plus macro for the detail rows",
+      "quality": "Clean, colour-accurate, reference-grade",
+      "artifacts": "None",
+      "aesthetic": "Reference sheet, beauty, hairstyle, grid"
+    },
+    "atmosphere": {
+      "mood": "Comparative",
+      "story": "One face used to compare styling options.",
+      "micro": "Expression deliberately held constant so the hair is the variable"
+    }
+  },
   "files": [
     {
       "path": "image-hairstyle-options-sheet.html",

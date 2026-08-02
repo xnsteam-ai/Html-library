@@ -13,6 +13,37 @@
     "grid",
     "commercial"
   ],
+  "prompt": {
+    "composition": {
+      "shotType": "Flat-lay product grid, multiple panels",
+      "angle": "Directly overhead",
+      "placement": "Even grid across the full frame",
+      "distance": "Medium product distance",
+      "depthOfField": "Deep — everything sharp",
+      "focus": "Bottle labels and typography"
+    },
+    "environment": {
+      "setting": "Studio tabletop",
+      "background": "Clean white sweep with scattered cucumber slices, leaves and water droplets as garnish",
+      "depth": "Product plus styled props on a single plane"
+    },
+    "lighting": {
+      "quality": "Soft, broad, near-shadowless",
+      "direction": "Large overhead diffusion, frontal fill",
+      "temperature": "Cool-neutral with fresh green accents",
+      "shadows": "Minimal; soft contact shadows only"
+    },
+    "camera": {
+      "lens": "50mm, flat perspective",
+      "quality": "Crisp, high-key, clean commercial grade",
+      "artifacts": "None noticeable",
+      "aesthetic": "Commercial, clinical, fresh, e-commerce"
+    },
+    "atmosphere": {
+      "mood": "Clean and clinical",
+      "story": "A skincare line presented as fresh and ingredient-led."
+    }
+  },
   "files": [
     {
       "path": "image-skincare-sheet.html",

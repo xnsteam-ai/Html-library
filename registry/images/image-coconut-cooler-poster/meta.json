@@ -13,5 +13,36 @@
     "summer"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "composition": {
+      "shotType": "Beverage poster, product hero with props",
+      "angle": "Slightly above the glass rim",
+      "placement": "Glass centred, fruit and type arranged around",
+      "distance": "Medium-close",
+      "depthOfField": "Moderate; background props soft",
+      "focus": "The glass and its contents"
+    },
+    "environment": {
+      "setting": "Tropical set",
+      "background": "Palm, sand and sky illustration behind; coconut and fruit props at the base",
+      "depth": "Product plus prop and graphic layers"
+    },
+    "lighting": {
+      "quality": "Bright, soft",
+      "direction": "Broad frontal diffusion with a back rim through the glass",
+      "temperature": "Very warm and saturated — tropical greens and creams",
+      "shadows": "Moderate contrast; bright rim on the glass"
+    },
+    "camera": {
+      "lens": "50mm",
+      "quality": "Clean, vivid, advertising grade",
+      "artifacts": "Condensation speculars",
+      "aesthetic": "Poster, beverage, tropical, advertising"
+    },
+    "atmosphere": {
+      "mood": "Refreshing",
+      "story": "A summer drink promoted with its whole holiday attached."
+    }
+  }
 }

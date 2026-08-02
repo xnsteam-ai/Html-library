@@ -13,5 +13,44 @@
     "editorial"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Lying back with both arms raised above the head, hair spread out",
+      "expression": "Direct to camera, mouth slightly open",
+      "clothing": "Pale ribbed top; clear-framed glasses"
+    },
+    "composition": {
+      "shotType": "Overhead portrait, head and shoulders",
+      "angle": "Directly above, looking down",
+      "placement": "Centred, arms framing the head",
+      "distance": "Close",
+      "depthOfField": "Shallow",
+      "focus": "The eyes behind the glasses"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Plain pale surface beneath the subject",
+      "depth": "Subject only"
+    },
+    "lighting": {
+      "quality": "Soft, broad",
+      "direction": "Large overhead diffusion, even across the face",
+      "temperature": "Neutral, slightly warm",
+      "shadows": "Low contrast; soft shadow behind the neck"
+    },
+    "camera": {
+      "lens": "50mm overhead",
+      "quality": "Clean, natural, minimal grade",
+      "artifacts": "None",
+      "aesthetic": "Portrait, overhead, minimal, studio"
+    },
+    "atmosphere": {
+      "mood": "Open and unguarded",
+      "story": "A portrait taken from directly above, nothing hidden.",
+      "micro": "Held eye contact with the lens"
+    }
+  }
 }

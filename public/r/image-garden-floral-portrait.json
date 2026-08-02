@@ -13,6 +13,45 @@
     "garden",
     "outdoor"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Standing among flowering shrubs, body turned away, head looking back over the shoulder",
+      "expression": "Soft, contemplative",
+      "clothing": "White long-sleeved top and a long skirt"
+    },
+    "composition": {
+      "shotType": "Full figure in a dense environment",
+      "angle": "Eye-level",
+      "placement": "Subject centred, blossom filling the surround",
+      "distance": "Medium-far",
+      "depthOfField": "Moderate; near blossoms soft",
+      "focus": "The face turned back to camera"
+    },
+    "environment": {
+      "setting": "Garden",
+      "background": "Dense pink flowering shrubs enclosing the frame on all sides",
+      "depth": "Full scene — foreground blossom, subject, planting behind"
+    },
+    "lighting": {
+      "quality": "Soft, filtered through foliage",
+      "direction": "Overhead daylight broken by the planting",
+      "temperature": "Warm with heavy pink cast from the flowers",
+      "shadows": "Low-moderate contrast; dappled light"
+    },
+    "camera": {
+      "lens": "50mm",
+      "quality": "Clean, saturated, natural grade",
+      "artifacts": "Mild bloom",
+      "aesthetic": "Garden, floral, spring, romantic"
+    },
+    "atmosphere": {
+      "mood": "Secluded",
+      "story": "A moment found inside a garden.",
+      "micro": "Over-the-shoulder look — caught rather than posed"
+    }
+  },
   "files": [
     {
       "path": "image-garden-floral-portrait.html",

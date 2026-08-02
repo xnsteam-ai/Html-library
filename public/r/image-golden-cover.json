@@ -13,6 +13,44 @@
     "gold",
     "portrait"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Face centred behind large display type, hair long and dark",
+      "expression": "Direct, level gaze",
+      "clothing": "Not readable — the crop is face-only"
+    },
+    "composition": {
+      "shotType": "Cover layout, face framed inside letterforms",
+      "angle": "Eye-level",
+      "placement": "Centred behind type",
+      "distance": "Close",
+      "depthOfField": "Deep — the layout is graphic, not photographic",
+      "focus": "The eyes, framed by the counters of the type"
+    },
+    "environment": {
+      "setting": "Studio / graphic composite",
+      "background": "Solid gold-amber field; oversized glossy display lettering overlays the portrait",
+      "depth": "Portrait plus typographic layer"
+    },
+    "lighting": {
+      "quality": "Hard with strong specular sheen",
+      "direction": "Frontal key, edge light picking out the type",
+      "temperature": "Very warm — monochrome gold",
+      "shadows": "High contrast; deep amber shadow, metallic highlight"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Glossy, high-saturation, magazine grade",
+      "artifacts": "Heavy specular bloom on the lettering",
+      "aesthetic": "Magazine cover, gold, glossy, maximal"
+    },
+    "atmosphere": {
+      "mood": "Loud glamour",
+      "story": "A cover built to be seen from across a newsstand."
+    }
+  },
   "files": [
     {
       "path": "image-golden-cover.html",

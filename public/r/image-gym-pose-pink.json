@@ -13,6 +13,44 @@
     "gym",
     "athletic"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Standing, torso turned away and head back over the shoulder, weight on one leg",
+      "expression": "Looking back to camera, mouth closed",
+      "clothing": "Pink cropped top and dark leggings"
+    },
+    "composition": {
+      "shotType": "Full figure, vertical",
+      "angle": "Slightly low",
+      "placement": "Centred",
+      "distance": "Medium",
+      "depthOfField": "Shallow; equipment soft behind",
+      "focus": "The turned face and the waistline"
+    },
+    "environment": {
+      "setting": "Gym interior",
+      "background": "Racks and mirrors reduced to dark soft shapes",
+      "depth": "Subject plus blurred interior"
+    },
+    "lighting": {
+      "quality": "Directional with rim",
+      "direction": "Key from camera-right, rim from behind separating the figure",
+      "temperature": "Cool with a warm skin key",
+      "shadows": "Moderate-high contrast"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Sharp, contrasty, cool-graded",
+      "artifacts": "Slight vignette",
+      "aesthetic": "Fitness, activewear, gym, editorial"
+    },
+    "atmosphere": {
+      "mood": "Poised",
+      "story": "A gym shot composed rather than caught."
+    }
+  },
   "files": [
     {
       "path": "image-gym-pose-pink.html",

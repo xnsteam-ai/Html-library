@@ -13,5 +13,43 @@
     "yellow"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Lying on her back, arms overhead, hair spread on the bedding",
+      "expression": "Relaxed, eyes to camera",
+      "clothing": "Yellow knit top and washed denim shorts"
+    },
+    "composition": {
+      "shotType": "Overhead full-body flat lay",
+      "angle": "Directly above",
+      "placement": "Diagonal across the frame",
+      "distance": "Medium-far",
+      "depthOfField": "Deep",
+      "focus": "The face and the yellow top"
+    },
+    "environment": {
+      "setting": "Interior bedroom",
+      "background": "Pale pink bedding filling the frame; a small plush prop at the edge",
+      "depth": "Subject plus single-plane surface"
+    },
+    "lighting": {
+      "quality": "Soft, broad",
+      "direction": "Overhead ambient with window fill",
+      "temperature": "Warm, pastel-leaning",
+      "shadows": "Low contrast; soft body shadow on the bedding"
+    },
+    "camera": {
+      "lens": "35mm overhead, mild distortion",
+      "quality": "Clean, bright, pastel grade",
+      "artifacts": "None noticeable",
+      "aesthetic": "Flat lay, fashion, pastel, editorial"
+    },
+    "atmosphere": {
+      "mood": "Easy and warm",
+      "story": "An outfit shot from directly above, no styling fuss."
+    }
+  }
 }

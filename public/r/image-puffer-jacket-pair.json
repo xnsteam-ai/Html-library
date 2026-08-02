@@ -13,6 +13,37 @@
     "jacket",
     "flat lay"
   ],
+  "prompt": {
+    "composition": {
+      "shotType": "Two-up product flat lay",
+      "angle": "Directly overhead",
+      "placement": "Two jackets side by side, evenly spaced",
+      "distance": "Medium",
+      "depthOfField": "Deep — both fully sharp",
+      "focus": "The quilting and zip hardware"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Clean white sweep, nothing else in frame",
+      "depth": "Product only"
+    },
+    "lighting": {
+      "quality": "Soft, broad, near-shadowless",
+      "direction": "Large overhead diffusion",
+      "temperature": "Neutral, accurate to fabric colour",
+      "shadows": "Minimal; light contact shadow to seat the garments"
+    },
+    "camera": {
+      "lens": "50mm overhead",
+      "quality": "Crisp, colour-accurate, e-commerce grade",
+      "artifacts": "None",
+      "aesthetic": "Product, apparel, flat lay, catalogue"
+    },
+    "atmosphere": {
+      "mood": "Plain and transactional",
+      "story": "Two colourways laid out for a product page."
+    }
+  },
   "files": [
     {
       "path": "image-puffer-jacket-pair.html",

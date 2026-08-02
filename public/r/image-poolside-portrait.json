@@ -13,6 +13,44 @@
     "pool",
     "summer"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Standing at the pool edge, weight on one leg, hair loose",
+      "expression": "Soft, eyes to camera",
+      "clothing": "Black one-piece swimsuit and denim shorts"
+    },
+    "composition": {
+      "shotType": "Full figure, vertical",
+      "angle": "Eye-level",
+      "placement": "Centred, water behind",
+      "distance": "Medium-far",
+      "depthOfField": "Moderate; far bank soft",
+      "focus": "The figure"
+    },
+    "environment": {
+      "setting": "Poolside / lagoon",
+      "background": "Turquoise water, palms and a far bank in soft focus",
+      "depth": "Full scene — foreground deck, subject, water, far bank"
+    },
+    "lighting": {
+      "quality": "Hard tropical sun",
+      "direction": "High sun with strong water bounce as fill",
+      "temperature": "Very warm sun over cyan water",
+      "shadows": "High contrast; bright speculars on the water"
+    },
+    "camera": {
+      "lens": "35–50mm",
+      "quality": "Bright, saturated, holiday grade",
+      "artifacts": "Flare, water sparkle",
+      "aesthetic": "Resort, summer, vivid, lifestyle"
+    },
+    "atmosphere": {
+      "mood": "Holiday ease",
+      "story": "A pause at the water before getting in."
+    }
+  },
   "files": [
     {
       "path": "image-poolside-portrait.html",

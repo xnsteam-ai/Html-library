@@ -13,6 +13,45 @@
     "feather",
     "teal"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Dark hair pulled back tight; head turned slightly, long neck exposed, shoulders low",
+      "expression": "Downcast, composed, introspective",
+      "clothing": "Voluminous white feather collar filling the lower frame"
+    },
+    "composition": {
+      "shotType": "Medium portrait, head and shoulders",
+      "angle": "Eye-level",
+      "placement": "Centred",
+      "distance": "Medium",
+      "depthOfField": "Shallow; backdrop entirely soft",
+      "focus": "The eye and the feather edge nearest camera"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Deep teal-to-black gradient backdrop",
+      "depth": "Subject only"
+    },
+    "lighting": {
+      "quality": "Soft, sculpted",
+      "direction": "Single key from camera-left, deep unfilled shadow on the right",
+      "temperature": "Cool teal with warm skin held neutral",
+      "shadows": "High contrast; the feathers catch the key and glow"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Clean, smooth tonality, rich shadow detail",
+      "artifacts": "Slight vignette",
+      "aesthetic": "Studio, couture, teal, sculptural"
+    },
+    "atmosphere": {
+      "mood": "Composed and remote",
+      "story": "A subject dressed for something she has not explained.",
+      "micro": "Lowered lids and a still mouth — restraint, not sadness"
+    }
+  },
   "files": [
     {
       "path": "image-feather-collar.html",

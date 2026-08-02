@@ -13,6 +13,44 @@
     "gym",
     "athletic"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Standing, hands adjusting the waistband, torso squared, hair loose",
+      "expression": "Neutral, looking to camera",
+      "clothing": "Cream ribbed cropped set"
+    },
+    "composition": {
+      "shotType": "Medium, thigh up",
+      "angle": "Eye-level",
+      "placement": "Centred",
+      "distance": "Medium",
+      "depthOfField": "Shallow; interior soft behind",
+      "focus": "The torso and face"
+    },
+    "environment": {
+      "setting": "Gym or studio interior",
+      "background": "Warm wood and equipment reduced to soft shapes",
+      "depth": "Subject plus blurred interior"
+    },
+    "lighting": {
+      "quality": "Soft, warm",
+      "direction": "Frontal key with warm ambient fill",
+      "temperature": "Warm neutral — cream and tan",
+      "shadows": "Low contrast; gentle modelling"
+    },
+    "camera": {
+      "lens": "50mm",
+      "quality": "Clean, warm, lightly diffused",
+      "artifacts": "Mild bloom",
+      "aesthetic": "Fitness, warm, activewear, lifestyle"
+    },
+    "atmosphere": {
+      "mood": "Calm routine",
+      "story": "A gym shot with the intensity taken out."
+    }
+  },
   "files": [
     {
       "path": "image-gym-set-portrait.html",

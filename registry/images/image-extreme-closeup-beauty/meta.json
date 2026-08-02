@@ -13,5 +13,44 @@
     "editorial"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Face filling the frame, hair pulled back, head square to camera",
+      "expression": "Neutral, lips closed, direct",
+      "clothing": "None visible — bare-skin beauty crop"
+    },
+    "composition": {
+      "shotType": "Extreme close-up, brow to chin",
+      "angle": "Eye-level, dead-on",
+      "placement": "Centred, symmetrical",
+      "distance": "Intimate",
+      "depthOfField": "Shallow; ears and hairline soften",
+      "focus": "The irises"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Flat neutral ground, barely visible",
+      "depth": "Subject only"
+    },
+    "lighting": {
+      "quality": "Soft, broad beauty light",
+      "direction": "Frontal key above with fill below — twin catchlights",
+      "temperature": "Neutral, true-to-skin",
+      "shadows": "Low contrast; even, luminous skin"
+    },
+    "camera": {
+      "lens": "100mm macro-leaning",
+      "quality": "Extremely high skin and iris detail, natural texture retained",
+      "artifacts": "None",
+      "aesthetic": "Beauty, macro, natural, clean"
+    },
+    "atmosphere": {
+      "mood": "Unflinching neutrality",
+      "story": "A face recorded as accurately as possible.",
+      "micro": "No performance at all — stillness is the point"
+    }
+  }
 }

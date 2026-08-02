@@ -13,5 +13,44 @@
     "lifestyle"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Head and shoulders, one hand near the face, curly hair loose",
+      "expression": "Soft, tired-warm, faint smile",
+      "clothing": "Oversized grey marl sweater"
+    },
+    "composition": {
+      "shotType": "Close selfie, head and shoulders",
+      "angle": "Slightly high, arm-length",
+      "placement": "Centred",
+      "distance": "Intimate",
+      "depthOfField": "Deep",
+      "focus": "The face"
+    },
+    "environment": {
+      "setting": "Domestic interior",
+      "background": "Plain pale wall, no detail",
+      "depth": "Subject plus flat ground"
+    },
+    "lighting": {
+      "quality": "Soft window light",
+      "direction": "Broad frontal daylight from camera-left",
+      "temperature": "Neutral-warm",
+      "shadows": "Low contrast; open shadows"
+    },
+    "camera": {
+      "lens": "Phone front camera",
+      "quality": "Snapshot sharpness, slight softness, light noise",
+      "artifacts": "Mild edge distortion",
+      "aesthetic": "Selfie, cosy, candid, natural light"
+    },
+    "atmosphere": {
+      "mood": "Comfortable and unpolished",
+      "story": "A photo taken because the sweater felt good.",
+      "micro": "Small unforced smile — keep the lack of effort"
+    }
+  }
 }

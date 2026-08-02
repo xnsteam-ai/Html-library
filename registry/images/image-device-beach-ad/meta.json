@@ -13,5 +13,43 @@
     "lifestyle"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s–30s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Reclining on a lounger, one arm raised, body angled along the frame",
+      "expression": "Relaxed, sunglasses on",
+      "clothing": "Swimwear, sunglasses, gold jewellery"
+    },
+    "composition": {
+      "shotType": "Wide product-with-talent ad layout",
+      "angle": "Slightly high, looking down the lounger",
+      "placement": "Subject lower-left, device product shot right",
+      "distance": "Medium-far",
+      "depthOfField": "Moderate; product inset held sharp",
+      "focus": "The phone product render"
+    },
+    "environment": {
+      "setting": "Poolside / resort",
+      "background": "Palm fronds, water and warm tile, deliberately soft",
+      "depth": "Full scene plus overlaid product and type"
+    },
+    "lighting": {
+      "quality": "Hard tropical sun",
+      "direction": "High side sun, strong bounce off water and tile",
+      "temperature": "Very warm, high saturation",
+      "shadows": "Strong contrast; hot highlights on skin and water"
+    },
+    "camera": {
+      "lens": "35mm",
+      "quality": "Glossy, high-saturation advertising grade",
+      "artifacts": "Lens flare, bloom in highlights",
+      "aesthetic": "Advertising, resort, glossy, product launch"
+    },
+    "atmosphere": {
+      "mood": "Aspirational leisure",
+      "story": "A phone launch sold as a holiday."
+    }
+  }
 }

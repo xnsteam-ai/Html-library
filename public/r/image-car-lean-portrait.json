@@ -13,6 +13,45 @@
     "lifestyle",
     "moody"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult male, apparent 20s–30s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Seated on the bonnet of a sports car, forearms on knees, leaning forward",
+      "expression": "Direct, composed, unsmiling",
+      "clothing": "Grey sweatshirt, dark trousers, white trainers"
+    },
+    "composition": {
+      "shotType": "Full figure with vehicle",
+      "angle": "Slightly low",
+      "placement": "Subject and car centred",
+      "distance": "Medium-far",
+      "depthOfField": "Moderate; sky and ground soft",
+      "focus": "The face and the car nose"
+    },
+    "environment": {
+      "setting": "Open exterior, overcast",
+      "background": "Flat ground and a heavy cloud bank, no landmarks",
+      "depth": "Full scene — ground, subject and car, sky"
+    },
+    "lighting": {
+      "quality": "Soft, broad overcast",
+      "direction": "Dome light, no distinct key",
+      "temperature": "Cool, desaturated",
+      "shadows": "Low contrast; moody flat light"
+    },
+    "camera": {
+      "lens": "35mm",
+      "quality": "Muted, cool-graded, slight clarity lift",
+      "artifacts": "Mild vignette",
+      "aesthetic": "Automotive, moody, overcast, editorial"
+    },
+    "atmosphere": {
+      "mood": "Still and self-contained",
+      "story": "A pause somewhere with nothing around.",
+      "micro": "Level, unhurried gaze"
+    }
+  },
   "files": [
     {
       "path": "image-car-lean-portrait.html",

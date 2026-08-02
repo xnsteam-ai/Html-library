@@ -13,6 +13,44 @@
     "beach",
     "summer"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Seated, one hand to the hat brim, body angled to camera",
+      "expression": "Soft, lips slightly parted, eyes to lens",
+      "clothing": "Wide-brimmed straw sun hat and patterned swimwear"
+    },
+    "composition": {
+      "shotType": "Medium, waist up",
+      "angle": "Slightly high",
+      "placement": "Centred",
+      "distance": "Medium",
+      "depthOfField": "Shallow; poolside soft behind",
+      "focus": "The face under the brim"
+    },
+    "environment": {
+      "setting": "Poolside",
+      "background": "Water and planting reduced to soft warm shapes",
+      "depth": "Subject plus soft background"
+    },
+    "lighting": {
+      "quality": "Hard sun diffused by the hat brim",
+      "direction": "High sun, brim acting as a scrim, water bounce as fill",
+      "temperature": "Very warm",
+      "shadows": "Moderate contrast; dappled brim shadow across the face"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Bright, saturated, summer grade",
+      "artifacts": "Mild flare and bloom",
+      "aesthetic": "Summer, poolside, warm, lifestyle"
+    },
+    "atmosphere": {
+      "mood": "Languid heat",
+      "story": "An afternoon that is not going anywhere."
+    }
+  },
   "files": [
     {
       "path": "image-beach-hat-portrait.html",

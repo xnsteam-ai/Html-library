@@ -13,6 +13,45 @@
     "grid",
     "headshots"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "One sitter across a dense grid of small frames, head angle and expression varying",
+      "expression": "Systematic range of expressions across the grid",
+      "clothing": "Consistent plain top throughout"
+    },
+    "composition": {
+      "shotType": "Dense expression grid, matched small crops",
+      "angle": "Eye-level, identical",
+      "placement": "Regular grid across the sheet",
+      "distance": "Close",
+      "depthOfField": "Shallow, matched",
+      "focus": "The face in each cell"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Flat white ground behind every cell",
+      "depth": "Subject only"
+    },
+    "lighting": {
+      "quality": "Soft, even, identical per cell",
+      "direction": "Broad frontal diffusion",
+      "temperature": "Neutral",
+      "shadows": "Very low contrast by design"
+    },
+    "camera": {
+      "lens": "85mm",
+      "quality": "Clean, even, reference-grade",
+      "artifacts": "None",
+      "aesthetic": "Casting, expression sheet, grid, reference"
+    },
+    "atmosphere": {
+      "mood": "Catalogued",
+      "story": "An expression library for one performer.",
+      "micro": "Each cell should stay clearly distinct from its neighbours"
+    }
+  },
   "files": [
     {
       "path": "image-casting-reference-sheet-b.html",

@@ -13,6 +13,45 @@
     "sky",
     "natural"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Standing, head tilted up and back toward the sun, long hair loose",
+      "expression": "Eyes closed, faint smile",
+      "clothing": "Cream textured dress with a fitted bodice"
+    },
+    "composition": {
+      "shotType": "Medium, waist up",
+      "angle": "Low, shooting up against the sky",
+      "placement": "Centred",
+      "distance": "Medium",
+      "depthOfField": "Shallow; sky and cloud soft behind",
+      "focus": "The face and collarbone"
+    },
+    "environment": {
+      "setting": "Outdoors",
+      "background": "Blue sky with soft cloud, no ground reference",
+      "depth": "Subject plus sky"
+    },
+    "lighting": {
+      "quality": "Hard sun softened by haze",
+      "direction": "Direct backlight over the shoulder, sky fill on the face",
+      "temperature": "Warm gold over cool blue",
+      "shadows": "High contrast with lifted shadows; bright rim on hair"
+    },
+    "camera": {
+      "lens": "85mm wide open",
+      "quality": "Soft, glowing, high-key grade",
+      "artifacts": "Sun flare and bloom",
+      "aesthetic": "Golden hour, natural, radiant, portrait"
+    },
+    "atmosphere": {
+      "mood": "Serene warmth",
+      "story": "A face turned up to the sun for a second.",
+      "micro": "Closed eyes and the beginning of a smile"
+    }
+  },
   "files": [
     {
       "path": "image-sunlit-portrait.html",

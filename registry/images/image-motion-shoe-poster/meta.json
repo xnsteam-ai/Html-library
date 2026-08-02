@@ -13,5 +13,43 @@
     "motion"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Figure mid-stride at the top of the layout",
+      "expression": "Not readable at poster scale",
+      "clothing": "Athletic kit"
+    },
+    "composition": {
+      "shotType": "Poster, product hero with stacked type",
+      "angle": "Slightly low",
+      "placement": "Type upper, shoe lower-right, figure upper-left",
+      "distance": "Medium",
+      "depthOfField": "Deep",
+      "focus": "The shoe"
+    },
+    "environment": {
+      "setting": "Graphic field",
+      "background": "Saturated blue ground with heavy lettering and graphic marks",
+      "depth": "Product plus typography"
+    },
+    "lighting": {
+      "quality": "Hard, graphic",
+      "direction": "Frontal key with clean separation",
+      "temperature": "Cold blue with white type",
+      "shadows": "High contrast; crisp cut-out edges"
+    },
+    "camera": {
+      "lens": "35mm cut-out",
+      "quality": "Poster-flat, high-saturation print grade",
+      "artifacts": "None",
+      "aesthetic": "Poster, footwear, graphic, bold type"
+    },
+    "atmosphere": {
+      "mood": "Kinetic",
+      "story": "A shoe sold on momentum."
+    }
+  }
 }

@@ -13,6 +13,44 @@
     "studio",
     "fashion"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Kneeling, arms folded, long dark hair loose, torso upright",
+      "expression": "Soft, direct to camera",
+      "clothing": "Striped jersey and a pleated white skirt"
+    },
+    "composition": {
+      "shotType": "Full figure, kneeling",
+      "angle": "Eye-level, low to match the pose",
+      "placement": "Centred against a vertical stripe field",
+      "distance": "Medium",
+      "depthOfField": "Deep — the stripes stay sharp",
+      "focus": "The face and folded arms"
+    },
+    "environment": {
+      "setting": "Studio set",
+      "background": "Bold blue and white vertical striped wall filling the frame",
+      "depth": "Subject plus graphic wall"
+    },
+    "lighting": {
+      "quality": "Soft, even",
+      "direction": "Broad frontal diffusion",
+      "temperature": "Cool blue and white, high-key",
+      "shadows": "Low contrast; soft contact shadow"
+    },
+    "camera": {
+      "lens": "50mm",
+      "quality": "Clean, saturated, graphic-flat grade",
+      "artifacts": "None",
+      "aesthetic": "Fashion, graphic, striped, studio"
+    },
+    "atmosphere": {
+      "mood": "Bright and stylised",
+      "story": "A look shot against a set built to match it."
+    }
+  },
   "files": [
     {
       "path": "image-striped-wall-portrait.html",

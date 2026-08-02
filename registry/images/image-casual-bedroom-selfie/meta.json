@@ -13,5 +13,43 @@
     "selfie"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Seated on a bed, leaning slightly toward the lens, long dark hair over one shoulder",
+      "expression": "Soft, faint smile, eyes to camera",
+      "clothing": "Fitted black sleeveless top"
+    },
+    "composition": {
+      "shotType": "Medium close, head and upper body",
+      "angle": "Eye-level",
+      "placement": "Centred",
+      "distance": "Medium",
+      "depthOfField": "Shallow; room soft behind",
+      "focus": "The face"
+    },
+    "environment": {
+      "setting": "Bedroom",
+      "background": "Headboard, bedding and a lamp visible but softened",
+      "depth": "Subject plus readable interior"
+    },
+    "lighting": {
+      "quality": "Soft, warm lamp light",
+      "direction": "Frontal-side warm key from a bedside source",
+      "temperature": "Warm tungsten",
+      "shadows": "Low-moderate contrast; gentle falloff"
+    },
+    "camera": {
+      "lens": "Phone portrait mode",
+      "quality": "Snapshot sharpness with simulated background blur",
+      "artifacts": "Slight edge artefacts around the hair from the blur",
+      "aesthetic": "Selfie, warm, candid, domestic"
+    },
+    "atmosphere": {
+      "mood": "Relaxed and close",
+      "story": "A photo taken at the end of the day."
+    }
+  }
 }

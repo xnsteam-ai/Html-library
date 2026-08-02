@@ -13,6 +13,37 @@
     "coupe",
     "product"
   ],
+  "prompt": {
+    "composition": {
+      "shotType": "Automotive poster, three-quarter front",
+      "angle": "Low, at wheel height",
+      "placement": "Car centred, wordmark above",
+      "distance": "Medium-far",
+      "depthOfField": "Deep",
+      "focus": "The grille and front wheel"
+    },
+    "environment": {
+      "setting": "Studio / composite",
+      "background": "Flat saturated blue ground, large wordmark",
+      "depth": "Product plus typography"
+    },
+    "lighting": {
+      "quality": "Hard with long speculars",
+      "direction": "Overhead strips raking the body, dark surround",
+      "temperature": "Cold — single-hue blue",
+      "shadows": "High contrast; bright highlight runs on the panels"
+    },
+    "camera": {
+      "lens": "35mm automotive",
+      "quality": "Sharp, heavily graded, poster finish",
+      "artifacts": "None",
+      "aesthetic": "Poster, automotive, monochrome blue, bold"
+    },
+    "atmosphere": {
+      "mood": "Cold precision",
+      "story": "A car rendered as a graphic object."
+    }
+  },
   "files": [
     {
       "path": "image-blue-coupe-poster.html",

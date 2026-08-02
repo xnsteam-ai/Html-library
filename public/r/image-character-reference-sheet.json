@@ -13,6 +13,45 @@
     "reference",
     "concept art"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Illustrated adult figure, apparent 20s–30s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Full-length turnaround plus head studies; tall slim build, dark layered hair, long coat silhouette",
+      "expression": "Range of head studies from neutral to sharp",
+      "clothing": "Dark layered coat, harness detail, accessories tiled separately"
+    },
+    "composition": {
+      "shotType": "Character design sheet — turnaround, head studies, props and palette",
+      "angle": "Orthographic front and side, plus head close-ups",
+      "placement": "Full figure left, studies and swatches tiled right",
+      "distance": "Mixed",
+      "depthOfField": "Flat — illustration, no optical depth",
+      "focus": "The full-length turnaround"
+    },
+    "environment": {
+      "setting": "Illustrated sheet",
+      "background": "Warm parchment ground with fine rules, labels and a colour palette strip",
+      "depth": "Figure plus flat annotation layer"
+    },
+    "lighting": {
+      "quality": "Rendered soft light",
+      "direction": "Implied single frontal source, consistent across every study",
+      "temperature": "Warm neutral with a restrained palette",
+      "shadows": "Low contrast; flat cel-style shading"
+    },
+    "camera": {
+      "lens": "N/A — illustration; drawn orthographically rather than photographed",
+      "quality": "Clean line work, flat fills, subtle rendering",
+      "artifacts": "None",
+      "aesthetic": "Character design, concept art, reference sheet, illustration"
+    },
+    "atmosphere": {
+      "mood": "Methodical worldbuilding",
+      "story": "A character documented before being animated.",
+      "micro": "Head studies carry the range — keep each distinct"
+    }
+  },
   "files": [
     {
       "path": "image-character-reference-sheet.html",

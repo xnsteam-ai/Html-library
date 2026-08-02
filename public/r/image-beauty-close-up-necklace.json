@@ -13,6 +13,45 @@
     "jewelry",
     "close-up"
   ],
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Head turned slightly, hair back off the shoulder, neck and collarbone exposed",
+      "expression": "Soft, lips parted, eyes to camera",
+      "clothing": "Fine chain necklace and small earrings"
+    },
+    "composition": {
+      "shotType": "Beauty close-up, face and collarbone",
+      "angle": "Eye-level",
+      "placement": "Face upper-centre, necklace lower third",
+      "distance": "Intimate",
+      "depthOfField": "Shallow; background black",
+      "focus": "The eyes, then the necklace"
+    },
+    "environment": {
+      "setting": "Studio",
+      "background": "Near-black backdrop",
+      "depth": "Subject only"
+    },
+    "lighting": {
+      "quality": "Soft, sculpted beauty light",
+      "direction": "Frontal key slightly above with fill below — clean catchlights",
+      "temperature": "Warm neutral skin against black",
+      "shadows": "Moderate-high contrast; luminous skin, deep surround"
+    },
+    "camera": {
+      "lens": "100mm macro-leaning",
+      "quality": "Very high skin detail, smooth retouch-grade tonality",
+      "artifacts": "None",
+      "aesthetic": "Beauty, jewellery, glossy, close-up"
+    },
+    "atmosphere": {
+      "mood": "Poised intimacy",
+      "story": "A jewellery shot that keeps the person in it.",
+      "micro": "Slightly parted lips and steady eyes"
+    }
+  },
   "files": [
     {
       "path": "image-beauty-close-up-necklace.html",

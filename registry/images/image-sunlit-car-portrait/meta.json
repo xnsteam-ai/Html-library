@@ -13,5 +13,44 @@
     "golden hour"
   ],
   "previewBg": "plain",
-  "previewHeight": 560
+  "previewHeight": 560,
+  "prompt": {
+    "subject": {
+      "age": "Adult, apparent 20s",
+      "descent": "Not asserted — synthetic subject; specify explicitly when recreating.",
+      "physical": "Leaning out of an open car window, arm on the sill, hair caught by the light",
+      "expression": "Broad smile, eyes squinting into the sun",
+      "clothing": "Light casual top"
+    },
+    "composition": {
+      "shotType": "Medium close, framed by the window aperture",
+      "angle": "Eye-level, from outside the car",
+      "placement": "Subject centred in the window frame",
+      "distance": "Medium",
+      "depthOfField": "Shallow; interior dark behind",
+      "focus": "The face"
+    },
+    "environment": {
+      "setting": "Car interior seen from outside",
+      "background": "Dark cabin behind the subject, bright exterior at the edges",
+      "depth": "Foreground door, subject, dark interior"
+    },
+    "lighting": {
+      "quality": "Hard, low sun",
+      "direction": "Direct low side sun onto the face, dark cabin providing natural negative fill",
+      "temperature": "Very warm — gold on skin against a black interior",
+      "shadows": "Very high contrast; bright face, deep cabin shadow"
+    },
+    "camera": {
+      "lens": "50mm",
+      "quality": "Warm, contrasty, golden-hour grade",
+      "artifacts": "Flare across the door frame",
+      "aesthetic": "Golden hour, candid, warm, automotive"
+    },
+    "atmosphere": {
+      "mood": "Spontaneous delight",
+      "story": "Someone leaning out to say something as the car stops.",
+      "micro": "Squint and open smile — keep the spontaneity"
+    }
+  }
 }
