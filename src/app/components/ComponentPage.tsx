@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Check, Code2, Copy, ExternalLink, Eye, Github } from 'lucide-react'
+import { Check, Code2, Copy, ExternalLink, Eye, Github, Sparkles } from 'lucide-react'
 import {
   CATEGORY_META,
   rawRegistryUrl,
@@ -12,6 +12,7 @@ import { previewHref } from '../hooks/useHashRoute'
 import { previewHtml } from '../lib/previewHtml'
 import { toStandaloneHtml } from '../lib/standaloneHtml'
 import { CodeBlock } from './CodeBlock'
+import { PromptMarkdownView } from './PromptMarkdownView'
 import { ScreenFrame } from './ScreenFrame'
 
 const SURFACES: Record<string, string> = {
@@ -54,7 +55,7 @@ function Preview({ item }: { item: RegistryItem }) {
 }
 
 export function ComponentPage({ item }: { item: RegistryItem }) {
-  const [tab, setTab] = useState<'preview' | 'code'>('preview')
+  const [tab, setTab] = useState<'preview' | 'code' | 'prompt'>('preview')
   const { copied, copy } = useCopy()
 
   const curl = `curl -s ${registryUrl(item.name)} \\
@@ -92,7 +93,7 @@ export function ComponentPage({ item }: { item: RegistryItem }) {
         </div>
       </header>
 
-      {/* Preview / Code toggle — same pill treatment as the app shell */}
+      {/* Preview / Code / Prompt toggle — same pill treatment as the app shell */}
       <div className="mb-3 flex items-center justify-between">
         <div className="flex rounded-full bg-muted p-[3px]" role="tablist" aria-label="View">
           <button
@@ -123,6 +124,22 @@ export function ComponentPage({ item }: { item: RegistryItem }) {
             <Code2 size={13} />
             Code
           </button>
+          {item.category === 'images' && (
+            <button
+              type="button"
+              role="tab"
+              aria-selected={tab === 'prompt'}
+              onClick={() => setTab('prompt')}
+              className={`flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[12.5px] font-medium transition ${
+                tab === 'prompt'
+                  ? 'bg-background text-foreground shadow-sm dark:bg-subtle'
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              <Sparkles size={13} />
+              Prompt
+            </button>
+          )}
         </div>
 
         <div className="flex items-center gap-2">
@@ -150,13 +167,15 @@ export function ComponentPage({ item }: { item: RegistryItem }) {
 
       {tab === 'preview' ? (
         <Preview item={item} />
-      ) : (
+      ) : tab === 'code' ? (
         <CodeBlock
           code={item.html}
           copyCode={toStandaloneHtml(item)}
           filename={`${item.name}.html`}
           maxHeight="max-h-[640px]"
         />
+      ) : (
+        <PromptMarkdownView item={item} />
       )}
 
       {/* Install */}

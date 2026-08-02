@@ -17,7 +17,7 @@
     {
       "path": "image-flat-cap-contact-sheet.html",
       "type": "html",
-      "content": "<!--\n  Flat Cap Contact Sheet — 805×1200 JPEG from the HTML Library image set.\n  The width/height attributes reserve the box so the page does not shift\n  while the file downloads.\n-->\n<figure class=\"mx-auto w-full max-w-2xl\">\n  <img\n    src=\"https://xnsteam-ai.github.io/Html-library/images/2016088856077205937-1.jpg\"\n    alt=\"Six-frame contact sheet of one subject in a flat cap, shot from varied angles\"\n    width=\"805\"\n    height=\"1200\"\n    class=\"h-auto w-full rounded-xl\"\n  />\n  <figcaption class=\"mt-2 text-[12px] text-gray-600\">Flat Cap Contact Sheet · 805×1200</figcaption>\n</figure>\n"
+      "content": "<!--\n  Flat Cap Contact Sheet — 805×1200 JPEG from the HTML Library image set.\n  The width/height attributes reserve the box so the page does not shift\n  while the file downloads.\n-->\n<figure class=\"mx-auto w-full max-w-2xl\">\n  <img\n    src=\"https://xnsteam-ai.github.io/Html-library/images/2016088856077205937-1.jpg\"\n    alt=\"Six-frame contact sheet of one subject in a flat cap, shot from varied angles\"\n    width=\"805\"\n    height=\"1200\"\n    class=\"h-auto w-full rounded-xl\"\n  />\n  <figcaption class=\"mt-2 text-[12px] text-gray-600 dark:text-gray-400\">Flat Cap Contact Sheet · 805×1200</figcaption>\n</figure>\n"
     }
   ]
 }

@@ -23,6 +23,8 @@ export interface ComponentMeta {
   status?: 'new' | 'updated'
   /** How to align the component in standalone preview (e.g. new tab). Defaults to center. */
   previewAlign?: 'top' | 'bottom' | 'center' | 'left' | 'right' | 'fit'
+  /** AI image generation prompt for images category items. */
+  prompt?: string
 }
 
 export interface RegistryItem extends ComponentMeta {

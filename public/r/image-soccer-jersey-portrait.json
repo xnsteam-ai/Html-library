@@ -17,7 +17,7 @@
     {
       "path": "image-soccer-jersey-portrait.html",
       "type": "html",
-      "content": "<!--\n  Soccer Jersey Portrait — 901×1200 JPEG from the HTML Library image set.\n  The width/height attributes reserve the box so the page does not shift\n  while the file downloads.\n-->\n<figure class=\"mx-auto w-full max-w-2xl\">\n  <img\n    src=\"https://xnsteam-ai.github.io/Html-library/images/2066070326296146387-1.jpg\"\n    alt=\"Fashion portrait styled around a soccer jersey and sunglasses\"\n    width=\"901\"\n    height=\"1200\"\n    class=\"h-auto w-full rounded-xl\"\n  />\n  <figcaption class=\"mt-2 text-[12px] text-gray-600\">Soccer Jersey Portrait · 901×1200</figcaption>\n</figure>\n"
+      "content": "<!--\n  Soccer Jersey Portrait — 901×1200 JPEG from the HTML Library image set.\n  The width/height attributes reserve the box so the page does not shift\n  while the file downloads.\n-->\n<figure class=\"mx-auto w-full max-w-2xl\">\n  <img\n    src=\"https://xnsteam-ai.github.io/Html-library/images/2066070326296146387-1.jpg\"\n    alt=\"Fashion portrait styled around a soccer jersey and sunglasses\"\n    width=\"901\"\n    height=\"1200\"\n    class=\"h-auto w-full rounded-xl\"\n  />\n  <figcaption class=\"mt-2 text-[12px] text-gray-600 dark:text-gray-400\">Soccer Jersey Portrait · 901×1200</figcaption>\n</figure>\n"
     }
   ]
 }

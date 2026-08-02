@@ -17,7 +17,7 @@
     {
       "path": "image-ice-cream-flowers-portrait.html",
       "type": "html",
-      "content": "<!--\n  Ice Cream And Flowers — 800×1200 JPEG from the HTML Library image set.\n  The width/height attributes reserve the box so the page does not shift\n  while the file downloads.\n-->\n<figure class=\"mx-auto w-full max-w-2xl\">\n  <img\n    src=\"https://xnsteam-ai.github.io/Html-library/images/2055267856473047405-1.jpg\"\n    alt=\"Playful portrait pairing an ice cream cone with a bouquet, open sky behind\"\n    width=\"800\"\n    height=\"1200\"\n    class=\"h-auto w-full rounded-xl\"\n  />\n  <figcaption class=\"mt-2 text-[12px] text-gray-600\">Ice Cream And Flowers · 800×1200</figcaption>\n</figure>\n"
+      "content": "<!--\n  Ice Cream And Flowers — 800×1200 JPEG from the HTML Library image set.\n  The width/height attributes reserve the box so the page does not shift\n  while the file downloads.\n-->\n<figure class=\"mx-auto w-full max-w-2xl\">\n  <img\n    src=\"https://xnsteam-ai.github.io/Html-library/images/2055267856473047405-1.jpg\"\n    alt=\"Playful portrait pairing an ice cream cone with a bouquet, open sky behind\"\n    width=\"800\"\n    height=\"1200\"\n    class=\"h-auto w-full rounded-xl\"\n  />\n  <figcaption class=\"mt-2 text-[12px] text-gray-600 dark:text-gray-400\">Ice Cream And Flowers · 800×1200</figcaption>\n</figure>\n"
     }
   ]
 }

@@ -17,7 +17,7 @@
     {
       "path": "image-urban-calm-cover.html",
       "type": "html",
-      "content": "<!--\n  Urban Calm Cover — 680×1200 JPEG from the HTML Library image set.\n  The width/height attributes reserve the box so the page does not shift\n  while the file downloads.\n-->\n<figure class=\"mx-auto w-full max-w-2xl\">\n  <img\n    src=\"https://xnsteam-ai.github.io/Html-library/images/2054444188293529658-1.jpg\"\n    alt=\"Magazine-style cover treatment pairing an illustrated figure with bold type\"\n    width=\"680\"\n    height=\"1200\"\n    class=\"h-auto w-full rounded-xl\"\n  />\n  <figcaption class=\"mt-2 text-[12px] text-gray-600\">Urban Calm Cover · 680×1200</figcaption>\n</figure>\n"
+      "content": "<!--\n  Urban Calm Cover — 680×1200 JPEG from the HTML Library image set.\n  The width/height attributes reserve the box so the page does not shift\n  while the file downloads.\n-->\n<figure class=\"mx-auto w-full max-w-2xl\">\n  <img\n    src=\"https://xnsteam-ai.github.io/Html-library/images/2054444188293529658-1.jpg\"\n    alt=\"Magazine-style cover treatment pairing an illustrated figure with bold type\"\n    width=\"680\"\n    height=\"1200\"\n    class=\"h-auto w-full rounded-xl\"\n  />\n  <figcaption class=\"mt-2 text-[12px] text-gray-600 dark:text-gray-400\">Urban Calm Cover · 680×1200</figcaption>\n</figure>\n"
     }
   ]
 }

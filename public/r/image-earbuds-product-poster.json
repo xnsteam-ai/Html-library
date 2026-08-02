@@ -17,7 +17,7 @@
     {
       "path": "image-earbuds-product-poster.html",
       "type": "html",
-      "content": "<!--\n  Earbuds Product Poster — 1024×1024 JPEG from the HTML Library image set.\n  The width/height attributes reserve the box so the page does not shift\n  while the file downloads.\n-->\n<figure class=\"mx-auto w-full max-w-2xl\">\n  <img\n    src=\"https://xnsteam-ai.github.io/Html-library/images/2065641990637965666-1.jpg\"\n    alt=\"Product poster for wireless earbuds with bold display type\"\n    width=\"1024\"\n    height=\"1024\"\n    class=\"h-auto w-full rounded-xl\"\n  />\n  <figcaption class=\"mt-2 text-[12px] text-gray-600\">Earbuds Product Poster · 1024×1024</figcaption>\n</figure>\n"
+      "content": "<!--\n  Earbuds Product Poster — 1024×1024 JPEG from the HTML Library image set.\n  The width/height attributes reserve the box so the page does not shift\n  while the file downloads.\n-->\n<figure class=\"mx-auto w-full max-w-2xl\">\n  <img\n    src=\"https://xnsteam-ai.github.io/Html-library/images/2065641990637965666-1.jpg\"\n    alt=\"Product poster for wireless earbuds with bold display type\"\n    width=\"1024\"\n    height=\"1024\"\n    class=\"h-auto w-full rounded-xl\"\n  />\n  <figcaption class=\"mt-2 text-[12px] text-gray-600 dark:text-gray-400\">Earbuds Product Poster · 1024×1024</figcaption>\n</figure>\n"
     }
   ]
 }

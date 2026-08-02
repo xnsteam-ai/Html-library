@@ -83,7 +83,7 @@ files.forEach((file, i) => {
     height="${h}"
     class="h-auto w-full rounded-xl"
   />
-  <figcaption class="mt-2 text-[12px] text-gray-600">${title} · ${w}×${h}</figcaption>
+  <figcaption class="mt-2 text-[12px] text-gray-600 dark:text-gray-400">${title} · ${w}×${h}</figcaption>
 </figure>
 `
 

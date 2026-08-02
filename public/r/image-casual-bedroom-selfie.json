@@ -17,7 +17,7 @@
     {
       "path": "image-casual-bedroom-selfie.html",
       "type": "html",
-      "content": "<!--\n  Casual Bedroom Selfie — 908×1199 JPEG from the HTML Library image set.\n  The width/height attributes reserve the box so the page does not shift\n  while the file downloads.\n-->\n<figure class=\"mx-auto w-full max-w-2xl\">\n  <img\n    src=\"https://xnsteam-ai.github.io/Html-library/images/2072330745050214830-1.jpg\"\n    alt=\"Fully clothed casual selfie taken at home, phone visible in frame\"\n    width=\"908\"\n    height=\"1199\"\n    class=\"h-auto w-full rounded-xl\"\n  />\n  <figcaption class=\"mt-2 text-[12px] text-gray-600\">Casual Bedroom Selfie · 908×1199</figcaption>\n</figure>\n"
+      "content": "<!--\n  Casual Bedroom Selfie — 908×1199 JPEG from the HTML Library image set.\n  The width/height attributes reserve the box so the page does not shift\n  while the file downloads.\n-->\n<figure class=\"mx-auto w-full max-w-2xl\">\n  <img\n    src=\"https://xnsteam-ai.github.io/Html-library/images/2072330745050214830-1.jpg\"\n    alt=\"Fully clothed casual selfie taken at home, phone visible in frame\"\n    width=\"908\"\n    height=\"1199\"\n    class=\"h-auto w-full rounded-xl\"\n  />\n  <figcaption class=\"mt-2 text-[12px] text-gray-600 dark:text-gray-400\">Casual Bedroom Selfie · 908×1199</figcaption>\n</figure>\n"
     }
   ]
 }
