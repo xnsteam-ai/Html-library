@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { CornerDownLeft, ListTree, Search, Square } from 'lucide-react'
+import { CornerDownLeft, ListTree, Search, Square, Component, FileImage, Microchip } from 'lucide-react'
 import { CATEGORY_META, components } from '../../registry'
 import { componentHref, docHref, galleryHref, navigate } from '../hooks/useHashRoute'
 
@@ -8,6 +8,7 @@ interface Entry {
   title: string
   hint: string
   kind: 'doc' | 'component'
+  category?: string
 }
 
 const DOC_ENTRIES: Entry[] = [
@@ -40,6 +41,7 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
         title: item.title,
         hint: `${CATEGORY_META[item.category].title} · ${(item.tags ?? []).join(', ')}`,
         kind: 'component' as const,
+        category: item.category,
       })),
     ],
     [],
@@ -130,6 +132,12 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
               >
                 {entry.kind === 'doc' ? (
                   <ListTree size={14} className="shrink-0 text-muted-foreground" />
+                ) : entry.category === 'ui' ? (
+                  <Component size={14} className="shrink-0 text-muted-foreground" />
+                ) : entry.category === 'images' ? (
+                  <FileImage size={14} className="shrink-0 text-muted-foreground" />
+                ) : entry.category === 'agent' ? (
+                  <Microchip size={14} className="shrink-0 text-muted-foreground" />
                 ) : (
                   <Square size={14} className="shrink-0 text-muted-foreground" />
                 )}
