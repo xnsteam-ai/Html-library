@@ -152,15 +152,6 @@ export function Sidebar({ route, onCollapse, onOpenSearch }: SidebarProps) {
         })}
       </nav>
 
-      {/* CTA */}
-      <div className="px-3 pb-3">
-        <a
-          href={docHref('installation')}
-          className="flex w-full items-center justify-center rounded-full bg-primary px-4 py-2.5 text-[13.5px] font-medium text-primary-foreground transition hover:opacity-90"
-        >
-          Get the registry
-        </a>
-      </div>
 
       {/* Footer */}
       <div className="flex items-center justify-between border-t border-border px-4 py-2.5">
