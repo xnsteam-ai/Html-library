@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Plans</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#2d2d2d',
+                            yellow: '#fcd34d', // Approximation of the gold/yellow
+                            yellowHover: '#f5c531',
+                            grayBox: '#f4f4f5',
+                            grayText: '#9ca3af',
+                            border: '#e5e7eb'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+</head>
+<body class="bg-white min-h-screen flex items-center justify-center p-6 text-gray-900 relative">
+
+    <!-- Close Button -->
+    <button class="absolute top-6 right-6 p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-500">
+            <path d="M18 6 6 18"/>
+            <path d="m6 6 12 12"/>
+        </svg>
+    </button>
+
+    <div class="max-w-6xl w-full mx-auto">
+        <!-- Header Section -->
+        <div class="text-center mb-14">
+            <h1 class="text-4xl md:text-[40px] font-extrabold tracking-tight mb-4 text-[#1a1a1a]">Choose your plan</h1>
+            <p class="text-gray-500 text-lg md:text-xl font-normal">
+                Scale creativity with higher limits, priority access, and early features
+            </p>
+        </div>
+
+        <!-- Pricing Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+            
+            <!-- Starter Plan -->
+            <div class="border border-brand-border rounded-[32px] p-8 flex flex-col bg-white shadow-sm">
+                <h2 class="text-[22px] font-bold mb-4">Starter</h2>
+                <div class="flex items-baseline mb-6">
+                    <span class="text-[54px] font-extrabold tracking-tight leading-none">$20</span>
+                    <span class="text-gray-400 font-medium ml-1">/mo</span>
+                </div>
+                <button class="w-full bg-brand-dark hover:bg-black text-white font-semibold py-3.5 rounded-full mb-6 transition-colors">
+                    Upgrade Plan
+                </button>
+
+                <!-- Credits Box -->
+                <div class="bg-brand-grayBox rounded-[20px] p-5 mb-8 relative">
+                    <div class="absolute top-4 right-4 text-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M14 15.523A4.5 4.5 0 1 1 14 8.477"/>
+                        </svg>
+                    </div>
+                    <div class="font-bold text-gray-900 mb-1 text-[15px]">1,200 <span class="font-normal">©</span>/mo</div>
+                    <div class="text-xs text-brand-grayText mb-1">$1.67 / 100 ©</div>
+                    <div class="text-xs text-gray-500 leading-relaxed">
+                        Generate up to 600 images or 18 videos every month.
+                    </div>
+                </div>
+
+                <!-- Features -->
+                <div class="flex-grow">
+                    <ul class="space-y-4 text-[14.5px] text-[#333]">
+                        <li class="flex items-start gap-3">
+                            <span class="mt-0.5 text-gray-800">✓</span>
+                            <span>Watermark-free exports</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="mt-0.5 text-gray-800">✓</span>
+                            <span>FacePass</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="mt-0.5 text-gray-800">✓</span>
+                            <span>Image Models</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="mt-0.5 text-gray-800">✓</span>
+                            <span>Video Models</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Standard Plan -->
+            <div class="border border-brand-border rounded-[32px] p-8 flex flex-col bg-white shadow-sm">
+                <h2 class="text-[22px] font-bold mb-4">Standard</h2>
+                <div class="flex items-baseline mb-6">
+                    <span class="text-[54px] font-extrabold tracking-tight leading-none">$60</span>
+                    <span class="text-gray-400 font-medium ml-1">/mo</span>
+                </div>
+                <button class="w-full bg-brand-dark hover:bg-black text-white font-semibold py-3.5 rounded-full mb-6 transition-colors">
+                    Upgrade Plan
+                </button>
+
+                <!-- Credits Box -->
+                <div class="bg-brand-grayBox rounded-[20px] p-5 mb-8 relative">
+                    <div class="absolute top-4 right-4 text-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M14 15.523A4.5 4.5 0 1 1 14 8.477"/>
+                        </svg>
+                    </div>
+                    <div class="font-bold text-gray-900 mb-1 text-[15px]">3,600 <span class="font-normal">©</span>/mo</div>
+                    <div class="text-xs text-brand-grayText mb-1">$1.67 / 100 ©</div>
+                    <div class="text-xs text-gray-500 leading-relaxed">
+                        Generate up to 1,800 images or 56 videos every month.
+                    </div>
+                </div>
+
+                <!-- Features -->
+                <div class="flex-grow">
+                    <ul class="space-y-4 text-[14.5px] text-[#333]">
+                        <li class="flex items-start gap-3">
+                            <span class="mt-0.5 text-gray-800">✓</span>
+                            <span>Watermark-free exports</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="mt-0.5 text-gray-800">✓</span>
+                            <span>FacePass</span>
+                        </li>
+                        <li>
+                            <div class="flex items-start gap-3">
+                                <span class="mt-0.5 text-gray-800">✓</span>
+                                <span>Latest Image Models</span>
+                            </div>
+                            <div class="ml-[26px] mt-2 flex flex-col gap-1.5 text-[13px] text-gray-400">
+                                <span>Nano Banana 2</span>
+                                <span>Nano Banana Pro</span>
+                                <span>Midjourney V7</span>
+                                <span>GPT Image 2</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-start gap-3 mt-4">
+                                <span class="mt-0.5 text-gray-800">✓</span>
+                                <span>Latest Video Models</span>
+                            </div>
+                            <div class="ml-[26px] mt-2 flex flex-col gap-1.5 text-[13px] text-gray-400">
+                                <span>Seedance 2.0</span>
+                                <span>HappyHorse 1.0</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Advanced Plan (Best Value) -->
+            <!-- Using a wrapper for the thick border to handle the banner cleanly -->
+            <div class="bg-[#fad45f] p-[4px] rounded-[34px] shadow-sm flex flex-col">
+                <div class="bg-white rounded-[30px] flex-grow flex flex-col overflow-hidden relative">
+                    
+                    <!-- Best Value Banner -->
+                    <div class="bg-[#fad45f] w-full py-2 flex items-center justify-center gap-1.5 text-[#916a1b] text-sm font-semibold">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41l-7.59-7.59a2.41 2.41 0 0 0-3.41 0Z"/>
+                            <circle cx="12" cy="12" r="2"/>
+                        </svg>
+                        Best Value
+                    </div>
+
+                    <!-- Card Content -->
+                    <div class="p-8 pt-6 flex flex-col flex-grow">
+                        <h2 class="text-[22px] font-bold mb-4">Advanced</h2>
+                        <div class="flex items-baseline mb-6">
+                            <span class="text-[54px] font-extrabold tracking-tight leading-none">$200</span>
+                            <span class="text-gray-400 font-medium ml-1">/mo</span>
+                        </div>
+                        <button class="w-full bg-[#fad45f] hover:bg-brand-yellowHover text-gray-900 font-semibold py-3.5 rounded-full mb-6 transition-colors">
+                            Upgrade Plan
+                        </button>
+
+                        <!-- Credits Box -->
+                        <div class="bg-brand-grayBox rounded-[20px] p-5 mb-8 relative">
+                            <div class="absolute top-4 right-4 text-gray-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M14 15.523A4.5 4.5 0 1 1 14 8.477"/>
+                                </svg>
+                            </div>
+                            <div class="font-bold text-gray-900 mb-1 text-[15px]">14,000 <span class="font-normal">©</span>/mo</div>
+                            <div class="text-xs text-brand-grayText mb-1">$1.43 / 100 ©</div>
+                            <div class="text-xs text-gray-500 leading-relaxed">
+                                Generate up to 7,000 images or 218 videos every month.
+                            </div>
+                        </div>
+
+                        <!-- Features -->
+                        <div class="flex-grow">
+                            <ul class="space-y-4 text-[14.5px] text-[#333]">
+                                <li class="flex items-start gap-3">
+                                    <span class="mt-0.5 text-gray-800">✓</span>
+                                    <span>Watermark-free exports</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="mt-0.5 text-gray-800">✓</span>
+                                    <span>FacePass</span>
+                                </li>
+                                <li>
+                                    <div class="flex items-start gap-3">
+                                        <span class="mt-0.5 text-gray-800">✓</span>
+                                        <span>Latest Image Models</span>
+                                    </div>
+                                    <div class="ml-[26px] mt-2 flex flex-col gap-1.5 text-[13px] text-gray-400">
+                                        <span>Nano Banana 2</span>
+                                        <span>Nano Banana Pro</span>
+                                        <span>Midjourney V7</span>
+                                        <span>GPT Image 2</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="flex items-start gap-3 mt-4">
+                                        <span class="mt-0.5 text-gray-800">✓</span>
+                                        <span>Latest Video Models</span>
+                                    </div>
+                                    <div class="ml-[26px] mt-2 flex flex-col gap-1.5 text-[13px] text-gray-400">
+                                        <span>Seedance 2.0</span>
+                                        <span>HappyHorse 1.0</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

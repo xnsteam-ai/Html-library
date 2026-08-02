@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat Interface</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Tokens ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --thread-max-width: 42rem;
+      --accent: #20b8cd;
+      --accent-fg: #000;
+      --bg: #ffffff;
+      --fg: #0f172a;
+      --muted: #f1f5f9;
+      --muted-fg: #64748b;
+      --border: #e2e8f0;
+      --ring: #20b8cd;
+      --destructive: #ef4444;
+      --radius: 1rem;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b0f19;
+        --fg: #e2e8f0;
+        --muted: #1e293b;
+        --muted-fg: #94a3b8;
+        --border: #1e293b;
+      }
+    }
+
+    html, body {
+      height: 100%;
+      font-family: var(--font);
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--fg);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Layout ──────────────────────────────────────────── */
+    #app {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #viewport {
+      position: relative;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+      padding: 1rem 1rem 0;
+    }
+
+    #messages {
+      flex: 1;
+      width: 100%;
+      max-width: var(--thread-max-width);
+      margin: 0 auto;
+    }
+
+    /* ── Welcome ─────────────────────────────────────────── */
+    #welcome {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      width: 100%;
+      max-width: var(--thread-max-width);
+      margin: 0 auto;
+      padding: 2rem;
+      min-height: 50vh;
+    }
+    #welcome .greeting {
+      width: 100%;
+    }
+    #welcome h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: .25rem;
+    }
+    #welcome p {
+      font-size: 1.5rem;
+      color: var(--muted-fg);
+      opacity: .65;
+    }
+
+    /* ── Footer ──────────────────────────────────────────── */
+    #footer {
+      position: sticky;
+      bottom: 0;
+      width: 100%;
+      max-width: var(--thread-max-width);
+      margin: auto auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      overflow: visible;
+      border-radius: 1.5rem 1.5rem 0 0;
+      background: var(--bg);
+      padding-bottom: 1rem;
+    }
+
+    /* ── Scroll-to-bottom ────────────────────────────────── */
+    #scroll-bottom {
+      position: absolute;
+      top: -3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--muted-fg);
+      cursor: pointer;
+      transition: background .15s, color .15s;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    }
+    #scroll-bottom:hover { background: var(--muted); color: var(--fg); }
+    #scroll-bottom svg { width: 16px; height: 16px; }
+
+    /* ── Composer ─────────────────────────────────────────── */
+    #composer {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--bg);
+      transition: border-color .15s, box-shadow .15s;
+    }
+    #composer:focus-within {
+      border-color: var(--ring);
+      box-shadow: 0 0 0 3px rgba(32, 184, 205, .15);
+    }
+
+    #composer-input {
+      width: 100%;
+      min-height: 3.5rem;
+      max-height: 8rem;
+      resize: none;
+      border: none;
+      outline: none;
+      background: transparent;
+      padding: .75rem 1rem;
+      font-family: inherit;
+      font-size: .875rem;
+      line-height: 1.5;
+      color: var(--fg);
+    }
+    #composer-input::placeholder { color: var(--muted-fg); }
+
+    #composer-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 .5rem .5rem;
+    }
+
+    /* ── Icon Buttons ────────────────────────────────────── */
+    .icon-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      border-radius: .375rem;
+      color: var(--muted-fg);
+      padding: .25rem;
+      transition: background .12s, color .12s;
+    }
+    .icon-btn:hover { background: var(--muted); color: var(--fg); }
+    .icon-btn svg { width: 16px; height: 16px; }
+
+    .send-btn {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      border: none;
+      background: var(--accent);
+      color: var(--accent-fg);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: opacity .12s, transform .12s;
+    }
+    .send-btn:hover { opacity: .85; transform: scale(1.05); }
+    .send-btn:disabled { opacity: .4; cursor: default; transform: none; }
+    .send-btn svg { width: 16px; height: 16px; }
+
+    .stop-btn {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      border: none;
+      background: var(--accent);
+      color: var(--accent-fg);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: opacity .12s;
+    }
+    .stop-btn:hover { opacity: .85; }
+    .stop-btn svg { width: 12px; height: 12px; fill: currentColor; }
+
+    /* ── Messages ─────────────────────────────────────────── */
+    .msg {
+      padding: .75rem 0;
+      animation: fadeSlideIn .25s ease-out both;
+    }
+
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* User */
+    .msg-user {
+      pointer-events: auto;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    .msg-user > div {
+      margin-bottom: 1rem !important;
+    }
+    .msg-user .msg-filter-wrapper {
+      transition: filter 0.15s ease-in-out;
+    }
+    .msg-user .msg-flex-start {
+      display: flex;
+      justify-content: flex-start;
+    }
+    .msg-user .msg-w-full {
+      width: 100%;
+    }
+    .msg-user .bubble {
+      position: relative;
+      max-height: 100px;
+      overflow: hidden;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+      border-radius: 0.75rem;
+      white-space: pre-wrap;
+      font-size: 0.875rem;
+      box-shadow: 0 20px 25px -5px var(--bg), 0 8px 10px -6px var(--bg);
+      transition: filter 0.15s;
+    }
+    .msg-user .undo-btn {
+      position: absolute;
+      top: 0.25rem;
+      right: 0.25rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.75rem;
+      height: 1.75rem;
+      color: var(--muted-fg);
+      background: transparent;
+      border: none;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .msg-user .undo-btn:hover {
+      background: var(--muted);
+      color: var(--fg);
+    }
+
+    /* Assistant */
+    .msg-assistant {
+      padding-left: .5rem;
+      padding-right: .5rem;
+    }
+    .msg-assistant .content {
+      word-break: break-word;
+      line-height: 1.7;
+      color: var(--fg);
+    }
+    .msg-assistant .content p { margin-bottom: .5rem; }
+    .msg-assistant .content p:last-child { margin-bottom: 0; }
+    .msg-assistant .content code {
+      background: var(--muted);
+      padding: .125rem .375rem;
+      border-radius: .25rem;
+      font-size: .8125rem;
+    }
+    .msg-assistant .content pre {
+      background: var(--muted);
+      border-radius: .5rem;
+      padding: .75rem 1rem;
+      overflow-x: auto;
+      margin: .5rem 0;
+      font-size: .8125rem;
+      line-height: 1.5;
+    }
+    .msg-assistant .content pre code {
+      background: none;
+      padding: 0;
+    }
+    .msg-assistant .content ul,
+    .msg-assistant .content ol {
+      padding-left: 1.25rem;
+      margin-bottom: .5rem;
+    }
+    .msg-assistant .content li { margin-bottom: .25rem; }
+    .msg-assistant .content strong { font-weight: 600; }
+    .msg-assistant .content em { font-style: italic; }
+    .msg-assistant .content h1,
+    .msg-assistant .content h2,
+    .msg-assistant .content h3 {
+      font-weight: 600;
+      margin: 1rem 0 .5rem;
+    }
+    .msg-assistant .content h1 { font-size: 1.25rem; }
+    .msg-assistant .content h2 { font-size: 1.125rem; }
+    .msg-assistant .content h3 { font-size: 1rem; }
+    .msg-assistant .content blockquote {
+      border-left: 3px solid var(--border);
+      padding-left: .75rem;
+      color: var(--muted-fg);
+      margin: .5rem 0;
+    }
+
+    .action-bar {
+      display: flex;
+      align-items: center;
+      gap: .125rem;
+      margin-top: .25rem;
+      margin-left: .5rem;
+      min-height: 1.5rem;
+    }
+    .action-bar .icon-btn { opacity: 0; transition: opacity .15s, background .12s, color .12s; }
+    .msg-assistant:hover .action-bar .icon-btn,
+    .msg-assistant:focus-within .action-bar .icon-btn { opacity: 1; }
+    .msg-assistant:last-child .action-bar .icon-btn { opacity: 1; }
+
+    /* Thinking indicator */
+    .thinking {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      color: var(--muted-fg);
+      font-size: .875rem;
+    }
+    .thinking svg {
+      width: 16px;
+      height: 16px;
+      animation: spin .8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Suggestions */
+    .suggestions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-top: 1rem;
+    }
+    .suggestion-btn {
+      font-family: inherit;
+      font-size: .8125rem;
+      padding: .375rem .75rem;
+      border-radius: 9999px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--fg);
+      cursor: pointer;
+      transition: background .12s;
+    }
+    .suggestion-btn:hover { background: var(--muted); }
+
+    /* Copied toast */
+    .copied-indicator {
+      color: var(--accent);
+    }
+
+    /* ── Scrollbar ───────────────────────────────────────── */
+    #viewport::-webkit-scrollbar { width: 6px; }
+    #viewport::-webkit-scrollbar-track { background: transparent; }
+    #viewport::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    #viewport::-webkit-scrollbar-thumb:hover { background: var(--muted-fg); }
+
+    /* ── Tooltip ──────────────────────────────────────────── */
+    [data-tooltip] { position: relative; }
+    [data-tooltip]::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 50%;
+      transform: translateX(-50%) scale(.9);
+      padding: .25rem .5rem;
+      border-radius: .375rem;
+      background: var(--fg);
+      color: var(--bg);
+      font-size: .6875rem;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .12s, transform .12s;
+    }
+    [data-tooltip]:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+
+    /* ── Error block ─────────────────────────────────────── */
+    .error-block {
+      margin-top: .5rem;
+      padding: .75rem;
+      border-radius: .5rem;
+      border: 1px solid var(--destructive);
+      background: rgba(239, 68, 68, .08);
+      color: var(--destructive);
+      font-size: .875rem;
+    }
+  </style>
+</head>
+<body>
+
+<div id="app">
+  <div id="viewport">
+    <div id="messages">
+      <div id="welcome">
+        <div class="greeting">
+          <h1>Hello there!</h1>
+          <p>How can I help you today?</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <button id="scroll-bottom" data-tooltip="Scroll to bottom" onclick="scrollToBottom()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div id="composer">
+        <textarea id="composer-input" placeholder="Send a message..." rows="1" aria-label="Message input"></textarea>
+        <div id="composer-actions">
+          <button class="send-btn" id="send-btn" data-tooltip="Send message" aria-label="Send message" onclick="sendMessage()">
+            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M13.854 8.14576L8.854 3.14576C8.659 2.95076 8.342 2.95076 8.147 3.14576C7.952 3.34076 7.952 3.65776 8.147 3.85276L12.293 7.99876H2.5C2.224 7.99876 2 8.22276 2 8.49876C2 8.77476 2.224 8.99876 2.5 8.99876H12.293L8.147 13.1448C7.952 13.3398 7.952 13.6568 8.147 13.8518C8.245 13.9498 8.373 13.9978 8.501 13.9978C8.629 13.9978 8.757 13.9488 8.855 13.8518L13.855 8.85176C14.05 8.65676 14.05 8.33976 13.855 8.14476L13.854 8.14576Z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SVG icon templates (hidden) -->
+<div style="display:none">
+  <svg id="icon-copy" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+  <svg id="icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+  <svg id="icon-refresh" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></svg>
+  <svg id="icon-download" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+  <svg id="icon-spinner" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
+  <svg id="icon-stop" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="1"/></svg>
+</div>
+
+<script>
+  // ── State ──────────────────────────────────────────────
+  const messages = [];
+  let isRunning = false;
+  let currentAbort = null;
+
+  // ── DOM refs ───────────────────────────────────────────
+  const viewport   = document.getElementById("viewport");
+  const msgContainer = document.getElementById("messages");
+  const welcome    = document.getElementById("welcome");
+  const input      = document.getElementById("composer-input");
+  const sendBtn    = document.getElementById("send-btn");
+  const scrollBtn  = document.getElementById("scroll-bottom");
+
+  // ── Auto-resize textarea ──────────────────────────────
+  input.addEventListener("input", () => {
+    input.style.height = "auto";
+    input.style.height = Math.min(input.scrollHeight, 128) + "px";
+    sendBtn.disabled = input.value.trim() === "" && !isRunning;
+  });
+
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      if (!isRunning && input.value.trim()) sendMessage();
+    }
+  });
+
+  // ── Scroll detection ──────────────────────────────────
+  viewport.addEventListener("scroll", () => {
+    const gap = viewport.scrollHeight - viewport.scrollTop - viewport.clientHeight;
+    scrollBtn.style.display = gap > 120 ? "flex" : "none";
+  });
+
+  function scrollToBottom() {
+    viewport.scrollTo({ top: viewport.scrollHeight, behavior: "smooth" });
+  }
+
+  // ── Send ──────────────────────────────────────────────
+  function sendMessage() {
+    const text = input.value.trim();
+    if (!text) return;
+
+    // Hide welcome
+    if (welcome) welcome.style.display = "none";
+
+    // Add user message
+    appendUserMessage(text);
+    input.value = "";
+    input.style.height = "auto";
+
+    // Simulate assistant response
+    simulateAssistant(text);
+  }
+
+  // ── User bubble ───────────────────────────────────────
+  function appendUserMessage(text) {
+    const msg = document.createElement("div");
+    msg.className = "msg msg-user";
+    msg.dataset.role = "user";
+    msg.innerHTML = `
+      <div class="msg-filter-wrapper">
+        <div class="msg-flex-start">
+          <div class="msg-w-full">
+            <div class="bubble"><button class="undo-btn" title="Undo changes" aria-label="Undo"><svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M14 3.49999V6.49999C14 7.87899 12.879 8.99999 11.5 8.99999H3.70703L6.35303 11.646C6.54803 11.841 6.54803 12.158 6.35303 12.353C6.25503 12.451 6.12703 12.499 5.99903 12.499C5.87103 12.499 5.74303 12.45 5.64503 12.353L2.14503 8.85299C1.95003 8.65799 1.95003 8.34099 2.14503 8.14599L5.64503 4.64599C5.84003 4.45099 6.15703 4.45099 6.35203 4.64599C6.54703 4.84099 6.54703 5.15799 6.35203 5.35299L3.70603 7.99899H11.499C12.326 7.99899 12.999 7.32599 12.999 6.49899V3.49899C12.999 3.22299 13.223 2.99899 13.499 2.99899C13.775 2.99899 13.999 3.22299 13.999 3.49899L14 3.49999Z"/></svg></button>${escapeHtml(text)}</div>
+          </div>
+        </div>
+      </div>
+    `;
+    msgContainer.appendChild(msg);
+    messages.push({ role: "user", content: text });
+    scrollToBottom();
+  }
+
+  // ── Assistant bubble ──────────────────────────────────
+  function simulateAssistant(userText) {
+    isRunning = true;
+    updateComposerState();
+
+    const msg = document.createElement("div");
+    msg.className = "msg msg-assistant";
+    msg.dataset.role = "assistant";
+    msg.innerHTML = `
+      <div class="content">
+        <div class="thinking">
+          ${iconHtml("spinner")}
+          <span>Thinking...</span>
+        </div>
+      </div>
+      <div class="action-bar"></div>
+    `;
+    msgContainer.appendChild(msg);
+    scrollToBottom();
+
+    // Simulate a streamed reply
+    const reply = generateReply(userText);
+    const contentEl = msg.querySelector(".content");
+    const actionBar = msg.querySelector(".action-bar");
+
+    let idx = 0;
+    const words = reply.split(/(?<=\s)/);
+    contentEl.innerHTML = "";
+
+    const controller = new AbortController();
+    currentAbort = controller;
+
+    let accumulated = "";
+
+    const interval = setInterval(() => {
+      if (controller.signal.aborted) {
+        clearInterval(interval);
+        finishAssistant(msg, accumulated, actionBar);
+        return;
+      }
+      if (idx < words.length) {
+        accumulated += words[idx];
+        contentEl.innerHTML = renderMarkdown(accumulated);
+        idx++;
+        scrollToBottom();
+      } else {
+        clearInterval(interval);
+        finishAssistant(msg, accumulated, actionBar);
+      }
+    }, 30);
+  }
+
+  function finishAssistant(msg, text, actionBar) {
+    isRunning = false;
+    currentAbort = null;
+    messages.push({ role: "assistant", content: text });
+    updateComposerState();
+
+    // Action bar
+    actionBar.innerHTML = `
+      <button class="icon-btn" data-tooltip="Copy" onclick="copyMessage(this, '${btoa(encodeURIComponent(text))}')">${iconHtml("copy")}</button>
+      <button class="icon-btn" data-tooltip="Export as Markdown" onclick="exportMarkdown('${btoa(encodeURIComponent(text))}')">${iconHtml("download")}</button>
+      <button class="icon-btn" data-tooltip="Refresh" onclick="regenMessage(this)">${iconHtml("refresh")}</button>
+    `;
+
+    // Suggestions
+    const suggestionsDiv = document.createElement("div");
+    suggestionsDiv.className = "suggestions";
+    suggestionsDiv.innerHTML = `
+      <button class="suggestion-btn" onclick="useSuggestion('Tell me more')">Tell me more</button>
+      <button class="suggestion-btn" onclick="useSuggestion('Can you explain differently?')">Explain differently</button>
+    `;
+    msg.appendChild(suggestionsDiv);
+    scrollToBottom();
+  }
+
+  function stopRunning() {
+    if (currentAbort) currentAbort.abort();
+  }
+
+  function updateComposerState() {
+    const actions = document.getElementById("composer-actions");
+    if (isRunning) {
+      actions.innerHTML = `
+        <button class="stop-btn" data-tooltip="Stop generating" aria-label="Stop generating" onclick="stopRunning()">
+          ${iconHtml("stop")}
+        </button>
+      `;
+    } else {
+      actions.innerHTML = `
+        <button class="send-btn" id="send-btn" data-tooltip="Send message" aria-label="Send message" onclick="sendMessage()">
+          <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M13.854 8.14576L8.854 3.14576C8.659 2.95076 8.342 2.95076 8.147 3.14576C7.952 3.34076 7.952 3.65776 8.147 3.85276L12.293 7.99876H2.5C2.224 7.99876 2 8.22276 2 8.49876C2 8.77476 2.224 8.99876 2.5 8.99876H12.293L8.147 13.1448C7.952 13.3398 7.952 13.6568 8.147 13.8518C8.245 13.9498 8.373 13.9978 8.501 13.9978C8.629 13.9978 8.757 13.9488 8.855 13.8518L13.855 8.85176C14.05 8.65676 14.05 8.33976 13.855 8.14476L13.854 8.14576Z"/></svg>
+        </button>
+      `;
+    }
+  }
+
+  // ── Actions ───────────────────────────────────────────
+  function copyMessage(btn, b64) {
+    const text = decodeURIComponent(atob(b64));
+    navigator.clipboard.writeText(text).then(() => {
+      btn.innerHTML = iconHtml("check");
+      btn.classList.add("copied-indicator");
+      setTimeout(() => {
+        btn.innerHTML = iconHtml("copy");
+        btn.classList.remove("copied-indicator");
+      }, 1500);
+    });
+  }
+
+  function exportMarkdown(b64) {
+    const text = decodeURIComponent(atob(b64));
+    const blob = new Blob([text], { type: "text/markdown" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "message.md";
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function regenMessage(btn) {
+    const msgEl = btn.closest(".msg-assistant");
+    const prevUserMsg = messages.filter(m => m.role === "user").pop();
+    if (!prevUserMsg) return;
+
+    // Remove old assistant message
+    messages.pop();
+    msgEl.remove();
+
+    // Regenerate
+    simulateAssistant(prevUserMsg.content);
+  }
+
+  function useSuggestion(text) {
+    // Remove suggestion buttons from last assistant msg
+    document.querySelectorAll(".suggestions").forEach(s => s.remove());
+    input.value = text;
+    sendMessage();
+  }
+
+  // ── Mock reply generator ──────────────────────────────
+  function generateReply(userText) {
+    const lower = userText.toLowerCase();
+
+    if (lower.includes("hello") || lower.includes("hi") || lower.includes("hey")) {
+      return "Hey! 👋 Great to see you here. I'm your AI assistant, ready to help with anything you need — whether it's answering questions, writing code, brainstorming ideas, or just having a conversation. What's on your mind?";
+    }
+    if (lower.includes("code") || lower.includes("program")) {
+      return "I'd love to help you with coding! Here's a quick example:\n\n```javascript\nfunction greet(name) {\n  return `Hello, ${name}! Welcome aboard.`;\n}\n\nconsole.log(greet('Developer'));\n```\n\nFeel free to share your specific coding challenge and I'll do my best to help you solve it. I can work with **JavaScript**, **Python**, **TypeScript**, and many other languages.";
+    }
+    if (lower.includes("help")) {
+      return "Of course! Here are some things I can help you with:\n\n- **Answer questions** on a wide range of topics\n- **Write and debug code** in multiple languages\n- **Brainstorm ideas** and provide creative suggestions\n- **Explain concepts** in simple terms\n- **Draft content** like emails, essays, or documentation\n\nJust let me know what you need!";
+    }
+    if (lower.includes("explain") || lower.includes("what is")) {
+      return "Great question! Let me break it down for you.\n\nAt its core, the concept you're asking about involves understanding the fundamental building blocks and how they interact with each other. Think of it like building with **LEGO bricks** — each piece has its purpose, and when combined thoughtfully, they create something much greater than the sum of their parts.\n\n> The key insight is that complexity emerges from simple rules applied consistently.\n\nWould you like me to dive deeper into any specific aspect?";
+    }
+
+    const responses = [
+      "That's a really interesting point! Let me think about this...\n\nBased on my understanding, there are several angles we could explore here. The most important consideration is finding the right balance between **simplicity** and **completeness**.\n\nWould you like me to elaborate on any particular aspect of this?",
+      "Thanks for sharing that! Here's my take:\n\n1. **First**, we should consider the broader context\n2. **Second**, identify the key constraints\n3. **Third**, evaluate potential approaches\n\nEach of these steps builds on the previous one, creating a solid foundation for whatever solution we arrive at. Let me know if you'd like to explore any of these in more detail!",
+      "Absolutely! I'm happy to help with that.\n\nThe approach I'd recommend involves a few key steps. Let me walk you through the reasoning:\n\n- Start with the **fundamentals** — make sure the foundation is solid\n- Then layer on **complexity** gradually\n- Finally, **validate** your results at each stage\n\nThis iterative approach tends to yield the best results. What do you think?",
+    ];
+    return responses[Math.floor(Math.random() * responses.length)];
+  }
+
+  // ── Minimal Markdown renderer ─────────────────────────
+  function renderMarkdown(text) {
+    let html = escapeHtml(text);
+
+    // Code blocks
+    html = html.replace(/```(\w*)\n([\s\S]*?)```/g, (_, lang, code) =>
+      `<pre><code>${code.trim()}</code></pre>`
+    );
+
+    // Inline code
+    html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
+
+    // Bold
+    html = html.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+
+    // Italic
+    html = html.replace(/\*(.+?)\*/g, "<em>$1</em>");
+
+    // Blockquotes
+    html = html.replace(/^&gt; (.+)$/gm, "<blockquote>$1</blockquote>");
+
+    // Headings
+    html = html.replace(/^### (.+)$/gm, "<h3>$1</h3>");
+    html = html.replace(/^## (.+)$/gm, "<h2>$1</h2>");
+    html = html.replace(/^# (.+)$/gm, "<h1>$1</h1>");
+
+    // Unordered lists
+    html = html.replace(/^- (.+)$/gm, "<li>$1</li>");
+    html = html.replace(/((?:<li>.*<\/li>\n?)+)/g, "<ul>$1</ul>");
+
+    // Ordered lists
+    html = html.replace(/^\d+\. (.+)$/gm, "<li>$1</li>");
+
+    // Paragraphs — wrap remaining loose lines
+    html = html.replace(/^(?!<[hulpbo])(.*\S.*)$/gm, "<p>$1</p>");
+
+    // Clean up extra line breaks
+    html = html.replace(/\n{2,}/g, "");
+
+    return html;
+  }
+
+  function escapeHtml(str) {
+    return str
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function iconHtml(name) {
+    const svgEl = document.getElementById("icon-" + name);
+    return svgEl ? svgEl.outerHTML.replace(/id="[^"]*"/, "").replace(/style="[^"]*"/, "") : "";
+  }
+
+  // ── Init ──────────────────────────────────────────────
+  input.focus();
+</script>
+
+</body>
+</html>

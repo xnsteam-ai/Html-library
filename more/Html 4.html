@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuralKinetics Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* NeuralKinetics Design Tokens */
+        :root {
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --color-bg: #ffffff;
+            --color-black: #000000;
+            --color-text-muted: rgba(0, 0, 0, 0.55);
+            --color-surface-gray: #f4f4f6; /* Not directly used for login card, but good to have */
+            --color-border-subtle: rgba(0, 0, 0, 0.12);
+            --color-border-medium: rgba(0, 0, 0, 0.35);
+            --color-white: #ffffff;
+            --radius-full: 9999px;
+            --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Base styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--color-bg);
+            color: var(--color-black);
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden; /* For floating blobs */
+            position: relative;
+        }
+
+        /* Floating Blobs Animation */
+        @keyframes float1 {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-20px, 30px) scale(1.05); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        @keyframes float2 {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(25px, -15px) scale(0.95); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1; /* Subtle opacity for glassmorphism background */
+            filter: blur(80px); /* Blurring effect */
+            z-index: 0; /* Below login card */
+        }
+
+        .blob-1 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+            top: 10%;
+            left: 15%;
+            animation: float1 10s ease-in-out infinite;
+        }
+
+        .blob-2 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1));
+            bottom: 5%;
+            right: 10%;
+            animation: float2 12s ease-in-out infinite reverse;
+        }
+        
+        @media (max-width: 767px) {
+            .blob-1 {
+                width: 200px;
+                height: 200px;
+                top: 5%;
+                left: 5%;
+            }
+            .blob-2 {
+                width: 250px;
+                height: 250px;
+                bottom: 10%;
+                right: 5%;
+            }
+        }
+
+
+        /* Login Card */
+        .login-card {
+            position: relative;
+            z-index: 1; /* Above blobs */
+            background-color: rgba(255, 255, 255, 0.2); /* Translucent white for glassmorphism */
+            backdrop-filter: blur(15px); /* Glassmorphism blur */
+            border: 1px solid var(--color-border-subtle);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 400px;
+            width: 90%; /* Responsive width */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .login-card h2 {
+            font-size: 2.25rem; /* ~36px */
+            font-weight: 300;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: var(--color-black);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 12px 12px 40px; /* Left padding for icon */
+            border: 1px solid var(--color-border-medium);
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.8); /* Slightly more opaque background for input */
+            color: var(--color-black);
+            outline: none;
+            transition: border-color 0.2s ease-in-out;
+        }
+
+        .input-group input:focus {
+            border-color: var(--color-black);
+        }
+
+        .input-group svg {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-text-muted);
+            width: 20px;
+            height: 20px;
+        }
+
+        .forgot-password {
+            font-size: 13px;
+            color: var(--color-text-muted);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 24px;
+            text-align: right;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .forgot-password:hover {
+            color: var(--color-black);
+        }
+
+        .btn-primary {
+            background-color: var(--color-black);
+            color: var(--color-white);
+            font-size: 16px;
+            font-weight: 500;
+            padding: 12px 24px;
+            border: none;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 24px;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .btn-primary:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .signup-text {
+            font-size: 14px;
+            color: var(--color-text-muted);
+        }
+
+        .signup-text a {
+            color: var(--color-black);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .signup-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* SVG Icons (for User and Lock) */
+        .icon-user {
+            width: 20px;
+            height: 20px;
+            stroke-width: 2;
+            stroke: currentColor;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .icon-lock {
+            width: 20px;
+            height: 20px;
+            stroke-width: 2;
+            stroke: currentColor;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+    </style>
+</head>
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="login-card" role="form" aria-labelledby="login-heading">
+        <h2 id="login-heading">Welcome Back</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <svg class="icon-user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <input type="email" id="email" placeholder="Email Address" required aria-label="Email Address">
+            </div>
+            <div class="input-group">
+                <svg class="icon-lock" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                <input type="password" id="password" placeholder="Password" required aria-label="Password">
+            </div>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+            <button type="submit" class="btn-primary">Login</button>
+            <p class="signup-text">Don't have an account? <a href="#">Sign Up</a></p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (email.trim() === '' || password.trim() === '') {
+                alert('Please enter both email and password.');
+            } else {
+                console.log('Login attempt with:');
+                console.log('Email:', email);
+                console.log('Password:', password);
+                // In a real application, you would send this to a server
+                alert('Login attempt successful! (See console for details)');
+                // Optionally clear form or redirect
+                this.reset();
+            }
+        });
+    </script>
+</body>
+</html>

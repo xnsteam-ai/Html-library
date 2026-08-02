@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude - AI Agents</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+    <style type="text/tailwindcss">
+        @layer base {
+            :root {
+                /* Overriding design system for screenshot fidelity */
+                --color-background: #FDFCFB;
+                --color-text-primary: #1D1D1F;
+                --color-text-secondary: #555555;
+                --color-border: #E5E5E5;
+                --color-brand: #DD795D;
+            }
+        }
+        @layer utilities {
+            .text-balance {
+                text-wrap: balance;
+            }
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        'brand-orange': 'var(--color-brand)',
+                        'page-bg': 'var(--color-background)',
+                        'text-primary': 'var(--color-text-primary)',
+                        'text-secondary': 'var(--color-text-secondary)',
+                        'border-light': 'var(--color-border)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-page-bg text-text-primary font-sans antialiased">
+
+    <div id="root" class="flex flex-col min-h-screen">
+        
+        <!-- Header Navigation -->
+        <header class="w-full bg-page-bg/80 backdrop-blur-sm sticky top-0 z-50">
+            <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <!-- Logo -->
+                    <div class="flex items-center gap-2">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-brand-orange">
+                            <path d="M12 1.5L14.39 8.61L21.5 10.5L16.25 15.63L17.64 22.5L12 18.77L6.36 22.5L7.75 15.63L2.5 10.5L9.61 8.61L12 1.5Z" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="text-xl font-medium text-text-primary">Claude</span>
+                    </div>
+
+                    <!-- Desktop Navigation Links -->
+                    <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-text-secondary">
+                        <a href="#" class="flex items-center gap-1 hover:text-text-primary transition-colors">Meet Claude <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a>
+                        <a href="#" class="flex items-center gap-1 hover:text-text-primary transition-colors">Platform <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a>
+                        <a href="#" class="flex items-center gap-1 hover:text-text-primary transition-colors">Solutions <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a>
+                        <a href="#" class="hover:text-text-primary transition-colors">Pricing</a>
+                        <a href="#" class="flex items-center gap-1 hover:text-text-primary transition-colors">Resources <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a>
+                    </nav>
+
+                    <!-- Action Buttons -->
+                    <div class="flex items-center gap-2">
+                        <a href="#" class="hidden sm:inline-block text-sm font-medium text-text-secondary hover:text-text-primary transition-colors">Login</a>
+                        <a href="#" class="px-4 py-2 text-sm font-medium border border-border-light rounded-md hover:bg-zinc-100 transition-colors">Contact sales</a>
+                        <a href="#" class="px-4 py-2 text-sm font-medium bg-text-primary text-page-bg rounded-md hover:bg-zinc-800 transition-colors">Try Claude</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sub-navigation / Breadcrumbs -->
+        <div class="border-b border-border-light">
+            <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-12 text-sm text-text-secondary">
+                    <div>
+                        <span class="hover:underline cursor-pointer">Solutions</span> / <span>Agents</span>
+                    </div>
+                    <a href="#" class="flex items-center gap-1">Explore here <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <main class="flex-grow">
+            <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <!-- Illustration Column -->
+                    <div class="order-last lg:order-first relative flex justify-center">
+                         <svg viewBox="0 0 400 300" class="w-full max-w-md h-auto" aria-hidden="true">
+                            <g class="text-brand-orange">
+                                <circle cx="140" cy="60" r="20" fill="currentColor"/>
+                                <circle cx="260" cy="60" r="20" fill="currentColor"/>
+                                <circle cx="60" cy="150" r="20" fill="currentColor"/>
+                                <circle cx="200" cy="150" r="20" fill="currentColor"/>
+                                <circle cx="340" cy="150" r="20" fill="currentColor"/>
+                                <circle cx="140" cy="240" r="20" fill="currentColor"/>
+                                <circle cx="260" cy="240" r="20" fill="currentColor"/>
+                                <path d="M140 60 L 60 150 L 140 240 L 200 150 Z" stroke="currentColor" stroke-width="6" fill="none"/>
+                                <path d="M260 60 L 200 150 L 260 240 L 340 150 Z" stroke="currentColor" stroke-width="6" fill="none"/>
+                                <line x1="140" y1="60" x2="260" y2="60" stroke="currentColor" stroke-width="6"/>
+                                <line x1="140" y1="240" x2="260" y2="240" stroke="currentColor" stroke-width="6"/>
+                            </g>
+                            <path d="M90 200 C 80 190, 60 180, 50 190 C 40 200, 40 220, 50 230 C 60 240, 80 250, 90 250 C 100 250, 110 245, 115 240 C 120 235, 125 225, 120 215 C 115 205, 105 205, 100 210 C 95 215, 95 225, 100 230 C 105 235, 115 235, 120 230 C 125 225, 130 215, 125 205 C 120 195, 110 195, 105 200" stroke="#1D1D1F" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <!-- Text Content Column -->
+                    <div class="text-center lg:text-left">
+                        <h1 class="font-serif font-medium text-5xl sm:text-6xl lg:text-7xl !leading-tight text-text-primary text-balance">
+                            Make AI agents <br class="hidden lg:block"/> your unfair advantage
+                        </h1>
+                        <p class="mt-6 max-w-md mx-auto lg:mx-0 text-lg text-text-secondary leading-relaxed">
+                            With Claude, you can build AI agents that plan, act, and collaborate more effectively.
+                        </p>
+                        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                            <button class="w-full sm:w-auto px-6 py-3 min-h-[44px] text-base font-medium bg-text-primary text-page-bg rounded-lg hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-900 transition-all duration-200">Start building</button>
+                            <button class="w-full sm:w-auto px-6 py-3 min-h-[44px] text-base font-medium bg-zinc-200/70 text-text-primary rounded-lg hover:bg-zinc-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-400 transition-all duration-200">Contact sales</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Partner Logos -->
+            <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 border-t border-border-light">
+                <div class="grid grid-cols-2 md:grid-cols-4 items-center justify-items-center gap-x-8 gap-y-12 text-text-secondary">
+                    <div class="flex items-center gap-2 grayscale opacity-80"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L14.09 8.26L20.5 9.5L16.25 13.5L17.18 19.9L12 16.77L6.82 19.9L7.75 13.5L3.5 9.5L9.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-lg font-bold">FACTORY</span></div>
+                    <svg class="h-8 w-auto grayscale opacity-80" viewBox="0 0 100 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 28V0H10V28H0ZM15 28V0H25V28H15ZM30.5 28L15 0H28L40.5 28H30.5ZM58 14C58 6.268 51.732 0 44 0C36.268 0 30 6.268 30 14C30 21.732 36.268 28 44 28C51.732 28 58 21.732 58 14ZM44 21C40.134 21 37 17.866 37 14C37 10.134 40.134 7 44 7C47.866 7 51 10.134 51 14C51 17.866 47.866 21 44 21ZM65 28V0H75V28H65ZM82.5 0L70 28H80L85 18L90 28H100L87.5 0H82.5Z" fill="#F00"/></svg>
+                    <div class="flex items-center gap-2 grayscale opacity-80"><svg class="h-6 w-auto" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12L6 15L9 12L6 9L3 12Z" fill="currentColor"/><path d="M6 15L9 18L12 15L9 12L6 15Z" fill="currentColor"/><path d="M9 12L12 9L15 12L12 15L9 12Z" fill="currentColor"/><path d="M12 9L15 6L18 9L15 12L12 9Z" fill="currentColor"/></svg><span class="text-lg font-bold">Windsurf</span></div>
+                    <svg class="h-12 w-12 grayscale opacity-80" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 0L60.6274 16V48L32 64L3.37258 48V16L32 0Z" fill="#6A38ED"/><path d="M32 8L54.1244 20V44L32 56L9.87563 44V20L32 8Z" fill="white"/><path d="M42 22C42 27.5228 37.5228 32 32 32C26.4772 32 22 27.5228 22 22L32 26L42 22ZM22 42C22 36.4772 26.4772 32 32 32C37.5228 32 42 36.4772 42 42L32 38L22 42Z" fill="#6A38ED"/></svg>
+                    <svg height="28" viewBox="0 0 96 28" class="grayscale opacity-80" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.996 0C6.266 0 0 6.265 0 14c0 7.734 6.266 14 13.996 14C17.91 28 21.08 26.68 23.31 24.58l-3.32-3.32c-1.39 1.39-2.92 2.22-5.01 2.22-4.04 0-7.3-3.26-7.3-7.3s3.26-7.3 7.3-7.3c2.09 0 3.62.83 5.01 2.22l3.32-3.32A13.93 13.93 0 0013.996 0zM42 27.5V0.5h-7V27.5h7zM66.44 23.28l-3.32-3.32c-1.39 1.39-2.92 2.22-5.01 2.22-4.04 0-7.3-3.26-7.3-7.3s3.26-7.3 7.3-7.3c2.09 0 3.62.83 5.01 2.22l3.32-3.32A13.93 13.93 0 0058.11 4C50.38 4 44.12 10.27 44.12 18s6.26 14 13.99 14c3.92 0 7.09-1.32 9.32-3.42l-1-1.3zM95.63 21.37V0.5h-7v27h7v-6.13zm-17.5-1.12c-2.09 0-3.62.83-5.01 2.22l-3.32-3.32A13.93 13.93 0 0058.11 4C50.38 4 44.12 10.27 44.12 18s6.26 14 13.99 14c3.92 0 7.09-1.32 9.32-3.42l3.32 3.32c-2.23 2.1-5.4 3.42-9.32 3.42-7.73 0-13.99-6.27-13.99-14s6.26-14 13.99-14c3.92 0 7.09 1.32 9.32 3.42l-3.32 3.32c-1.39-1.39-2.92-2.22-5.01-2.22z"/></svg>
+                    <svg height="24" viewBox="0 0 88 24" class="grayscale opacity-80" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M23.16 23.2V.8h-5.4v22.4h5.4zM4.14 12c0-4.4 3.54-7.95 7.92-7.95 4.38 0 7.92 3.55 7.92 7.95s-3.54 7.95-7.92 7.95c-4.38 0-7.92-3.55-7.92-7.95zm10.44 0c0-1.42-1.14-2.55-2.52-2.55s-2.52 1.13-2.52 2.55 1.14 2.55 2.52 2.55 2.52-1.13 2.52-2.55zM38.82 12c0-2.3-1.02-3.45-2.94-3.45h-2.1v6.9h2.1c1.92 0 2.94-1.15 2.94-3.45zm-7.62-7.2h5.7c3.96 0 6.6 2.6 6.6 6.6v1.2c0 4-2.64 6.6-6.6 6.6h-5.7V4.8zM61.95 19.95V4.8h5.4v15.15h-5.4zm-6.03-15.15h5.4v3.9h-5.4V4.8zM80.13 13.5l-5.34 9.75h6.3l2.22-4.05h.06c.36 1.5 1.74 4.05 1.74 4.05h5.46L85.23 4.8h-6.18l-3.9 8.7h-.06v.0z"/></svg>
+                    <div class="flex items-center gap-2 grayscale opacity-80"><svg height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M7.083 14.167L2.917 10l4.166-4.167.98.98L4.876 10l3.187 3.187-.98.98zm5.834-8.334L8.75 10l4.167 4.167.98-.98L10.71 10l3.187-3.187-.98-.98z"/></svg><span class="text-lg font-semibold">augment code</span></div>
+                    <div class="flex items-center gap-2 grayscale opacity-80"><svg height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2Z" fill="#3B82F6"/><path d="M12.75 16.5H11.25V12.75H8.25V11.25H11.25V7.5H12.75V11.25H15.75V12.75H12.75V16.5Z" fill="white"/></svg><span class="text-3xl font-bold italic">Bito</span></div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

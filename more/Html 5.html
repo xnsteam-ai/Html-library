@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuralKinetics - One Card, Zero Limits. Worldwide.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables from guidelines.md */
+        :root {
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --color-bg: #ffffff;
+            --color-black: #000000;
+            --color-text-muted: rgba(0, 0, 0, 0.55);
+            --color-surface-gray: #f4f4f6;
+            --color-border-subtle: rgba(0, 0, 0, 0.12);
+            --color-border-medium: rgba(0, 0, 0, 0.35);
+            --color-white: #ffffff;
+            --radius-full: 9999px;
+            --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--color-bg);
+            color: var(--color-black);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Layout & Container - based on HeroSection.css */
+        .hero-container {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            background-color: var(--color-bg);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+
+        /* Fixed Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+            opacity: 0; /* Initial state for animation */
+            transform: translateY(-16px); /* Initial state for animation */
+            transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
+        }
+
+        @media (min-width: 768px) {
+            .navbar {
+                padding: 24px 32px;
+            }
+        }
+
+        .nav-left, .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .navbar * {
+            pointer-events: auto;
+        }
+
+        /* Brand */
+        .brand-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brand-name {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: var(--color-black);
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .brand-name {
+                display: inline-block;
+            }
+        }
+
+        /* Menu Button */
+        .menu-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--color-black);
+            color: var(--color-white);
+            border: none;
+            border-radius: var(--radius-full);
+            padding: 6px 14px 6px 6px;
+            cursor: pointer;
+        }
+
+        .icon-circle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: var(--color-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-circle.black-bg {
+            background-color: var(--color-black);
+        }
+
+        .menu-text {
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        /* Nav Tags Pill */
+        .tags-pill, .adaptive-pill {
+            background-color: var(--color-surface-gray);
+            border-radius: var(--radius-full);
+            padding: 6px 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .adaptive-pill {
+            padding: 4px 14px 4px 4px;
+        }
+
+        .tag-label, .adaptive-text {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--color-black);
+        }
+
+        .tag-divider {
+            font-size: 10px;
+            color: var(--color-border-medium); /* Used a similar shade from design.md */
+        }
+
+        .desktop-only {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .desktop-only {
+                display: flex;
+            }
+        }
+
+        /* Background Video Framing */
+        .video-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bg-video {
+            object-fit: cover;
+            width: 80%;
+            height: 80%;
+            border-radius: 12px;
+            opacity: 0; /* Initial state for animation */
+            transform: scale(1.05); /* Initial state for animation */
+            transition: opacity 1.8s var(--ease-smooth), transform 1.8s var(--ease-smooth);
+        }
+
+        @media (min-width: 768px) {
+            .bg-video {
+                width: 100%;
+                height: 100%;
+                border-radius: 0;
+            }
+        }
+
+        /* Footer Overlay */
+        .footer-overlay {
+            position: relative;
+            z-index: 30;
+            width: 100%;
+            background: linear-gradient(to top, var(--color-white) 0%, rgba(255, 255, 255, 0.8) 50%, transparent 100%);
+            padding: 32px 16px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-top: auto;
+            opacity: 0; /* Initial state for animation */
+            transform: translateY(20px); /* Initial state for animation */
+            transition: opacity 1.0s var(--ease-smooth), transform 1.0s var(--ease-smooth);
+        }
+
+        @media (min-width: 768px) {
+            .footer-overlay {
+                padding: 48px 32px 32px;
+                flex-direction: row;
+                align-items: flex-end;
+                justify-content: space-between;
+            }
+        }
+
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* Subtitle Line */
+        .subtitle-line {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0; /* Initial state for animation */
+            transform: translateY(16px); /* Initial state for animation */
+            transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
+        }
+
+        .black-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--color-black);
+            border-radius: 50%;
+        }
+
+        .subtitle-text {
+            font-size: 13px;
+            color: var(--color-text-muted);
+        }
+
+        /* Hero Heading */
+        .hero-heading {
+            font-weight: 300;
+            letter-spacing: -0.03em;
+            line-height: 1.0;
+            color: var(--color-black);
+            font-size: clamp(2rem, 8vw, 4.5rem);
+            opacity: 0; /* Initial state for animation */
+            transform: translateY(20px); /* Initial state for animation */
+            transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
+        }
+
+        @media (min-width: 768px) {
+            .hero-heading {
+                font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+            }
+        }
+
+        /* Button Group */
+        .button-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            opacity: 0; /* Initial state for animation */
+            transform: translateY(16px); /* Initial state for animation */
+            transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
+        }
+
+        .btn-primary {
+            background-color: var(--color-black);
+            color: var(--color-white);
+            font-size: 13px;
+            font-weight: 500;
+            padding: 10px 20px;
+            border: none;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-black);
+            font-size: 13px;
+            font-weight: 500;
+            padding: 10px 20px;
+            border: 1px solid var(--color-border-medium);
+            border-radius: var(--radius-full);
+            cursor: pointer;
+        }
+
+        /* Right Chip Group */
+        .chip-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .footer-chip {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-border-subtle);
+            color: var(--color-black);
+            font-size: 11px;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: var(--radius-full);
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-container">
+        <!-- 1. Fixed Top Navbar -->
+        <nav class="navbar" id="navbar">
+            <div class="nav-left">
+                <div class="brand-wrapper">
+                    <!-- Custom SVG Logo Icon -->
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g transform="rotate(-35 12 12)">
+                            <rect x="4" y="7" width="10" height="10" rx="3" fill="#000000" />
+                            <rect x="10" y="7" width="10" height="10" rx="3" fill="#000000" opacity="0.75" />
+                        </g>
+                    </svg>
+                    <span class="brand-name">NeuralKinetics</span>
+                </div>
+                
+                <button class="menu-btn">
+                    <span class="icon-circle">
+                        <!-- Plus icon from lucide-react, inlined as SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus">
+                            <path d="M12 5v14M5 12h14"/>
+                        </svg>
+                    </span>
+                    <span class="menu-text">Menu</span>
+                </button>
+
+                <div class="tags-pill desktop-only">
+                    <span class="tag-label">Advanced Bionics</span>
+                    <span class="tag-divider">•</span>
+                    <span class="tag-label">Cognitive AI</span>
+                </div>
+            </div>
+
+            <div class="nav-right desktop-only">
+                <div class="adaptive-pill">
+                    <span class="icon-circle black-bg">
+                        <!-- 4-Dot Grid SVG Icon -->
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="3" cy="3" r="1.5" fill="#FFFFFF" />
+                            <circle cx="9" cy="3" r="1.5" fill="#FFFFFF" />
+                            <circle cx="3" cy="9" r="1.5" fill="#FFFFFF" />
+                            <circle cx="9" cy="9" r="1.5" fill="#FFFFFF" />
+                        </svg>
+                    </span>
+                    <span class="adaptive-text">Adaptive Systems</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 2. Background Video -->
+        <div class="video-wrapper">
+            <video
+                class="bg-video"
+                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260508_215831_c6a8989c-d716-4d8d-8745-e972a2eec711.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                id="bg-video"
+            ></video>
+        </div>
+
+        <!-- 3. Footer Overlay -->
+        <footer class="footer-overlay" id="footer-overlay">
+            <div class="footer-left">
+                <!-- Subtitle Line -->
+                <div class="subtitle-line" id="subtitle-line">
+                    <span class="black-dot"></span>
+                    <span class="subtitle-text">Best digital banking card 2026</span>
+                </div>
+
+                <!-- Main Heading -->
+                <h1 class="hero-heading" id="hero-heading">
+                    One Card, Zero<br />Limits. Worldwide.
+                </h1>
+
+                <!-- Action Buttons -->
+                <div class="button-group" id="button-group">
+                    <button class="btn-primary">See Features</button>
+                    <button class="btn-secondary">How It Works</button>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="chip-group">
+                    <span class="footer-chip">Neuromorphic</span>
+                    <span class="footer-chip">AGI</span>
+                    <span class="footer-chip">Cybernetics</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Vanilla JavaScript for animations, attempting to mimic motion/react staggered timeline
+        document.addEventListener('DOMContentLoaded', () => {
+            const easeCurve = 'cubic-bezier(0.16, 1, 0.3, 1)'; // Matches --ease-smooth
+
+            const navbar = document.getElementById('navbar');
+            const bgVideo = document.getElementById('bg-video');
+            const footerOverlay = document.getElementById('footer-overlay');
+            const subtitleLine = document.getElementById('subtitle-line');
+            const heroHeading = document.getElementById('hero-heading');
+            const buttonGroup = document.getElementById('button-group');
+
+            // Set initial states (already in CSS) using opacity and transform
+            // CSS transitions will handle the animation once styles are applied/overridden by JS
+
+            // Animation sequence using setTimeout to simulate staggered delays
+            // Navbar (0s)
+            setTimeout(() => {
+                navbar.style.opacity = '1';
+                navbar.style.transform = 'translateY(0)';
+            }, 0);
+
+            // Background Video (0s)
+            setTimeout(() => {
+                bgVideo.style.opacity = '1';
+                bgVideo.style.transform = 'scale(1)';
+            }, 0);
+
+            // Footer wrapper (0.5s delay)
+            setTimeout(() => {
+                footerOverlay.style.opacity = '1';
+                footerOverlay.style.transform = 'translateY(0)';
+            }, 500);
+
+            // Subtitle (0.6s delay)
+            setTimeout(() => {
+                subtitleLine.style.opacity = '1';
+                subtitleLine.style.transform = 'translateY(0)';
+            }, 600);
+
+            // Main Heading (0.8s delay)
+            setTimeout(() => {
+                heroHeading.style.opacity = '1';
+                heroHeading.style.transform = 'translateY(0)';
+            }, 800);
+
+            // Action Buttons (1.0s delay)
+            setTimeout(() => {
+                buttonGroup.style.opacity = '1';
+                buttonGroup.style.transform = 'translateY(0)';
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

@@ -18,7 +18,6 @@ import { ScreenFrame } from './ScreenFrame'
 // similar card heights. Sections additionally clamp to a fixed authored
 // height so a long section still yields a tidy card.
 const CARD_SCALE: Record<Surface, number> = { app: 0.88, site: 0.22, section: 0.28 }
-const SECTION_CARD_CLAMP = 420
 
 const STATUS_LABEL = { new: 'New', updated: 'Updated' } as const
 
@@ -85,7 +84,6 @@ function ScreenCard({ item }: { item: RegistryItem }) {
           item={item}
           fit={true}
           unframed={true}
-          clampHeight={surface === 'section' ? SECTION_CARD_CLAMP : undefined}
         />
       </a>
       

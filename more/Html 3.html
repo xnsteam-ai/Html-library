@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services & Expertise - Pixel Perfect Replication</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            cardBlue: '#e2f2fe',
+            badgeBlue: '#c3e4ff',
+            cardPeach: '#fdebd8',
+            badgePeach: '#fcd3b2',
+            cardPurple: '#ece3f7',
+            badgePurple: '#decdf8',
+            cardMint: '#dcf3e8',
+            badgeMint: '#b3e8d0',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+</head>
+<body class="bg-[#e3e7f0] text-slate-900 min-h-screen flex flex-col justify-center items-center p-4 sm:p-8 lg:p-12 relative font-sans selection:bg-slate-800 selection:text-white">
+
+  <!-- Top Header Bar for contextual fidelity -->
+  <header class="w-full max-w-5xl mb-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-slate-300/60 pb-6">
+    <div>
+      <div class="flex items-center gap-2 mb-1">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="text-xs font-bold uppercase tracking-widest text-slate-500">Directory Services</span>
+      </div>
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Explore Professional Services</h1>
+    </div>
+    <div class="flex items-center gap-3 w-full sm:w-auto">
+      <div class="relative flex-1 sm:w-64">
+        <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+        <input id="searchInput" type="text" placeholder="Filter tags or services..." class="w-full pl-9 pr-4 py-2 text-sm bg-white/80 border border-slate-300/80 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-800/20 focus:border-slate-800 transition-all shadow-sm" oninput="filterServices()">
+      </div>
+    </div>
+  </header>
+
+  <!-- Main 2x2 Services Grid Container -->
+  <main class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+    
+    <!-- CARD 1: Web Design -->
+    <div class="service-card bg-white p-3.5 sm:p-4 rounded-[28px] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group border border-slate-100/80" data-category="web design landing page website one page">
+      <!-- Top Inner Colored Area -->
+      <div class="bg-cardBlue p-6 sm:p-7 rounded-[22px] flex flex-col justify-between min-h-[250px] transition-transform duration-300 group-hover:scale-[0.995]">
+        <div>
+          <h2 class="text-2xl sm:text-[28px] font-bold text-slate-900 tracking-tight mb-2">Web Design</h2>
+          <p class="text-slate-700 text-sm sm:text-[15px] font-normal leading-snug max-w-xs mb-6">
+            Crafts engaging, user-friendly websites.
+          </p>
+        </div>
+        <!-- Tags Pill Grid -->
+        <div class="flex flex-wrap gap-2.5 mt-auto align-bottom">
+          <button onclick="selectTag('Landing Page')" class="tag-btn px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-slate-800 bg-badgeBlue hover:bg-slate-900 hover:text-white transition-all shadow-none">
+            Landing Page
+          </button>
+          <button onclick="selectTag('Website')" class="tag-btn px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-slate-800 bg-badgeBlue hover:bg-slate-900 hover:text-white transition-all shadow-none">
+            Website
+          </button>
+          <button onclick="selectTag('One Page')" class="tag-btn px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-slate-800 bg-badgeBlue hover:bg-slate-900 hover:text-white transition-all shadow-none">
+            One Page
+          </button>
+        </div>
+      </div>
+      <!-- Bottom Explore Section -->
+      <div class="flex items-center justify-between px-3 py-2.5 mt-1">
+        <span class="text-lg font-bold text-slate-900">Explore</span>
+        <button onclick="openModal('Web Design', 'Crafts engaging, user-friendly websites.', ['Landing Page', 'Website', 'One Page'], 'bg-cardBlue')" aria-label="Explore Web Design" class="w-10 h-10 rounded-xl bg-slate-100/90 flex items-center justify-center text-slate-900 hover:bg-slate-900 hover:text-white group-hover:bg-slate-900 group-hover:text-white transition-all duration-200 shadow-sm">
+          <svg class="w-5 h-5 stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- CARD 2: Graphic Design -->
+    <div class="service-card bg-white p-3.5 sm:p-4 rounded-[28px] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group border border-slate-100/80" data-category="graphic design packaging brand identity illustrations logo signage">
+      <!-- Top Inner Colored Area -->
+      <div class="bg-cardPeach p-6 sm:p-7 rounded-[22px] flex flex-col justify-between min-h-[250px] transition-transform duration-300 group-hover:scale-[0.995]">
+        <div>
+          <h2 class="text-2xl sm:text-[28px] font-bold text-slate-900 tracking-tight mb-2">Graphic Design</h2>
+          <p class="text-slate-700 text-sm sm:text-[15px] font-normal leading-snug max-w-xs mb-6">
+            Creates impactful visuals and branding.
+          </p>
+        </div>
+        <!-- Tags Pill Grid -->
+        <div class="flex flex-wrap gap-2.5 mt-auto align-bottom">
+          <button onclick="selectTag('Packaging')" class="tag-btn px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-slate-800 bg-badgePeach hover:bg-slate-900 hover:text-white transition-all shadow-none">
+            Packaging
+          </button>
+          <button onclick="selectTag('Brand Identity')" class="tag-btn px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-slate-800 bg-badgePeach hover:bg-slate-900 hover:text-white transition-all shadow-none">
+            Brand Identity
+          </button>
+          <button onclick="selectTag('Illustrations')" class="tag-btn px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-slate-800 bg-badgePeach hover:bg-slate-900 hover:text-white transition-all shadow-none">
+            Illustrations
+          </button>
+          <button onclick="selectTag('Logo')" class="tag-btn px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-slate-800 bg-badgePeach hover:bg-slate-900 hover:text-white transition-all shadow-none">
+            Logo
+          </button>
+          <button onclick="selectTag('Signage')" class="tag-btn px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-slate-800 bg-badgePeach hover:bg-slate-900 hover:text-white transition-all shadow-none">
+            Signage
+          </button>
+        </div>
+      </div>
+      <!-- Bottom Explore Section -->
+      <div class="flex items-center justify-between px-3 py-2.5 mt-1">
+        <span class="text-lg font-bold text-slate-900">Explore</span>
+        <button onclick="openModal('Graphic Design', 'Creates impactful visuals and branding.', ['Packaging', 'Brand Identity', 'Illustrations', 'Logo', 'Signage'], 'bg-cardPeach')" aria-label="Explore Graphic Design" class="w-10 h-10 rounded-xl bg-slate-100/90 flex items-center justify-center text-slate-900 hover:bg-slate-900 hover:text-white group-hover:bg-slate-900 group-hover:text-white transition-all duration-200 shadow-sm">
+          <svg class="w-5 h-5 stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- CARD 3: Developers -->
+    <div class="service-card bg-white p-3.5 sm:p-4 rounded-[28px] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group border border-slate-100/80" data-category="developers web applications mobile apps database add-ons">
+      <!-- Top Inner Colored Area -->
+      <div class="bg-cardPurple p-6 sm:p-7 rounded-[22px] flex flex-col justify-between min-h-[250px] transition-transform duration-300 group-hover:scale-[0.995]">
+        <div>
+          <h2 class="text-2xl sm:text-[28px] font-bold text-slate-900 tracking-tight mb-2">Developers</h2>
+          <p class="text-slate-700 text-sm sm:text-[15px] font-normal leading-snug max-w-xs mb-6">
+            Builds functional and scalable solutions.
+          </p>
+        </div>
+        <!-- Tags Pill Grid -->
+        <div class="flex flex-wrap gap-2.5 mt-auto align-bottom">
+          <button onclick="selectTag('Web Applications')" class="tag-btn px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-slate-800 bg-badgePurple hover:bg-slate-900 hover:text-white transition-all shadow-none">
+            Web Applications
+          </button>
+          <button onclick="selectTag('Mobile Apps')" class="tag-btn px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-slate-800 bg-badgePurple hover:bg-slate-900 hover:text-white transition-all shadow-none">
+            Mobile Apps
+          </button>
+          <button onclick="selectTag('Database')" class="tag-btn px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-slate-800 bg-badgePurple hover:bg-slate-900 hover:text-white transition-all shadow-none">
+            Database
+          </button>
+          <button onclick="selectTag('Add-ons')" class="tag-btn px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-slate-800 bg-badgePurple hover:bg-slate-900 hover:text-white transition-all shadow-none">
+            Add-ons
+          </button>
+        </div>
+      </div>
+      <!-- Bottom Explore Section -->
+      <div class="flex items-center justify-between px-3 py-2.5 mt-1">
+        <span class="text-lg font-bold text-slate-900">Explore</span>
+        <button onclick="openModal('Developers', 'Builds functional and scalable solutions.', ['Web Applications', 'Mobile Apps', 'Database', 'Add-ons'], 'bg-cardPurple')" aria-label="Explore Developers" class="w-10 h-10 rounded-xl bg-slate-100/90 flex items-center justify-center text-slate-900 hover:bg-slate-900 hover:text-white group-hover:bg-slate-900 group-hover:text-white transition-all duration-200 shadow-sm">
+          <svg class="w-5 h-5 stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- CARD 4: Copywriting -->
+    <div class="service-card bg-white p-3.5 sm:p-4 rounded-[28px] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group border border-slate-100/80" data-category="copywriting blog posts video scripts sales pages slogans">
+      <!-- Top Inner Colored Area -->
+      <div class="bg-cardMint p-6 sm:p-7 rounded-[22px] flex flex-col justify-between min-h-[250px] transition-transform duration-300 group-hover:scale-[0.995]">
+        <div>
+          <h2 class="text-2xl sm:text-[28px] font-bold text-slate-900 tracking-tight mb-2">Copywriting</h2>
+          <p class="text-slate-700 text-sm sm:text-[15px] font-normal leading-snug max-w-xs mb-6">
+            Delivers persuasive and creative content.
+          </p>
+        </div>
+        <!-- Tags Pill Grid -->
+        <div class="flex flex-wrap gap-2.5 mt-auto align-bottom">
+          <button onclick="selectTag('Blog Posts')" class="tag-btn px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-slate-800 bg-badgeMint hover:bg-slate-900 hover:text-white transition-all shadow-none">
+            Blog Posts
+          </button>
+          <button onclick="selectTag('Video Scripts')" class="tag-btn px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-slate-800 bg-badgeMint hover:bg-slate-900 hover:text-white transition-all shadow-none">
+            Video Scripts
+          </button>
+          <button onclick="selectTag('Sales Pages')" class="tag-btn px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-slate-800 bg-badgeMint hover:bg-slate-900 hover:text-white transition-all shadow-none">
+            Sales Pages
+          </button>
+          <button onclick="selectTag('Slogans')" class="tag-btn px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-slate-800 bg-badgeMint hover:bg-slate-900 hover:text-white transition-all shadow-none">
+            Slogans
+          </button>
+        </div>
+      </div>
+      <!-- Bottom Explore Section -->
+      <div class="flex items-center justify-between px-3 py-2.5 mt-1">
+        <span class="text-lg font-bold text-slate-900">Explore</span>
+        <button onclick="openModal('Copywriting', 'Delivers persuasive and creative content.', ['Blog Posts', 'Video Scripts', 'Sales Pages', 'Slogans'], 'bg-cardMint')" aria-label="Explore Copywriting" class="w-10 h-10 rounded-xl bg-slate-100/90 flex items-center justify-center text-slate-900 hover:bg-slate-900 hover:text-white group-hover:bg-slate-900 group-hover:text-white transition-all duration-200 shadow-sm">
+          <svg class="w-5 h-5 stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Interactive Service Modal -->
+  <div id="serviceModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
+    <div id="modalContent" class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl scale-95 transition-all duration-300 transform border border-slate-100">
+      <div id="modalHeaderBg" class="p-6 rounded-2xl mb-5">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Category View</span>
+            <h3 id="modalTitle" class="text-2xl font-extrabold text-slate-900 tracking-tight mt-0.5">Service Title</h3>
+          </div>
+          <button onclick="closeModal()" class="w-8 h-8 rounded-full bg-white/70 hover:bg-white flex items-center justify-center text-slate-600 hover:text-slate-900 transition-colors shadow-sm">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <p id="modalDesc" class="text-slate-700 text-sm font-medium mt-3 leading-relaxed">Service description goes here.</p>
+      </div>
+      
+      <div class="mb-6">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Available Specialties</h4>
+        <div id="modalTags" class="flex flex-wrap gap-2">
+          <!-- Dynamic tags inserted here -->
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-slate-100 flex items-center justify-end gap-3">
+        <button onclick="closeModal()" class="px-4 py-2 text-xs font-semibold text-slate-600 hover:text-slate-900 rounded-xl hover:bg-slate-100 transition-colors">
+          Close
+        </button>
+        <button onclick="alert('Request initiated for ' + document.getElementById('modalTitle').innerText)" class="px-5 py-2.5 bg-slate-900 text-white text-xs font-bold rounded-xl hover:bg-slate-800 transition-all shadow-md shadow-slate-900/20 active:scale-95">
+          Get Quote
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Embedded Interactive Scripting -->
+  <script>
+    function filterServices() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.service-card');
+      
+      cards.forEach(card => {
+        const categoryData = card.getAttribute('data-category').toLowerCase();
+        if (categoryData.includes(query)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function selectTag(tagName) {
+      const searchInput = document.getElementById('searchInput');
+      searchInput.value = tagName;
+      filterServices();
+    }
+
+    function openModal(title, desc, tags, headerBgClass) {
+      const modal = document.getElementById('serviceModal');
+      const modalContent = document.getElementById('modalContent');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalDesc = document.getElementById('modalDesc');
+      const modalTags = document.getElementById('modalTags');
+      const modalHeaderBg = document.getElementById('modalHeaderBg');
+
+      modalTitle.innerText = title;
+      modalDesc.innerText = desc;
+      modalHeaderBg.className = 'p-6 rounded-2xl mb-5 ' + headerBgClass;
+
+      modalTags.innerHTML = '';
+      tags.forEach(tag => {
+        const tagSpan = document.createElement('span');
+        tagSpan.className = 'px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-800 border border-slate-200';
+        tagSpan.innerText = tag;
+        modalTags.appendChild(tagSpan);
+      });
+
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modalContent.classList.remove('scale-95');
+      modalContent.classList.add('scale-100');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('serviceModal');
+      const modalContent = document.getElementById('modalContent');
+      
+      modalContent.classList.remove('scale-100');
+      modalContent.classList.add('scale-95');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+    }
+  </script>
+</body>
+</html>
