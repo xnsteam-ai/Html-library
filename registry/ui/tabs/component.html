@@ -11,23 +11,23 @@
     <input type="radio" name="tabs-underline" id="tabs-underline-usage" class="sr-only" />
 
     <div class="flex gap-5 border-b border-gray-200 dark:border-white/10" role="tablist" aria-label="Section">
-      <label for="tabs-underline-preview" class="-mb-px cursor-pointer border-b-2 border-transparent pb-2 text-[13px] font-medium text-gray-600 transition hover:text-gray-800 group-has-[#tabs-underline-preview:checked]/underline:border-gray-900 group-has-[#tabs-underline-preview:checked]/underline:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 dark:group-has-[#tabs-underline-preview:checked]/underline:border-white dark:group-has-[#tabs-underline-preview:checked]/underline:text-gray-100">Preview</label>
-      <label for="tabs-underline-code" class="-mb-px cursor-pointer border-b-2 border-transparent pb-2 text-[13px] font-medium text-gray-600 transition hover:text-gray-800 group-has-[#tabs-underline-code:checked]/underline:border-gray-900 group-has-[#tabs-underline-code:checked]/underline:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 dark:group-has-[#tabs-underline-code:checked]/underline:border-white dark:group-has-[#tabs-underline-code:checked]/underline:text-gray-100">Code</label>
-      <label for="tabs-underline-usage" class="-mb-px flex cursor-pointer items-center gap-1.5 border-b-2 border-transparent pb-2 text-[13px] font-medium text-gray-600 transition hover:text-gray-800 group-has-[#tabs-underline-usage:checked]/underline:border-gray-900 group-has-[#tabs-underline-usage:checked]/underline:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 dark:group-has-[#tabs-underline-usage:checked]/underline:border-white dark:group-has-[#tabs-underline-usage:checked]/underline:text-gray-100">
+      <label for="tabs-underline-preview" class="-mb-px cursor-pointer border-b-2 border-transparent pb-2 text-[13px] font-medium text-gray-600 transition hover:text-gray-800 group-has-[#tabs-underline-preview:checked]/underline:border-gray-900 group-has-[#tabs-underline-preview:checked]/underline:text-gray-900 dark:text-muted-foreground dark:hover:text-gray-200 dark:group-has-[#tabs-underline-preview:checked]/underline:border-white dark:group-has-[#tabs-underline-preview:checked]/underline:text-gray-100">Preview</label>
+      <label for="tabs-underline-code" class="-mb-px cursor-pointer border-b-2 border-transparent pb-2 text-[13px] font-medium text-gray-600 transition hover:text-gray-800 group-has-[#tabs-underline-code:checked]/underline:border-gray-900 group-has-[#tabs-underline-code:checked]/underline:text-gray-900 dark:text-muted-foreground dark:hover:text-gray-200 dark:group-has-[#tabs-underline-code:checked]/underline:border-white dark:group-has-[#tabs-underline-code:checked]/underline:text-gray-100">Code</label>
+      <label for="tabs-underline-usage" class="-mb-px flex cursor-pointer items-center gap-1.5 border-b-2 border-transparent pb-2 text-[13px] font-medium text-gray-600 transition hover:text-gray-800 group-has-[#tabs-underline-usage:checked]/underline:border-gray-900 group-has-[#tabs-underline-usage:checked]/underline:text-gray-900 dark:text-muted-foreground dark:hover:text-gray-200 dark:group-has-[#tabs-underline-usage:checked]/underline:border-white dark:group-has-[#tabs-underline-usage:checked]/underline:text-gray-100">
         Usage
-        <span class="rounded-full bg-gray-100 px-1.5 text-[10px] text-gray-600 dark:bg-white/10 dark:text-gray-400">3</span>
+        <span class="rounded-full bg-gray-100 px-1.5 text-[10px] text-gray-600 dark:bg-white/10 dark:text-muted-foreground">3</span>
       </label>
     </div>
 
-    <div class="hidden pt-3 text-[13px] leading-relaxed text-gray-600 group-has-[#tabs-underline-preview:checked]/underline:block dark:text-gray-400">
+    <div class="hidden pt-3 text-[13px] leading-relaxed text-gray-600 group-has-[#tabs-underline-preview:checked]/underline:block dark:text-muted-foreground">
       The rendered component, shown exactly as it will appear in your page.
     </div>
     <div class="hidden pt-3 group-has-[#tabs-underline-code:checked]/underline:block">
-      <pre class="overflow-x-auto rounded-lg bg-gray-50 p-3 font-mono text-[12px] leading-relaxed text-gray-700 dark:bg-white/5 dark:text-gray-300"><code>&lt;button class="rounded-lg bg-gray-900 px-3.5 py-2"&gt;
+      <pre class="overflow-x-auto rounded-lg bg-gray-50 p-3 font-mono text-[12px] leading-relaxed text-gray-700 dark:bg-white/5 dark:text-muted-foreground"><code>&lt;button class="rounded-lg bg-gray-900 px-3.5 py-2"&gt;
   Primary
 &lt;/button&gt;</code></pre>
     </div>
-    <div class="hidden pt-3 text-[13px] leading-relaxed text-gray-600 group-has-[#tabs-underline-usage:checked]/underline:block dark:text-gray-400">
+    <div class="hidden pt-3 text-[13px] leading-relaxed text-gray-600 group-has-[#tabs-underline-usage:checked]/underline:block dark:text-muted-foreground">
       Used in 3 places — the composer toolbar, the settings drawer, and the empty state.
     </div>
   </div>
@@ -39,14 +39,14 @@
     <input type="radio" name="tabs-pill" id="tabs-pill-ui" class="sr-only" />
 
     <div class="inline-flex rounded-full bg-gray-100 p-[3px] dark:bg-white/10" role="tablist" aria-label="View">
-      <label for="tabs-pill-all" class="cursor-pointer rounded-full px-3.5 py-1.5 text-[12.5px] font-medium text-gray-600 transition hover:text-gray-800 group-has-[#tabs-pill-all:checked]/pill:bg-white group-has-[#tabs-pill-all:checked]/pill:text-gray-900 group-has-[#tabs-pill-all:checked]/pill:shadow-sm dark:text-gray-400 dark:group-has-[#tabs-pill-all:checked]/pill:bg-neutral-900 dark:group-has-[#tabs-pill-all:checked]/pill:text-gray-100">All</label>
-      <label for="tabs-pill-agent" class="cursor-pointer rounded-full px-3.5 py-1.5 text-[12.5px] font-medium text-gray-600 transition hover:text-gray-800 group-has-[#tabs-pill-agent:checked]/pill:bg-white group-has-[#tabs-pill-agent:checked]/pill:text-gray-900 group-has-[#tabs-pill-agent:checked]/pill:shadow-sm dark:text-gray-400 dark:group-has-[#tabs-pill-agent:checked]/pill:bg-neutral-900 dark:group-has-[#tabs-pill-agent:checked]/pill:text-gray-100">Agent</label>
-      <label for="tabs-pill-ui" class="cursor-pointer rounded-full px-3.5 py-1.5 text-[12.5px] font-medium text-gray-600 transition hover:text-gray-800 group-has-[#tabs-pill-ui:checked]/pill:bg-white group-has-[#tabs-pill-ui:checked]/pill:text-gray-900 group-has-[#tabs-pill-ui:checked]/pill:shadow-sm dark:text-gray-400 dark:group-has-[#tabs-pill-ui:checked]/pill:bg-neutral-900 dark:group-has-[#tabs-pill-ui:checked]/pill:text-gray-100">UI</label>
+      <label for="tabs-pill-all" class="cursor-pointer rounded-full px-3.5 py-1.5 text-[12.5px] font-medium text-gray-600 transition hover:text-gray-800 group-has-[#tabs-pill-all:checked]/pill:bg-white group-has-[#tabs-pill-all:checked]/pill:text-gray-900 group-has-[#tabs-pill-all:checked]/pill:shadow-sm dark:text-muted-foreground dark:group-has-[#tabs-pill-all:checked]/pill:bg-neutral-900 dark:group-has-[#tabs-pill-all:checked]/pill:text-gray-100">All</label>
+      <label for="tabs-pill-agent" class="cursor-pointer rounded-full px-3.5 py-1.5 text-[12.5px] font-medium text-gray-600 transition hover:text-gray-800 group-has-[#tabs-pill-agent:checked]/pill:bg-white group-has-[#tabs-pill-agent:checked]/pill:text-gray-900 group-has-[#tabs-pill-agent:checked]/pill:shadow-sm dark:text-muted-foreground dark:group-has-[#tabs-pill-agent:checked]/pill:bg-neutral-900 dark:group-has-[#tabs-pill-agent:checked]/pill:text-gray-100">Agent</label>
+      <label for="tabs-pill-ui" class="cursor-pointer rounded-full px-3.5 py-1.5 text-[12.5px] font-medium text-gray-600 transition hover:text-gray-800 group-has-[#tabs-pill-ui:checked]/pill:bg-white group-has-[#tabs-pill-ui:checked]/pill:text-gray-900 group-has-[#tabs-pill-ui:checked]/pill:shadow-sm dark:text-muted-foreground dark:group-has-[#tabs-pill-ui:checked]/pill:bg-neutral-900 dark:group-has-[#tabs-pill-ui:checked]/pill:text-gray-100">UI</label>
     </div>
 
-    <p class="hidden pt-2.5 text-[13px] text-gray-600 group-has-[#tabs-pill-all:checked]/pill:block dark:text-gray-400">Showing all 38 components.</p>
-    <p class="hidden pt-2.5 text-[13px] text-gray-600 group-has-[#tabs-pill-agent:checked]/pill:block dark:text-gray-400">Showing 19 agent elements.</p>
-    <p class="hidden pt-2.5 text-[13px] text-gray-600 group-has-[#tabs-pill-ui:checked]/pill:block dark:text-gray-400">Showing 8 UI elements.</p>
+    <p class="hidden pt-2.5 text-[13px] text-gray-600 group-has-[#tabs-pill-all:checked]/pill:block dark:text-muted-foreground">Showing all 38 components.</p>
+    <p class="hidden pt-2.5 text-[13px] text-gray-600 group-has-[#tabs-pill-agent:checked]/pill:block dark:text-muted-foreground">Showing 19 agent elements.</p>
+    <p class="hidden pt-2.5 text-[13px] text-gray-600 group-has-[#tabs-pill-ui:checked]/pill:block dark:text-muted-foreground">Showing 8 UI elements.</p>
   </div>
 
   <!-- Vertical -->
@@ -56,15 +56,15 @@
     <input type="radio" name="tabs-vertical" id="tabs-vertical-appearance" class="sr-only" />
 
     <div class="flex w-40 shrink-0 flex-col gap-0.5" role="tablist" aria-orientation="vertical" aria-label="Settings">
-      <label for="tabs-vertical-general" class="cursor-pointer rounded-lg px-2.5 py-1.5 text-left text-[13px] font-medium text-gray-600 transition hover:bg-gray-50 hover:text-gray-800 group-has-[#tabs-vertical-general:checked]/vertical:bg-gray-100 group-has-[#tabs-vertical-general:checked]/vertical:text-gray-900 dark:text-gray-400 dark:hover:bg-white/5 dark:group-has-[#tabs-vertical-general:checked]/vertical:bg-white/10 dark:group-has-[#tabs-vertical-general:checked]/vertical:text-gray-100">General</label>
-      <label for="tabs-vertical-registry" class="cursor-pointer rounded-lg px-2.5 py-1.5 text-left text-[13px] font-medium text-gray-600 transition hover:bg-gray-50 hover:text-gray-800 group-has-[#tabs-vertical-registry:checked]/vertical:bg-gray-100 group-has-[#tabs-vertical-registry:checked]/vertical:text-gray-900 dark:text-gray-400 dark:hover:bg-white/5 dark:group-has-[#tabs-vertical-registry:checked]/vertical:bg-white/10 dark:group-has-[#tabs-vertical-registry:checked]/vertical:text-gray-100">Registry</label>
-      <label for="tabs-vertical-appearance" class="cursor-pointer rounded-lg px-2.5 py-1.5 text-left text-[13px] font-medium text-gray-600 transition hover:bg-gray-50 hover:text-gray-800 group-has-[#tabs-vertical-appearance:checked]/vertical:bg-gray-100 group-has-[#tabs-vertical-appearance:checked]/vertical:text-gray-900 dark:text-gray-400 dark:hover:bg-white/5 dark:group-has-[#tabs-vertical-appearance:checked]/vertical:bg-white/10 dark:group-has-[#tabs-vertical-appearance:checked]/vertical:text-gray-100">Appearance</label>
+      <label for="tabs-vertical-general" class="cursor-pointer rounded-lg px-2.5 py-1.5 text-left text-[13px] font-medium text-gray-600 transition hover:bg-gray-50 hover:text-gray-800 group-has-[#tabs-vertical-general:checked]/vertical:bg-gray-100 group-has-[#tabs-vertical-general:checked]/vertical:text-gray-900 dark:text-muted-foreground dark:hover:bg-white/5 dark:group-has-[#tabs-vertical-general:checked]/vertical:bg-white/10 dark:group-has-[#tabs-vertical-general:checked]/vertical:text-gray-100">General</label>
+      <label for="tabs-vertical-registry" class="cursor-pointer rounded-lg px-2.5 py-1.5 text-left text-[13px] font-medium text-gray-600 transition hover:bg-gray-50 hover:text-gray-800 group-has-[#tabs-vertical-registry:checked]/vertical:bg-gray-100 group-has-[#tabs-vertical-registry:checked]/vertical:text-gray-900 dark:text-muted-foreground dark:hover:bg-white/5 dark:group-has-[#tabs-vertical-registry:checked]/vertical:bg-white/10 dark:group-has-[#tabs-vertical-registry:checked]/vertical:text-gray-100">Registry</label>
+      <label for="tabs-vertical-appearance" class="cursor-pointer rounded-lg px-2.5 py-1.5 text-left text-[13px] font-medium text-gray-600 transition hover:bg-gray-50 hover:text-gray-800 group-has-[#tabs-vertical-appearance:checked]/vertical:bg-gray-100 group-has-[#tabs-vertical-appearance:checked]/vertical:text-gray-900 dark:text-muted-foreground dark:hover:bg-white/5 dark:group-has-[#tabs-vertical-appearance:checked]/vertical:bg-white/10 dark:group-has-[#tabs-vertical-appearance:checked]/vertical:text-gray-100">Appearance</label>
     </div>
 
     <div class="flex-1 rounded-xl border border-gray-200 p-3.5 dark:border-white/10">
-      <p class="hidden text-[13px] leading-relaxed text-gray-600 group-has-[#tabs-vertical-general:checked]/vertical:block dark:text-gray-400">Workspace name, default branch and time zone.</p>
-      <p class="hidden text-[13px] leading-relaxed text-gray-600 group-has-[#tabs-vertical-registry:checked]/vertical:block dark:text-gray-400">Which registry URL to publish to, and who may write to it.</p>
-      <p class="hidden text-[13px] leading-relaxed text-gray-600 group-has-[#tabs-vertical-appearance:checked]/vertical:block dark:text-gray-400">Theme, density and whether previews follow the system setting.</p>
+      <p class="hidden text-[13px] leading-relaxed text-gray-600 group-has-[#tabs-vertical-general:checked]/vertical:block dark:text-muted-foreground">Workspace name, default branch and time zone.</p>
+      <p class="hidden text-[13px] leading-relaxed text-gray-600 group-has-[#tabs-vertical-registry:checked]/vertical:block dark:text-muted-foreground">Which registry URL to publish to, and who may write to it.</p>
+      <p class="hidden text-[13px] leading-relaxed text-gray-600 group-has-[#tabs-vertical-appearance:checked]/vertical:block dark:text-muted-foreground">Theme, density and whether previews follow the system setting.</p>
     </div>
   </div>
 </div>

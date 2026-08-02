@@ -9,7 +9,7 @@
 
   <div class="overflow-hidden rounded-xl border border-gray-200 dark:border-white/10">
     <div class="flex items-center gap-2 border-b border-gray-200 bg-gray-50 px-3.5 py-2.5 dark:border-white/10 dark:bg-white/5">
-      <svg class="h-3.5 w-3.5 shrink-0 text-gray-600 dark:text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v5H4zM4 13h16v7H4z" /><path d="M8 6.5h.01M8 16.5h.01" /></svg>
+      <svg class="h-3.5 w-3.5 shrink-0 text-gray-600 dark:text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v5H4zM4 13h16v7H4z" /><path d="M8 6.5h.01M8 16.5h.01" /></svg>
       <span class="flex-1 text-[12.5px] font-medium text-gray-800 dark:text-gray-200">Proposed plan</span>
       <span class="rounded-full bg-amber-50 px-2 py-0.5 text-[10.5px] font-medium text-amber-700 group-has-[#plan-approved:checked]/plan:hidden dark:bg-amber-400/10 dark:text-amber-300">needs approval</span>
       <span class="hidden items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[10.5px] font-medium text-emerald-700 group-has-[#plan-approved:checked]/plan:flex dark:bg-emerald-500/10 dark:text-emerald-400">
@@ -20,7 +20,7 @@
 
     <div class="px-3.5 py-3.5">
       <h4 class="mb-1 text-[14px] font-semibold text-gray-900 dark:text-gray-100">Move session rotation server-side</h4>
-      <p class="mb-3.5 text-[12.5px] leading-relaxed text-gray-600 dark:text-gray-400">
+      <p class="mb-3.5 text-[12.5px] leading-relaxed text-gray-600 dark:text-muted-foreground">
         Four steps, touching three files. No schema migration required.
       </p>
 
@@ -28,40 +28,40 @@
         <li>
           <label class="flex cursor-pointer gap-3">
             <input type="checkbox" class="peer sr-only" />
-            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-gray-200 text-[10.5px] font-medium text-gray-600 transition peer-checked:border-gray-900 peer-checked:bg-gray-900 peer-checked:text-white dark:border-white/15 dark:text-gray-400 dark:peer-checked:border-white dark:peer-checked:bg-white dark:peer-checked:text-neutral-900">1</span>
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-gray-200 text-[10.5px] font-medium text-gray-600 transition peer-checked:border-gray-900 peer-checked:bg-gray-900 peer-checked:text-white dark:border-white/15 dark:text-muted-foreground dark:peer-checked:border-white dark:peer-checked:bg-white dark:peer-checked:text-neutral-900">1</span>
             <span class="min-w-0 transition peer-checked:opacity-50">
               <span class="block text-[13px] font-medium text-gray-900 dark:text-gray-100">Add a rotation helper</span>
-              <span class="block text-[12px] text-gray-600 dark:text-gray-400"><code class="font-mono">src/server/session.ts</code> — issue a new sid and revoke the previous one.</span>
+              <span class="block text-[12px] text-gray-600 dark:text-muted-foreground"><code class="font-mono">src/server/session.ts</code> — issue a new sid and revoke the previous one.</span>
             </span>
           </label>
         </li>
         <li>
           <label class="flex cursor-pointer gap-3">
             <input type="checkbox" class="peer sr-only" />
-            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-gray-200 text-[10.5px] font-medium text-gray-600 transition peer-checked:border-gray-900 peer-checked:bg-gray-900 peer-checked:text-white dark:border-white/15 dark:text-gray-400 dark:peer-checked:border-white dark:peer-checked:bg-white dark:peer-checked:text-neutral-900">2</span>
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-gray-200 text-[10.5px] font-medium text-gray-600 transition peer-checked:border-gray-900 peer-checked:bg-gray-900 peer-checked:text-white dark:border-white/15 dark:text-muted-foreground dark:peer-checked:border-white dark:peer-checked:bg-white dark:peer-checked:text-neutral-900">2</span>
             <span class="min-w-0 transition peer-checked:opacity-50">
               <span class="block text-[13px] font-medium text-gray-900 dark:text-gray-100">Call it from the login route</span>
-              <span class="block text-[12px] text-gray-600 dark:text-gray-400"><code class="font-mono">src/routes/login.ts</code> — replace the client-side rotation call.</span>
+              <span class="block text-[12px] text-gray-600 dark:text-muted-foreground"><code class="font-mono">src/routes/login.ts</code> — replace the client-side rotation call.</span>
             </span>
           </label>
         </li>
         <li>
           <label class="flex cursor-pointer gap-3">
             <input type="checkbox" class="peer sr-only" />
-            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-gray-200 text-[10.5px] font-medium text-gray-600 transition peer-checked:border-gray-900 peer-checked:bg-gray-900 peer-checked:text-white dark:border-white/15 dark:text-gray-400 dark:peer-checked:border-white dark:peer-checked:bg-white dark:peer-checked:text-neutral-900">3</span>
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-gray-200 text-[10.5px] font-medium text-gray-600 transition peer-checked:border-gray-900 peer-checked:bg-gray-900 peer-checked:text-white dark:border-white/15 dark:text-muted-foreground dark:peer-checked:border-white dark:peer-checked:bg-white dark:peer-checked:text-neutral-900">3</span>
             <span class="min-w-0 transition peer-checked:opacity-50">
               <span class="block text-[13px] font-medium text-gray-900 dark:text-gray-100">Drop the legacy cookie fallback</span>
-              <span class="block text-[12px] text-gray-600 dark:text-gray-400">Breaking for clients older than 3.2 — gated behind a flag.</span>
+              <span class="block text-[12px] text-gray-600 dark:text-muted-foreground">Breaking for clients older than 3.2 — gated behind a flag.</span>
             </span>
           </label>
         </li>
         <li>
           <label class="flex cursor-pointer gap-3">
             <input type="checkbox" class="peer sr-only" />
-            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-gray-200 text-[10.5px] font-medium text-gray-600 transition peer-checked:border-gray-900 peer-checked:bg-gray-900 peer-checked:text-white dark:border-white/15 dark:text-gray-400 dark:peer-checked:border-white dark:peer-checked:bg-white dark:peer-checked:text-neutral-900">4</span>
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-gray-200 text-[10.5px] font-medium text-gray-600 transition peer-checked:border-gray-900 peer-checked:bg-gray-900 peer-checked:text-white dark:border-white/15 dark:text-muted-foreground dark:peer-checked:border-white dark:peer-checked:bg-white dark:peer-checked:text-neutral-900">4</span>
             <span class="min-w-0 transition peer-checked:opacity-50">
               <span class="block text-[13px] font-medium text-gray-900 dark:text-gray-100">Extend the session tests</span>
-              <span class="block text-[12px] text-gray-600 dark:text-gray-400"><code class="font-mono">tests/session.test.ts</code> — cover rotation and revocation.</span>
+              <span class="block text-[12px] text-gray-600 dark:text-muted-foreground"><code class="font-mono">tests/session.test.ts</code> — cover rotation and revocation.</span>
             </span>
           </label>
         </li>
@@ -70,7 +70,7 @@
 
     <!-- Pending footer -->
     <div class="flex items-center justify-end gap-2 border-t border-gray-200 px-3.5 py-2.5 group-has-[#plan-approved:checked]/plan:hidden dark:border-white/10">
-      <button type="button" class="rounded-lg px-2.5 py-1.5 text-[12.5px] font-medium text-gray-600 transition hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/10">Edit plan</button>
+      <button type="button" class="rounded-lg px-2.5 py-1.5 text-[12.5px] font-medium text-gray-600 transition hover:bg-gray-100 dark:text-muted-foreground dark:hover:bg-white/10">Edit plan</button>
       <label for="plan-approved" class="cursor-pointer rounded-lg bg-gray-900 px-3 py-1.5 text-[12.5px] font-medium text-white transition hover:bg-gray-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-gray-200">
         Approve &amp; run
       </label>
