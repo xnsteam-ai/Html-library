@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { CornerDownLeft, FileText, Search, Square } from 'lucide-react'
+import { CornerDownLeft, ListTree, Search, Square } from 'lucide-react'
 import { CATEGORY_META, components } from '../../registry'
 import { componentHref, docHref, galleryHref, navigate } from '../hooks/useHashRoute'
 
@@ -129,7 +129,7 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
                 }`}
               >
                 {entry.kind === 'doc' ? (
-                  <FileText size={14} className="shrink-0 text-muted-foreground" />
+                  <ListTree size={14} className="shrink-0 text-muted-foreground" />
                 ) : (
                   <Square size={14} className="shrink-0 text-muted-foreground" />
                 )}
