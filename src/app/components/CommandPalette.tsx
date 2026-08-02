@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { CornerDownLeft, ListTree, Search, Square, Component, FileImage, Microchip } from 'lucide-react'
+import { CornerDownLeft, ListTree, Search, Square, Component, FileImage, Microchip, AppWindow, LayoutGrid } from 'lucide-react'
 import { CATEGORY_META, components } from '../../registry'
 import { componentHref, docHref, galleryHref, navigate } from '../hooks/useHashRoute'
 
@@ -138,6 +138,10 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
                   <FileImage size={14} className="shrink-0 text-muted-foreground" />
                 ) : entry.category === 'agent' ? (
                   <Microchip size={14} className="shrink-0 text-muted-foreground" />
+                ) : entry.category === 'apps' ? (
+                  <AppWindow size={14} className="shrink-0 text-muted-foreground" />
+                ) : entry.category === 'sites' ? (
+                  <LayoutGrid size={14} className="shrink-0 text-muted-foreground" />
                 ) : (
                   <Square size={14} className="shrink-0 text-muted-foreground" />
                 )}
