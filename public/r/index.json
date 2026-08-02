@@ -190,7 +190,7 @@
     {
       "name": "site-research",
       "title": "Research Home",
-      "description": "A publication home page: translucent nav, centred prompt hero with quick-action pills, a bento lead story and a recent-news row. Thumbnails are CSS gradients.",
+      "description": "A publication home page: translucent nav, centred prompt hero with quick-action pills, a bento lead story and a recent-news row. Thumbnails are real photos.",
       "category": "sites",
       "tags": [
         "landing",
@@ -374,7 +374,7 @@
     {
       "name": "section-customer-stories",
       "title": "Customer Stories",
-      "description": "A two-column case-study grid pairing a square brand-locked thumbnail with a headline, summary and inline link. Thumbnails are CSS gradients, so nothing is fetched.",
+      "description": "A two-column case-study grid pairing a square brand-locked thumbnail with a headline, summary and inline link. Thumbnails are real photos.",
       "category": "sites",
       "tags": [
         "customers",
