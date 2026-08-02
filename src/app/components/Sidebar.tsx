@@ -49,6 +49,14 @@ export function Sidebar({ route, onCollapse, onOpenSearch }: SidebarProps) {
   const isDocActive = (slug: string) => route.kind === 'doc' && route.slug === slug
   const isComponentActive = (name: string) => route.kind === 'component' && route.name === name
 
+  const [collapsed, setCollapsed] = useState<Record<string, boolean>>({
+    images: true, // Collapse images by default since it has 110 items
+  })
+
+  const toggleCollapse = (id: string) => {
+    setCollapsed((prev) => ({ ...prev, [id]: !prev[id] }))
+  }
+
   return (
     <aside className="flex h-full w-[264px] min-w-[264px] flex-col border-r border-border bg-background">
       {/* Brand */}
@@ -105,49 +113,68 @@ export function Sidebar({ route, onCollapse, onOpenSearch }: SidebarProps) {
         {categories.map((category) => {
           const isGallery = Boolean(CATEGORY_META[category.id].gallery)
           const isActiveGallery = route.kind === 'gallery' && route.category === category.id
+          const isCollapsed = Boolean(collapsed[category.id])
 
           return (
-          <div key={category.id} className="pt-3">
-            <div className="mb-1 border-t border-border pt-3">
-              {/* Apps and Sites each open their own gallery; the other
-                  sections are plain labels. */}
-              {isGallery ? (
-                <a
-                  href={galleryHref(category.id)}
-                  aria-current={isActiveGallery ? 'page' : undefined}
-                  className={`mx-0 flex items-center gap-1 rounded-md px-2.5 py-1 text-[11px] font-medium uppercase tracking-wide transition ${
-                    isActiveGallery
-                      ? 'bg-subtle text-foreground dark:bg-[#282828]'
-                      : 'text-muted-foreground/80 hover:bg-muted hover:text-foreground dark:hover:bg-[#282828]'
-                  }`}
-                >
-                  {category.title}
-                  <LayoutGrid size={11} className="opacity-70" />
-                </a>
-              ) : (
-                <p className="px-2.5 pb-1 text-[11px] font-medium uppercase tracking-wide text-muted-foreground/80">
-                  {category.title}
-                </p>
+            <div key={category.id} className="pt-3">
+              <div className="mb-1 border-t border-border pt-3">
+                <div className="flex items-center justify-between">
+                  {isGallery ? (
+                    <a
+                      href={galleryHref(category.id)}
+                      aria-current={isActiveGallery ? 'page' : undefined}
+                      className={`flex flex-1 items-center gap-1.5 rounded-md px-2.5 py-1 text-[11px] font-medium uppercase tracking-wide transition ${
+                        isActiveGallery
+                          ? 'bg-subtle text-foreground dark:bg-[#282828]'
+                          : 'text-muted-foreground/80 hover:bg-muted hover:text-foreground dark:hover:bg-[#282828]'
+                      }`}
+                    >
+                      {category.title}
+                      <LayoutGrid size={11} className="opacity-70" />
+                    </a>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => toggleCollapse(category.id)}
+                      className="flex flex-1 items-center px-2.5 py-1 text-left text-[11px] font-medium uppercase tracking-wide text-muted-foreground/80 transition hover:text-foreground"
+                    >
+                      {category.title}
+                    </button>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => toggleCollapse(category.id)}
+                    className="mr-2.5 rounded p-0.5 text-muted-foreground/60 transition hover:bg-muted hover:text-foreground"
+                    aria-label={isCollapsed ? `Expand ${category.title}` : `Collapse ${category.title}`}
+                  >
+                    {isCollapsed ? (
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
+                    ) : (
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
+                    )}
+                  </button>
+                </div>
+              </div>
+              {!isCollapsed && (
+                <ul className="space-y-px">
+                  {category.items.map((item) => (
+                    <li key={item.name}>
+                      <a
+                        href={componentHref(item.name)}
+                        aria-current={isComponentActive(item.name) ? 'page' : undefined}
+                        className={`block rounded-md px-2.5 py-1.5 text-[13.5px] transition ${
+                          isComponentActive(item.name)
+                            ? 'bg-subtle font-medium text-foreground dark:bg-[#282828]'
+                            : 'text-muted-foreground hover:bg-muted hover:text-foreground dark:hover:bg-[#282828]'
+                        }`}
+                      >
+                        {item.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               )}
             </div>
-            <ul className="space-y-px">
-              {category.items.map((item) => (
-                <li key={item.name}>
-                  <a
-                    href={componentHref(item.name)}
-                    aria-current={isComponentActive(item.name) ? 'page' : undefined}
-                    className={`block rounded-md px-2.5 py-1.5 text-[13.5px] transition ${
-                      isComponentActive(item.name)
-                        ? 'bg-subtle font-medium text-foreground dark:bg-[#282828]'
-                        : 'text-muted-foreground hover:bg-muted hover:text-foreground dark:hover:bg-[#282828]'
-                    }`}
-                  >
-                    {item.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
           )
         })}
       </nav>
