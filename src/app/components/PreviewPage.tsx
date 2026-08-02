@@ -30,7 +30,7 @@ export function PreviewPage({ name }: { name: string }) {
   return (
     <div className="relative min-h-full bg-background">
       {/* Floating controls, deliberately out of the way of the component itself */}
-      <div className="fixed right-4 top-4 z-50 flex items-center gap-1 rounded-full border border-border bg-background/90 p-1 shadow-sm backdrop-blur">
+      <div className="fixed right-4 top-4 z-50 flex items-center gap-1 rounded-full border border-border bg-background/90 p-1 backdrop-blur">
         <a
           href={componentHref(item.name)}
           className="flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-[12.5px] font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground"
