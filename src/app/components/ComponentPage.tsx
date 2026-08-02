@@ -40,12 +40,14 @@ function Preview({ item }: { item: RegistryItem }) {
     )
   }
 
+  const isImage = item.category === 'images'
+
   return (
     <div
-      className={`scrollbar-thin flex items-center justify-center overflow-auto rounded-xl border border-border p-6 dark:bg-[#0a0a0a] [transform:translateZ(0)] ${
+      className={`scrollbar-thin flex justify-center overflow-auto rounded-xl border border-border p-6 dark:bg-[#0a0a0a] [transform:translateZ(0)] ${
         SURFACES[item.previewBg ?? 'plain']
-      }`}
-      style={{ minHeight: item.previewHeight ?? 500 }}
+      } ${isImage ? 'h-[500px] items-start' : 'items-center'}`}
+      style={isImage ? {} : { minHeight: item.previewHeight ?? 500 }}
     >
       {/* Registry components are static HTML; Tailwind scans registry/**\/*.html
           so every utility they use exists in this stylesheet. */}
@@ -172,7 +174,7 @@ export function ComponentPage({ item }: { item: RegistryItem }) {
           code={item.html}
           copyCode={toStandaloneHtml(item)}
           filename={`${item.name}.html`}
-          maxHeight="max-h-[640px]"
+          maxHeight={item.category === 'images' ? 'h-[500px]' : 'max-h-[640px]'}
         />
       ) : (
         <PromptMarkdownView item={item} />
