@@ -61,7 +61,33 @@ function Rendered({ item }: { item: RegistryItem }) {
   // Sections are authored `w-full` and meant to fill whatever page they sit
   // in, so let them do exactly that — full width, natural height.
   if (item.surface === 'section') {
-    return <div dangerouslySetInnerHTML={{ __html: item.html }} />
+    let items = 'items-center'
+    let justify = 'justify-center'
+
+    // Smart defaults based on typical layout roles
+    const name = item.name.toLowerCase()
+    if (name.includes('footer')) {
+      items = 'items-end'
+    } else if (name.includes('hero') || name.includes('header') || name.includes('nav')) {
+      items = 'items-start'
+    }
+
+    // Explicit overrides from meta.json
+    if (item.previewAlign === 'top') items = 'items-start'
+    if (item.previewAlign === 'bottom') items = 'items-end'
+    if (item.previewAlign === 'center') {
+      items = 'items-center'
+      justify = 'justify-center'
+    }
+    if (item.previewAlign === 'left') justify = 'justify-start'
+    if (item.previewAlign === 'right') justify = 'justify-end'
+    if (item.previewAlign === 'fit') items = 'items-stretch'
+
+    return (
+      <div className={`flex min-h-screen w-full bg-background ${items} ${justify}`}>
+        <div className="w-full" dangerouslySetInnerHTML={{ __html: item.html }} />
+      </div>
+    )
   }
 
   if (item.category === 'sites') {

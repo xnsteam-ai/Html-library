@@ -21,6 +21,8 @@ export interface ComponentMeta {
   /** Short line under the name in the gallery; falls back to `description`. */
   tagline?: string
   status?: 'new' | 'updated'
+  /** How to align the component in standalone preview (e.g. new tab). Defaults to center. */
+  previewAlign?: 'top' | 'bottom' | 'center' | 'left' | 'right' | 'fit'
 }
 
 export interface RegistryItem extends ComponentMeta {
