@@ -40,7 +40,7 @@ function Preview({ item }: { item: RegistryItem }) {
 
   return (
     <div
-      className={`scrollbar-thin flex items-center justify-center overflow-auto rounded-xl border border-border p-6 dark:bg-[#0a0a0a] ${
+      className={`scrollbar-thin flex items-center justify-center overflow-auto rounded-xl border border-border p-6 dark:bg-[#0a0a0a] [transform:translateZ(0)] ${
         SURFACES[item.previewBg ?? 'plain']
       }`}
       style={{ minHeight: item.previewHeight ?? 500 }}
