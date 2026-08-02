@@ -1,23 +1,13 @@
 <!--
-  IDE Composer — a dark, IDE-embedded prompt bar: session placeholder with a
-  blinking caret, a middle row of mode toggles, and a bottom action strip.
-  Keyframes can't be expressed as Tailwind utilities, so this file carries one
-  scoped <style> block. Class names are prefixed `ic-` to avoid collisions.
+  IDE Composer — a dark, IDE-embedded prompt bar: session placeholder,
+  a middle row of mode toggles, and a bottom action strip.
 -->
-<style>
-  @keyframes ic-blink { 0%, 100% { opacity: 1 } 50% { opacity: 0 } }
-  .ic-blink { animation: ic-blink 1s infinite; }
-  @media (prefers-reduced-motion: reduce) {
-    .ic-blink { animation: none; }
-  }
-</style>
 
 <div class="mx-auto w-full max-w-lg font-sans antialiased">
   <div class="relative z-[1] flex w-full flex-col overflow-hidden rounded-xl border border-[#4f4f4f] bg-[#2e2e2e] p-2">
     <!-- Session placeholder -->
     <div class="relative mb-1 flex min-h-[44px] cursor-text items-center rounded-lg bg-[#3a3a3a] p-2">
       <span class="pl-2 text-sm text-white opacity-50">New Session (Ctrl+N)</span>
-      <div class="ic-blink absolute left-2.5 top-1/2 h-4 w-0.5 -translate-y-1/2 bg-white"></div>
     </div>
 
     <!-- Middle button row -->
