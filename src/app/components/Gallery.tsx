@@ -9,6 +9,7 @@ import {
   type Surface,
 } from '../../registry'
 import { componentHref, galleryHref, previewHref } from '../hooks/useHashRoute'
+import { useCopy } from '../hooks/useCopy'
 import { toStandaloneHtml } from '../lib/standaloneHtml'
 import { ScreenFrame } from './ScreenFrame'
 
