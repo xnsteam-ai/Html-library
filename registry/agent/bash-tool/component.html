@@ -7,21 +7,21 @@
   <!-- Success -->
   <details open class="group/bash overflow-hidden rounded-xl border border-gray-200 dark:border-white/10">
     <summary class="flex cursor-pointer list-none items-center gap-2 border-b border-gray-200 bg-gray-50 px-3 py-2 transition hover:bg-gray-100 [&::-webkit-details-marker]:hidden dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10">
-      <svg class="h-3 w-3 shrink-0 text-gray-400 transition group-open/bash:rotate-90 dark:text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6" /></svg>
-      <svg class="h-3.5 w-3.5 shrink-0 text-gray-600 dark:text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6-6-6-6M12 19h8" /></svg>
-      <code class="min-w-0 flex-1 truncate font-mono text-[12px] text-gray-800 dark:text-gray-200">npm run test -- --reporter=dot</code>
+      <svg class="h-3 w-3 shrink-0 text-muted-foreground transition group-open/bash:rotate-90 dark:text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+      <svg class="h-3.5 w-3.5 shrink-0 text-muted-foreground dark:text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6-6-6-6M12 19h8" /></svg>
+      <code class="min-w-0 flex-1 truncate font-mono text-[12px] text-foreground dark:text-gray-200">npm run test -- --reporter=dot</code>
       <span class="flex shrink-0 items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[10.5px] font-medium text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400">
         <svg class="h-2.5 w-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
         exit 0
       </span>
     </summary>
-    <pre class="max-h-52 overflow-auto bg-white px-3 py-2.5 font-mono text-[11.5px] leading-relaxed text-gray-600 dark:bg-neutral-950 dark:text-muted-foreground">····················
+    <pre class="max-h-52 overflow-auto bg-white px-3 py-2.5 font-mono text-[11.5px] leading-relaxed text-muted-foreground dark:bg-neutral-950 dark:text-muted-foreground">····················
  Test Files  18 passed (18)
       Tests  214 passed (214)
    Duration  6.42s</pre>
     <div class="flex items-center justify-between border-t border-gray-200 px-3 py-1.5 dark:border-white/10">
-      <span class="text-[11px] text-gray-400 dark:text-muted-foreground">6.4s · 4 lines</span>
-      <span class="text-[11px] text-gray-400 dark:text-muted-foreground">exit 0</span>
+      <span class="text-[11px] text-muted-foreground dark:text-muted-foreground">6.4s · 4 lines</span>
+      <span class="text-[11px] text-muted-foreground dark:text-muted-foreground">exit 0</span>
     </div>
   </details>
 
@@ -30,7 +30,7 @@
     <summary class="flex cursor-pointer list-none items-center gap-2 bg-red-50/70 px-3 py-2 transition hover:bg-red-100/70 [&::-webkit-details-marker]:hidden dark:bg-red-500/10 dark:hover:bg-red-500/15">
       <svg class="h-3 w-3 shrink-0 text-red-400 transition group-open/bash:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6" /></svg>
       <svg class="h-3.5 w-3.5 shrink-0 text-red-500 dark:text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6-6-6-6M12 19h8" /></svg>
-      <code class="min-w-0 flex-1 truncate font-mono text-[12px] text-gray-800 dark:text-gray-200">pnpm build --filter web</code>
+      <code class="min-w-0 flex-1 truncate font-mono text-[12px] text-foreground dark:text-gray-200">pnpm build --filter web</code>
       <span class="shrink-0 rounded-full bg-red-100 px-2 py-0.5 text-[10.5px] font-medium text-red-700 dark:bg-red-500/15 dark:text-red-300">exit 1</span>
     </summary>
     <pre class="max-h-40 overflow-auto border-t border-red-200 bg-white px-3 py-2.5 font-mono text-[11.5px] leading-relaxed text-red-600 dark:border-red-500/25 dark:bg-neutral-950 dark:text-red-400">error TS2345: Argument of type 'string | undefined'

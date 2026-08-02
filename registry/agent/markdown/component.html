@@ -1,34 +1,34 @@
 <!-- Markdown — typography for rendered agent output (no plugin required) -->
-<article class="mx-auto w-full max-w-2xl text-[14.5px] leading-relaxed text-gray-800 dark:text-gray-200">
-  <h2 class="mb-2 text-[19px] font-semibold tracking-tight text-gray-900 dark:text-gray-100">Streaming the response</h2>
+<article class="mx-auto w-full max-w-2xl text-[14.5px] leading-relaxed text-foreground dark:text-gray-200">
+  <h2 class="mb-2 text-[19px] font-semibold tracking-tight text-foreground dark:text-gray-100">Streaming the response</h2>
   <p class="mb-4">
     The handler currently buffers the whole payload before writing. Switching to a stream keeps memory flat and lets the client render the
-    <span class="rounded bg-gray-100 px-1 py-0.5 font-mono text-[13px] text-gray-800 dark:bg-white/10 dark:text-gray-200">first token</span>
+    <span class="rounded bg-gray-100 px-1 py-0.5 font-mono text-[13px] text-foreground dark:bg-white/10 dark:text-gray-200">first token</span>
     immediately.
   </p>
 
-  <h3 class="mb-2 mt-6 text-[15.5px] font-semibold text-gray-900 dark:text-gray-100">What changes</h3>
+  <h3 class="mb-2 mt-6 text-[15.5px] font-semibold text-foreground dark:text-gray-100">What changes</h3>
   <ul class="mb-4 space-y-1.5 pl-5">
-    <li class="list-disc marker:text-gray-400 dark:marker:text-gray-600">Return a <span class="rounded bg-gray-100 px-1 py-0.5 font-mono text-[13px] text-gray-800 dark:bg-white/10 dark:text-gray-200">ReadableStream</span> instead of a string</li>
-    <li class="list-disc marker:text-gray-400 dark:marker:text-gray-600">Flush on every chunk boundary</li>
-    <li class="list-disc marker:text-gray-400 dark:marker:text-gray-600">Keep the error envelope identical for non-2xx paths</li>
+    <li class="list-disc marker:text-muted-foreground dark:marker:text-muted-foreground">Return a <span class="rounded bg-gray-100 px-1 py-0.5 font-mono text-[13px] text-foreground dark:bg-white/10 dark:text-gray-200">ReadableStream</span> instead of a string</li>
+    <li class="list-disc marker:text-muted-foreground dark:marker:text-muted-foreground">Flush on every chunk boundary</li>
+    <li class="list-disc marker:text-muted-foreground dark:marker:text-muted-foreground">Keep the error envelope identical for non-2xx paths</li>
   </ul>
 
   <ol class="mb-4 space-y-1.5 pl-5">
-    <li class="list-decimal marker:text-gray-400 dark:marker:text-gray-600">Wrap the source in a transform stream</li>
-    <li class="list-decimal marker:text-gray-400 dark:marker:text-gray-600">Set <span class="rounded bg-gray-100 px-1 py-0.5 font-mono text-[13px] text-gray-800 dark:bg-white/10 dark:text-gray-200">Transfer-Encoding: chunked</span></li>
+    <li class="list-decimal marker:text-muted-foreground dark:marker:text-muted-foreground">Wrap the source in a transform stream</li>
+    <li class="list-decimal marker:text-muted-foreground dark:marker:text-muted-foreground">Set <span class="rounded bg-gray-100 px-1 py-0.5 font-mono text-[13px] text-foreground dark:bg-white/10 dark:text-gray-200">Transfer-Encoding: chunked</span></li>
   </ol>
 
   <!-- Code block -->
   <div class="mb-4 overflow-hidden rounded-lg border border-gray-200 dark:border-white/10">
     <div class="flex items-center justify-between border-b border-gray-200 bg-gray-50 px-3 py-1.5 dark:border-white/10 dark:bg-white/5">
-      <span class="font-mono text-[11px] text-gray-600 dark:text-muted-foreground">handler.ts</span>
-      <button type="button" class="flex items-center gap-1 rounded px-1.5 py-0.5 text-[11px] text-gray-600 transition hover:bg-gray-200 hover:text-gray-800 dark:text-muted-foreground dark:hover:bg-white/10 dark:hover:text-gray-200">
+      <span class="font-mono text-[11px] text-muted-foreground dark:text-muted-foreground">handler.ts</span>
+      <button type="button" class="flex items-center gap-1 rounded px-1.5 py-0.5 text-[11px] text-muted-foreground transition hover:bg-gray-200 hover:text-foreground dark:text-muted-foreground dark:hover:bg-white/10 dark:hover:text-gray-200">
         <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2" /><path d="M5 15V5a2 2 0 012-2h10" /></svg>
         Copy
       </button>
     </div>
-    <pre class="overflow-x-auto bg-white p-3 font-mono text-[12.5px] leading-relaxed text-gray-800 dark:bg-neutral-950 dark:text-gray-200"><code>export async function GET(req: Request) {
+    <pre class="overflow-x-auto bg-white p-3 font-mono text-[12.5px] leading-relaxed text-foreground dark:bg-neutral-950 dark:text-gray-200"><code>export async function GET(req: Request) {
   const stream = source.pipeThrough(new TextEncoderStream())
   return new Response(stream, {
     headers: { "content-type": "text/event-stream" },
@@ -36,7 +36,7 @@
 }</code></pre>
   </div>
 
-  <blockquote class="mb-4 border-l-2 border-gray-300 pl-3 text-gray-600 italic dark:border-white/20 dark:text-muted-foreground">
+  <blockquote class="mb-4 border-l-2 border-gray-300 pl-3 text-muted-foreground italic dark:border-white/20 dark:text-muted-foreground">
     Buffered responses were capped at 8 MB — streaming removes that ceiling entirely.
   </blockquote>
 
@@ -45,21 +45,21 @@
     <table class="w-full border-collapse text-left text-[13px]">
       <thead class="bg-gray-50 dark:bg-white/5">
         <tr>
-          <th class="px-3 py-2 font-medium text-gray-700 dark:text-muted-foreground">Metric</th>
-          <th class="px-3 py-2 font-medium text-gray-700 dark:text-muted-foreground">Before</th>
-          <th class="px-3 py-2 font-medium text-gray-700 dark:text-muted-foreground">After</th>
+          <th class="px-3 py-2 font-medium text-muted-foreground dark:text-muted-foreground">Metric</th>
+          <th class="px-3 py-2 font-medium text-muted-foreground dark:text-muted-foreground">Before</th>
+          <th class="px-3 py-2 font-medium text-muted-foreground dark:text-muted-foreground">After</th>
         </tr>
       </thead>
       <tbody class="divide-y divide-gray-200 dark:divide-white/10">
         <tr>
-          <td class="px-3 py-2 text-gray-600 dark:text-muted-foreground">Time to first byte</td>
-          <td class="px-3 py-2 text-gray-600 dark:text-muted-foreground">1.9 s</td>
-          <td class="px-3 py-2 font-medium text-gray-900 dark:text-gray-100">40 ms</td>
+          <td class="px-3 py-2 text-muted-foreground dark:text-muted-foreground">Time to first byte</td>
+          <td class="px-3 py-2 text-muted-foreground dark:text-muted-foreground">1.9 s</td>
+          <td class="px-3 py-2 font-medium text-foreground dark:text-gray-100">40 ms</td>
         </tr>
         <tr>
-          <td class="px-3 py-2 text-gray-600 dark:text-muted-foreground">Peak memory</td>
-          <td class="px-3 py-2 text-gray-600 dark:text-muted-foreground">210 MB</td>
-          <td class="px-3 py-2 font-medium text-gray-900 dark:text-gray-100">28 MB</td>
+          <td class="px-3 py-2 text-muted-foreground dark:text-muted-foreground">Peak memory</td>
+          <td class="px-3 py-2 text-muted-foreground dark:text-muted-foreground">210 MB</td>
+          <td class="px-3 py-2 font-medium text-foreground dark:text-gray-100">28 MB</td>
         </tr>
       </tbody>
     </table>
@@ -67,7 +67,7 @@
 
   <hr class="my-5 border-gray-200 dark:border-white/10" />
 
-  <p class="text-[13px] text-gray-600 dark:text-muted-foreground">
-    See the <a href="#" class="font-medium text-gray-900 underline underline-offset-2 hover:text-gray-600 dark:text-gray-100 dark:hover:text-gray-300">streaming guide</a> for the client side.
+  <p class="text-[13px] text-muted-foreground dark:text-muted-foreground">
+    See the <a href="#" class="font-medium text-foreground underline underline-offset-2 hover:text-muted-foreground dark:text-gray-100 dark:hover:text-muted-foreground/70">streaming guide</a> for the client side.
   </p>
 </article>

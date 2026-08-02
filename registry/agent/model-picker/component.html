@@ -10,58 +10,58 @@
     <!-- One block per option; exactly one is visible, driven by which radio is checked. -->
     <span class="hidden items-center gap-2 group-has-[#model-picker-opus:checked]/picker:flex">
       <span class="flex h-5 w-5 items-center justify-center rounded-md bg-gray-900 text-[10px] font-semibold text-white dark:bg-white dark:text-neutral-900">O</span>
-      <span class="text-[13px] font-medium text-gray-900 dark:text-gray-100">Opus 4.8</span>
-      <span class="rounded bg-gray-100 px-1.5 py-0.5 text-[10px] font-medium text-gray-600 dark:bg-white/10 dark:text-muted-foreground">High</span>
+      <span class="text-[13px] font-medium text-foreground dark:text-gray-100">Opus 4.8</span>
+      <span class="rounded bg-gray-100 px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground dark:bg-white/10 dark:text-muted-foreground">High</span>
     </span>
     <span class="hidden items-center gap-2 group-has-[#model-picker-sonnet:checked]/picker:flex">
-      <span class="flex h-5 w-5 items-center justify-center rounded-md bg-gray-200 text-[10px] font-semibold text-gray-700 dark:bg-white/15 dark:text-gray-200">S</span>
-      <span class="text-[13px] font-medium text-gray-900 dark:text-gray-100">Sonnet 4.8</span>
+      <span class="flex h-5 w-5 items-center justify-center rounded-md bg-gray-200 text-[10px] font-semibold text-muted-foreground dark:bg-white/15 dark:text-gray-200">S</span>
+      <span class="text-[13px] font-medium text-foreground dark:text-gray-100">Sonnet 4.8</span>
     </span>
     <span class="hidden items-center gap-2 group-has-[#model-picker-haiku:checked]/picker:flex">
-      <span class="flex h-5 w-5 items-center justify-center rounded-md bg-gray-200 text-[10px] font-semibold text-gray-700 dark:bg-white/15 dark:text-gray-200">H</span>
-      <span class="text-[13px] font-medium text-gray-900 dark:text-gray-100">Haiku 4.5</span>
+      <span class="flex h-5 w-5 items-center justify-center rounded-md bg-gray-200 text-[10px] font-semibold text-muted-foreground dark:bg-white/15 dark:text-gray-200">H</span>
+      <span class="text-[13px] font-medium text-foreground dark:text-gray-100">Haiku 4.5</span>
     </span>
 
-    <svg class="h-3.5 w-3.5 shrink-0 text-gray-400 transition group-open/picker:rotate-180 dark:text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6" /></svg>
+    <svg class="h-3.5 w-3.5 shrink-0 text-muted-foreground transition group-open/picker:rotate-180 dark:text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6" /></svg>
   </summary>
 
   <!-- Menu -->
   <div class="absolute inset-x-0 z-10 mt-2 overflow-hidden rounded-xl border border-gray-200 bg-white p-1 shadow-lg shadow-gray-200/50 dark:border-white/10 dark:bg-neutral-950 dark:shadow-black/40" role="listbox" aria-label="Model">
-    <p class="px-2.5 py-1.5 text-[11px] font-medium uppercase tracking-wide text-gray-400 dark:text-muted-foreground">Available</p>
+    <p class="px-2.5 py-1.5 text-[11px] font-medium uppercase tracking-wide text-muted-foreground dark:text-muted-foreground">Available</p>
 
     <label for="model-picker-opus" role="option" class="relative flex w-full cursor-pointer items-start gap-2.5 rounded-lg px-2.5 py-2 text-left transition hover:bg-gray-50 has-checked:bg-gray-50 dark:hover:bg-white/5 dark:has-checked:bg-white/5">
       <input type="radio" name="model-picker-choice" id="model-picker-opus" class="peer sr-only" checked />
       <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-gray-900 text-[10px] font-semibold text-white dark:bg-white dark:text-neutral-900">O</span>
       <span class="min-w-0 flex-1">
-        <span class="block text-[13px] font-medium text-gray-900 dark:text-gray-100">Opus 4.8</span>
-        <span class="block text-[11.5px] text-gray-600 dark:text-muted-foreground">Deepest reasoning, slowest</span>
+        <span class="block text-[13px] font-medium text-foreground dark:text-gray-100">Opus 4.8</span>
+        <span class="block text-[11.5px] text-muted-foreground dark:text-muted-foreground">Deepest reasoning, slowest</span>
       </span>
-      <svg class="mt-0.5 hidden h-3.5 w-3.5 shrink-0 text-gray-900 peer-checked:block dark:text-gray-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
+      <svg class="mt-0.5 hidden h-3.5 w-3.5 shrink-0 text-foreground peer-checked:block dark:text-gray-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
     </label>
 
     <label for="model-picker-sonnet" role="option" class="relative flex w-full cursor-pointer items-start gap-2.5 rounded-lg px-2.5 py-2 text-left transition hover:bg-gray-50 has-checked:bg-gray-50 dark:hover:bg-white/5 dark:has-checked:bg-white/5">
       <input type="radio" name="model-picker-choice" id="model-picker-sonnet" class="peer sr-only" />
-      <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-gray-200 text-[10px] font-semibold text-gray-700 dark:bg-white/15 dark:text-gray-200">S</span>
+      <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-gray-200 text-[10px] font-semibold text-muted-foreground dark:bg-white/15 dark:text-gray-200">S</span>
       <span class="min-w-0 flex-1">
-        <span class="block text-[13px] font-medium text-gray-900 dark:text-gray-100">Sonnet 4.8</span>
-        <span class="block text-[11.5px] text-gray-600 dark:text-muted-foreground">Balanced for daily work</span>
+        <span class="block text-[13px] font-medium text-foreground dark:text-gray-100">Sonnet 4.8</span>
+        <span class="block text-[11.5px] text-muted-foreground dark:text-muted-foreground">Balanced for daily work</span>
       </span>
-      <svg class="mt-0.5 hidden h-3.5 w-3.5 shrink-0 text-gray-900 peer-checked:block dark:text-gray-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
+      <svg class="mt-0.5 hidden h-3.5 w-3.5 shrink-0 text-foreground peer-checked:block dark:text-gray-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
     </label>
 
     <label for="model-picker-haiku" role="option" class="relative flex w-full cursor-pointer items-start gap-2.5 rounded-lg px-2.5 py-2 text-left transition hover:bg-gray-50 has-checked:bg-gray-50 dark:hover:bg-white/5 dark:has-checked:bg-white/5">
       <input type="radio" name="model-picker-choice" id="model-picker-haiku" class="peer sr-only" />
-      <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-gray-200 text-[10px] font-semibold text-gray-700 dark:bg-white/15 dark:text-gray-200">H</span>
+      <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-gray-200 text-[10px] font-semibold text-muted-foreground dark:bg-white/15 dark:text-gray-200">H</span>
       <span class="min-w-0 flex-1">
-        <span class="block text-[13px] font-medium text-gray-900 dark:text-gray-100">Haiku 4.5</span>
-        <span class="block text-[11.5px] text-gray-600 dark:text-muted-foreground">Fastest, lowest cost</span>
+        <span class="block text-[13px] font-medium text-foreground dark:text-gray-100">Haiku 4.5</span>
+        <span class="block text-[11.5px] text-muted-foreground dark:text-muted-foreground">Fastest, lowest cost</span>
       </span>
-      <svg class="mt-0.5 hidden h-3.5 w-3.5 shrink-0 text-gray-900 peer-checked:block dark:text-gray-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
+      <svg class="mt-0.5 hidden h-3.5 w-3.5 shrink-0 text-foreground peer-checked:block dark:text-gray-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
     </label>
 
     <div class="my-1 h-px bg-gray-100 dark:bg-white/10"></div>
 
-    <button type="button" class="flex w-full items-center gap-2 rounded-lg px-2.5 py-2 text-[12.5px] text-gray-600 transition hover:bg-gray-50 dark:text-muted-foreground dark:hover:bg-white/5">
+    <button type="button" class="flex w-full items-center gap-2 rounded-lg px-2.5 py-2 text-[12.5px] text-muted-foreground transition hover:bg-gray-50 dark:text-muted-foreground dark:hover:bg-white/5">
       <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.7 1.7 0 00.3 1.9l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.9-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.1A1.7 1.7 0 008 19.4a1.7 1.7 0 00-1.9.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.9 1.7 1.7 0 00-1.5-1H2a2 2 0 110-4h.1A1.7 1.7 0 004.6 8a1.7 1.7 0 00-.3-1.9l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 001.9.3H9a1.7 1.7 0 001-1.5V2a2 2 0 114 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.9-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.9V9a1.7 1.7 0 001.5 1H22a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z" /></svg>
       Model settings
     </button>
