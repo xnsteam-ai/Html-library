@@ -29,11 +29,11 @@ function Preview({ item }: { item: RegistryItem }) {
     )
   }
 
-  // Sites: render centered directly, unframed so it has sharp corners.
+  // Sites: render scaled down to fit, with the container border showing.
   if (item.category === 'sites') {
     return (
-      <div className="w-full">
-        <ScreenFrame item={item} fit interactive unframed />
+      <div className="w-full pb-6">
+        <ScreenFrame item={item} fit interactive />
       </div>
     )
   }
