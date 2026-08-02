@@ -78,11 +78,12 @@ function ScreenCard({ item }: { item: RegistryItem }) {
     <div className="flex flex-col group">
       <a 
         href={componentHref(item.name)} 
-        className="relative flex items-center justify-center h-[200px] overflow-hidden rounded-xl border border-border bg-muted shadow-sm transition hover:shadow-md"
+        className="relative flex items-start justify-center h-[200px] overflow-hidden rounded-xl border border-border bg-muted shadow-sm transition hover:shadow-md"
       >
         <ScreenFrame
           item={item}
-          scale={CARD_SCALE[surface]}
+          fit={true}
+          unframed={true}
           clampHeight={surface === 'section' ? SECTION_CARD_CLAMP : undefined}
         />
       </a>
