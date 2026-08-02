@@ -1,0 +1,17 @@
+{
+  "name": "image-coconut-cooler-poster",
+  "title": "Coconut Cooler Poster",
+  "description": "Summer beverage poster for a coconut-flavoured cooler drink",
+  "category": "images",
+  "order": 81,
+  "status": "new",
+  "tagline": "Poster · Beverage",
+  "tags": [
+    "poster",
+    "beverage",
+    "product",
+    "summer"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

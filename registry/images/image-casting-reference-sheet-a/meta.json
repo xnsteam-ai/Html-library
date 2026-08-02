@@ -1,0 +1,17 @@
+{
+  "name": "image-casting-reference-sheet-a",
+  "title": "Casting Reference Sheet A",
+  "description": "Casting reference sheet pairing headshots with a colour and outfit palette",
+  "category": "images",
+  "order": 62,
+  "status": "new",
+  "tagline": "Reference · Casting",
+  "tags": [
+    "casting",
+    "reference",
+    "grid",
+    "fashion"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

@@ -1,0 +1,17 @@
+{
+  "name": "image-wildflower-field",
+  "title": "Wildflower Field",
+  "description": "Figure standing in a wind-blown field of yellow blooms",
+  "category": "images",
+  "order": 8,
+  "status": "new",
+  "tagline": "Lifestyle · Nature",
+  "tags": [
+    "nature",
+    "flowers",
+    "lifestyle",
+    "outdoor"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

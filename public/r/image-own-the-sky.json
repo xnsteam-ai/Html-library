@@ -1,0 +1,23 @@
+{
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
+  "name": "image-own-the-sky",
+  "title": "Own The Sky",
+  "description": "Bold blue sports poster with stacked display type",
+  "category": "images",
+  "type": "html",
+  "version": "0.1.0",
+  "tailwind": "^4.0.0",
+  "tags": [
+    "poster",
+    "sport",
+    "typography",
+    "blue"
+  ],
+  "files": [
+    {
+      "path": "image-own-the-sky.html",
+      "type": "html",
+      "content": "<!--\n  Own The Sky — 675×1200 JPEG from the HTML Library image set.\n  The width/height attributes reserve the box so the page does not shift\n  while the file downloads.\n-->\n<figure class=\"mx-auto w-full max-w-2xl\">\n  <img\n    src=\"https://xnsteam-ai.github.io/Html-library/images/2078854250428559727-1.jpg\"\n    alt=\"Bold blue sports poster with stacked display type\"\n    width=\"675\"\n    height=\"1200\"\n    class=\"h-auto w-full rounded-xl\"\n  />\n  <figcaption class=\"mt-2 text-[12px] text-gray-600\">Own The Sky · 675×1200</figcaption>\n</figure>\n"
+    }
+  ]
+}

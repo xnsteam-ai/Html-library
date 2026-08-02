@@ -1,0 +1,17 @@
+{
+  "name": "image-newsprint-editorial",
+  "title": "Newsprint Editorial",
+  "description": "Editorial layout pairing a purple blazer with newsprint",
+  "category": "images",
+  "order": 21,
+  "status": "new",
+  "tagline": "Editorial · Layout",
+  "tags": [
+    "editorial",
+    "layout",
+    "fashion",
+    "newsprint"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

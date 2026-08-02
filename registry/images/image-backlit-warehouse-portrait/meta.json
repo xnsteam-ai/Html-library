@@ -1,0 +1,17 @@
+{
+  "name": "image-backlit-warehouse-portrait",
+  "title": "Backlit Warehouse Portrait",
+  "description": "Moody portrait backlit inside an industrial warehouse space",
+  "category": "images",
+  "order": 44,
+  "status": "new",
+  "tagline": "Portrait · Moody",
+  "tags": [
+    "portrait",
+    "moody",
+    "industrial",
+    "cinematic"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

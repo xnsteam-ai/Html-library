@@ -1,0 +1,17 @@
+{
+  "name": "image-golden-cover",
+  "title": "Golden Cover",
+  "description": "Magazine-style cover portrait in a heavy gold treatment",
+  "category": "images",
+  "order": 12,
+  "status": "new",
+  "tagline": "Cover · Gold",
+  "tags": [
+    "cover",
+    "magazine",
+    "gold",
+    "portrait"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

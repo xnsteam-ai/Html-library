@@ -1,0 +1,17 @@
+{
+  "name": "image-beauty-close-up-necklace",
+  "title": "Beauty Close-Up",
+  "description": "Close beauty portrait framed around a delicate necklace",
+  "category": "images",
+  "order": 49,
+  "status": "new",
+  "tagline": "Portrait · Beauty",
+  "tags": [
+    "portrait",
+    "beauty",
+    "jewelry",
+    "close-up"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

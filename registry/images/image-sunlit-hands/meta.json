@@ -1,0 +1,17 @@
+{
+  "name": "image-sunlit-hands",
+  "title": "Sunlit Hands",
+  "description": "Hands reaching toward the lens through heavy sun flare",
+  "category": "images",
+  "order": 26,
+  "status": "new",
+  "tagline": "Portrait · Sunlit",
+  "tags": [
+    "portrait",
+    "sunlight",
+    "flare",
+    "warm"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

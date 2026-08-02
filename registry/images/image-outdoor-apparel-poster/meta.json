@@ -1,0 +1,17 @@
+{
+  "name": "image-outdoor-apparel-poster",
+  "title": "Outdoor Apparel Poster",
+  "description": "Outdoor apparel poster built around a lone hiking figure",
+  "category": "images",
+  "order": 47,
+  "status": "new",
+  "tagline": "Poster · Outdoor",
+  "tags": [
+    "poster",
+    "outdoor",
+    "apparel",
+    "editorial"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

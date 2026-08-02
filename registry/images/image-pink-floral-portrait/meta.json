@@ -1,0 +1,17 @@
+{
+  "name": "image-pink-floral-portrait",
+  "title": "Pink Floral Portrait",
+  "description": "Playful portrait styled in pink with floral props",
+  "category": "images",
+  "order": 106,
+  "status": "new",
+  "tagline": "Portrait · Beauty",
+  "tags": [
+    "portrait",
+    "floral",
+    "playful",
+    "pastel"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

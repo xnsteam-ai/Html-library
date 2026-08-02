@@ -1,0 +1,17 @@
+{
+  "name": "image-motion-blur-crowd",
+  "title": "Motion Blur Crowd",
+  "description": "Figures crossing a bright frame, rendered in long-exposure blur",
+  "category": "images",
+  "order": 5,
+  "status": "new",
+  "tagline": "Editorial · Motion",
+  "tags": [
+    "motion",
+    "blur",
+    "crowd",
+    "editorial"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

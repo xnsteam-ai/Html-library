@@ -1,0 +1,17 @@
+{
+  "name": "image-snack-beverage-grid",
+  "title": "Snack And Beverage Grid",
+  "description": "Four-up product grid spanning drinks and packaged snacks",
+  "category": "images",
+  "order": 108,
+  "status": "new",
+  "tagline": "Product · Grid",
+  "tags": [
+    "product",
+    "food",
+    "beverage",
+    "grid"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

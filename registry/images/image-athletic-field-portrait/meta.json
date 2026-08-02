@@ -1,0 +1,17 @@
+{
+  "name": "image-athletic-field-portrait",
+  "title": "Athletic Field Portrait",
+  "description": "Outdoor athletic portrait shot in a golden-lit open field",
+  "category": "images",
+  "order": 88,
+  "status": "new",
+  "tagline": "Portrait · Fitness",
+  "tags": [
+    "portrait",
+    "fitness",
+    "outdoor",
+    "golden hour"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

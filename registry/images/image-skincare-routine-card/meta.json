@@ -1,0 +1,17 @@
+{
+  "name": "image-skincare-routine-card",
+  "title": "Skincare Routine Card",
+  "description": "Infographic card walking through a multi-step skincare routine",
+  "category": "images",
+  "order": 53,
+  "status": "new",
+  "tagline": "Infographic · Skincare",
+  "tags": [
+    "infographic",
+    "beauty",
+    "skincare",
+    "product"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

@@ -1,0 +1,17 @@
+{
+  "name": "image-gym-pose-pink",
+  "title": "Gym Pose Portrait",
+  "description": "Gym portrait mid-pose in a pink cropped top",
+  "category": "images",
+  "order": 84,
+  "status": "new",
+  "tagline": "Portrait · Fitness",
+  "tags": [
+    "portrait",
+    "fitness",
+    "gym",
+    "athletic"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

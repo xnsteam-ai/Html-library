@@ -1,0 +1,17 @@
+{
+  "name": "image-soccer-jersey-portrait",
+  "title": "Soccer Jersey Portrait",
+  "description": "Fashion portrait styled around a soccer jersey and sunglasses",
+  "category": "images",
+  "order": 92,
+  "status": "new",
+  "tagline": "Portrait · Sport",
+  "tags": [
+    "portrait",
+    "sport",
+    "fashion",
+    "jersey"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

@@ -1,0 +1,17 @@
+{
+  "name": "image-beach-hat-portrait",
+  "title": "Beach Hat Portrait",
+  "description": "Poolside portrait in swimwear and a wide sun hat",
+  "category": "images",
+  "order": 55,
+  "status": "new",
+  "tagline": "Portrait · Summer",
+  "tags": [
+    "portrait",
+    "swimwear",
+    "beach",
+    "summer"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

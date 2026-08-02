@@ -1,0 +1,17 @@
+{
+  "name": "image-sky-skate-poster",
+  "title": "Sky Skate Poster",
+  "description": "Poster layout with a skater suspended against cloud cover",
+  "category": "images",
+  "order": 9,
+  "status": "new",
+  "tagline": "Poster · Sport",
+  "tags": [
+    "poster",
+    "skate",
+    "sky",
+    "sport"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

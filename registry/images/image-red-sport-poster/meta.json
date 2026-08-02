@@ -1,0 +1,17 @@
+{
+  "name": "image-red-sport-poster",
+  "title": "Red Sport Brand Poster",
+  "description": "Red-toned sportswear poster built around a single silhouetted figure",
+  "category": "images",
+  "order": 43,
+  "status": "new",
+  "tagline": "Poster · Sport",
+  "tags": [
+    "poster",
+    "sport",
+    "apparel",
+    "editorial"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

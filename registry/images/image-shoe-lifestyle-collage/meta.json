@@ -1,0 +1,17 @@
+{
+  "name": "image-shoe-lifestyle-collage",
+  "title": "Shoe Lifestyle Collage",
+  "description": "Six-up lifestyle collage built around a single footwear release",
+  "category": "images",
+  "order": 74,
+  "status": "new",
+  "tagline": "Product · Collage",
+  "tags": [
+    "product",
+    "footwear",
+    "collage",
+    "lifestyle"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

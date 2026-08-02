@@ -1,0 +1,17 @@
+{
+  "name": "image-puffer-jacket-pair",
+  "title": "Puffer Jacket Pair",
+  "description": "Product flat lay of a quilted puffer jacket shown in two colourways",
+  "category": "images",
+  "order": 32,
+  "status": "new",
+  "tagline": "Product · Apparel",
+  "tags": [
+    "product",
+    "apparel",
+    "jacket",
+    "flat lay"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

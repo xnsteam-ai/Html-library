@@ -1,0 +1,17 @@
+{
+  "name": "image-smart-glasses-badge",
+  "title": "Smart Glasses Badge",
+  "description": "Close crop on a pair of smart glasses with a circular product badge overlay",
+  "category": "images",
+  "order": 38,
+  "status": "new",
+  "tagline": "Product · Wearable",
+  "tags": [
+    "product",
+    "tech",
+    "wearable",
+    "badge"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

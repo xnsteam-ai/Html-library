@@ -1,0 +1,17 @@
+{
+  "name": "image-daisy-displacement",
+  "title": "Daisy Displacement",
+  "description": "Portrait broken by a horizontal glitch with a single daisy",
+  "category": "images",
+  "order": 6,
+  "status": "new",
+  "tagline": "Portrait · Glitch",
+  "tags": [
+    "portrait",
+    "glitch",
+    "floral",
+    "surreal"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

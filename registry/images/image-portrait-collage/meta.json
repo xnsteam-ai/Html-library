@@ -1,0 +1,17 @@
+{
+  "name": "image-portrait-collage",
+  "title": "Portrait Collage",
+  "description": "Scattered print collage of one sitting, polaroid style",
+  "category": "images",
+  "order": 22,
+  "status": "new",
+  "tagline": "Collage · Portrait",
+  "tags": [
+    "collage",
+    "portrait",
+    "polaroid",
+    "print"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

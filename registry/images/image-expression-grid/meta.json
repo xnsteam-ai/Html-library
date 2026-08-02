@@ -1,0 +1,17 @@
+{
+  "name": "image-expression-grid",
+  "title": "Expression Grid",
+  "description": "Nine-frame contact sheet of a single subject reacting",
+  "category": "images",
+  "order": 13,
+  "status": "new",
+  "tagline": "Grid · Contact sheet",
+  "tags": [
+    "grid",
+    "expressions",
+    "contact sheet",
+    "denim"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

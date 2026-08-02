@@ -1,0 +1,17 @@
+{
+  "name": "image-summer-twirl",
+  "title": "Summer Twirl",
+  "description": "Full-length shot of a white skirt caught against blue sky",
+  "category": "images",
+  "order": 15,
+  "status": "new",
+  "tagline": "Fashion · Summer",
+  "tags": [
+    "fashion",
+    "summer",
+    "sky",
+    "movement"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

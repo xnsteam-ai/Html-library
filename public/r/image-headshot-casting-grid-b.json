@@ -1,0 +1,23 @@
+{
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
+  "name": "image-headshot-casting-grid-b",
+  "title": "Headshot Casting Grid B",
+  "description": "Second nine-frame casting grid, same layout as Casting Grid A",
+  "category": "images",
+  "type": "html",
+  "version": "0.1.0",
+  "tailwind": "^4.0.0",
+  "tags": [
+    "casting",
+    "reference",
+    "grid",
+    "headshots"
+  ],
+  "files": [
+    {
+      "path": "image-headshot-casting-grid-b.html",
+      "type": "html",
+      "content": "<!--\n  Headshot Casting Grid B — 1200×1200 JPEG from the HTML Library image set.\n  The width/height attributes reserve the box so the page does not shift\n  while the file downloads.\n-->\n<figure class=\"mx-auto w-full max-w-2xl\">\n  <img\n    src=\"https://xnsteam-ai.github.io/Html-library/images/2055027622422175817-1.jpg\"\n    alt=\"Second nine-frame casting grid, same layout as Casting Grid A\"\n    width=\"1200\"\n    height=\"1200\"\n    class=\"h-auto w-full rounded-xl\"\n  />\n  <figcaption class=\"mt-2 text-[12px] text-gray-600\">Headshot Casting Grid B · 1200×1200</figcaption>\n</figure>\n"
+    }
+  ]
+}

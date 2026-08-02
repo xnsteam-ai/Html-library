@@ -1,0 +1,17 @@
+{
+  "name": "image-headphone-pop",
+  "title": "Headphone Pop",
+  "description": "High-energy portrait in a red cap and cushioned headphones",
+  "category": "images",
+  "order": 7,
+  "status": "new",
+  "tagline": "Portrait · Pop",
+  "tags": [
+    "portrait",
+    "music",
+    "colour",
+    "youth"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

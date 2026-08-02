@@ -1,0 +1,17 @@
+{
+  "name": "image-earbuds-product-poster",
+  "title": "Earbuds Product Poster",
+  "description": "Product poster for wireless earbuds with bold display type",
+  "category": "images",
+  "order": 90,
+  "status": "new",
+  "tagline": "Poster · Audio",
+  "tags": [
+    "poster",
+    "product",
+    "audio",
+    "tech"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

@@ -1,0 +1,17 @@
+{
+  "name": "image-motion-shoe-poster",
+  "title": "Motion Shoe Poster",
+  "description": "Running shoe poster with dynamic display type and motion styling",
+  "category": "images",
+  "order": 60,
+  "status": "new",
+  "tagline": "Poster · Footwear",
+  "tags": [
+    "poster",
+    "product",
+    "footwear",
+    "motion"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

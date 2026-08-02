@@ -1,0 +1,17 @@
+{
+  "name": "image-phantom-shoe-ad",
+  "title": "Phantom Shoe Ad",
+  "description": "High-energy running shoe advertisement with red display type",
+  "category": "images",
+  "order": 70,
+  "status": "new",
+  "tagline": "Poster · Footwear",
+  "tags": [
+    "poster",
+    "product",
+    "footwear",
+    "sport"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

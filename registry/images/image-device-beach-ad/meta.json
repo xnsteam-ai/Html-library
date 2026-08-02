@@ -1,0 +1,17 @@
+{
+  "name": "image-device-beach-ad",
+  "title": "Device Beach Ad",
+  "description": "Phone launch layout with a poolside lifestyle backdrop",
+  "category": "images",
+  "order": 18,
+  "status": "new",
+  "tagline": "Ad · Product",
+  "tags": [
+    "ad",
+    "device",
+    "product",
+    "lifestyle"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

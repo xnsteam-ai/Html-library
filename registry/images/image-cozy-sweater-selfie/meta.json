@@ -1,0 +1,17 @@
+{
+  "name": "image-cozy-sweater-selfie",
+  "title": "Cozy Sweater Selfie",
+  "description": "Casual selfie in an oversized, cozy sweater",
+  "category": "images",
+  "order": 96,
+  "status": "new",
+  "tagline": "Portrait · Casual",
+  "tags": [
+    "portrait",
+    "casual",
+    "cozy",
+    "lifestyle"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

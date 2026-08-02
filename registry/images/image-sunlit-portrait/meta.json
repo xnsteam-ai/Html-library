@@ -1,0 +1,17 @@
+{
+  "name": "image-sunlit-portrait",
+  "title": "Sunlit Portrait",
+  "description": "Backlit portrait in a cream dress against open sky",
+  "category": "images",
+  "order": 29,
+  "status": "new",
+  "tagline": "Portrait · Natural",
+  "tags": [
+    "portrait",
+    "sunlight",
+    "sky",
+    "natural"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

@@ -1,0 +1,17 @@
+{
+  "name": "image-idol-grid",
+  "title": "Idol Grid",
+  "description": "Six-frame idol photo set in a soft green wardrobe",
+  "category": "images",
+  "order": 20,
+  "status": "new",
+  "tagline": "Grid · Idol",
+  "tags": [
+    "grid",
+    "idol",
+    "green",
+    "portrait"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

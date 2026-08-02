@@ -1,0 +1,17 @@
+{
+  "name": "image-streetwear-character-figure",
+  "title": "Streetwear Character Figure",
+  "description": "Stylised character figure illustrated in streetwear",
+  "category": "images",
+  "order": 91,
+  "status": "new",
+  "tagline": "Illustration · Character",
+  "tags": [
+    "illustration",
+    "character design",
+    "streetwear",
+    "concept art"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

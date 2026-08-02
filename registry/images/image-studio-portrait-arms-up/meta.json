@@ -1,0 +1,17 @@
+{
+  "name": "image-studio-portrait-arms-up",
+  "title": "Studio Portrait, Arms Raised",
+  "description": "Studio portrait with arms raised, plain backdrop",
+  "category": "images",
+  "order": 95,
+  "status": "new",
+  "tagline": "Portrait · Studio",
+  "tags": [
+    "portrait",
+    "studio",
+    "beauty",
+    "editorial"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

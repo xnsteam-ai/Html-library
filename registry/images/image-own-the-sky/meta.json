@@ -1,0 +1,17 @@
+{
+  "name": "image-own-the-sky",
+  "title": "Own The Sky",
+  "description": "Bold blue sports poster with stacked display type",
+  "category": "images",
+  "order": 28,
+  "status": "new",
+  "tagline": "Poster · Sport",
+  "tags": [
+    "poster",
+    "sport",
+    "typography",
+    "blue"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

@@ -1,0 +1,17 @@
+{
+  "name": "image-plush-toy-set",
+  "title": "Plush Toy Set",
+  "description": "Four plush characters shot flat against clean backdrops",
+  "category": "images",
+  "order": 14,
+  "status": "new",
+  "tagline": "Product · Toys",
+  "tags": [
+    "product",
+    "plush",
+    "toys",
+    "grid"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

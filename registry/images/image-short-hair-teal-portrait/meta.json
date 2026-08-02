@@ -1,0 +1,17 @@
+{
+  "name": "image-short-hair-teal-portrait",
+  "title": "Short Hair Portrait",
+  "description": "Beauty portrait with a short hairstyle and cool teal grade",
+  "category": "images",
+  "order": 67,
+  "status": "new",
+  "tagline": "Portrait · Beauty",
+  "tags": [
+    "portrait",
+    "beauty",
+    "teal",
+    "hairstyle"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

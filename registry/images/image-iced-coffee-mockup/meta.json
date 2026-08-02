@@ -1,0 +1,17 @@
+{
+  "name": "image-iced-coffee-mockup",
+  "title": "Iced Coffee Mockup",
+  "description": "Beverage mockup with ice cubes suspended mid-splash",
+  "category": "images",
+  "order": 4,
+  "status": "new",
+  "tagline": "Product · Beverage",
+  "tags": [
+    "product",
+    "beverage",
+    "mockup",
+    "splash"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

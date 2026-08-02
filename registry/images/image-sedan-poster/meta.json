@@ -1,0 +1,17 @@
+{
+  "name": "image-sedan-poster",
+  "title": "Sedan Poster",
+  "description": "Studio automotive poster for a white sedan",
+  "category": "images",
+  "order": 80,
+  "status": "new",
+  "tagline": "Poster · Automotive",
+  "tags": [
+    "poster",
+    "automotive",
+    "sedan",
+    "product"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

@@ -1,0 +1,17 @@
+{
+  "name": "image-urban-street-portrait",
+  "title": "Urban Street Portrait",
+  "description": "Street portrait with visible tattoos and glasses, city backdrop",
+  "category": "images",
+  "order": 45,
+  "status": "new",
+  "tagline": "Portrait · Street",
+  "tags": [
+    "portrait",
+    "street",
+    "urban",
+    "menswear"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

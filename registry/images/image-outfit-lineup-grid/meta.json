@@ -1,0 +1,17 @@
+{
+  "name": "image-outfit-lineup-grid",
+  "title": "Outfit Lineup Grid",
+  "description": "Six-up grid lining up a menswear look across separate outfit changes",
+  "category": "images",
+  "order": 46,
+  "status": "new",
+  "tagline": "Fashion · Lookbook",
+  "tags": [
+    "fashion",
+    "lookbook",
+    "menswear",
+    "grid"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

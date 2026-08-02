@@ -1,0 +1,17 @@
+{
+  "name": "image-phone-case-exploded-view",
+  "title": "Phone Case Exploded View",
+  "description": "Exploded product view of a phone case showing its layered construction",
+  "category": "images",
+  "order": 41,
+  "status": "new",
+  "tagline": "Product · Diagram",
+  "tags": [
+    "product",
+    "tech",
+    "diagram",
+    "phone case"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

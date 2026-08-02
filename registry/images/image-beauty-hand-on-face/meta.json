@@ -1,0 +1,17 @@
+{
+  "name": "image-beauty-hand-on-face",
+  "title": "Beauty Portrait, Hand On Face",
+  "description": "Studio beauty portrait with the hand framing the jawline",
+  "category": "images",
+  "order": 93,
+  "status": "new",
+  "tagline": "Portrait · Beauty",
+  "tags": [
+    "portrait",
+    "beauty",
+    "studio",
+    "elegant"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

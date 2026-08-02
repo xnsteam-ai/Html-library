@@ -1,0 +1,17 @@
+{
+  "name": "image-winter-jacket-ad",
+  "title": "Winter Jacket Ad",
+  "description": "Cold-weather jacket advertisement with bold exploration-themed copy",
+  "category": "images",
+  "order": 56,
+  "status": "new",
+  "tagline": "Poster · Apparel",
+  "tags": [
+    "poster",
+    "apparel",
+    "winter",
+    "editorial"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

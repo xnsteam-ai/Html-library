@@ -1,0 +1,17 @@
+{
+  "name": "image-roast-chicken-recipe-card",
+  "title": "Roast Chicken Recipe Card",
+  "description": "Recipe infographic card laying out ingredients and steps for a roast chicken",
+  "category": "images",
+  "order": 40,
+  "status": "new",
+  "tagline": "Infographic · Food",
+  "tags": [
+    "infographic",
+    "food",
+    "recipe",
+    "card"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

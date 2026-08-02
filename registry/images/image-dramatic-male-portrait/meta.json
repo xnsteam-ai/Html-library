@@ -1,0 +1,17 @@
+{
+  "name": "image-dramatic-male-portrait",
+  "title": "Dramatic Male Portrait",
+  "description": "Low-key dramatic portrait, hand resting on the chin",
+  "category": "images",
+  "order": 103,
+  "status": "new",
+  "tagline": "Portrait · Moody",
+  "tags": [
+    "portrait",
+    "moody",
+    "editorial",
+    "dark"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

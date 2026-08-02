@@ -9,6 +9,7 @@ import {
 } from '../../registry'
 import { useCopy } from '../hooks/useCopy'
 import { previewHref } from '../hooks/useHashRoute'
+import { previewHtml } from '../lib/previewHtml'
 import { toStandaloneHtml } from '../lib/standaloneHtml'
 import { CodeBlock } from './CodeBlock'
 import { ScreenFrame } from './ScreenFrame'
@@ -47,7 +48,7 @@ function Preview({ item }: { item: RegistryItem }) {
     >
       {/* Registry components are static HTML; Tailwind scans registry/**\/*.html
           so every utility they use exists in this stylesheet. */}
-      <div className="w-full" dangerouslySetInnerHTML={{ __html: item.html }} />
+      <div className="w-full" dangerouslySetInnerHTML={{ __html: previewHtml(item) }} />
     </div>
   )
 }

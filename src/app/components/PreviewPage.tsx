@@ -2,6 +2,7 @@ import { ArrowLeft, Moon, Sun } from 'lucide-react'
 import { getComponent, type RegistryItem } from '../../registry'
 import { componentHref } from '../hooks/useHashRoute'
 import { useTheme } from '../hooks/useTheme'
+import { previewHtml } from '../lib/previewHtml'
 import { ScreenFrame } from './ScreenFrame'
 
 /**
@@ -111,7 +112,7 @@ function Rendered({ item }: { item: RegistryItem }) {
 
   return (
     <div className="min-h-screen p-8 pt-16">
-      <div dangerouslySetInnerHTML={{ __html: item.html }} />
+      <div dangerouslySetInnerHTML={{ __html: previewHtml(item) }} />
     </div>
   )
 }

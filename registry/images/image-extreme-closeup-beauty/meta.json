@@ -1,0 +1,17 @@
+{
+  "name": "image-extreme-closeup-beauty",
+  "title": "Extreme Close-Up Beauty",
+  "description": "Extreme close-up beauty portrait focused on the eyes and skin",
+  "category": "images",
+  "order": 105,
+  "status": "new",
+  "tagline": "Portrait · Beauty",
+  "tags": [
+    "portrait",
+    "beauty",
+    "close-up",
+    "editorial"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

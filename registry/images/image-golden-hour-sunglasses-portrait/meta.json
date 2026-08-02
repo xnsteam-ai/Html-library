@@ -1,0 +1,17 @@
+{
+  "name": "image-golden-hour-sunglasses-portrait",
+  "title": "Golden Hour Sunglasses Portrait",
+  "description": "Warm-lit portrait in sunglasses and gold jewellery",
+  "category": "images",
+  "order": 97,
+  "status": "new",
+  "tagline": "Portrait · Beauty",
+  "tags": [
+    "portrait",
+    "beauty",
+    "sunglasses",
+    "golden hour"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

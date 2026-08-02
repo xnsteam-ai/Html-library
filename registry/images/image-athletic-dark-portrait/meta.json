@@ -1,0 +1,17 @@
+{
+  "name": "image-athletic-dark-portrait",
+  "title": "Athletic Dark Portrait",
+  "description": "Low-key athletic portrait shot against a dark background",
+  "category": "images",
+  "order": 68,
+  "status": "new",
+  "tagline": "Portrait · Fitness",
+  "tags": [
+    "portrait",
+    "fitness",
+    "dark",
+    "editorial"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

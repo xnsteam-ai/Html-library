@@ -1,0 +1,23 @@
+{
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
+  "name": "image-dramatic-male-portrait",
+  "title": "Dramatic Male Portrait",
+  "description": "Low-key dramatic portrait, hand resting on the chin",
+  "category": "images",
+  "type": "html",
+  "version": "0.1.0",
+  "tailwind": "^4.0.0",
+  "tags": [
+    "portrait",
+    "moody",
+    "editorial",
+    "dark"
+  ],
+  "files": [
+    {
+      "path": "image-dramatic-male-portrait.html",
+      "type": "html",
+      "content": "<!--\n  Dramatic Male Portrait — 720×964 JPEG from the HTML Library image set.\n  The width/height attributes reserve the box so the page does not shift\n  while the file downloads.\n-->\n<figure class=\"mx-auto w-full max-w-2xl\">\n  <img\n    src=\"https://xnsteam-ai.github.io/Html-library/images/2075226498416431473-1.jpg\"\n    alt=\"Low-key dramatic portrait, hand resting on the chin\"\n    width=\"720\"\n    height=\"964\"\n    class=\"h-auto w-full rounded-xl\"\n  />\n  <figcaption class=\"mt-2 text-[12px] text-gray-600\">Dramatic Male Portrait · 720×964</figcaption>\n</figure>\n"
+    }
+  ]
+}

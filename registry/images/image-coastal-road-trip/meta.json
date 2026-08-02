@@ -1,0 +1,17 @@
+{
+  "name": "image-coastal-road-trip",
+  "title": "Coastal Road Trip",
+  "description": "A van parked on a coastal road lined with wildflowers",
+  "category": "images",
+  "order": 61,
+  "status": "new",
+  "tagline": "Landscape · Travel",
+  "tags": [
+    "landscape",
+    "travel",
+    "coastal",
+    "van"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

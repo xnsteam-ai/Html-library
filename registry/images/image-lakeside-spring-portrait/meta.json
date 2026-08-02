@@ -1,0 +1,17 @@
+{
+  "name": "image-lakeside-spring-portrait",
+  "title": "Lakeside Spring Portrait",
+  "description": "Outdoor portrait beside a lake in soft spring light",
+  "category": "images",
+  "order": 65,
+  "status": "new",
+  "tagline": "Portrait · Outdoor",
+  "tags": [
+    "portrait",
+    "outdoor",
+    "spring",
+    "lifestyle"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

@@ -1,0 +1,17 @@
+{
+  "name": "image-yellow-sports-car-poster",
+  "title": "Yellow Sports Car Poster",
+  "description": "Automotive poster for a yellow sports car against a dark backdrop",
+  "category": "images",
+  "order": 51,
+  "status": "new",
+  "tagline": "Poster · Automotive",
+  "tags": [
+    "poster",
+    "automotive",
+    "sports car",
+    "product"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

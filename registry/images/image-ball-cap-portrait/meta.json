@@ -1,0 +1,17 @@
+{
+  "name": "image-ball-cap-portrait",
+  "title": "Ball Cap Portrait",
+  "description": "Relaxed studio portrait in a ball cap and blazer",
+  "category": "images",
+  "order": 31,
+  "status": "new",
+  "tagline": "Portrait · Casual",
+  "tags": [
+    "portrait",
+    "casual",
+    "studio",
+    "neutral"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

@@ -1,0 +1,17 @@
+{
+  "name": "image-mascot-hoodie",
+  "title": "Mascot Hoodie",
+  "description": "Character mascot standing beside a matching blue hoodie",
+  "category": "images",
+  "order": 19,
+  "status": "new",
+  "tagline": "Character · Mascot",
+  "tags": [
+    "mascot",
+    "character",
+    "blue",
+    "apparel"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

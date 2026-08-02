@@ -1,0 +1,17 @@
+{
+  "name": "image-headshot-casting-grid-b",
+  "title": "Headshot Casting Grid B",
+  "description": "Second nine-frame casting grid, same layout as Casting Grid A",
+  "category": "images",
+  "order": 72,
+  "status": "new",
+  "tagline": "Reference · Casting",
+  "tags": [
+    "casting",
+    "reference",
+    "grid",
+    "headshots"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

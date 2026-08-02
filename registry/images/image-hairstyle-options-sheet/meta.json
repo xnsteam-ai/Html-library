@@ -1,0 +1,17 @@
+{
+  "name": "image-hairstyle-options-sheet",
+  "title": "Hairstyle Options Sheet",
+  "description": "Reference sheet comparing hairstyle options on the same subject",
+  "category": "images",
+  "order": 87,
+  "status": "new",
+  "tagline": "Reference · Beauty",
+  "tags": [
+    "reference",
+    "beauty",
+    "hairstyle",
+    "grid"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

@@ -1,4 +1,4 @@
-export type CategoryId = 'apps' | 'sites' | 'agent' | 'ui'
+export type CategoryId = 'images' | 'apps' | 'sites' | 'agent' | 'ui'
 
 /**
  * Category decides where an item lives; surface decides how it draws. Keeping
@@ -41,27 +41,33 @@ export const CATEGORY_META: Record<
   CategoryId,
   { title: string; blurb: string; order: number; gallery?: boolean }
 > = {
+  images: {
+    title: 'Images',
+    blurb: 'Ready-to-paste photography, served from a CDN that resizes on the fly.',
+    order: 1,
+    gallery: true,
+  },
   apps: {
     title: 'Apps',
     blurb: 'Complete mobile app screens, drawn at 390×844.',
-    order: 1,
+    order: 2,
     gallery: true,
   },
   sites: {
     title: 'Sites',
     blurb: 'Website pages and the marketing sections they are built from.',
-    order: 2,
+    order: 3,
     gallery: true,
   },
   agent: {
     title: 'Agent Elements',
     blurb: 'Chat surfaces, composers and tool-call cards for agent interfaces.',
-    order: 3,
+    order: 4,
   },
   ui: {
     title: 'UI Elements',
     blurb: 'General-purpose primitives that pair with the agent set.',
-    order: 4,
+    order: 5,
   },
 }
 

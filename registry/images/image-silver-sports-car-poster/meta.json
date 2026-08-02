@@ -1,0 +1,17 @@
+{
+  "name": "image-silver-sports-car-poster",
+  "title": "Silver Sports Car Poster",
+  "description": "Automotive poster for a silver sports car, studio lit",
+  "category": "images",
+  "order": 98,
+  "status": "new",
+  "tagline": "Poster · Automotive",
+  "tags": [
+    "poster",
+    "automotive",
+    "sports car",
+    "product"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

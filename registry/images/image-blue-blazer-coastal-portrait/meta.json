@@ -1,0 +1,17 @@
+{
+  "name": "image-blue-blazer-coastal-portrait",
+  "title": "Blue Blazer Coastal Portrait",
+  "description": "Editorial portrait in a blue blazer against a coastal backdrop",
+  "category": "images",
+  "order": 107,
+  "status": "new",
+  "tagline": "Portrait · Fashion",
+  "tags": [
+    "portrait",
+    "fashion",
+    "coastal",
+    "editorial"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

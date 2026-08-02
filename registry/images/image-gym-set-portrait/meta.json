@@ -1,0 +1,17 @@
+{
+  "name": "image-gym-set-portrait",
+  "title": "Gym Set Portrait",
+  "description": "Evening gym portrait in a matching cropped set",
+  "category": "images",
+  "order": 75,
+  "status": "new",
+  "tagline": "Portrait · Fitness",
+  "tags": [
+    "portrait",
+    "fitness",
+    "gym",
+    "athletic"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

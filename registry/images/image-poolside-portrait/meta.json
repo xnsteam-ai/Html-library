@@ -1,0 +1,17 @@
+{
+  "name": "image-poolside-portrait",
+  "title": "Poolside Portrait",
+  "description": "Poolside swimwear portrait with palm trees in the background",
+  "category": "images",
+  "order": 77,
+  "status": "new",
+  "tagline": "Portrait · Summer",
+  "tags": [
+    "portrait",
+    "swimwear",
+    "pool",
+    "summer"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

@@ -1,0 +1,17 @@
+{
+  "name": "image-day-night-comparison",
+  "title": "Day And Night Comparison",
+  "description": "Split portrait comparing the same look under daylight and evening light",
+  "category": "images",
+  "order": 33,
+  "status": "new",
+  "tagline": "Portrait · Comparison",
+  "tags": [
+    "portrait",
+    "comparison",
+    "beauty",
+    "split"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

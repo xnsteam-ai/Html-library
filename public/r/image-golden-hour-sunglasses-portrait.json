@@ -1,0 +1,23 @@
+{
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
+  "name": "image-golden-hour-sunglasses-portrait",
+  "title": "Golden Hour Sunglasses Portrait",
+  "description": "Warm-lit portrait in sunglasses and gold jewellery",
+  "category": "images",
+  "type": "html",
+  "version": "0.1.0",
+  "tailwind": "^4.0.0",
+  "tags": [
+    "portrait",
+    "beauty",
+    "sunglasses",
+    "golden hour"
+  ],
+  "files": [
+    {
+      "path": "image-golden-hour-sunglasses-portrait.html",
+      "type": "html",
+      "content": "<!--\n  Golden Hour Sunglasses Portrait — 960×1200 JPEG from the HTML Library image set.\n  The width/height attributes reserve the box so the page does not shift\n  while the file downloads.\n-->\n<figure class=\"mx-auto w-full max-w-2xl\">\n  <img\n    src=\"https://xnsteam-ai.github.io/Html-library/images/2070376172534612150-1.jpg\"\n    alt=\"Warm-lit portrait in sunglasses and gold jewellery\"\n    width=\"960\"\n    height=\"1200\"\n    class=\"h-auto w-full rounded-xl\"\n  />\n  <figcaption class=\"mt-2 text-[12px] text-gray-600\">Golden Hour Sunglasses Portrait · 960×1200</figcaption>\n</figure>\n"
+    }
+  ]
+}

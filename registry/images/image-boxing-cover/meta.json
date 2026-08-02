@@ -1,0 +1,17 @@
+{
+  "name": "image-boxing-cover",
+  "title": "Boxing Cover",
+  "description": "Sports magazine cover with heavy display typography",
+  "category": "images",
+  "order": 16,
+  "status": "new",
+  "tagline": "Cover · Sport",
+  "tags": [
+    "cover",
+    "magazine",
+    "sport",
+    "typography"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

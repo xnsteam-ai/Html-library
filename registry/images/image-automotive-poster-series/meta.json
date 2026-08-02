@@ -1,0 +1,17 @@
+{
+  "name": "image-automotive-poster-series",
+  "title": "Automotive Poster Series",
+  "description": "Multi-panel automotive poster series built around one model",
+  "category": "images",
+  "order": 109,
+  "status": "new",
+  "tagline": "Poster · Automotive",
+  "tags": [
+    "poster",
+    "automotive",
+    "product",
+    "editorial"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

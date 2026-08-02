@@ -1,0 +1,17 @@
+{
+  "name": "image-snow-sport-portrait",
+  "title": "Snow Sport Portrait",
+  "description": "Winter sport portrait in a blue technical outfit against overcast sky",
+  "category": "images",
+  "order": 48,
+  "status": "new",
+  "tagline": "Portrait · Winter",
+  "tags": [
+    "portrait",
+    "winter",
+    "sport",
+    "blue"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

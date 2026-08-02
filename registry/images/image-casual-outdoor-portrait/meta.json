@@ -1,0 +1,17 @@
+{
+  "name": "image-casual-outdoor-portrait",
+  "title": "Casual Outdoor Portrait",
+  "description": "Relaxed outdoor portrait in casual streetwear",
+  "category": "images",
+  "order": 66,
+  "status": "new",
+  "tagline": "Portrait · Casual",
+  "tags": [
+    "portrait",
+    "casual",
+    "lifestyle",
+    "outdoor"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

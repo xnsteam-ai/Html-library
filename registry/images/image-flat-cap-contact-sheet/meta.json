@@ -1,0 +1,17 @@
+{
+  "name": "image-flat-cap-contact-sheet",
+  "title": "Flat Cap Contact Sheet",
+  "description": "Six-frame contact sheet of one subject in a flat cap, shot from varied angles",
+  "category": "images",
+  "order": 34,
+  "status": "new",
+  "tagline": "Reference · Contact sheet",
+  "tags": [
+    "portrait",
+    "contact sheet",
+    "grid",
+    "casting reference"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

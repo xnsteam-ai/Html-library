@@ -1,0 +1,17 @@
+{
+  "name": "image-sunglasses-product-poster",
+  "title": "Sunglasses Product Poster",
+  "description": "Editorial product poster for a pair of sunglasses",
+  "category": "images",
+  "order": 64,
+  "status": "new",
+  "tagline": "Poster · Eyewear",
+  "tags": [
+    "poster",
+    "product",
+    "eyewear",
+    "editorial"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

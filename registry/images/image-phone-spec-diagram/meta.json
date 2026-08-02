@@ -1,0 +1,17 @@
+{
+  "name": "image-phone-spec-diagram",
+  "title": "Phone Spec Diagram",
+  "description": "Exploded product diagram calling out a phone’s ports and hardware details",
+  "category": "images",
+  "order": 35,
+  "status": "new",
+  "tagline": "Product · Diagram",
+  "tags": [
+    "product",
+    "tech",
+    "diagram",
+    "phone"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

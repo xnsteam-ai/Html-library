@@ -1,0 +1,17 @@
+{
+  "name": "image-striped-wall-portrait",
+  "title": "Striped Wall Portrait",
+  "description": "Kneeling fashion portrait against a bold striped wall",
+  "category": "images",
+  "order": 104,
+  "status": "new",
+  "tagline": "Portrait · Fashion",
+  "tags": [
+    "portrait",
+    "colorful",
+    "studio",
+    "fashion"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

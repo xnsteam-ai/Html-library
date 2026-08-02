@@ -1,0 +1,17 @@
+{
+  "name": "image-blue-coupe-poster",
+  "title": "Blue Coupe Poster",
+  "description": "Automotive poster for a blue coupe shot low and wide",
+  "category": "images",
+  "order": 54,
+  "status": "new",
+  "tagline": "Poster · Automotive",
+  "tags": [
+    "poster",
+    "automotive",
+    "coupe",
+    "product"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

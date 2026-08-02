@@ -1,0 +1,23 @@
+{
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
+  "name": "image-coconut-cooler-poster",
+  "title": "Coconut Cooler Poster",
+  "description": "Summer beverage poster for a coconut-flavoured cooler drink",
+  "category": "images",
+  "type": "html",
+  "version": "0.1.0",
+  "tailwind": "^4.0.0",
+  "tags": [
+    "poster",
+    "beverage",
+    "product",
+    "summer"
+  ],
+  "files": [
+    {
+      "path": "image-coconut-cooler-poster.html",
+      "type": "html",
+      "content": "<!--\n  Coconut Cooler Poster — 960×1200 JPEG from the HTML Library image set.\n  The width/height attributes reserve the box so the page does not shift\n  while the file downloads.\n-->\n<figure class=\"mx-auto w-full max-w-2xl\">\n  <img\n    src=\"https://xnsteam-ai.github.io/Html-library/images/2059899126012060134-1.jpg\"\n    alt=\"Summer beverage poster for a coconut-flavoured cooler drink\"\n    width=\"960\"\n    height=\"1200\"\n    class=\"h-auto w-full rounded-xl\"\n  />\n  <figcaption class=\"mt-2 text-[12px] text-gray-600\">Coconut Cooler Poster · 960×1200</figcaption>\n</figure>\n"
+    }
+  ]
+}

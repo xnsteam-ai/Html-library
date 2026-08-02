@@ -1,0 +1,17 @@
+{
+  "name": "image-mirror-selfie-athletic",
+  "title": "Mirror Selfie, Athletic Wear",
+  "description": "Mirror selfie in a cropped top and shorts, gym-adjacent styling",
+  "category": "images",
+  "order": 37,
+  "status": "new",
+  "tagline": "Portrait · Lifestyle",
+  "tags": [
+    "portrait",
+    "fitness",
+    "selfie",
+    "lifestyle"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

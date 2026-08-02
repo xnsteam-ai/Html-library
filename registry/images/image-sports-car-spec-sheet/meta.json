@@ -1,0 +1,17 @@
+{
+  "name": "image-sports-car-spec-sheet",
+  "title": "Sports Car Spec Sheet",
+  "description": "Spec-sheet style automotive poster laying out model details",
+  "category": "images",
+  "order": 52,
+  "status": "new",
+  "tagline": "Poster · Automotive",
+  "tags": [
+    "poster",
+    "automotive",
+    "spec sheet",
+    "product"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

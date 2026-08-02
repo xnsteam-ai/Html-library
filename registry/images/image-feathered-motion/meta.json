@@ -1,0 +1,17 @@
+{
+  "name": "image-feathered-motion",
+  "title": "Feathered Motion",
+  "description": "Editorial portrait with black feathers caught mid-motion",
+  "category": "images",
+  "order": 1,
+  "status": "new",
+  "tagline": "Editorial · Portrait",
+  "tags": [
+    "portrait",
+    "editorial",
+    "dark",
+    "fashion"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

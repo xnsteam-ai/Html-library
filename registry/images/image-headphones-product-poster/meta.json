@@ -1,0 +1,17 @@
+{
+  "name": "image-headphones-product-poster",
+  "title": "Headphones Product Poster",
+  "description": "Lifestyle product poster for over-ear headphones, worn in frame",
+  "category": "images",
+  "order": 50,
+  "status": "new",
+  "tagline": "Poster · Audio",
+  "tags": [
+    "poster",
+    "product",
+    "audio",
+    "tech"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

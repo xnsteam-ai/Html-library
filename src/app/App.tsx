@@ -4,6 +4,7 @@ import { CATEGORY_META, getComponent } from '../registry'
 import { CommandPalette } from './components/CommandPalette'
 import { ComponentPage } from './components/ComponentPage'
 import { Gallery } from './components/Gallery'
+import { ImagesGallery } from './components/ImagesGallery'
 import { PreviewPage } from './components/PreviewPage'
 import { Sidebar } from './components/Sidebar'
 import { docHref, useHashRoute, type Route } from './hooks/useHashRoute'
@@ -51,6 +52,8 @@ function breadcrumb(route: Route): string {
 function Content({ route }: { route: Route }) {
   // Keyed by category so switching galleries clears the previous one's search
   // term, which would otherwise leave the new gallery looking empty.
+  // Images browse as a photo shelf + masonry wall rather than a card grid.
+  if (route.kind === 'gallery' && route.category === 'images') return <ImagesGallery />
   if (route.kind === 'gallery') return <Gallery key={route.category} category={route.category} />
   if (route.kind === 'component') {
     const item = getComponent(route.name)

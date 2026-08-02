@@ -1,0 +1,17 @@
+{
+  "name": "image-feather-collar",
+  "title": "Feather Collar",
+  "description": "Studio portrait framed by a soft white feather collar",
+  "category": "images",
+  "order": 10,
+  "status": "new",
+  "tagline": "Portrait · Studio",
+  "tags": [
+    "portrait",
+    "studio",
+    "feather",
+    "teal"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

@@ -1,0 +1,17 @@
+{
+  "name": "image-skincare-sheet",
+  "title": "Skincare Product Sheet",
+  "description": "Product grid pairing serum bottles with fresh cucumber styling",
+  "category": "images",
+  "order": 3,
+  "status": "new",
+  "tagline": "Product · Grid",
+  "tags": [
+    "product",
+    "skincare",
+    "grid",
+    "commercial"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

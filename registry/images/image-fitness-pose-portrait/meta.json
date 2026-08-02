@@ -1,0 +1,17 @@
+{
+  "name": "image-fitness-pose-portrait",
+  "title": "Fitness Pose Portrait",
+  "description": "Gym portrait captured mid stretch, athletic styling",
+  "category": "images",
+  "order": 59,
+  "status": "new",
+  "tagline": "Portrait · Fitness",
+  "tags": [
+    "portrait",
+    "fitness",
+    "gym",
+    "athletic"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

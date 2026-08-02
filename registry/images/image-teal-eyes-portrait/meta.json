@@ -1,0 +1,17 @@
+{
+  "name": "image-teal-eyes-portrait",
+  "title": "Teal Eyes Portrait",
+  "description": "Close portrait with a cool teal grade and the eyes lit as the focal point",
+  "category": "images",
+  "order": 39,
+  "status": "new",
+  "tagline": "Portrait · Beauty",
+  "tags": [
+    "portrait",
+    "beauty",
+    "teal",
+    "mood"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

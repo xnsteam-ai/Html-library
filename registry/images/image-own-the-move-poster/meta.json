@@ -1,0 +1,17 @@
+{
+  "name": "image-own-the-move-poster",
+  "title": "Own The Move Poster",
+  "description": "Bold sportswear poster built around stacked display type",
+  "category": "images",
+  "order": 86,
+  "status": "new",
+  "tagline": "Poster · Sport",
+  "tags": [
+    "poster",
+    "sport",
+    "apparel",
+    "editorial"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

@@ -1,0 +1,17 @@
+{
+  "name": "image-headshot-casting-grid-a",
+  "title": "Headshot Casting Grid A",
+  "description": "Nine-frame casting grid of consistent headshots for one subject",
+  "category": "images",
+  "order": 69,
+  "status": "new",
+  "tagline": "Reference · Casting",
+  "tags": [
+    "casting",
+    "reference",
+    "grid",
+    "headshots"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

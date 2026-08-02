@@ -1,0 +1,17 @@
+{
+  "name": "image-casual-bedroom-selfie",
+  "title": "Casual Bedroom Selfie",
+  "description": "Fully clothed casual selfie taken at home, phone visible in frame",
+  "category": "images",
+  "order": 99,
+  "status": "new",
+  "tagline": "Portrait · Casual",
+  "tags": [
+    "portrait",
+    "casual",
+    "lifestyle",
+    "selfie"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

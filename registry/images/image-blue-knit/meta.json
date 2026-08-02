@@ -1,0 +1,17 @@
+{
+  "name": "image-blue-knit",
+  "title": "Blue Knit",
+  "description": "Warm-lit portrait in an oversized cobalt knit",
+  "category": "images",
+  "order": 27,
+  "status": "new",
+  "tagline": "Portrait · Knit",
+  "tags": [
+    "portrait",
+    "knit",
+    "blue",
+    "warm"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

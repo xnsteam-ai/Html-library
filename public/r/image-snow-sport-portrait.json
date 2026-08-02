@@ -1,0 +1,23 @@
+{
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
+  "name": "image-snow-sport-portrait",
+  "title": "Snow Sport Portrait",
+  "description": "Winter sport portrait in a blue technical outfit against overcast sky",
+  "category": "images",
+  "type": "html",
+  "version": "0.1.0",
+  "tailwind": "^4.0.0",
+  "tags": [
+    "portrait",
+    "winter",
+    "sport",
+    "blue"
+  ],
+  "files": [
+    {
+      "path": "image-snow-sport-portrait.html",
+      "type": "html",
+      "content": "<!--\n  Snow Sport Portrait — 736×1006 JPEG from the HTML Library image set.\n  The width/height attributes reserve the box so the page does not shift\n  while the file downloads.\n-->\n<figure class=\"mx-auto w-full max-w-2xl\">\n  <img\n    src=\"https://xnsteam-ai.github.io/Html-library/images/2042461948336595020-1.jpg\"\n    alt=\"Winter sport portrait in a blue technical outfit against overcast sky\"\n    width=\"736\"\n    height=\"1006\"\n    class=\"h-auto w-full rounded-xl\"\n  />\n  <figcaption class=\"mt-2 text-[12px] text-gray-600\">Snow Sport Portrait · 736×1006</figcaption>\n</figure>\n"
+    }
+  ]
+}

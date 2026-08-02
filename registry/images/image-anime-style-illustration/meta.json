@@ -1,0 +1,17 @@
+{
+  "name": "image-anime-style-illustration",
+  "title": "Anime-Style Illustration",
+  "description": "Anime-style illustration of a figure walking through green scenery",
+  "category": "images",
+  "order": 85,
+  "status": "new",
+  "tagline": "Illustration · Anime style",
+  "tags": [
+    "illustration",
+    "anime style",
+    "scenic",
+    "character"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

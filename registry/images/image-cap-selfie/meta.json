@@ -1,0 +1,17 @@
+{
+  "name": "image-cap-selfie",
+  "title": "Cap Selfie",
+  "description": "Street selfie in a bucket cap and white two-piece",
+  "category": "images",
+  "order": 24,
+  "status": "new",
+  "tagline": "Street · Selfie",
+  "tags": [
+    "street",
+    "selfie",
+    "casual",
+    "youth"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

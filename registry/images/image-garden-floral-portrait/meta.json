@@ -1,0 +1,17 @@
+{
+  "name": "image-garden-floral-portrait",
+  "title": "Garden Floral Portrait",
+  "description": "Portrait set in a blossoming garden, floral backdrop throughout",
+  "category": "images",
+  "order": 78,
+  "status": "new",
+  "tagline": "Portrait · Outdoor",
+  "tags": [
+    "portrait",
+    "floral",
+    "garden",
+    "outdoor"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

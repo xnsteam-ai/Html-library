@@ -1,0 +1,17 @@
+{
+  "name": "image-tailored-coat-street-style",
+  "title": "Tailored Coat Street Style",
+  "description": "Street-style menswear shot in a long coat, with the full outfit grid below",
+  "category": "images",
+  "order": 36,
+  "status": "new",
+  "tagline": "Fashion · Menswear",
+  "tags": [
+    "fashion",
+    "menswear",
+    "street",
+    "lookbook"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

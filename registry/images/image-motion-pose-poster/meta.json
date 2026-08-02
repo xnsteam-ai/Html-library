@@ -1,0 +1,17 @@
+{
+  "name": "image-motion-pose-poster",
+  "title": "Motion Pose Poster",
+  "description": "Dance-style motion pose in white, shot against a plain backdrop",
+  "category": "images",
+  "order": 57,
+  "status": "new",
+  "tagline": "Poster · Motion",
+  "tags": [
+    "poster",
+    "dance",
+    "motion",
+    "editorial"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

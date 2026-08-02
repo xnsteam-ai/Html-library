@@ -1,0 +1,17 @@
+{
+  "name": "image-urban-calm-cover",
+  "title": "Urban Calm Cover",
+  "description": "Magazine-style cover treatment pairing an illustrated figure with bold type",
+  "category": "images",
+  "order": 71,
+  "status": "new",
+  "tagline": "Poster · Cover",
+  "tags": [
+    "poster",
+    "illustration",
+    "cover",
+    "editorial"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

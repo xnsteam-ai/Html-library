@@ -1,0 +1,17 @@
+{
+  "name": "image-studio-portrait-warm",
+  "title": "Studio Portrait, Warm Tone",
+  "description": "Studio portrait lit in a warm orange tone, plain backdrop",
+  "category": "images",
+  "order": 110,
+  "status": "new",
+  "tagline": "Portrait · Studio",
+  "tags": [
+    "portrait",
+    "studio",
+    "warm",
+    "editorial"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

@@ -1,0 +1,17 @@
+{
+  "name": "image-car-lean-portrait",
+  "title": "Car Lean Portrait",
+  "description": "Portrait leaning against a car under an overcast sky",
+  "category": "images",
+  "order": 101,
+  "status": "new",
+  "tagline": "Portrait · Automotive",
+  "tags": [
+    "portrait",
+    "automotive",
+    "lifestyle",
+    "moody"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

@@ -1,0 +1,17 @@
+{
+  "name": "image-casual-mirror-selfie",
+  "title": "Casual Mirror Selfie",
+  "description": "Casual mirror selfie in an all-black outfit",
+  "category": "images",
+  "order": 94,
+  "status": "new",
+  "tagline": "Portrait · Lifestyle",
+  "tags": [
+    "portrait",
+    "casual",
+    "selfie",
+    "lifestyle"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

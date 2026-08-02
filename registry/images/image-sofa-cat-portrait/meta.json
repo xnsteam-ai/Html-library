@@ -1,0 +1,17 @@
+{
+  "name": "image-sofa-cat-portrait",
+  "title": "Sofa With Cat",
+  "description": "Relaxed lifestyle portrait sitting on a sofa with a cat",
+  "category": "images",
+  "order": 83,
+  "status": "new",
+  "tagline": "Portrait · Lifestyle",
+  "tags": [
+    "portrait",
+    "lifestyle",
+    "pet",
+    "home"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

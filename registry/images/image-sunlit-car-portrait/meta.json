@@ -1,0 +1,17 @@
+{
+  "name": "image-sunlit-car-portrait",
+  "title": "Sunlit Car Portrait",
+  "description": "Portrait taken through a car window in warm, low sunlight",
+  "category": "images",
+  "order": 76,
+  "status": "new",
+  "tagline": "Portrait · Automotive",
+  "tags": [
+    "portrait",
+    "automotive",
+    "lifestyle",
+    "golden hour"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

@@ -1,0 +1,17 @@
+{
+  "name": "image-blossom-grid",
+  "title": "Blossom Grid",
+  "description": "Six-frame pastel set shot under blossom and open sky",
+  "category": "images",
+  "order": 25,
+  "status": "new",
+  "tagline": "Grid · Pastel",
+  "tags": [
+    "grid",
+    "pastel",
+    "blossom",
+    "spring"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

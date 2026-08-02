@@ -1,0 +1,17 @@
+{
+  "name": "image-los-angeles-travel-poster",
+  "title": "Los Angeles Travel Poster",
+  "description": "Illustrated travel poster for Los Angeles in a retro palette",
+  "category": "images",
+  "order": 100,
+  "status": "new",
+  "tagline": "Poster · Travel",
+  "tags": [
+    "poster",
+    "illustration",
+    "travel",
+    "city"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

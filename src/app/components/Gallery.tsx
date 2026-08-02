@@ -76,8 +76,8 @@ function ScreenCard({ item }: { item: RegistryItem }) {
 
   return (
     <div className="flex flex-col group">
-      <a 
-        href={componentHref(item.name)} 
+      <a
+        href={componentHref(item.name)}
         className={`relative flex ${surface === 'site' ? 'items-start' : 'items-center'} justify-center h-[200px] overflow-hidden rounded-xl border border-border bg-muted transition`}
       >
         <ScreenFrame
@@ -185,7 +185,9 @@ export function Gallery({ category }: { category: CategoryId }) {
 
       {results.length === 0 ? (
         <div className="flex flex-col items-center rounded-xl border border-dashed border-border px-6 py-14 text-center">
-          <p className="text-[14px] font-medium text-foreground">No screens match “{query}”</p>
+          <p className="text-[14px] font-medium text-foreground">
+            No {meta.title.toLowerCase()} match “{query}”
+          </p>
           <p className="mt-1 text-[13px] text-muted-foreground">
             Try a shorter term, or browse the other category.
           </p>

@@ -27,10 +27,11 @@ const PAGES_URL = 'https://xnsteam-ai.github.io/Html-library'
 const RAW_URL = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/public/r`
 
 const CATEGORIES = {
-  apps: { title: 'Apps', order: 1 },
-  sites: { title: 'Sites', order: 2 },
-  agent: { title: 'Agent Elements', order: 3 },
-  ui: { title: 'UI Elements', order: 4 },
+  images: { title: 'Images', order: 1 },
+  apps: { title: 'Apps', order: 2 },
+  sites: { title: 'Sites', order: 3 },
+  agent: { title: 'Agent Elements', order: 4 },
+  ui: { title: 'UI Elements', order: 5 },
 }
 
 // Categories whose items are whole screens or page sections, and so must

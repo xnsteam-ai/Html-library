@@ -1,0 +1,17 @@
+{
+  "name": "image-performance-shoe-ad",
+  "title": "Performance Shoe Ad",
+  "description": "High-contrast running shoe advertisement with bold display type",
+  "category": "images",
+  "order": 42,
+  "status": "new",
+  "tagline": "Poster · Footwear",
+  "tags": [
+    "poster",
+    "product",
+    "footwear",
+    "sport"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

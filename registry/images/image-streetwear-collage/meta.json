@@ -1,0 +1,17 @@
+{
+  "name": "image-streetwear-collage",
+  "title": "Streetwear Collage",
+  "description": "Four-up collage of street looks shot on the same set",
+  "category": "images",
+  "order": 11,
+  "status": "new",
+  "tagline": "Collage · Street",
+  "tags": [
+    "collage",
+    "streetwear",
+    "grid",
+    "fashion"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

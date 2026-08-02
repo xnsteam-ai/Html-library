@@ -1,0 +1,17 @@
+{
+  "name": "image-soft-portrait-white-blouse",
+  "title": "Soft Portrait, White Blouse",
+  "description": "Soft-lit portrait in a white blouse, hand near the face",
+  "category": "images",
+  "order": 102,
+  "status": "new",
+  "tagline": "Portrait · Beauty",
+  "tags": [
+    "portrait",
+    "beauty",
+    "soft",
+    "editorial"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

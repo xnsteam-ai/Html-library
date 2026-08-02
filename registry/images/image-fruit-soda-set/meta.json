@@ -1,0 +1,17 @@
+{
+  "name": "image-fruit-soda-set",
+  "title": "Fruit Soda Set",
+  "description": "Three-up can lineup styled with the fruit in each flavour",
+  "category": "images",
+  "order": 30,
+  "status": "new",
+  "tagline": "Product · Beverage",
+  "tags": [
+    "product",
+    "beverage",
+    "fruit",
+    "grid"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

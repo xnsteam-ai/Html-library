@@ -1,0 +1,17 @@
+{
+  "name": "image-character-reference-sheet",
+  "title": "Character Reference Sheet",
+  "description": "Illustrated character design sheet with palette, wardrobe and pose studies",
+  "category": "images",
+  "order": 82,
+  "status": "new",
+  "tagline": "Illustration · Reference",
+  "tags": [
+    "illustration",
+    "character design",
+    "reference",
+    "concept art"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

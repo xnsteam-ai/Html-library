@@ -1,0 +1,17 @@
+{
+  "name": "image-casting-reference-sheet-b",
+  "title": "Casting Reference Sheet B",
+  "description": "Casting reference grid of small headshots across multiple expressions",
+  "category": "images",
+  "order": 63,
+  "status": "new",
+  "tagline": "Reference · Casting",
+  "tags": [
+    "casting",
+    "reference",
+    "grid",
+    "headshots"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}

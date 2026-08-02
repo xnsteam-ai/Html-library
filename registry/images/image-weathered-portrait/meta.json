@@ -1,0 +1,17 @@
+{
+  "name": "image-weathered-portrait",
+  "title": "Weathered Portrait",
+  "description": "Close-up character study with an aqua-toned texture overlay",
+  "category": "images",
+  "order": 2,
+  "status": "new",
+  "tagline": "Portrait · Texture",
+  "tags": [
+    "portrait",
+    "character",
+    "texture",
+    "cinematic"
+  ],
+  "previewBg": "plain",
+  "previewHeight": 560
+}
