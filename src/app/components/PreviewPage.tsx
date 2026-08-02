@@ -64,11 +64,21 @@ function Rendered({ item }: { item: RegistryItem }) {
     return <div dangerouslySetInnerHTML={{ __html: item.html }} />
   }
 
-  // Apps and Sites are wrapped in their single device frame and fit to the viewport.
-  if (item.category === 'apps' || item.category === 'sites') {
+  if (item.category === 'sites') {
+    // Strip the fixed dimensions and hidden overflow so it behaves like a real, responsive page.
+    const fluidHtml = item.html
+      .replace(/w-\[1280px\]/, 'w-full')
+      .replace(/h-\[800px\]/, 'min-h-screen')
+      .replace(/overflow-hidden/, '')
+    
+    return <div dangerouslySetInnerHTML={{ __html: fluidHtml }} />
+  }
+
+  // Apps are wrapped in their single device frame and fit to the viewport.
+  if (item.category === 'apps') {
     return (
       <div className="flex min-h-screen items-center justify-center p-6 md:p-12 bg-background">
-        <ScreenFrame item={item} fit interactive />
+        <ScreenFrame item={item} fit interactive unframed />
       </div>
     )
   }

@@ -70,29 +70,30 @@ function ScaledScreen({
   interactive,
   clampHeight,
   contentRef,
+  isSiteOrSection = false,
 }: {
   html: string
   width: number
   height: number
   scale: number
   interactive: boolean
-  /** Authored-pixel height to crop to, before scaling — for gallery cards. */
   clampHeight?: number
   contentRef?: React.Ref<HTMLDivElement>
+  isSiteOrSection?: boolean
 }) {
   const visibleHeight = clampHeight ? Math.min(height, clampHeight) : height
 
   return (
     <div
       style={{ width: width * scale, height: visibleHeight * scale }}
-      className="overflow-hidden bg-white dark:bg-neutral-950"
+      className={`overflow-hidden bg-white dark:bg-neutral-950 ${
+        isSiteOrSection ? 'rounded-xl border border-gray-200 shadow-sm dark:border-white/10' : ''
+      }`}
     >
       <div
         style={{ width, height, transform: `scale(${scale})`, transformOrigin: 'top left' }}
         className="overflow-hidden"
       >
-        {/* Cards are inert so a click navigates; detail views stay usable, since
-            these screens carry real controls. */}
         <div
           ref={contentRef}
           className={interactive ? undefined : 'pointer-events-none select-none'}
@@ -110,14 +111,6 @@ function PhoneFrame({ children }: { children: ReactNode }) {
         <div className="pointer-events-none absolute left-1/2 top-0 z-10 h-[18px] w-[86px] -translate-x-1/2 rounded-b-xl bg-gray-900 dark:bg-black" />
         {children}
       </div>
-    </div>
-  )
-}
-
-function BrowserFrame({ children }: { children: ReactNode }) {
-  return (
-    <div className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm dark:border-white/10 dark:bg-neutral-900">
-      {children}
     </div>
   )
 }
@@ -140,6 +133,8 @@ interface ScreenFrameProps {
    * surfaces (app, site).
    */
   clampHeight?: number
+  /** Do not apply any device frame or rounding. */
+  unframed?: boolean
 }
 
 export function ScreenFrame({
@@ -148,6 +143,7 @@ export function ScreenFrame({
   fit = false,
   interactive = false,
   clampHeight,
+  unframed = false,
 }: ScreenFrameProps) {
   const surface = item.surface ?? 'app'
   const size = FRAME_SIZE[surface]
@@ -169,10 +165,10 @@ export function ScreenFrame({
       interactive={interactive}
       clampHeight={clampHeight}
       contentRef={isAuto ? contentRef : undefined}
+      isSiteOrSection={!unframed && (surface === 'site' || surface === 'section')}
     />
   )
-  const framed =
-    surface === 'app' ? <PhoneFrame>{screen}</PhoneFrame> : <BrowserFrame>{screen}</BrowserFrame>
+  const framed = (!unframed && surface === 'app') ? <PhoneFrame>{screen}</PhoneFrame> : screen
 
   // The ref must sit on a full-width box for the measurement to be meaningful.
   return (

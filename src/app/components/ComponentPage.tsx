@@ -29,11 +29,11 @@ function Preview({ item }: { item: RegistryItem }) {
     )
   }
 
-  // Sites: render centered directly, no outer padding/border container.
+  // Sites: render centered directly, unframed so it has sharp corners.
   if (item.category === 'sites') {
     return (
-      <div className="flex justify-center py-6">
-        <ScreenFrame item={item} fit interactive />
+      <div className="w-full">
+        <ScreenFrame item={item} fit interactive unframed />
       </div>
     )
   }
