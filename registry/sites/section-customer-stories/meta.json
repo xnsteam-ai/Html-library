@@ -1,7 +1,7 @@
 {
   "name": "section-customer-stories",
   "title": "Customer Stories",
-  "description": "A two-column case-study grid pairing a square brand-locked thumbnail with a headline, summary and inline link. Thumbnails are CSS gradients, so nothing is fetched.",
+  "description": "A two-column case-study grid pairing a square brand-locked thumbnail with a headline, summary and inline link. Thumbnails are real photos.",
   "category": "sites",
   "surface": "section",
   "tagline": "Case studies & logos",

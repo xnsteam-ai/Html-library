@@ -1,7 +1,6 @@
 <!--
   Customer Stories — a two-column grid of case-study cards.
-  Each thumbnail is a CSS gradient rather than a hosted photo, so the section
-  renders identically offline and in any HTML previewer.
+  Each thumbnail is a real photo hotlinked from Unsplash's permanent CDN.
 -->
 <section class="w-full bg-white py-20 lg:py-28 dark:bg-neutral-950">
   <div class="mx-auto w-full max-w-[1200px] px-6">
@@ -14,8 +13,13 @@
     <div class="grid grid-cols-1 gap-x-12 gap-y-16 lg:grid-cols-2 xl:gap-x-20">
       <!-- Lionsgate -->
       <article class="group flex flex-col gap-6 sm:flex-row lg:gap-8">
-        <div class="relative aspect-square w-full shrink-0 overflow-hidden rounded-[20px] bg-[linear-gradient(135deg,#8ea9c9_0%,#c9d6e3_50%,#6f8bab_100%)] sm:w-[220px] md:w-[240px]">
-          <div class="absolute inset-0 bg-black/20"></div>
+        <div class="relative aspect-square w-full shrink-0 overflow-hidden rounded-[20px] sm:w-[220px] md:w-[240px]">
+          <img
+            src="https://images.unsplash.com/photo-1627133805065-5083466be4f7?q=80&w=600&auto=format&fit=crop"
+            alt="Film set lighting rig"
+            class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-black/30"></div>
           <div class="absolute inset-0 z-10 flex select-none items-center justify-center text-white">
             <span class="text-lg font-bold tracking-wide">runway</span>
             <span class="mx-3 font-light text-white/50">/</span>
@@ -40,8 +44,13 @@
 
       <!-- UCLA -->
       <article class="group flex flex-col gap-6 sm:flex-row lg:gap-8">
-        <div class="relative aspect-square w-full shrink-0 overflow-hidden rounded-[20px] bg-[linear-gradient(135deg,#f0a15c_0%,#e2648a_45%,#8d5fc4_100%)] sm:w-[220px] md:w-[240px]">
-          <div class="absolute inset-0 bg-black/30"></div>
+        <div class="relative aspect-square w-full shrink-0 overflow-hidden rounded-[20px] sm:w-[220px] md:w-[240px]">
+          <img
+            src="https://images.unsplash.com/photo-1556560957-9b6c2b102581?q=80&w=600&auto=format&fit=crop"
+            alt="University campus building"
+            class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-black/40"></div>
           <div class="absolute inset-0 z-10 flex select-none items-center justify-center text-white">
             <span class="text-lg font-bold tracking-wide">runway</span>
             <span class="mx-3 font-light text-white/50">/</span>
@@ -66,8 +75,13 @@
 
       <!-- KPF -->
       <article class="group flex flex-col gap-6 sm:flex-row lg:gap-8">
-        <div class="relative aspect-square w-full shrink-0 overflow-hidden rounded-[20px] bg-[linear-gradient(135deg,#4a5568_0%,#9aa5b1_55%,#2d3748_100%)] sm:w-[220px] md:w-[240px]">
-          <div class="absolute inset-0 bg-black/20"></div>
+        <div class="relative aspect-square w-full shrink-0 overflow-hidden rounded-[20px] sm:w-[220px] md:w-[240px]">
+          <img
+            src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=600&auto=format&fit=crop"
+            alt="Modern architecture facade"
+            class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-black/30"></div>
           <div class="absolute inset-0 z-10 flex select-none items-center justify-center text-white">
             <span class="text-lg font-bold tracking-wide">runway</span>
             <span class="mx-3 font-light text-white/50">/</span>
@@ -92,8 +106,13 @@
 
       <!-- House of David -->
       <article class="group flex flex-col gap-6 sm:flex-row lg:gap-8">
-        <div class="relative aspect-square w-full shrink-0 overflow-hidden rounded-[20px] bg-[linear-gradient(135deg,#3f2d20_0%,#a1734a_50%,#1f1712_100%)] sm:w-[220px] md:w-[240px]">
-          <div class="absolute inset-0 bg-black/30"></div>
+        <div class="relative aspect-square w-full shrink-0 overflow-hidden rounded-[20px] sm:w-[220px] md:w-[240px]">
+          <img
+            src="https://images.unsplash.com/photo-1556305896-c4bbbf66eb03?q=80&w=600&auto=format&fit=crop"
+            alt="Desert caravan at dusk"
+            class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-black/40"></div>
           <div class="absolute inset-0 z-10 flex select-none items-center justify-center text-white">
             <span class="text-lg font-bold tracking-wide">runway</span>
             <span class="mx-3 font-light text-white/50">/</span>
