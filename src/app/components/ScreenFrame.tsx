@@ -87,7 +87,7 @@ function ScaledScreen({
     <div
       style={{ width: width * scale, height: visibleHeight * scale }}
       className={`overflow-hidden bg-white dark:bg-neutral-950 ${
-        isSiteOrSection ? 'rounded-xl border border-gray-200 shadow-sm dark:border-white/10' : ''
+        isSiteOrSection ? 'rounded-xl border border-gray-200 dark:border-white/10' : ''
       }`}
     >
       <div
