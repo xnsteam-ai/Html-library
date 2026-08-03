@@ -81,7 +81,11 @@ export class RegistryData {
   /** Retry the CDN through raw.githubusercontent before giving up. */
   private async fetchJson(pathname: string): Promise<unknown> {
     if (this.source.mode !== 'remote') throw new Error('fetchJson called in local mode')
-    const urls = [`${this.source.baseUrl}/${pathname}`, `${this.source.rawBaseUrl}/${pathname}`]
+    // A custom registry sets both hosts to the same URL; hitting it twice would
+    // just double the wait before reporting the failure.
+    const urls = [
+      ...new Set([`${this.source.baseUrl}/${pathname}`, `${this.source.rawBaseUrl}/${pathname}`]),
+    ]
     let lastError: unknown
     for (const url of urls) {
       try {

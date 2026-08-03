@@ -67,6 +67,36 @@ Both modes return identical results.
 |---|---|
 | `HTML_LIBRARY_SOURCE` | `local` or `remote` — skip auto-detection |
 | `HTML_LIBRARY_REGISTRY_DIR` | absolute path to a specific `registry/` folder |
+| `HTML_LIBRARY_REGISTRY_URL` | a different hosted registry — a fork, a staging deploy, a self-hosted copy |
+
+### Pointing at your own registry
+
+Fork the library, host `public/r/` anywhere, and give the server the URL:
+
+```json
+{
+  "mcpServers": {
+    "html-library": {
+      "command": "npx",
+      "args": ["-y", "html-library-mcp"],
+      "env": {
+        "HTML_LIBRARY_REGISTRY_URL": "https://your-fork.example.com/r/index.json"
+      }
+    }
+  }
+}
+```
+
+`https://host/r`, `https://host/r/`, and `https://host/r/index.json` all mean the
+same thing. Naming a registry takes precedence over finding one on disk, so this
+works from inside a checkout too — otherwise pointing at a fork would silently
+do nothing. `HTML_LIBRARY_REGISTRY_DIR` still wins over it, since a path is more
+specific than a URL.
+
+The registry has to use this library's schema (`/r/index.json` plus one
+`/r/<name>.json` per item, each with `files[0].content`). It is not
+shadcn-compatible and will not read a shadcn registry — those ship React
+components, and every tool here assumes plain HTML.
 
 ## Tools
 

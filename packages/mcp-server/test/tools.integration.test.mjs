@@ -8,6 +8,14 @@ import { referencedComponentNames } from '../dist/tools/composition.js'
 import { readRegistryItems } from '../dist/vendor/registry-data.mjs'
 import { REGISTRY_DIR, REPO_ROOT, call, connect } from './helpers.mjs'
 
+test('the version it reports is the version it ships', async () => {
+  const pkg = JSON.parse(
+    await readFile(path.join(REPO_ROOT, 'packages', 'mcp-server', 'package.json'), 'utf8'),
+  )
+  const { SERVER_VERSION } = await import('../dist/server.js')
+  assert.equal(SERVER_VERSION, pkg.version)
+})
+
 test('every declared tool is registered and discoverable', async () => {
   const { client, close } = await connect()
   try {

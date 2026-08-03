@@ -31,7 +31,26 @@ function findRegistryDir(start: string, levels: number): string | null {
   return null
 }
 
+/**
+ * Normalise whatever form of URL someone pastes in. All of these mean the same
+ * registry, and the `index.json` form is what registries usually advertise:
+ *
+ *   https://example.com/r
+ *   https://example.com/r/
+ *   https://example.com/r/index.json
+ */
+function normaliseRegistryUrl(url: string): string {
+  return url.trim().replace(/\/index\.json$/i, '').replace(/\/+$/, '')
+}
+
 function remoteSource(): Source {
+  const custom = process.env.HTML_LIBRARY_REGISTRY_URL?.trim()
+  if (custom) {
+    const baseUrl = normaliseRegistryUrl(custom)
+    // A fork has no second host to fall back to, so both point at the one URL;
+    // the fetcher collapses the duplicate rather than retrying it.
+    return { mode: 'remote', baseUrl, rawBaseUrl: baseUrl }
+  }
   return { mode: 'remote', baseUrl: `${PAGES_URL}/r`, rawBaseUrl: RAW_URL }
 }
 
@@ -57,12 +76,16 @@ export function resolveSource(cwd: string = process.cwd()): Source {
     return { mode: 'local', registryDir: dir }
   }
 
+  // Naming a registry is an explicit choice, so it beats finding one on disk —
+  // otherwise pointing at a fork would silently do nothing inside a checkout.
+  if (process.env.HTML_LIBRARY_REGISTRY_URL?.trim()) return remoteSource()
+
   const detected = findRegistryDir(cwd, MAX_ANCESTORS)
   return detected ? { mode: 'local', registryDir: detected } : remoteSource()
 }
 
 export function describeSource(source: Source): string {
-  return source.mode === 'local'
-    ? `local mode (${source.registryDir})`
-    : `remote mode (${source.baseUrl})`
+  if (source.mode === 'local') return `local mode (${source.registryDir})`
+  const custom = process.env.HTML_LIBRARY_REGISTRY_URL?.trim() ? ', custom registry' : ''
+  return `remote mode (${source.baseUrl}${custom})`
 }

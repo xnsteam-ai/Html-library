@@ -20,6 +20,8 @@ async function main(): Promise<void> {
         'Environment:',
         '  HTML_LIBRARY_SOURCE=local|remote   force a data source (default: auto-detect)',
         '  HTML_LIBRARY_REGISTRY_DIR=<path>   use a specific registry/ folder',
+        '  HTML_LIBRARY_REGISTRY_URL=<url>    use a different hosted registry (a fork,',
+        '                                     a staging deploy, or a self-hosted copy)',
         '',
         'With no override it reads registry/ from the current checkout if it can find one,',
         'and otherwise falls back to the hosted registry over HTTPS.',

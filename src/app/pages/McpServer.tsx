@@ -254,12 +254,53 @@ export function McpServer() {
             ],
           ]}
         />
-        <P>Override the choice with either environment variable:</P>
+        <P>Override the choice with any of these:</P>
         <CodeBlock
           language="bash"
           code={`HTML_LIBRARY_SOURCE=local|remote      # skip auto-detection
-HTML_LIBRARY_REGISTRY_DIR=<path>      # use a specific registry/ folder`}
+HTML_LIBRARY_REGISTRY_DIR=<path>      # use a specific registry/ folder
+HTML_LIBRARY_REGISTRY_URL=<url>       # use a different hosted registry`}
         />
+      </Section>
+
+      <Section title="Pointing at your own registry">
+        <P>
+          You may have seen other registries configured with a <Code>REGISTRY_URL</Code>, like{' '}
+          <Code>shadcn mcp</Code>. That is a{' '}
+          <em>generic</em> server — one binary that can be aimed at any shadcn-compatible registry,
+          so it has to be told which one. This server is the opposite: it is built for this
+          registry and already knows where it lives, which is why the config above needs no URL.
+        </P>
+        <P>
+          Forked the library, or hosting <Code>public/r/</Code> somewhere of your own? Name it and
+          the server will read yours instead.
+        </P>
+        <CodeBlock
+          language="json"
+          filename=".mcp.json — a fork"
+          code={`{
+  "mcpServers": {
+    "html-library": {
+      "command": "npx",
+      "args": ["-y", "html-library-mcp"],
+      "env": {
+        "HTML_LIBRARY_REGISTRY_URL": "https://your-fork.example.com/r/index.json"
+      }
+    }
+  }
+}`}
+        />
+        <P>
+          <Code>/r</Code>, <Code>/r/</Code> and <Code>/r/index.json</Code> all mean the same thing.
+          Naming a registry beats finding one on disk, so this works from inside a checkout too —
+          otherwise pointing at a fork would silently do nothing.
+        </P>
+        <Callout>
+          The registry must use this library's schema — <Code>/r/index.json</Code> plus one{' '}
+          <Code>/r/&lt;name&gt;.json</Code> per item, each carrying{' '}
+          <Code>files[0].content</Code>. It is not shadcn-compatible and will not read a shadcn
+          registry: those ship React components, and every tool here assumes plain HTML.
+        </Callout>
       </Section>
 
       <Section title="MCP server or skill?">

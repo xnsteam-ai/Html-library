@@ -1,3 +1,5 @@
+import { createRequire } from 'node:module'
+
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 
 import { RegistryData } from './data.js'
@@ -10,7 +12,12 @@ import { retrievalTools } from './tools/retrieval.js'
 import { fail, type ToolDef } from './tools/shared.js'
 
 export const SERVER_NAME = 'html-library'
-export const SERVER_VERSION = '0.1.0'
+
+// Read rather than repeated: the version goes out in the MCP handshake, and a
+// hardcoded copy silently disagrees with package.json the first time it is
+// bumped. `../package.json` resolves from dist/ in both the workspace and the
+// published package, where package.json always ships.
+export const SERVER_VERSION: string = createRequire(import.meta.url)('../package.json').version
 
 const INSTRUCTIONS = `The HTML Library registry: 191 copy-paste UI components written in plain HTML + Tailwind CSS.
 
