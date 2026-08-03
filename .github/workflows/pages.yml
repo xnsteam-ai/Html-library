@@ -26,6 +26,9 @@ jobs:
       # The generated registry is committed so raw.githubusercontent.com works;
       # this fails the build if someone edited registry/ without regenerating.
       - run: npm run verify:registry
+      # The agent skill is generated from the registry, so an added or renamed
+      # component must be reflected in SKILL.md and llms.txt too.
+      - run: npm run verify:skill
       - run: npx tsc --noEmit
       - run: npm run build
 

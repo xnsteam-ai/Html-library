@@ -1,0 +1,57 @@
+{
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
+  "name": "html-library",
+  "version": "0.1.0",
+  "kind": "agent-skill",
+  "homepage": "https://xnsteam-ai.github.io/Html-library",
+  "repository": "https://github.com/xnsteam-ai/Html-library",
+  "description": "Agent skill for the HTML Library registry — plain HTML + Tailwind components, no React, no JavaScript.",
+  "entry": "https://xnsteam-ai.github.io/Html-library/skill.md",
+  "llmsTxt": "https://xnsteam-ai.github.io/Html-library/llms.txt",
+  "registry": {
+    "index": "https://xnsteam-ai.github.io/Html-library/r/index.json",
+    "raw": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/index.json"
+  },
+  "files": [
+    {
+      "path": "SKILL.md",
+      "url": "https://xnsteam-ai.github.io/Html-library/skill.md"
+    },
+    {
+      "path": "references/components.md",
+      "url": "https://github.com/xnsteam-ai/Html-library/blob/main/skills/html-library/references/components.md"
+    },
+    {
+      "path": "references/images.md",
+      "url": "https://github.com/xnsteam-ai/Html-library/blob/main/skills/html-library/references/images.md"
+    },
+    {
+      "path": "references/conventions.md",
+      "url": "https://github.com/xnsteam-ai/Html-library/blob/main/skills/html-library/references/conventions.md"
+    },
+    {
+      "path": "references/recipes.md",
+      "url": "https://github.com/xnsteam-ai/Html-library/blob/main/skills/html-library/references/recipes.md"
+    },
+    {
+      "path": "references/registry-api.md",
+      "url": "https://github.com/xnsteam-ai/Html-library/blob/main/skills/html-library/references/registry-api.md"
+    },
+    {
+      "path": "references/troubleshooting.md",
+      "url": "https://github.com/xnsteam-ai/Html-library/blob/main/skills/html-library/references/troubleshooting.md"
+    }
+  ],
+  "stats": {
+    "components": 191,
+    "byCategory": {
+      "images": 110,
+      "apps": 6,
+      "sites": 29,
+      "agent": 23,
+      "ui": 23
+    },
+    "portable": 136,
+    "needsTokenSubstitution": 55
+  }
+}

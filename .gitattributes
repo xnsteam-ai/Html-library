@@ -1,0 +1,31 @@
+# Normalise every text file to LF in the repository and in the working copy.
+#
+# This is load-bearing, not cosmetic. `scripts/build-registry.mjs --check` and
+# `scripts/build-skill.mjs --check` compare their generated output against the
+# committed files byte-for-byte. On a machine with `core.autocrlf=true` a
+# checkout rewrites those files to CRLF, the compare fails, and CI reports the
+# output as "stale" even though nothing was edited — a failure that is
+# invisible to `git status` and `git diff`, because git normalises past it.
+* text=auto eol=lf
+
+# Generated output — compared byte-for-byte by the --check modes.
+public/r/*.json    text eol=lf
+public/skill.md    text eol=lf
+public/skill.json  text eol=lf
+public/llms.txt    text eol=lf
+skills/**/*.md     text eol=lf
+
+# Registry sources — read raw by the build script, so their bytes end up
+# inside the generated JSON verbatim.
+registry/**/*.html text eol=lf
+registry/**/*.json text eol=lf
+
+# Never touch binaries.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.webp binary
+*.avif binary
+*.ico  binary
+*.woff  binary
+*.woff2 binary

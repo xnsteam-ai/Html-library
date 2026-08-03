@@ -10,6 +10,7 @@ const DOC_LINKS = [
   { slug: 'installation', label: 'Installation' },
   { slug: 'registry', label: 'Registry' },
   { slug: 'theming', label: 'Theming' },
+  { slug: 'skills', label: 'Skills' },
   { slug: 'use-cases', label: 'Use cases' },
 ]
 

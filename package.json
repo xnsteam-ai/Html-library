@@ -7,9 +7,11 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "npm run build:registry && vite build",
+    "build": "npm run build:registry && npm run build:skill && vite build",
     "build:registry": "node scripts/build-registry.mjs",
+    "build:skill": "node scripts/build-skill.mjs",
     "verify:registry": "node scripts/build-registry.mjs --check",
+    "verify:skill": "node scripts/build-skill.mjs --check",
     "preview": "vite preview"
   },
   "dependencies": {

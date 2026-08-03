@@ -11,6 +11,7 @@ import { docHref, useHashRoute, type Route } from './hooks/useHashRoute'
 import { Installation } from './pages/Installation'
 import { Introduction } from './pages/Introduction'
 import { RegistryDoc } from './pages/Registry'
+import { Skills } from './pages/Skills'
 import { Theming } from './pages/Theming'
 import { UseCases } from './pages/UseCases'
 
@@ -19,6 +20,7 @@ const DOC_TITLES: Record<string, string> = {
   installation: 'Installation',
   registry: 'Registry',
   theming: 'Theming',
+  skills: 'Skills',
   'use-cases': 'Use cases',
 }
 
@@ -70,6 +72,8 @@ function Content({ route }: { route: Route }) {
       return <RegistryDoc />
     case 'theming':
       return <Theming />
+    case 'skills':
+      return <Skills />
     case 'use-cases':
       return <UseCases />
     default:
