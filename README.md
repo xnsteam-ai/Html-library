@@ -77,6 +77,36 @@ Items in `apps` and `sites` carry one extra field, `"surface": "app" | "site" | 
 
 **UI Elements** — Button, Badge, Card, Input, Alert, Tabs, Avatar, Empty State
 
+## Use it from an AI assistant
+
+Two ways, depending on whether your assistant can run a server.
+
+**Agent skill** — one markdown file, works with anything that reads a URL:
+
+```bash
+curl -sL https://xnsteam-ai.github.io/Html-library/skill.md \
+  -o .claude/skills/html-library/SKILL.md
+```
+
+It carries the full index of all components inline, the class-portability
+contract, and the CSS-only interactivity rules. See [`skills/html-library/`](./skills/html-library)
+and the [Skills page](https://xnsteam-ai.github.io/Html-library/#/skills).
+
+**MCP server** — live queries instead of a static file:
+
+```json
+{
+  "mcpServers": {
+    "html-library": { "command": "npx", "args": ["-y", "html-library-mcp"] }
+  }
+}
+```
+
+Twelve tools covering discovery, retrieval, composition recipes, image prompts,
+and — the part a static file cannot do — `check_portability`, which scans markup
+for theme tokens that only resolve inside this docs app and hands back corrected
+HTML. See [`packages/mcp-server/`](./packages/mcp-server).
+
 ## Develop
 
 ```bash
@@ -85,7 +115,14 @@ npm run dev              # docs at http://localhost:5173
 npm run build:registry   # regenerate public/r after editing registry/
 npm run verify:registry  # fail if public/r is stale (runs in CI)
 npm run build            # registry + static site into dist/
+
+npm run build:skill      # regenerate SKILL.md, llms.txt, skill.json
+npm run build:mcp        # build the MCP server package
+npm run verify:mcp       # typecheck + tests for the MCP server
 ```
+
+The repo ships a [`.mcp.json`](./.mcp.json) pointing at the local build, so the
+server is available inside this project once you have run `npm run build:mcp`.
 
 The docs app reads `registry/` directly through `import.meta.glob`, so a new component folder appears in the sidebar as soon as you save it — the site can never drift from what the registry publishes.
 

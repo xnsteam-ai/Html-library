@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "outDir": "dist",
+    "rootDir": "src",
+    "strict": true,
+    "declaration": false,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    // The vendored core is plain ESM typed by registry-data.d.mts. Turning
+    // allowJs on would make tsc infer types from the .mjs and ignore the
+    // declaration, so it stays off and sync-core.mjs places the runtime copy
+    // into dist/ itself.
+    "allowJs": false
+  },
+  "include": ["src"]
+}

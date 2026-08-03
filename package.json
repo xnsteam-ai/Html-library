@@ -5,6 +5,9 @@
   "type": "module",
   "description": "Open-source HTML + Tailwind component library with a GitHub-hosted registry.",
   "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "npm run build:registry && npm run build:skill && vite build",
@@ -12,6 +15,8 @@
     "build:skill": "node scripts/build-skill.mjs",
     "verify:registry": "node scripts/build-registry.mjs --check",
     "verify:skill": "node scripts/build-skill.mjs --check",
+    "build:mcp": "npm run build --workspace packages/mcp-server",
+    "verify:mcp": "npm run verify --workspace packages/mcp-server",
     "preview": "vite preview"
   },
   "dependencies": {

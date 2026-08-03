@@ -1,0 +1,40 @@
+name: MCP server
+
+# Path-filtered so this never gates the Pages deploy in pages.yml: a change to
+# the docs app or a new component does not need the MCP package to be green,
+# and vice versa.
+on:
+  push:
+    paths:
+      - 'packages/mcp-server/**'
+      - 'scripts/lib/**'
+      - '.github/workflows/mcp.yml'
+  pull_request:
+    paths:
+      - 'packages/mcp-server/**'
+      - 'scripts/lib/**'
+      - '.github/workflows/mcp.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Build and test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # Builds first: the tests import from dist/, and run against the real
+      # registry/ in this checkout rather than mocks.
+      - run: npm run build:mcp
+      # Fails if src/vendor/ drifted from scripts/lib/, if types broke, or if
+      # recipes.json references a component that no longer exists.
+      - run: npm run verify:mcp
+      - name: Check the published tarball stays lean
+        run: npm pack --dry-run --workspace packages/mcp-server

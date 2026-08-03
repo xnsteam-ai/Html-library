@@ -21,10 +21,19 @@
  *   node scripts/build-skill.mjs --check   fail if the output is stale
  */
 
-import { readFile, readdir, writeFile, mkdir } from 'node:fs/promises'
+import { readFile, writeFile, mkdir } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+
+import {
+  CATEGORIES,
+  PAGES_URL,
+  RAW_URL,
+  REPO_URL,
+  SUBSTITUTIONS,
+  readRegistryItems,
+} from './lib/registry-data.mjs'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const REGISTRY_DIR = path.join(root, 'registry')
@@ -32,67 +41,30 @@ const SKILL_DIR = path.join(root, 'skills', 'html-library')
 const REF_DIR = path.join(SKILL_DIR, 'references')
 const PUBLIC_DIR = path.join(root, 'public')
 
-const PAGES_URL = 'https://xnsteam-ai.github.io/Html-library'
-const REPO_URL = 'https://github.com/xnsteam-ai/Html-library'
-const RAW_URL = 'https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r'
-
-const CATEGORIES = {
-  images: { title: 'Images', order: 1, blurb: 'Ready-to-paste photography served from a CDN.' },
-  apps: { title: 'Apps', order: 2, blurb: 'Complete mobile app screens, drawn at 390x844.' },
-  sites: { title: 'Sites', order: 3, blurb: 'Website pages and the marketing sections they are built from.' },
-  agent: { title: 'Agent Elements', order: 4, blurb: 'Chat surfaces, composers and tool-call cards.' },
-  ui: { title: 'UI Elements', order: 5, blurb: 'General-purpose primitives that pair with the agent set.' },
-}
-
 // Hand-authored reference files, in the order they are bundled.
 const STATIC_REFS = ['conventions', 'recipes', 'registry-api', 'troubleshooting']
 
-// Classes that only resolve inside the docs app's own @theme block.
-const APP_TOKENS =
-  'foreground|muted-foreground|accent-foreground|background|muted|subtle|border|primary|primary-foreground'
-const APP_TOKEN_RE = new RegExp(
-  `(?:^|[\\s"'])(?:[a-z-]+:)*(?:text|bg|border|ring|fill|stroke|divide|placeholder|from|to|via|shadow|outline|accent|caret|decoration)-(${APP_TOKENS})(?![a-z0-9-])`,
-  'g',
-)
-
 const checkOnly = process.argv.includes('--check')
 
+/** The shared reader returns `{ meta, … }`; the templates below want it flat. */
 async function readComponents() {
-  const items = []
-  for (const category of await readdir(REGISTRY_DIR)) {
-    const categoryDir = path.join(REGISTRY_DIR, category)
-    for (const entry of await readdir(categoryDir, { withFileTypes: true })) {
-      if (!entry.isDirectory()) continue
-      const dir = path.join(categoryDir, entry.name)
-      const htmlPath = path.join(dir, 'component.html')
-      const metaPath = path.join(dir, 'meta.json')
-      if (!existsSync(htmlPath) || !existsSync(metaPath)) continue
-
-      const html = await readFile(htmlPath, 'utf8')
-      const meta = JSON.parse(await readFile(metaPath, 'utf8'))
-
-      const tokens = new Set()
-      APP_TOKEN_RE.lastIndex = 0
-      let match
-      while ((match = APP_TOKEN_RE.exec(html))) tokens.add(match[1])
-
-      items.push({
-        ...meta,
-        appTokens: [...tokens].sort(),
-        portable: tokens.size === 0,
-        hasStyle: /<style[\s>]/i.test(html),
-      })
-    }
-  }
-  return items.sort((a, b) => {
-    const byCategory = CATEGORIES[a.category].order - CATEGORIES[b.category].order
-    if (byCategory !== 0) return byCategory
-    const byOrder = (a.order ?? 99) - (b.order ?? 99)
-    return byOrder !== 0 ? byOrder : a.name.localeCompare(b.name)
-  })
+  const { items } = await readRegistryItems(REGISTRY_DIR)
+  return items.map(({ meta, appTokens, portable, hasStyle }) => ({
+    ...meta,
+    appTokens,
+    portable,
+    hasStyle,
+  }))
 }
 
 const inCategory = (items, id) => items.filter((item) => item.category === id)
+
+/** The portability substitution table, rendered from the shared map. */
+function substitutionRows() {
+  return Object.entries(SUBSTITUTIONS)
+    .map(([token, replacement]) => `| \`${token}\` | \`${replacement}\` |`)
+    .join('\n')
+}
 
 /** `- \`name\` — description` lines, for a category. */
 function indexLines(items) {
@@ -200,15 +172,7 @@ Fix — exact 1:1 replacements:
 
 | Replace | With |
 |---|---|
-| \`text-muted-foreground\` | \`text-neutral-500 dark:text-neutral-400\` |
-| \`text-foreground\` | \`text-neutral-900 dark:text-neutral-100\` |
-| \`text-accent-foreground\` | \`text-neutral-700 dark:text-neutral-300\` |
-| \`bg-background\` | \`bg-white dark:bg-neutral-950\` |
-| \`bg-muted\` | \`bg-neutral-100 dark:bg-neutral-900\` |
-| \`bg-subtle\` | \`bg-neutral-200 dark:bg-neutral-800\` |
-| \`bg-primary\` | \`bg-neutral-900 dark:bg-neutral-100\` |
-| \`text-primary-foreground\` | \`text-white dark:text-neutral-900\` |
-| \`border-border\` | \`border-neutral-200 dark:border-white/10\` |
+${substitutionRows()}
 
 Shortcut: the **Copy HTML** button on any component page emits a standalone
 document with the Tailwind CDN and theme attached — correct anywhere, zero setup.

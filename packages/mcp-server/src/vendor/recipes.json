@@ -1,0 +1,115 @@
+{
+  "_comment": "Queryable twin of skills/html-library/references/recipes.md and the CSS-only interactivity table in conventions.md. Hand-maintained: which component fits which need is curatorial judgement, not derivable from meta.json. Every component name here is checked against the live registry by `npm run verify:mcp`, so a rename cannot silently rot this file.",
+
+  "decisionTable": [
+    { "when": ["chat ui", "assistant", "conversation", "chatbot"], "components": ["agent-chat", "message-list", "input-bar"], "note": "agent-chat is the whole shell; message-list + input-bar if you want the parts." },
+    { "when": ["full chat product", "chat product page", "chat landing"], "components": ["chat-landing", "chat-conversation"], "note": "chat-landing is the home screen, chat-conversation the thread." },
+    { "when": ["thinking", "streaming", "loading indicator for a model"], "components": ["text-shimmer", "spiral-loader"] },
+    { "when": ["tool call", "function call", "agent ran a command"], "components": ["tool-group", "bash-tool", "edit-tool", "search-tool", "todo-tool", "plan-tool"], "note": "tool-group is the collapsed container for the individual tool cards." },
+    { "when": ["prompt box", "composer", "message input"], "components": ["prompt-composer", "input-bar", "ide-composer"] },
+    { "when": ["landing page", "marketing site", "homepage"], "components": ["site-landing"], "note": "Or stack the section-* components — see the marketing-landing-page recipe." },
+    { "when": ["pricing", "plans", "subscription tiers"], "components": ["site-pricing", "section-pricing", "section-plan-picker"] },
+    { "when": ["docs site", "documentation", "reference"], "components": ["site-docs", "site-component-docs", "site-setup-guide"] },
+    { "when": ["shop", "ecommerce", "storefront", "store"], "components": ["site-storefront", "site-product-gallery"] },
+    { "when": ["code editor", "ide", "editor ui"], "components": ["site-ide-shell"] },
+    { "when": ["mobile app screen", "phone app", "ios", "android"], "components": ["app-onboarding", "app-feed", "app-wallet", "app-checkout", "app-chat-inbox", "app-profile-settings"] },
+    { "when": ["dashboard", "internal tool", "admin"], "components": ["site-dashboard", "card", "table", "tabs", "alert"] },
+    { "when": ["data table", "list of rows", "grid of records"], "components": ["table", "table-interactive"], "note": "table is static; table-interactive adds CSS-only row selection and bulk actions." },
+    { "when": ["loading state", "skeleton", "placeholder"], "components": ["skeleton-card", "skeleton-list", "spinner", "spinner-overlay"] },
+    { "when": ["settings", "preferences", "toggles"], "components": ["switch", "switch-list"] },
+    { "when": ["sidebar nav", "side navigation", "left rail"], "components": ["nav-vertical"] },
+    { "when": ["tab bar", "tabs", "segmented control"], "components": ["nav-horizontal", "tabs"] },
+    { "when": ["sign in", "login", "auth", "authentication"], "components": ["site-auth", "auth-card", "login-glass"] },
+    { "when": ["hero section", "banner"], "components": ["section-hero", "site-fintech-hero"] },
+    { "when": ["testimonials", "social proof", "customer quotes"], "components": ["section-testimonials", "section-customer-stories", "section-logo-cloud"] },
+    { "when": ["faq", "frequently asked questions", "accordion"], "components": ["section-faq"] },
+    { "when": ["empty state", "no results", "zero data"], "components": ["empty-state"] },
+    { "when": ["photo", "hero image", "portrait", "photography"], "components": [], "note": "110 image-* components. Use search_components or list_components with category \"images\"." }
+  ],
+
+  "surfaceCanvas": [
+    { "surface": "app", "canvas": "390x844", "chrome": "phone frame", "usedBy": "apps" },
+    { "surface": "site", "canvas": "1280x800", "chrome": "browser frame", "usedBy": "full pages" },
+    { "surface": "section", "canvas": "1280xauto", "chrome": "browser frame, grows with content", "usedBy": "page sections" },
+    { "surface": null, "label": "element", "canvas": "640xauto", "chrome": "none", "usedBy": "Agent + UI Elements" }
+  ],
+
+  "namedRecipes": {
+    "agent-chat-surface": {
+      "title": "Agent chat surface",
+      "fastPath": ["agent-chat"],
+      "note": "agent-chat already contains message-list, input-bar and the tool cards. Only compose from parts if you need to rearrange them.",
+      "composed": [
+        { "component": "chat-welcome", "role": "empty state, before the first message" },
+        { "component": "message-list", "role": "the thread", "contains": ["user-message", "markdown", "tool-group", "text-shimmer"] },
+        { "component": "user-message", "role": "one turn from the user" },
+        { "component": "markdown", "role": "one turn from the assistant, rendered prose" },
+        { "component": "tool-group", "role": "collapsed tool calls", "contains": ["bash-tool", "edit-tool", "search-tool", "todo-tool", "plan-tool"] },
+        { "component": "text-shimmer", "role": "\"thinking…\" while streaming" },
+        { "component": "input-bar", "role": "the composer", "contains": ["attachment-button", "file-attachment", "model-picker", "mode-selector", "send-button"] }
+      ]
+    },
+    "marketing-landing-page": {
+      "title": "Marketing landing page",
+      "fastPath": ["site-landing"],
+      "note": "Each section is surface \"section\" — 1280 wide, natural height. Stack them in one column in this order for a full page.",
+      "composed": [
+        { "component": "section-hero", "role": "above the fold" },
+        { "component": "section-logo-cloud", "role": "social proof" },
+        { "component": "section-features", "role": "what it does" },
+        { "component": "section-bento", "role": "alternative to section-features" },
+        { "component": "section-stats", "role": "numbers" },
+        { "component": "section-testimonials", "role": "quotes" },
+        { "component": "section-customer-stories", "role": "alternative to section-testimonials" },
+        { "component": "section-pricing", "role": "plans" },
+        { "component": "section-plan-picker", "role": "alternative to section-pricing" },
+        { "component": "section-faq", "role": "objections" },
+        { "component": "section-cta", "role": "the ask" },
+        { "component": "section-newsletter", "role": "capture" },
+        { "component": "section-footer", "role": "footer" }
+      ]
+    },
+    "internal-dashboard": {
+      "title": "Internal dashboard",
+      "fastPath": ["site-dashboard"],
+      "composed": [
+        { "component": "nav-vertical", "role": "left rail" },
+        { "component": "tabs", "role": "view switcher" },
+        { "component": "card", "role": "stat tiles" },
+        { "component": "table-interactive", "role": "the data, with bulk actions" },
+        { "component": "alert", "role": "toasts and banners" },
+        { "component": "empty-state", "role": "zero results" },
+        { "component": "skeleton-list", "role": "while loading" }
+      ]
+    }
+  },
+
+  "interactivityPatterns": {
+    "tabs": {
+      "need": "Tabs, segmented control, nav",
+      "mechanism": "hidden <input type=\"radio\"> + group-has-[#id:checked]/name:",
+      "exampleComponents": ["tabs", "nav-horizontal"],
+      "note": "One radio per panel, all sharing a name. The checked radio drives which panel shows."
+    },
+    "toggle": {
+      "need": "Toggle, switch",
+      "mechanism": "hidden <input type=\"checkbox\" class=\"peer\"> + peer-checked:",
+      "exampleComponents": ["switch", "switch-list"]
+    },
+    "dismiss": {
+      "need": "Dismiss a banner or alert",
+      "mechanism": "checkbox + peer-checked:hidden",
+      "exampleComponents": ["alert"]
+    },
+    "dropdown": {
+      "need": "Dropdown, disclosure, accordion",
+      "mechanism": "native <details>/<summary> + group-open/name:",
+      "exampleComponents": ["model-picker", "section-faq", "tool-group"]
+    },
+    "row-select": {
+      "need": "Row selection, bulk actions",
+      "mechanism": ":has() — has-checked:, has-[tbody_:checked]:",
+      "exampleComponents": ["table-interactive"]
+    }
+  }
+}

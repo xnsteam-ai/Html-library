@@ -8,6 +8,9 @@
  * The generated files are committed so that raw.githubusercontent.com works as
  * a zero-setup registry host alongside GitHub Pages.
  *
+ * Reading and validating the registry lives in ./lib/registry-data.mjs, shared
+ * with build-skill.mjs and the MCP server. Only the output shapes are local.
+ *
  *   node scripts/build-registry.mjs           write the output
  *   node scripts/build-registry.mjs --check    fail if the output is stale
  */
@@ -17,165 +20,20 @@ import { existsSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+import {
+  CATEGORIES,
+  PAGES_URL,
+  RAW_URL,
+  REPO,
+  SURFACES,
+  readRegistryItems,
+} from './lib/registry-data.mjs'
+
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const REGISTRY_DIR = path.join(root, 'registry')
 const OUT_DIR = path.join(root, 'public', 'r')
 
-const REPO = 'xnsteam-ai/Html-library'
-const BRANCH = 'main'
-const PAGES_URL = 'https://xnsteam-ai.github.io/Html-library'
-const RAW_URL = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/public/r`
-
-const CATEGORIES = {
-  images: { title: 'Images', order: 1 },
-  apps: { title: 'Apps', order: 2 },
-  sites: { title: 'Sites', order: 3 },
-  agent: { title: 'Agent Elements', order: 4 },
-  ui: { title: 'UI Elements', order: 5 },
-}
-
-// Categories whose items are whole screens or page sections, and so must
-// declare how they are drawn.
-const FRAMED_CATEGORIES = ['apps', 'sites']
-const SURFACES = ['app', 'site', 'section']
-
 const checkOnly = process.argv.includes('--check')
-const errors = []
-const warnings = []
-
-function fail(item, message) {
-  errors.push(`${item}: ${message}`)
-}
-
-/** Registry files must be self-contained HTML + Tailwind. */
-function validateHtml(id, html) {
-  if (/<script[\s>]/i.test(html)) {
-    fail(id, 'contains a <script> tag — registry components must not ship JavaScript')
-  }
-  if (/\bclassName=/.test(html)) {
-    fail(id, 'uses className — registry components are plain HTML, not JSX')
-  }
-  if (/<(link|iframe)[\s>]/i.test(html)) {
-    fail(id, 'references an external document (<link>/<iframe>)')
-  }
-  if (/@import\s/i.test(html)) {
-    fail(id, 'uses @import — styles must be self-contained')
-  }
-  const external = html.match(/\b(?:src|href)\s*=\s*"(https?:)?\/\/[^"]*"/gi) ?? []
-  const remoteImages = external.filter((ref) => !/^href="#/.test(ref))
-  if (remoteImages.length > 0) {
-    warnings.push(`${id}: references remote assets (${remoteImages.length}) — prefer inline SVG`)
-  }
-  if (/<style[\s>]/i.test(html)) {
-    warnings.push(`${id}: ships a scoped <style> block (allowed for keyframes only)`)
-  }
-
-  // Interactivity is CSS-driven, which only works when ids are unique on the
-  // page — several screens render side by side in the gallery.
-  const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1])
-  const duplicates = ids.filter((value, index) => ids.indexOf(value) !== index)
-  if (duplicates.length > 0) {
-    fail(id, `duplicate id attribute(s): ${[...new Set(duplicates)].join(', ')}`)
-  }
-
-  // A `for`/`id` mismatch silently breaks a control that looks fine.
-  for (const [, target] of html.matchAll(/<label[^>]*\sfor="([^"]+)"/g)) {
-    if (!ids.includes(target)) {
-      fail(id, `<label for="${target}"> has no matching id in the same file`)
-    }
-  }
-}
-
-function validateMeta(id, meta) {
-  for (const field of ['name', 'title', 'description', 'category']) {
-    if (typeof meta[field] !== 'string' || meta[field].length === 0) {
-      fail(id, `meta.json is missing "${field}"`)
-    }
-  }
-  if (!CATEGORIES[meta.category]) {
-    fail(id, `unknown category "${meta.category}" (expected: ${Object.keys(CATEGORIES).join(', ')})`)
-  }
-  if (meta.tags && !Array.isArray(meta.tags)) {
-    fail(id, '"tags" must be an array')
-  }
-  // Framed items decide their own chrome, so the surface is required there.
-  if (FRAMED_CATEGORIES.includes(meta.category) && !SURFACES.includes(meta.surface)) {
-    fail(id, `"surface" must be one of ${SURFACES.join(', ')} for ${meta.category} items`)
-  }
-  // A phone frame in the Sites gallery (or vice versa) is always a mistake.
-  if (meta.category === 'apps' && meta.surface && meta.surface !== 'app') {
-    fail(id, `apps items must use surface "app", not "${meta.surface}"`)
-  }
-  if (meta.category === 'sites' && meta.surface === 'app') {
-    fail(id, 'sites items must use surface "site" or "section", not "app"')
-  }
-  if (meta.surface && !SURFACES.includes(meta.surface)) {
-    fail(id, `unknown surface "${meta.surface}"`)
-  }
-}
-
-async function readComponents() {
-  const items = []
-  const seen = new Map()
-
-  for (const category of await readdir(REGISTRY_DIR)) {
-    const categoryDir = path.join(REGISTRY_DIR, category)
-    const entries = await readdir(categoryDir, { withFileTypes: true })
-
-    for (const entry of entries) {
-      if (!entry.isDirectory()) continue
-
-      const dir = path.join(categoryDir, entry.name)
-      const id = `registry/${category}/${entry.name}`
-      const htmlPath = path.join(dir, 'component.html')
-      const metaPath = path.join(dir, 'meta.json')
-
-      if (!existsSync(htmlPath)) {
-        fail(id, 'missing component.html')
-        continue
-      }
-      if (!existsSync(metaPath)) {
-        fail(id, 'missing meta.json')
-        continue
-      }
-
-      const html = await readFile(htmlPath, 'utf8')
-      let meta
-      try {
-        meta = JSON.parse(await readFile(metaPath, 'utf8'))
-      } catch (error) {
-        fail(id, `meta.json is not valid JSON — ${error.message}`)
-        continue
-      }
-
-      validateMeta(id, meta)
-      validateHtml(id, html)
-
-      if (meta.name !== entry.name) {
-        fail(id, `meta.json name "${meta.name}" does not match the folder name "${entry.name}"`)
-      }
-      if (meta.category !== category) {
-        fail(id, `meta.json category "${meta.category}" does not match the folder "${category}"`)
-      }
-      if (seen.has(meta.name)) {
-        fail(id, `duplicate component name — also defined in ${seen.get(meta.name)}`)
-      }
-      seen.set(meta.name, id)
-
-      items.push({ meta, html: html.trimEnd() + '\n' })
-    }
-  }
-
-  items.sort((a, b) => {
-    const byCategory =
-      (CATEGORIES[a.meta.category]?.order ?? 99) - (CATEGORIES[b.meta.category]?.order ?? 99)
-    if (byCategory !== 0) return byCategory
-    const byOrder = (a.meta.order ?? 99) - (b.meta.order ?? 99)
-    return byOrder !== 0 ? byOrder : a.meta.name.localeCompare(b.meta.name)
-  })
-
-  return items
-}
 
 function toRegistryItem({ meta, html }, version) {
   return {
@@ -237,7 +95,7 @@ function schema() {
 
 async function main() {
   const pkg = JSON.parse(await readFile(path.join(root, 'package.json'), 'utf8'))
-  const items = await readComponents()
+  const { items, errors, warnings } = await readRegistryItems(REGISTRY_DIR, { validate: true })
 
   if (errors.length > 0) {
     console.error('Registry validation failed:\n')

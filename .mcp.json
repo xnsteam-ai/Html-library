@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "html-library": {
+      "command": "node",
+      "args": ["packages/mcp-server/bin/html-library-mcp.mjs"],
+      "env": {
+        "HTML_LIBRARY_SOURCE": "local"
+      }
+    }
+  }
+}
