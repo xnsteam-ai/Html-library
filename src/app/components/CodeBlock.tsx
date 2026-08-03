@@ -12,7 +12,7 @@ function getHighlighter(): Promise<Highlighter> {
   if (!highlighterPromise) {
     highlighterPromise = createHighlighter({
       themes: ['github-dark-dimmed', 'github-light'],
-      langs: ['html', 'bash', 'text'],
+      langs: ['html', 'bash', 'json', 'text'],
     })
   }
   return highlighterPromise
@@ -23,7 +23,7 @@ function getHighlighter(): Promise<Highlighter> {
 // ---------------------------------------------------------------------------
 interface CodeBlockProps {
   code: string
-  language?: 'html' | 'bash' | 'text'
+  language?: 'html' | 'bash' | 'json' | 'text'
   filename?: string
   /** Tailwind max-height utility for the scroll area. */
   maxHeight?: string

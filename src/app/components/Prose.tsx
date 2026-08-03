@@ -65,6 +65,47 @@ export function List({ items }: { items: ReactNode[] }) {
   )
 }
 
+export function Table({
+  headers,
+  rows,
+}: {
+  headers: string[]
+  rows: ReactNode[][]
+}) {
+  return (
+    <div className="scrollbar-thin overflow-x-auto rounded-xl border border-border">
+      <table className="w-full border-collapse text-left text-[13.5px]">
+        <thead>
+          <tr className="border-b border-border bg-muted">
+            {headers.map((header) => (
+              <th
+                key={header}
+                className="px-3 py-2 font-medium text-muted-foreground whitespace-nowrap"
+              >
+                {header}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, index) => (
+            <tr key={index} className="border-b border-border last:border-b-0">
+              {row.map((cell, cellIndex) => (
+                <td
+                  key={cellIndex}
+                  className="px-3 py-2 align-top leading-relaxed text-accent-foreground"
+                >
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}
+
 export function Callout({ children }: { children: ReactNode }) {
   return (
     <div className="rounded-xl border border-border bg-muted px-4 py-3 text-[13.5px] leading-relaxed text-accent-foreground">

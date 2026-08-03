@@ -19,6 +19,7 @@ const DOC_ENTRIES: Entry[] = [
   { href: docHref('registry'), title: 'Registry', hint: 'Docs', kind: 'doc' },
   { href: docHref('theming'), title: 'Theming', hint: 'Docs', kind: 'doc' },
   { href: docHref('skills'), title: 'Skills', hint: 'Docs · teach an AI assistant this library', kind: 'doc' },
+  { href: docHref('mcp-server'), title: 'MCP Server', hint: 'Docs · query the registry from your editor', kind: 'doc' },
   { href: docHref('use-cases'), title: 'Use cases', hint: 'Docs', kind: 'doc' },
 ]
 

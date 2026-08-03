@@ -11,6 +11,7 @@ const DOC_LINKS = [
   { slug: 'registry', label: 'Registry' },
   { slug: 'theming', label: 'Theming' },
   { slug: 'skills', label: 'Skills' },
+  { slug: 'mcp-server', label: 'MCP Server' },
   { slug: 'use-cases', label: 'Use cases' },
 ]
 
