@@ -51,15 +51,17 @@ export function Sidebar({ route, onCollapse, onOpenSearch }: SidebarProps) {
   const isDocActive = (slug: string) => route.kind === 'doc' && route.slug === slug
   const isComponentActive = (name: string) => route.kind === 'component' && route.name === name
 
-  // Derive active category from the current route
-  const activeCategory: CategoryId =
+  // Derive active category from the current route — null when no toggle is selected
+  const activeCategory: CategoryId | null =
     route.kind === 'gallery'
       ? route.category
       : route.kind === 'component'
-        ? (getComponent(route.name)?.category ?? 'images')
-        : 'images'
+        ? (getComponent(route.name)?.category ?? null)
+        : null
 
-  const activeItems = categories.find((c) => c.id === activeCategory)?.items ?? []
+  const activeItems = activeCategory
+    ? (categories.find((c) => c.id === activeCategory)?.items ?? [])
+    : []
 
   return (
     <aside className="flex h-full w-[264px] min-w-[264px] flex-col border-r border-border bg-background">
@@ -114,31 +116,33 @@ export function Sidebar({ route, onCollapse, onOpenSearch }: SidebarProps) {
           ))}
         </ul>
 
-        {/* Active category components */}
-        <div className="pt-3">
-          <div className="mb-1 border-t border-border pt-3">
-            <span className="px-2.5 text-[11px] font-medium uppercase tracking-wide text-muted-foreground/80">
-              {CATEGORY_META[activeCategory].title}
-            </span>
+        {/* Active category components — empty when no toggle is selected */}
+        {activeCategory && (
+          <div className="pt-3">
+            <div className="mb-1 border-t border-border pt-3">
+              <span className="px-2.5 text-[11px] font-medium uppercase tracking-wide text-muted-foreground/80">
+                {CATEGORY_META[activeCategory].title}
+              </span>
+            </div>
+            <ul className="space-y-px">
+              {activeItems.map((item) => (
+                <li key={item.name}>
+                  <a
+                    href={componentHref(item.name)}
+                    aria-current={isComponentActive(item.name) ? 'page' : undefined}
+                    className={`block rounded-md px-2.5 py-1.5 text-[13.5px] transition ${
+                      isComponentActive(item.name)
+                        ? 'bg-subtle font-medium text-foreground dark:bg-[#282828]'
+                        : 'text-muted-foreground hover:bg-muted hover:text-foreground dark:hover:bg-[#282828]'
+                    }`}
+                  >
+                    {item.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
-          <ul className="space-y-px">
-            {activeItems.map((item) => (
-              <li key={item.name}>
-                <a
-                  href={componentHref(item.name)}
-                  aria-current={isComponentActive(item.name) ? 'page' : undefined}
-                  className={`block rounded-md px-2.5 py-1.5 text-[13.5px] transition ${
-                    isComponentActive(item.name)
-                      ? 'bg-subtle font-medium text-foreground dark:bg-[#282828]'
-                      : 'text-muted-foreground hover:bg-muted hover:text-foreground dark:hover:bg-[#282828]'
-                  }`}
-                >
-                  {item.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+        )}
       </nav>
 
 
