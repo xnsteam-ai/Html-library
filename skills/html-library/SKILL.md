@@ -44,7 +44,7 @@ Follow these and you will not produce broken output.
    need JS, it does not — see the pattern table below.
 3. **Always pair a `dark:` variant** with every color utility. A bare
    `bg-white` is invisible in dark mode.
-4. **Check the class vocabulary before pasting.** 55 of 191
+4. **Check the class vocabulary before pasting.** 54 of 191
    components use app-only theme tokens that render invisible outside this repo.
    See *Class portability* below — this is the single most common failure.
 5. **Re-namespace `id` / `for` / `name`** if you paste a component twice.
@@ -61,8 +61,8 @@ Two vocabularies exist in this registry.
 | Literal Tailwind | `bg-gray-900`, `text-gray-500` | Yes — paste anywhere |
 | App-only tokens | `text-muted-foreground`, `bg-muted` | **No** — only inside this docs app |
 
-**136 of 191 components are fully portable.**
-**55 contain app-only tokens** (sites 22, agent elements 20, ui elements 13) and are marked ⚠ in
+**137 of 191 components are fully portable.**
+**54 contain app-only tokens** (sites 22, agent elements 19, ui elements 13) and are marked ⚠ in
 the index below.
 
 Detect:
@@ -183,7 +183,7 @@ substitution table above.
 - `tool-group` ⚠ — A collapsible run of tool calls: summary header with stacked icons and timing, collapsed, expanded, and running children.
 - `ide-composer` — A dark, IDE-embedded prompt bar: session placeholder with a blinking caret, mode toggle row, and a bottom Local/Remote action strip. Always dark, like the editor panel it depicts.
 - `chat-landing` `[site]` — A full-page AI assistant home: greeting, rich composer, category toggles and filtered suggestion cards.
-- `chat-welcome` ⚠ — The empty-state screen before any messages exist: a centred greeting above a rounded composer with a teal send button and a scroll-to-bottom affordance.
+- `chat-welcome` — The empty-state screen before any messages exist: a centred greeting above a rounded composer with a teal send button and a scroll-to-bottom affordance.
 - `chat-conversation` `[site]` — A full-page thread with a user message, an expanded tool-call log, a rendered code block, and a split artifact document panel.
 
 ### UI Elements — 23

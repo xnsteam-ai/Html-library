@@ -80,7 +80,7 @@ Chat surfaces, composers and tool-call cards.
 | `tool-group` | Tool Group | element | tool, collapsible, timeline | ⚠ foreground, muted-foreground |
 | `ide-composer` | IDE Composer | element | composer, ide, dark, toolbar | portable |
 | `chat-landing` | Chat Landing | site | chat, landing, composer, suggestions | portable · scoped `<style>` |
-| `chat-welcome` | Chat Welcome | element | chat, empty state, composer, welcome | ⚠ foreground, muted-foreground |
+| `chat-welcome` | Chat Welcome | element | chat, empty state, composer, welcome | portable |
 | `chat-conversation` | Chat Conversation | site | chat, conversation, artifact, tool-calls | portable · scoped `<style>` |
 
 ## UI Elements — 23
