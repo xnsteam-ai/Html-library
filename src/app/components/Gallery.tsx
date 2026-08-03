@@ -19,6 +19,23 @@ import { ScreenFrame } from './ScreenFrame'
 // height so a long section still yields a tidy card.
 const CARD_SCALE: Record<Surface, number> = { app: 0.88, site: 0.22, section: 0.28, element: 0.48 }
 
+/**
+ * The narrowest column each gallery's cards actually fit in.
+ *
+ * Apps and elements render their preview at a fixed scale, so those cards have
+ * a real pixel width and cannot shrink with their column — a column narrower
+ * than this overflows rather than reflowing. Declaring the minimum and letting
+ * the browser decide the count keeps the grid correct at any width, including
+ * when the sidebar is collapsed, which no fixed breakpoint can track.
+ */
+const CARD_MIN_WIDTH: Record<CategoryId, number> = {
+  apps: 372, // 390 × 0.88 + phone frame ≈ 361
+  sites: 340, // scales to fit its column, so this is only how small a page may read
+  agent: 324, // 640 × 0.48 element ≈ 309
+  ui: 324,
+  images: 0, // masonry, not this grid
+}
+
 const STATUS_LABEL = { new: 'New', updated: 'Updated' } as const
 
 function AppCard({ item }: { item: RegistryItem }) {
@@ -145,7 +162,10 @@ export function Gallery({ category }: { category: CategoryId }) {
   const isPhoneGrid = category === 'apps'
 
   return (
-    <div className="mx-auto w-full max-w-6xl px-8 py-9">
+    // Galleries fill the main area rather than sitting in a centred reading
+    // column: the grid decides its own column count, so extra width becomes
+    // more components per row. Doc pages keep their narrow measure.
+    <div className="w-full px-8 py-9">
       <header className="mb-6">
         <h1 className="text-[26px] font-semibold tracking-tight text-foreground">{meta.title}</h1>
         <p className="mt-2 max-w-2xl text-[14.5px] leading-relaxed text-muted-foreground">
@@ -203,11 +223,13 @@ export function Gallery({ category }: { category: CategoryId }) {
         </div>
       ) : (
         <div
-          className={`grid gap-x-6 gap-y-10 ${
-            isPhoneGrid
-              ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
-              : 'grid-cols-1 md:grid-cols-2 xl:grid-cols-3'
-          }`}
+          className="grid gap-x-6 gap-y-10"
+          // `min(…, 100%)` matters: on a viewport narrower than a single card
+          // it lets the track collapse to the available width instead of
+          // forcing the page into a horizontal scroll.
+          style={{
+            gridTemplateColumns: `repeat(auto-fill, minmax(min(${CARD_MIN_WIDTH[category]}px, 100%), 1fr))`,
+          }}
         >
           {results.map((item) =>
             isPhoneGrid ? (

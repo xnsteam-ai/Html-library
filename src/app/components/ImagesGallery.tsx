@@ -161,7 +161,9 @@ export function ImagesGallery() {
   )
 
   return (
-    <div className="mx-auto w-full max-w-6xl px-8 py-9">
+    // Fills the main area like the other galleries; the masonry below picks its
+    // own column count from the width it is given.
+    <div className="w-full px-8 py-9">
       <header className="mb-6">
         <h1 className="text-[26px] font-semibold tracking-tight text-foreground">{meta.title}</h1>
         <p className="mt-2 max-w-2xl text-[14.5px] leading-relaxed text-muted-foreground">
@@ -225,7 +227,11 @@ export function ImagesGallery() {
           </button>
         </div>
       ) : (
-        <div className="columns-2 gap-3 sm:columns-3 xl:columns-4">
+        // Column *width* rather than a count above `sm`, so the masonry gains
+        // columns as the area widens instead of stretching a fixed three. The
+        // explicit two-up stays for phones, where a width-based rule would drop
+        // to a single very wide column.
+        <div className="columns-2 gap-3 sm:columns-[17rem]">
           {results.map((item) => (
             <MasonryTile key={item.name} item={item} />
           ))}
