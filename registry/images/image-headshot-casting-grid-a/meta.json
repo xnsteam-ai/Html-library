@@ -30,6 +30,13 @@
       "depthOfField": "Shallow, matched",
       "focus": "The face in each cell"
     },
+    "framing": {
+      "subjectScale": "Nine cells; head fills ~65% of each cell",
+      "subjectBox": "Three-by-three grid; boundaries at 33% and 67% on both axes",
+      "anchors": "Each cell eyeline at roughly 38% of cell height",
+      "edges": "Shoulders crop at each cell bottom",
+      "negativeSpace": "Small uniform margin inside each cell"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Flat neutral ground, identical per cell",

@@ -29,6 +29,13 @@
       "depthOfField": "Shallow",
       "focus": "The eyes behind the glasses"
     },
+    "framing": {
+      "subjectScale": "Head and arms fill ~70% of frame width, centred",
+      "subjectBox": "Head x≈32–68%, y≈28–72%; raised arms frame x≈18–85%, y≈5–45%",
+      "anchors": "Eyeline at ~45% from top — lower than a standing portrait because the camera is overhead",
+      "edges": "Elbows crop at both side edges; hair spreads to the top edge",
+      "negativeSpace": "Pale surface fills the lower ~25%"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Plain pale surface beneath the subject",

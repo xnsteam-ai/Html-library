@@ -23,6 +23,13 @@
       "depthOfField": "Deep",
       "focus": "The earbud case"
     },
+    "framing": {
+      "subjectScale": "Type dominates the upper two-thirds; product lower",
+      "subjectBox": "Type x≈5–95%, y≈15–62%; product x≈35–72%, y≈65–88%",
+      "anchors": "Type block ~15–62%; product centre ~76%",
+      "edges": "Type bleeds to both side edges",
+      "negativeSpace": "Green field carries the margins"
+    },
     "environment": {
       "setting": "Graphic field",
       "background": "Flat acid-green and white ground with overlapping display lettering",

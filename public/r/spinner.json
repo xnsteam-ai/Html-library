@@ -1,0 +1,22 @@
+{
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
+  "name": "spinner",
+  "title": "Spinner",
+  "description": "A spinning ring loading indicator in four sizes.",
+  "category": "ui",
+  "type": "html",
+  "version": "0.1.0",
+  "tailwind": "^4.0.0",
+  "tags": [
+    "spinner",
+    "loading",
+    "indicator"
+  ],
+  "files": [
+    {
+      "path": "spinner.html",
+      "type": "html",
+      "content": "<!-- Spinner — Fluent UI style ring spinner, restored with the exact Fluent brand blue and easing -->\n<style>\n  .fsp-root { --bg-surface: #ffffff; --border-color: #e0e0e0; --text-secondary: #616161; --fluent-brand: #0f6cbd; --fluent-brand-alpha: rgba(15, 108, 189, 0.2); }\n  .dark .fsp-root { --bg-surface: #333333; --border-color: #424242; --text-secondary: #d1d1d1; --fluent-brand: #479ef5; --fluent-brand-alpha: rgba(71, 158, 245, 0.2); }\n  @keyframes fsp-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }\n  .fsp-root .fsp-ring { border: 2px solid var(--fluent-brand-alpha); border-top-color: var(--fluent-brand); border-radius: 50%; animation: fsp-spin 1.3s cubic-bezier(0.53, 0.21, 0.29, 0.67) infinite; }\n</style>\n\n<div class=\"fsp-root mx-auto w-full max-w-md rounded-lg border border-[var(--border-color)] bg-[var(--bg-surface)] p-8 shadow-sm\">\n  <h2 class=\"mb-8 text-center text-[15px] font-semibold text-[var(--text-secondary)]\">Spinners (Fluent UI Style)</h2>\n  <div class=\"flex flex-col items-center justify-center gap-8 pb-4 pt-2\">\n    <div class=\"flex flex-col items-center gap-3\">\n      <div class=\"fsp-ring h-12 w-12 !border-[3px]\"></div>\n      <span class=\"text-[13px] font-medium text-[var(--text-secondary)]\">Extra Large</span>\n    </div>\n    <div class=\"flex flex-col items-center gap-3\">\n      <div class=\"fsp-ring h-9 w-9 !border-[2.5px]\"></div>\n      <span class=\"text-[13px] font-medium text-[var(--text-secondary)]\">Large</span>\n    </div>\n    <div class=\"flex flex-col items-center gap-3\">\n      <div class=\"fsp-ring h-6 w-6 !border-2\"></div>\n      <span class=\"text-[13px] font-medium text-[var(--text-secondary)]\">Medium</span>\n    </div>\n    <div class=\"flex flex-col items-center gap-3\">\n      <div class=\"fsp-ring h-4 w-4 !border-[1.5px]\"></div>\n      <span class=\"text-[13px] font-medium text-[var(--text-secondary)]\">Small</span>\n    </div>\n  </div>\n</div>\n"
+    }
+  ]
+}

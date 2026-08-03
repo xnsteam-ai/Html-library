@@ -29,6 +29,13 @@
       "depthOfField": "Moderate; interiors legible behind",
       "focus": "The subject in each panel"
     },
+    "framing": {
+      "subjectScale": "Four equal panels, each subject filling ~55% of its own cell width",
+      "subjectBox": "Two-by-two grid; cell boundaries at 50% on both axes; figure centred in each cell",
+      "anchors": "Each cell carries its own eyeline at roughly 25–30% of cell height",
+      "edges": "Figures crop at cell edges; no bleed across panel gutters",
+      "negativeSpace": "Thin gutter between panels; no outer margin"
+    },
     "environment": {
       "setting": "Interior — corridor, mirror, doorway",
       "background": "Domestic and hallway detail visible but secondary",

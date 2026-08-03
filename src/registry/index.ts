@@ -4,8 +4,15 @@ export type CategoryId = 'images' | 'apps' | 'sites' | 'agent' | 'ui'
  * Category decides where an item lives; surface decides how it draws. Keeping
  * them separate is what lets Apps and Sites be independent sections while a
  * site page and a page section still share the same browser chrome.
+ *
+ * Agent Elements and UI Elements usually don't set `surface` — they aren't a
+ * device screen, so `ScreenFrame` falls back to `'element'`: no chrome, auto
+ * height, and a compact 640px canvas sized for a centred `max-w-*` snippet
+ * rather than a full 1280px page. A few Agent items are genuinely full-page
+ * (a chat landing screen, a conversation with a split artifact panel) and
+ * opt into `'site'` explicitly for the larger 1280×800 canvas.
  */
-export type Surface = 'app' | 'site' | 'section'
+export type Surface = 'app' | 'site' | 'section' | 'element'
 
 export interface ComponentMeta {
   name: string
@@ -54,6 +61,23 @@ export interface ImagePromptSpec {
     depthOfField?: string
     focus?: string
   }
+  /**
+   * Where the subject actually sits inside the canvas, in numbers.
+   *
+   * Prose like "centred, filling the frame" is not reproducible — it leaves a
+   * model free to invent headroom, shrink the subject, or re-centre a face
+   * that was deliberately cropped at the top edge. These fields pin the
+   * geometry as percentages of frame width/height so a recreation lands in
+   * the same place at the same scale.
+   */
+  framing?: {
+    /** Derived from the file, not authored — see `imagePrompt.ts`. */
+    subjectScale?: string
+    subjectBox?: string
+    anchors?: string
+    edges?: string
+    negativeSpace?: string
+  }
   environment?: { setting?: string; background?: string; depth?: string }
   lighting?: { quality?: string; direction?: string; temperature?: string; shadows?: string }
   camera?: { lens?: string; quality?: string; artifacts?: string; aesthetic?: string }
@@ -98,11 +122,13 @@ export const CATEGORY_META: Record<
     title: 'Agent Elements',
     blurb: 'Chat surfaces, composers and tool-call cards for agent interfaces.',
     order: 4,
+    gallery: true,
   },
   ui: {
     title: 'UI Elements',
     blurb: 'General-purpose primitives that pair with the agent set.',
     order: 5,
+    gallery: true,
   },
 }
 
@@ -115,6 +141,7 @@ export const FRAME_SIZE: Record<Surface, { width: number; height: number | 'auto
   app: { width: 390, height: 844 },
   site: { width: 1280, height: 800 },
   section: { width: 1280, height: 'auto' },
+  element: { width: 640, height: 'auto' },
 }
 
 // The docs app reads the registry sources directly, so the site can never drift

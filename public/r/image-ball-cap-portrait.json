@@ -29,6 +29,13 @@
       "depthOfField": "Shallow; plain backdrop",
       "focus": "The eyes under the brim"
     },
+    "framing": {
+      "subjectScale": "Head and shoulders fill ~60% of frame width, lower two-thirds of height",
+      "subjectBox": "Head x≈28–72%, y≈12–52%; shoulders widen to x≈8–92% by y≈75%",
+      "anchors": "Eyeline at ~30% from top (partly shaded by the brim); chin ~48%",
+      "edges": "Shoulders exit the bottom edge",
+      "negativeSpace": "Upper ~12% clean grey backdrop as headroom"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Flat pale grey backdrop",

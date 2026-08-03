@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { FRAME_SIZE, type RegistryItem, type Surface } from '../../registry'
 
 /** Border + padding the device chrome adds around the screen itself. */
-const CHROME_WIDTH: Record<Surface, number> = { app: 20, site: 2, section: 2 }
+const CHROME_WIDTH: Record<Surface, number> = { app: 20, site: 2, section: 2, element: 2 }
 
 /**
  * Sections are authored at a fixed width but grow with their content, so their
@@ -84,17 +84,24 @@ function ScaledScreen({
   surface?: Surface
 }) {
   const visibleHeight = clampHeight ? Math.min(height, clampHeight) : height
+  // Site/section canvases are meant to read as a real page, so they force a
+  // plain white/near-black backdrop. Element snippets often carry their own
+  // dark card background (e.g. neutral-900); forcing the same near-black
+  // wrapper around them makes the card vanish into its own backdrop. `subtle`
+  // sits one step lighter in both themes, so a card's edge stays visible
+  // against it either way.
+  const wrapperBg = surface === 'element' ? 'bg-subtle' : 'bg-white dark:bg-neutral-950'
 
   return (
     <div
       style={{ width: width * scale, height: visibleHeight * scale }}
-      className={`overflow-hidden bg-white dark:bg-neutral-950 ${
+      className={`overflow-hidden ${wrapperBg} ${
         isSiteOrSection ? 'rounded-xl border border-gray-200 dark:border-white/10' : ''
       }`}
     >
       <div
         style={{ width, height, transform: `scale(${scale})`, transformOrigin: 'top left' }}
-        className="relative overflow-hidden"
+        className={`relative overflow-hidden`}
       >
         <div
           ref={contentRef}
@@ -164,13 +171,22 @@ export function ScreenFrame({
   clampHeight,
   unframed = false,
 }: ScreenFrameProps) {
-  const surface = item.surface ?? 'app'
+  // Apps and Sites always set `surface` explicitly. Agent Elements and UI
+  // Elements never do — they're small centred snippets, not a device screen,
+  // so they get the compact auto-height `element` canvas rather than being
+  // mistaken for a phone screen (390×844, complete with a fake status bar).
+  const surface = item.surface ?? 'element'
   const size = FRAME_SIZE[surface]
   const isAuto = size.height === 'auto'
 
   const { ref: contentRef, height: measuredHeight } = useContentHeight(isAuto)
+  // `scrollHeight` is genuinely 0 for markup whose root is `position: fixed`
+  // (an alert banner, say) — fixed content contributes nothing to its own
+  // flow parent's height. `?? FALLBACK` only catches null/undefined, so a
+  // real zero would otherwise collapse the card to nothing; treat it the
+  // same as "not measured yet".
   const height =
-    size.height === 'auto' ? (measuredHeight ?? FALLBACK_SECTION_HEIGHT) : size.height
+    size.height === 'auto' ? (measuredHeight || FALLBACK_SECTION_HEIGHT) : size.height
 
   const { ref: fitRef, scale: fitted } = useFitScale(size.width, CHROME_WIDTH[surface], fit)
   const applied = fit ? fitted : scale
@@ -184,7 +200,7 @@ export function ScreenFrame({
       interactive={interactive}
       clampHeight={clampHeight}
       contentRef={isAuto ? contentRef : undefined}
-      isSiteOrSection={!unframed && (surface === 'site' || surface === 'section')}
+      isSiteOrSection={!unframed && (surface === 'site' || surface === 'section' || surface === 'element')}
       surface={surface}
     />
   )
@@ -192,7 +208,7 @@ export function ScreenFrame({
 
   // The ref must sit on a full-width box for the measurement to be meaningful.
   return (
-    <div ref={fitRef} className="flex w-full justify-center">
+    <div ref={fitRef} className="flex w-full items-center justify-center">
       {applied > 0 && framed}
     </div>
   )

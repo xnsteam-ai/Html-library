@@ -30,6 +30,13 @@
       "depthOfField": "Moderate",
       "focus": "The garment in each cell"
     },
+    "framing": {
+      "subjectScale": "Six cells of mixed worn and flat-laid frames",
+      "subjectBox": "Three-by-two grid; boundaries at 33%/67% horizontally, 50% vertically",
+      "anchors": "Worn figures stand full-height in their cells; flats centred in theirs",
+      "edges": "Figures crop at cell edges",
+      "negativeSpace": "Thin gutters; white margin inside the flat-lay cells"
+    },
     "environment": {
       "setting": "Urban exterior plus studio flats",
       "background": "Street and stairwell for the worn frames, white sweep for the flats",

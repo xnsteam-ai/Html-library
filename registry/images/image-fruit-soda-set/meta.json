@@ -23,6 +23,13 @@
       "depthOfField": "Moderate; fruit props soften behind",
       "focus": "The can faces and labels"
     },
+    "framing": {
+      "subjectScale": "Three cans span ~80% of frame width across the middle band",
+      "subjectBox": "Cans at x≈10–32%, x≈38–62%, x≈68–90%; all y≈35–78%; fruit props fill y≈70–100%",
+      "anchors": "Can tops at ~35% from top; can bases at ~78%; prop line at ~85%",
+      "edges": "Fruit and foliage exit the bottom and both side edges",
+      "negativeSpace": "Upper ~30% is dark negative space above the cans"
+    },
     "environment": {
       "setting": "Studio set with props",
       "background": "Dark ground dressed with whole and cut fruit matched to each flavour, water droplets",

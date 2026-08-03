@@ -1,0 +1,10 @@
+{
+  "name": "skeleton-list",
+  "title": "Skeleton List",
+  "description": "Staggered pulsing rows for a loading data list — avatar, two text lines and a status pill per row.",
+  "category": "ui",
+  "order": 16,
+  "tags": ["skeleton", "loading", "list"],
+  "previewBg": "muted",
+  "previewHeight": 300
+}

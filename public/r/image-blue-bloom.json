@@ -29,6 +29,13 @@
       "depthOfField": "Shallow",
       "focus": "The profile edge — brow, nose, lip"
     },
+    "framing": {
+      "subjectScale": "Figure spans ~55% of frame width, lower three-quarters of height",
+      "subjectBox": "Figure x≈35–90%, y≈20–100%; particle dissolve trails left to x≈5%, y≈15–55%",
+      "anchors": "Eyeline (profile) at ~32% from top; shoulder line ~62%",
+      "edges": "Torso exits the bottom edge; particles exit the left and top edges",
+      "negativeSpace": "Left ~30% is near-black negative space carrying the dissolve"
+    },
     "environment": {
       "setting": "Studio / composite",
       "background": "Near-black field with luminous blue floral fragments drifting off the figure",

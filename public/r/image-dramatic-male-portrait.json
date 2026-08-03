@@ -29,6 +29,13 @@
       "depthOfField": "Shallow; ground falls to black",
       "focus": "The eyes and the hand at the jaw"
     },
+    "framing": {
+      "subjectScale": "Head and hand fill ~55% of frame width, centred",
+      "subjectBox": "Head x≈28–72%, y≈12–62%; hand x≈38–60%, y≈52–78%",
+      "anchors": "Eyeline at ~32% from top; hand at the chin ~62%",
+      "edges": "Shoulders exit the bottom edge",
+      "negativeSpace": "Black ground fills roughly 25% each side"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Near-black backdrop",

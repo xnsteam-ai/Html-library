@@ -1,0 +1,22 @@
+{
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
+  "name": "skeleton-list",
+  "title": "Skeleton List",
+  "description": "Staggered pulsing rows for a loading data list — avatar, two text lines and a status pill per row.",
+  "category": "ui",
+  "type": "html",
+  "version": "0.1.0",
+  "tailwind": "^4.0.0",
+  "tags": [
+    "skeleton",
+    "loading",
+    "list"
+  ],
+  "files": [
+    {
+      "path": "skeleton-list.html",
+      "type": "html",
+      "content": "<!-- Skeleton List — Fluent UI style, restored with its own scoped theme and staggered pulse timing -->\n<style>\n  .fsl-root { --bg-surface: #ffffff; --border-color: #e0e0e0; --fluent-skeleton-base: #e1dfdd; }\n  .dark .fsl-root { --bg-surface: #333333; --border-color: #424242; --fluent-skeleton-base: #484644; }\n  @keyframes fsl-pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }\n  .fsl-root .fsl-block { animation: fsl-pulse 2s cubic-bezier(0.4, 0, 0.2, 1) infinite; background-color: var(--fluent-skeleton-base); border-radius: 4px; }\n</style>\n\n<div class=\"fsl-root mx-auto w-full max-w-2xl rounded-lg border border-[var(--border-color)] bg-[var(--bg-surface)] p-6 shadow-sm\">\n  <h2 class=\"mb-6 text-[15px] font-semibold\" style=\"color: var(--fsl-text, inherit)\">Data List Loading</h2>\n\n  <div class=\"flex flex-col gap-4\">\n    <div class=\"flex items-center gap-4 border-b border-[var(--border-color)] pb-4\">\n      <div class=\"fsl-block h-10 w-10 shrink-0 !rounded-full\"></div>\n      <div class=\"flex flex-1 flex-col gap-2\">\n        <div class=\"fsl-block h-4 w-48\"></div>\n        <div class=\"fsl-block h-3 w-32\"></div>\n      </div>\n      <div class=\"fsl-block h-6 w-16 shrink-0 !rounded-full\"></div>\n    </div>\n\n    <div class=\"flex items-center gap-4 border-b border-[var(--border-color)] pb-4\">\n      <div class=\"fsl-block h-10 w-10 shrink-0 !rounded-full\" style=\"animation-delay: 0.1s\"></div>\n      <div class=\"flex flex-1 flex-col gap-2\">\n        <div class=\"fsl-block h-4 w-40\" style=\"animation-delay: 0.1s\"></div>\n        <div class=\"fsl-block h-3 w-36\" style=\"animation-delay: 0.1s\"></div>\n      </div>\n      <div class=\"fsl-block h-6 w-20 shrink-0 !rounded-full\" style=\"animation-delay: 0.1s\"></div>\n    </div>\n\n    <div class=\"flex items-center gap-4 border-b border-[var(--border-color)] pb-4\">\n      <div class=\"fsl-block h-10 w-10 shrink-0 !rounded-full\" style=\"animation-delay: 0.2s\"></div>\n      <div class=\"flex flex-1 flex-col gap-2\">\n        <div class=\"fsl-block h-4 w-52\" style=\"animation-delay: 0.2s\"></div>\n        <div class=\"fsl-block h-3 w-28\" style=\"animation-delay: 0.2s\"></div>\n      </div>\n      <div class=\"fsl-block h-6 w-16 shrink-0 !rounded-full\" style=\"animation-delay: 0.2s\"></div>\n    </div>\n\n    <div class=\"flex items-center gap-4\">\n      <div class=\"fsl-block h-10 w-10 shrink-0 !rounded-full\" style=\"animation-delay: 0.3s\"></div>\n      <div class=\"flex flex-1 flex-col gap-2\">\n        <div class=\"fsl-block h-4 w-44\" style=\"animation-delay: 0.3s\"></div>\n        <div class=\"fsl-block h-3 w-40\" style=\"animation-delay: 0.3s\"></div>\n      </div>\n      <div class=\"fsl-block h-6 w-24 shrink-0 !rounded-full\" style=\"animation-delay: 0.3s\"></div>\n    </div>\n  </div>\n</div>\n"
+    }
+  ]
+}

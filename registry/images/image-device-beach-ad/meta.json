@@ -30,6 +30,13 @@
       "depthOfField": "Moderate; product inset held sharp",
       "focus": "The phone product render"
     },
+    "framing": {
+      "subjectScale": "Talent occupies left ~55%; product render the right ~35%",
+      "subjectBox": "Figure x≈5–60%, y≈25–100%; device x≈62–95%, y≈30–80%; wordmark x≈5–40%, y≈8–20%",
+      "anchors": "Wordmark baseline at ~20%; device vertical centre at ~55%; figure horizon at ~72%",
+      "edges": "Figure exits the bottom edge; background bleeds to all edges",
+      "negativeSpace": "Top ~20% reserved for the wordmark band"
+    },
     "environment": {
       "setting": "Poolside / resort",
       "background": "Palm fronds, water and warm tile, deliberately soft",

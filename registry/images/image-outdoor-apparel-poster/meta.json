@@ -30,6 +30,13 @@
       "depthOfField": "Deep",
       "focus": "The jacket and gear"
     },
+    "framing": {
+      "subjectScale": "Figure spans ~40% of frame width, lower two-thirds",
+      "subjectBox": "Figure x≈30–70%, y≈32–92%; wordmark x≈10–90%, y≈8–25%",
+      "anchors": "Wordmark baseline at ~25%; figure centre ~62%; ground line ~92%",
+      "edges": "Nothing cropped — figure held clear of the edges",
+      "negativeSpace": "Top ~25% is the type band; ~8% dark margin below the figure"
+    },
     "environment": {
       "setting": "Composited dark ground",
       "background": "Near-black field with faint terrain texture; large wordmark overlaid",

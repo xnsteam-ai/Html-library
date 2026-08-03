@@ -22,6 +22,13 @@
       "depthOfField": "Deep",
       "focus": "The grille and front wheel"
     },
+    "framing": {
+      "subjectScale": "Car spans ~80% of frame width across the lower-middle band",
+      "subjectBox": "Car x≈10–92%, y≈48–78%; wordmark x≈15–85%, y≈15–42%",
+      "anchors": "Wordmark baseline at ~42%; car axis at ~62%",
+      "edges": "Front wing approaches the right edge",
+      "negativeSpace": "Top ~42% is type and flat blue field"
+    },
     "environment": {
       "setting": "Studio / composite",
       "background": "Flat saturated blue ground, large wordmark",

@@ -1,0 +1,10 @@
+{
+  "name": "switch",
+  "title": "Switch",
+  "description": "A real toggle switch in on, off and disabled states, driven entirely by a hidden checkbox and CSS.",
+  "category": "ui",
+  "order": 19,
+  "tags": ["switch", "toggle", "form"],
+  "previewBg": "plain",
+  "previewHeight": 280
+}

@@ -29,6 +29,13 @@
       "depthOfField": "Shallow; interior warm and soft behind",
       "focus": "The eyes"
     },
+    "framing": {
+      "subjectScale": "Head and shoulders fill ~55% of frame width, lower three-quarters",
+      "subjectBox": "Head x≈28–72%, y≈12–55%; shoulders to x≈10–90% by y≈80%",
+      "anchors": "Eyeline at ~30% from top; chin ~50%",
+      "edges": "Shoulders exit the bottom edge",
+      "negativeSpace": "Upper ~12% is soft warm interior"
+    },
     "environment": {
       "setting": "Warm interior",
       "background": "Wooden and soft furnishing tones, unreadable detail",

@@ -30,6 +30,13 @@
       "depthOfField": "Shallow",
       "focus": "The eyes and the jawline the hand frames"
     },
+    "framing": {
+      "subjectScale": "Head and hand fill ~55% of frame width, inside a circular graphic",
+      "subjectBox": "Head x≈28–72%, y≈15–72%; hand x≈32–52%, y≈42–68%; circle x≈15–85%, y≈8–65%",
+      "anchors": "Eyeline at ~32% from top; hand at the jaw ~55%",
+      "edges": "Shoulders exit the bottom edge",
+      "negativeSpace": "Dark ground fills roughly 15% each side"
+    },
     "environment": {
       "setting": "Studio / graphic composite",
       "background": "Flat dark ground with a large teal circle behind the head",

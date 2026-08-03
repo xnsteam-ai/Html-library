@@ -1,0 +1,10 @@
+{
+  "name": "nav-vertical",
+  "title": "Nav Vertical",
+  "description": "A sidebar navigation list with a selected-state highlight, paired with a content pane.",
+  "category": "ui",
+  "order": 14,
+  "tags": ["nav", "sidebar", "navigation"],
+  "previewBg": "plain",
+  "previewHeight": 320
+}

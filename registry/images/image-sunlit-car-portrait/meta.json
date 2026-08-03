@@ -30,6 +30,13 @@
       "depthOfField": "Shallow; interior dark behind",
       "focus": "The face"
     },
+    "framing": {
+      "subjectScale": "Head fills ~40% of frame width, framed by the window aperture",
+      "subjectBox": "Head x≈30–70%, y≈25–65%; window aperture x≈15–85%, y≈12–85%",
+      "anchors": "Eyeline at ~38% from top; window sill at ~72%",
+      "edges": "Door and roof crop at all four edges around the aperture",
+      "negativeSpace": "Dark cabin interior forms the surround inside the aperture"
+    },
     "environment": {
       "setting": "Car interior seen from outside",
       "background": "Dark cabin behind the subject, bright exterior at the edges",

@@ -29,6 +29,13 @@
       "depthOfField": "Deep",
       "focus": "The mirror reflection"
     },
+    "framing": {
+      "subjectScale": "Figure fills ~45% of frame width, full height",
+      "subjectBox": "Figure x≈28–72%, y≈8–100%; phone at x≈40–55%, y≈22–35%",
+      "anchors": "Phone/face level at ~28% from top; hip line ~58%",
+      "edges": "Legs exit the bottom edge",
+      "negativeSpace": "Interior fills both side margins, roughly 28% each"
+    },
     "environment": {
       "setting": "Domestic interior",
       "background": "Bathroom or bedroom fittings, wall lights visible",

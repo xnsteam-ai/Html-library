@@ -30,6 +30,13 @@
       "depthOfField": "Deep",
       "focus": "The boot"
     },
+    "framing": {
+      "subjectScale": "Figure left ~35%; product and type the right ~60%",
+      "subjectBox": "Figure x≈5–40%, y≈25–95%; boot x≈50–92%, y≈45–80%; wordmark x≈35–95%, y≈15–45%",
+      "anchors": "Wordmark band ~15–45%; boot centre ~62%",
+      "edges": "Figure exits the bottom edge",
+      "negativeSpace": "Red field carries the margins"
+    },
     "environment": {
       "setting": "Graphic field",
       "background": "Saturated red ground with heavy display lettering",

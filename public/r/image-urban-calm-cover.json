@@ -29,6 +29,13 @@
       "depthOfField": "Flat — illustration, no optical depth",
       "focus": "The face and shoulder line"
     },
+    "framing": {
+      "subjectScale": "Figure fills ~50% of frame width, lower two-thirds",
+      "subjectBox": "Figure x≈28–78%, y≈32–100%; masthead x≈8–60%, y≈8–25%",
+      "anchors": "Masthead baseline at ~25%; figure eyeline ~45%",
+      "edges": "Figure exits the bottom edge",
+      "negativeSpace": "Upper ~30% is gradient ground and type"
+    },
     "environment": {
       "setting": "Illustrated",
       "background": "Soft gradient ground with minimal graphic marks",

@@ -21,17 +21,17 @@
     {
       "name": "sites",
       "title": "Sites",
-      "count": 24
+      "count": 29
     },
     {
       "name": "agent",
       "title": "Agent Elements",
-      "count": 21
+      "count": 23
     },
     {
       "name": "ui",
       "title": "UI Elements",
-      "count": 13
+      "count": 23
     }
   ],
   "items": [
@@ -1904,6 +1904,19 @@
       "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/section-newsletter.json"
     },
     {
+      "name": "site-component-docs",
+      "title": "Component Docs",
+      "description": "A design-system component reference: category nav tree, live stage preview, best-practices table, examples, and an on-this-page rail.",
+      "category": "sites",
+      "tags": [
+        "docs",
+        "design-system",
+        "reference"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/site-component-docs.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/site-component-docs.json"
+    },
+    {
       "name": "section-footer",
       "title": "Footer",
       "description": "A five-column footer: brand blurb, four link groups, and a legal row with social icons.",
@@ -1915,6 +1928,19 @@
       ],
       "url": "https://xnsteam-ai.github.io/Html-library/r/section-footer.json",
       "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/section-footer.json"
+    },
+    {
+      "name": "site-storefront",
+      "title": "Storefront",
+      "description": "An ecommerce top nav with a hover mega menu, hero banner and category grid rows.",
+      "category": "sites",
+      "tags": [
+        "ecommerce",
+        "nav",
+        "mega-menu"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/site-storefront.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/site-storefront.json"
     },
     {
       "name": "section-customer-stories",
@@ -1931,6 +1957,19 @@
       "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/section-customer-stories.json"
     },
     {
+      "name": "site-product-gallery",
+      "title": "Product Gallery",
+      "description": "A marketing header over a grid of square product cards with pricing.",
+      "category": "sites",
+      "tags": [
+        "ecommerce",
+        "gallery",
+        "products"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/site-product-gallery.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/site-product-gallery.json"
+    },
+    {
       "name": "section-plan-picker",
       "title": "Plan Picker",
       "description": "Credit-based pricing tiers with a per-month allowance box, indented model lists, and a highlighted plan wrapped in a dark shell with an amber call to action.",
@@ -1945,6 +1984,19 @@
       "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/section-plan-picker.json"
     },
     {
+      "name": "site-ide-shell",
+      "title": "IDE Shell",
+      "description": "A code-editor shell: menu bar, file-tree sidebar with an active file, editor tabs and a mock code area.",
+      "category": "sites",
+      "tags": [
+        "ide",
+        "editor",
+        "shell"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/site-ide-shell.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/site-ide-shell.json"
+    },
+    {
       "name": "section-service-grid",
       "title": "Service Grid",
       "description": "A 2×2 directory of service categories, each a pastel panel with tag pills and an Explore footer, above a filter header with a live status dot.",
@@ -1957,6 +2009,19 @@
       ],
       "url": "https://xnsteam-ai.github.io/Html-library/r/section-service-grid.json",
       "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/section-service-grid.json"
+    },
+    {
+      "name": "site-setup-guide",
+      "title": "Setup Guide",
+      "description": "A getting-started documentation page: an AI assistance prompt card, prerequisites, install steps with code blocks, and an on-this-page rail.",
+      "category": "sites",
+      "tags": [
+        "docs",
+        "onboarding",
+        "guide"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/site-setup-guide.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/site-setup-guide.json"
     },
     {
       "name": "section-lead-form",
@@ -2234,6 +2299,20 @@
       "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/ide-composer.json"
     },
     {
+      "name": "chat-landing",
+      "title": "Chat Landing",
+      "description": "A full-page AI assistant home: greeting, rich composer, category toggles and filtered suggestion cards.",
+      "category": "agent",
+      "tags": [
+        "chat",
+        "landing",
+        "composer",
+        "suggestions"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/chat-landing.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/chat-landing.json"
+    },
+    {
       "name": "chat-welcome",
       "title": "Chat Welcome",
       "description": "The empty-state screen before any messages exist: a centred greeting above a rounded composer with a teal send button and a scroll-to-bottom affordance.",
@@ -2246,6 +2325,20 @@
       ],
       "url": "https://xnsteam-ai.github.io/Html-library/r/chat-welcome.json",
       "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/chat-welcome.json"
+    },
+    {
+      "name": "chat-conversation",
+      "title": "Chat Conversation",
+      "description": "A full-page thread with a user message, an expanded tool-call log, a rendered code block, and a split artifact document panel.",
+      "category": "agent",
+      "tags": [
+        "chat",
+        "conversation",
+        "artifact",
+        "tool-calls"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/chat-conversation.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/chat-conversation.json"
     },
     {
       "name": "button",
@@ -2420,6 +2513,136 @@
       ],
       "url": "https://xnsteam-ai.github.io/Html-library/r/login-glass.json",
       "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/login-glass.json"
+    },
+    {
+      "name": "nav-horizontal",
+      "title": "Nav Horizontal",
+      "description": "A top tab strip with a sliding underline indicator, working via a radio group and CSS — no JavaScript.",
+      "category": "ui",
+      "tags": [
+        "nav",
+        "tabs",
+        "navigation"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/nav-horizontal.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/nav-horizontal.json"
+    },
+    {
+      "name": "nav-vertical",
+      "title": "Nav Vertical",
+      "description": "A sidebar navigation list with a selected-state highlight, paired with a content pane.",
+      "category": "ui",
+      "tags": [
+        "nav",
+        "sidebar",
+        "navigation"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/nav-vertical.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/nav-vertical.json"
+    },
+    {
+      "name": "skeleton-card",
+      "title": "Skeleton Card",
+      "description": "A pulsing placeholder for a card — avatar, image, text lines and action buttons — shown while real content loads.",
+      "category": "ui",
+      "tags": [
+        "skeleton",
+        "loading",
+        "placeholder"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/skeleton-card.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/skeleton-card.json"
+    },
+    {
+      "name": "skeleton-list",
+      "title": "Skeleton List",
+      "description": "Staggered pulsing rows for a loading data list — avatar, two text lines and a status pill per row.",
+      "category": "ui",
+      "tags": [
+        "skeleton",
+        "loading",
+        "list"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/skeleton-list.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/skeleton-list.json"
+    },
+    {
+      "name": "spinner",
+      "title": "Spinner",
+      "description": "A spinning ring loading indicator in four sizes.",
+      "category": "ui",
+      "tags": [
+        "spinner",
+        "loading",
+        "indicator"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/spinner.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/spinner.json"
+    },
+    {
+      "name": "spinner-overlay",
+      "title": "Spinner Overlay",
+      "description": "A blocking loading overlay with a spinner and label over blurred underlying content.",
+      "category": "ui",
+      "tags": [
+        "spinner",
+        "loading",
+        "overlay"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/spinner-overlay.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/spinner-overlay.json"
+    },
+    {
+      "name": "switch",
+      "title": "Switch",
+      "description": "A real toggle switch in on, off and disabled states, driven entirely by a hidden checkbox and CSS.",
+      "category": "ui",
+      "tags": [
+        "switch",
+        "toggle",
+        "form"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/switch.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/switch.json"
+    },
+    {
+      "name": "switch-list",
+      "title": "Switch List",
+      "description": "Labeled toggle rows for a settings panel, including a disabled row managed by an admin.",
+      "category": "ui",
+      "tags": [
+        "switch",
+        "toggle",
+        "settings"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/switch-list.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/switch-list.json"
+    },
+    {
+      "name": "table",
+      "title": "Table",
+      "description": "A simple data table with a header, hover rows and a title/description block.",
+      "category": "ui",
+      "tags": [
+        "table",
+        "data",
+        "list"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/table.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/table.json"
+    },
+    {
+      "name": "table-interactive",
+      "title": "Table Interactive",
+      "description": "A selectable data table where checking a row reveals a bulk-actions bar, driven purely by CSS `:has()`.",
+      "category": "ui",
+      "tags": [
+        "table",
+        "selection",
+        "bulk-actions"
+      ],
+      "url": "https://xnsteam-ai.github.io/Html-library/r/table-interactive.json",
+      "rawUrl": "https://raw.githubusercontent.com/xnsteam-ai/Html-library/main/public/r/table-interactive.json"
     }
   ]
 }

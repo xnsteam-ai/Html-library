@@ -29,6 +29,13 @@
       "depthOfField": "Shallow; ground plain",
       "focus": "The face"
     },
+    "framing": {
+      "subjectScale": "Head and hands fill ~60% of frame width, centred",
+      "subjectBox": "Head x≈28–72%, y≈15–60%; hands x≈22–78%, y≈45–75%",
+      "anchors": "Eyeline at ~32% from top; hands at ~58%",
+      "edges": "Shoulders exit the bottom edge",
+      "negativeSpace": "Pale pink ground fills the upper ~15%"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Flat pale pink backdrop",

@@ -1,0 +1,29 @@
+<!-- Spinner — Fluent UI style ring spinner, restored with the exact Fluent brand blue and easing -->
+<style>
+  .fsp-root { --bg-surface: #ffffff; --border-color: #e0e0e0; --text-secondary: #616161; --fluent-brand: #0f6cbd; --fluent-brand-alpha: rgba(15, 108, 189, 0.2); }
+  .dark .fsp-root { --bg-surface: #333333; --border-color: #424242; --text-secondary: #d1d1d1; --fluent-brand: #479ef5; --fluent-brand-alpha: rgba(71, 158, 245, 0.2); }
+  @keyframes fsp-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+  .fsp-root .fsp-ring { border: 2px solid var(--fluent-brand-alpha); border-top-color: var(--fluent-brand); border-radius: 50%; animation: fsp-spin 1.3s cubic-bezier(0.53, 0.21, 0.29, 0.67) infinite; }
+</style>
+
+<div class="fsp-root mx-auto w-full max-w-md rounded-lg border border-[var(--border-color)] bg-[var(--bg-surface)] p-8 shadow-sm">
+  <h2 class="mb-8 text-center text-[15px] font-semibold text-[var(--text-secondary)]">Spinners (Fluent UI Style)</h2>
+  <div class="flex flex-col items-center justify-center gap-8 pb-4 pt-2">
+    <div class="flex flex-col items-center gap-3">
+      <div class="fsp-ring h-12 w-12 !border-[3px]"></div>
+      <span class="text-[13px] font-medium text-[var(--text-secondary)]">Extra Large</span>
+    </div>
+    <div class="flex flex-col items-center gap-3">
+      <div class="fsp-ring h-9 w-9 !border-[2.5px]"></div>
+      <span class="text-[13px] font-medium text-[var(--text-secondary)]">Large</span>
+    </div>
+    <div class="flex flex-col items-center gap-3">
+      <div class="fsp-ring h-6 w-6 !border-2"></div>
+      <span class="text-[13px] font-medium text-[var(--text-secondary)]">Medium</span>
+    </div>
+    <div class="flex flex-col items-center gap-3">
+      <div class="fsp-ring h-4 w-4 !border-[1.5px]"></div>
+      <span class="text-[13px] font-medium text-[var(--text-secondary)]">Small</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<!--
+  Table Interactive — Fluent UI style selectable table, restored with its
+  own scoped theme. Row selection and the bulk-actions bar work via CSS
+  `:has()` — no JavaScript. The header "select all" checkbox is decorative,
+  since syncing every row from one control needs script.
+-->
+<style>
+  .fti-root { --bg-surface: #ffffff; --text-primary: #242424; --text-secondary: #616161; --border-color: #e0e0e0; --bg-hover: #f0f0f0; --bg-selected: #f3f2f1; --fluent-brand: #0f6cbd; }
+  .dark .fti-root { --bg-surface: #333333; --text-primary: #ffffff; --text-secondary: #d1d1d1; --border-color: #424242; --bg-hover: #3d3d3d; --bg-selected: #3b3a39; --fluent-brand: #479ef5; }
+  .fti-root .fti-checkbox { appearance: none; width: 16px; height: 16px; border: 1px solid var(--text-secondary); border-radius: 4px; display: inline-block; position: relative; cursor: pointer; background-color: transparent; transition: all 0.2s; }
+  .fti-root .fti-checkbox:checked { background-color: var(--fluent-brand); border-color: var(--fluent-brand); }
+  .fti-root .fti-checkbox:checked::after { content: ''; position: absolute; top: 2px; left: 5px; width: 4px; height: 8px; border: solid white; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+</style>
+
+<div class="fti-root mx-auto w-full max-w-3xl overflow-hidden rounded-lg border border-[var(--border-color)] bg-[var(--bg-surface)] shadow-sm has-[tbody_:checked]:[&_.fti-bulk]:pointer-events-auto has-[tbody_:checked]:[&_.fti-bulk]:opacity-100">
+  <div class="flex items-center justify-between border-b border-[var(--border-color)] p-6">
+    <div>
+      <h2 class="text-[16px] font-semibold text-[var(--text-primary)]">Project Files</h2>
+      <p class="text-[13px] text-[var(--text-secondary)]">Select files to perform bulk actions.</p>
+    </div>
+    <div class="fti-bulk flex gap-2 pointer-events-none opacity-50 transition-opacity">
+      <button type="button" class="rounded border border-[var(--border-color)] bg-[var(--bg-hover)] px-3 py-1.5 text-[13px] font-medium text-[var(--text-primary)]">Download</button>
+      <button type="button" class="rounded border border-[var(--border-color)] bg-[var(--bg-hover)] px-3 py-1.5 text-[13px] font-medium text-red-500">Delete</button>
+    </div>
+  </div>
+
+  <div class="w-full overflow-x-auto">
+    <table class="w-full whitespace-nowrap text-left text-[13.5px]">
+      <thead>
+        <tr class="border-b border-[var(--border-color)] bg-[var(--bg-surface)]">
+          <th class="w-10 px-6 py-3"><input type="checkbox" class="fti-checkbox align-middle" aria-label="Select all" /></th>
+          <th class="px-6 py-3 font-semibold text-[var(--text-primary)]">File Name</th>
+          <th class="px-6 py-3 font-semibold text-[var(--text-primary)]">Modified Date</th>
+          <th class="px-6 py-3 font-semibold text-[var(--text-primary)]">Size</th>
+          <th class="px-6 py-3 text-right font-semibold text-[var(--text-primary)]">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-[var(--border-color)] transition-colors has-checked:bg-[var(--bg-selected)] hover:bg-[var(--bg-hover)]">
+          <td class="px-6 py-3"><input type="checkbox" class="fti-checkbox row-checkbox align-middle" /></td>
+          <td class="flex items-center gap-2 px-6 py-3 font-medium text-[var(--text-primary)]">
+            <svg class="h-4 w-4 text-[var(--text-secondary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /><path d="M14 2v6h6" /></svg>
+            Document.docx
+          </td>
+          <td class="px-6 py-3 text-[var(--text-secondary)]">Oct 24, 2023</td>
+          <td class="px-6 py-3 text-[var(--text-secondary)]">24 KB</td>
+          <td class="px-6 py-3 text-right"><span class="font-medium text-[var(--fluent-brand)] hover:underline">Edit</span></td>
+        </tr>
+        <tr class="border-b border-[var(--border-color)] transition-colors has-checked:bg-[var(--bg-selected)] hover:bg-[var(--bg-hover)]">
+          <td class="px-6 py-3"><input type="checkbox" class="fti-checkbox row-checkbox align-middle" /></td>
+          <td class="flex items-center gap-2 px-6 py-3 font-medium text-[var(--text-primary)]">
+            <svg class="h-4 w-4 text-[var(--text-secondary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="9" cy="9" r="2" /><path d="M21 15l-5-5L5 21" /></svg>
+            Presentation.pptx
+          </td>
+          <td class="px-6 py-3 text-[var(--text-secondary)]">Oct 25, 2023</td>
+          <td class="px-6 py-3 text-[var(--text-secondary)]">1.2 MB</td>
+          <td class="px-6 py-3 text-right"><span class="font-medium text-[var(--fluent-brand)] hover:underline">Edit</span></td>
+        </tr>
+        <tr class="transition-colors has-checked:bg-[var(--bg-selected)] hover:bg-[var(--bg-hover)]">
+          <td class="px-6 py-3"><input type="checkbox" class="fti-checkbox row-checkbox align-middle" /></td>
+          <td class="flex items-center gap-2 px-6 py-3 font-medium text-[var(--text-primary)]">
+            <svg class="h-4 w-4 text-[var(--text-secondary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3h18v18H3z" /><path d="M3 9h18M3 15h18M9 3v18M15 3v18" /></svg>
+            Budget.xlsx
+          </td>
+          <td class="px-6 py-3 text-[var(--text-secondary)]">Nov 1, 2023</td>
+          <td class="px-6 py-3 text-[var(--text-secondary)]">450 KB</td>
+          <td class="px-6 py-3 text-right"><span class="font-medium text-[var(--fluent-brand)] hover:underline">Edit</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

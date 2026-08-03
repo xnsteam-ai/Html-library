@@ -1,0 +1,10 @@
+{
+  "name": "table-interactive",
+  "title": "Table Interactive",
+  "description": "A selectable data table where checking a row reveals a bulk-actions bar, driven purely by CSS `:has()`.",
+  "category": "ui",
+  "order": 22,
+  "tags": ["table", "selection", "bulk-actions"],
+  "previewBg": "muted",
+  "previewHeight": 340
+}

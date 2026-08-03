@@ -22,6 +22,13 @@
       "depthOfField": "Deep — everything sharp",
       "focus": "Bottle labels and typography"
     },
+    "framing": {
+      "subjectScale": "Products occupy ~85% of the square canvas across a four-quadrant layout",
+      "subjectBox": "Four product clusters, one per quadrant; centre wordmark band at y≈45–55%, x≈30–70%",
+      "anchors": "Horizontal wordmark divider at ~50%; quadrant centres at ~25% and ~75% on both axes",
+      "edges": "Cucumber and leaf props bleed off all four edges",
+      "negativeSpace": "~8% clean white margin around the outer edge"
+    },
     "environment": {
       "setting": "Studio tabletop",
       "background": "Clean white sweep with scattered cucumber slices, leaves and water droplets as garnish",

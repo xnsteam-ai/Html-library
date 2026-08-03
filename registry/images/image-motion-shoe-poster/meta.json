@@ -30,6 +30,13 @@
       "depthOfField": "Deep",
       "focus": "The shoe"
     },
+    "framing": {
+      "subjectScale": "Shoe occupies ~45% of frame width, lower-right; figure upper-left",
+      "subjectBox": "Shoe x≈45–92%, y≈58–88%; figure x≈8–45%, y≈15–55%; type x≈5–70%, y≈15–50%",
+      "anchors": "Type block spans ~15–50%; shoe centre ~72%",
+      "edges": "Shoe bleeds toward the right edge",
+      "negativeSpace": "Blue field carries the margins"
+    },
     "environment": {
       "setting": "Graphic field",
       "background": "Saturated blue ground with heavy lettering and graphic marks",

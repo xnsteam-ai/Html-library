@@ -30,6 +30,13 @@
       "depthOfField": "Shallow; poolside soft behind",
       "focus": "The face under the brim"
     },
+    "framing": {
+      "subjectScale": "Figure fills ~55% of frame width, full height",
+      "subjectBox": "Figure x≈25–80%, y≈8–100%; hat brim x≈28–75%, y≈8–32%",
+      "anchors": "Brim line at ~22%; eyeline ~34%; waist ~72%",
+      "edges": "Torso exits the bottom edge; brim grazes the top",
+      "negativeSpace": "Poolside fills both side margins"
+    },
     "environment": {
       "setting": "Poolside",
       "background": "Water and planting reduced to soft warm shapes",

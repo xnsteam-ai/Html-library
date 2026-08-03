@@ -23,6 +23,13 @@
       "depthOfField": "Deep",
       "focus": "The device body and callout lines"
     },
+    "framing": {
+      "subjectScale": "Device render occupies ~45% of frame width, upper half",
+      "subjectBox": "Device x≈30–75%, y≈10–55%; schematic and callouts x≈5–95%, y≈58–95%",
+      "anchors": "Device base at ~55%; annotation block begins at ~58%",
+      "edges": "Nothing cropped — layout fully contained",
+      "negativeSpace": "Even margin around the layout, roughly 6%"
+    },
     "environment": {
       "setting": "Studio / vector composite",
       "background": "Warm neutral ground with fine technical line work and callout labels",

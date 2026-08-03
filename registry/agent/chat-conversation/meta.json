@@ -1,0 +1,10 @@
+{
+  "name": "chat-conversation",
+  "title": "Chat Conversation",
+  "description": "A full-page thread with a user message, an expanded tool-call log, a rendered code block, and a split artifact document panel.",
+  "category": "agent",
+  "surface": "site",
+  "order": 23,
+  "tags": ["chat", "conversation", "artifact", "tool-calls"],
+  "tagline": "Thread, tool log & artifact"
+}

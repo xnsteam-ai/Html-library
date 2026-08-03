@@ -29,6 +29,13 @@
       "depthOfField": "Deep",
       "focus": "The mascot face"
     },
+    "framing": {
+      "subjectScale": "Two figures together span ~70% of frame width, lower two-thirds of height",
+      "subjectBox": "Character x≈30–70%, y≈30–90%; garment figure behind at x≈35–65%, y≈15–70%",
+      "anchors": "Character face centre at ~45%; ground contact line at ~90%",
+      "edges": "Nothing cropped — both fully inside the frame",
+      "negativeSpace": "Upper ~15% and lower ~10% left as clean blue field"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Flat blue sweep matching the wardrobe",

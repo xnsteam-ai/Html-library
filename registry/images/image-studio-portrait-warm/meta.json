@@ -30,6 +30,13 @@
       "depthOfField": "Shallow; ground falls off",
       "focus": "The jawline and eyes"
     },
+    "framing": {
+      "subjectScale": "Head and shoulders fill ~55% of frame width, lower three-quarters",
+      "subjectBox": "Head x≈32–70%, y≈12–52%; shoulders to x≈15–88% by y≈80%",
+      "anchors": "Eyeline at ~28% from top — chin raised, so the gaze exits above the frame line",
+      "edges": "Shoulders exit the bottom edge",
+      "negativeSpace": "Upper ~12% is the warm gradient ground"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Warm orange-to-black graduated backdrop",

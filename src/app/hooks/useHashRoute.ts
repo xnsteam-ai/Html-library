@@ -10,7 +10,7 @@ export type Route =
   | { kind: 'not-found'; path: string }
 
 const DOC_SLUGS = ['introduction', 'installation', 'registry', 'theming', 'use-cases']
-const GALLERY_CATEGORY_SLUGS: CategoryId[] = ['images', 'apps', 'sites']
+const GALLERY_CATEGORY_SLUGS: CategoryId[] = ['images', 'apps', 'sites', 'agent', 'ui']
 
 export function parseHash(hash: string): Route {
   const path = hash.replace(/^#\/?/, '').replace(/\/$/, '')

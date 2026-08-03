@@ -23,6 +23,13 @@
       "depthOfField": "Deep — both fully sharp",
       "focus": "The quilting and zip hardware"
     },
+    "framing": {
+      "subjectScale": "Two jackets each fill ~40% of frame width, stacked vertically",
+      "subjectBox": "Upper jacket x≈15–85%, y≈8–48%; lower jacket x≈15–85%, y≈52–92%",
+      "anchors": "Split line between the two garments at ~50%",
+      "edges": "Nothing cropped — both garments fully inside the frame",
+      "negativeSpace": "Even white margin all round, roughly 10%"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Clean white sweep, nothing else in frame",

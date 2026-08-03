@@ -30,6 +30,13 @@
       "depthOfField": "Shallow, background reduced to flat tone",
       "focus": "The daisy and the glitch seam"
     },
+    "framing": {
+      "subjectScale": "Head fills ~70% of frame width, offset right",
+      "subjectBox": "Head x≈30–100%, y≈0–80%; daisy x≈60–90%, y≈38–58%",
+      "anchors": "Displacement band and eyeline both at ~40–46% from top; chin ~78%",
+      "edges": "Top of head cropped by the top edge; right side of head cropped by the right edge",
+      "negativeSpace": "Left ~30% left as empty pale backdrop — asymmetric negative space"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Flat pale grey-green backdrop, no detail",

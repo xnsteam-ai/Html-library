@@ -23,6 +23,13 @@
       "depthOfField": "Deep",
       "focus": "The car profile"
     },
+    "framing": {
+      "subjectScale": "Car occupies ~70% of frame width, centred vertically",
+      "subjectBox": "Car x≈15–88%, y≈35–70%; spec blocks above and below across x≈5–95%",
+      "anchors": "Header band at ~15%; car axis at ~52%; spec table from ~72%",
+      "edges": "Nothing cropped — layout contained",
+      "negativeSpace": "Even white margin, roughly 5%"
+    },
     "environment": {
       "setting": "Studio / graphic composite",
       "background": "Clean white ground with green accents, callouts and small type",

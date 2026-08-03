@@ -1,0 +1,109 @@
+<!-- Site IDE Shell — restored with its own scoped Studio theme -->
+<style>
+  .sis-root {
+    --bg-app: #f4f4f6; --bg-surface: #ffffff; --bg-sidebar: #f8f8fa;
+    --text-primary: #171717; --text-secondary: #555555; --text-muted: #999999;
+    --border-color: rgba(0,0,0,.08); --bg-hover: rgba(0,0,0,.04); --bg-active: rgba(0,0,0,.06);
+    --btn-secondary-bg: #e5e5e5;
+  }
+  .dark .sis-root {
+    --bg-app: #141414; --bg-surface: #1e1e1e; --bg-sidebar: #191919;
+    --text-primary: #e8e8e8; --text-secondary: #999999; --text-muted: #555555;
+    --border-color: rgba(255,255,255,.07); --bg-hover: rgba(255,255,255,.04); --bg-active: rgba(255,255,255,.08);
+    --btn-secondary-bg: #333333;
+  }
+</style>
+
+<div class="sis-root flex h-[800px] w-[1280px] flex-col overflow-hidden bg-[var(--bg-app)] text-[13px]">
+  <header class="flex h-11 shrink-0 items-center justify-between border-b border-[var(--border-color)] bg-[var(--bg-surface)] px-2">
+    <nav class="flex h-full items-center">
+      <span class="flex h-full items-center px-3 text-[13px] font-medium text-[var(--text-secondary)] hover:bg-[var(--bg-hover)]">File</span>
+      <span class="flex h-full items-center px-3 text-[13px] font-medium text-[var(--text-secondary)] hover:bg-[var(--bg-hover)]">Edit</span>
+      <span class="flex h-full items-center px-3 text-[13px] font-medium text-[var(--text-secondary)] hover:bg-[var(--bg-hover)]">View</span>
+      <span class="flex h-full items-center px-3 text-[13px] font-medium text-[var(--text-secondary)] hover:bg-[var(--bg-hover)]">Window</span>
+      <span class="flex h-full items-center px-3 text-[13px] font-medium text-[var(--text-secondary)] hover:bg-[var(--bg-hover)]">Help</span>
+    </nav>
+    <div class="flex items-center gap-2 px-2">
+      <div class="flex w-60 items-center gap-2 rounded-md border border-[var(--border-color)] bg-[var(--bg-app)] px-2.5 py-1 text-[12px] text-[var(--text-muted)]">
+        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" /></svg>
+        Search files and commands…
+      </div>
+      <span class="rounded bg-[var(--btn-secondary-bg)] px-2.5 py-1 text-[12px] font-medium text-[var(--text-primary)]">Share</span>
+    </div>
+  </header>
+
+  <div class="flex flex-1 min-h-0 bg-[var(--bg-app)]">
+    <aside class="flex w-60 shrink-0 flex-col overflow-y-auto bg-[var(--bg-sidebar)]">
+      <div class="px-4 py-3 pb-1">
+        <h2 class="text-[11px] font-semibold uppercase tracking-wider text-[var(--text-secondary)]">Explorer</h2>
+      </div>
+      <div class="flex flex-col py-2 text-[13px]">
+        <div class="flex items-center gap-1.5 px-3 py-1 text-[var(--text-primary)]">
+          <svg class="h-3.5 w-3.5 text-[var(--text-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6" /></svg>
+          <svg class="h-4 w-4 text-[var(--text-secondary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" /></svg>
+          src
+        </div>
+        <div class="flex items-center gap-1.5 py-1 pl-6 pr-3 text-[var(--text-primary)]">
+          <svg class="h-3.5 w-3.5 text-[var(--text-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6" /></svg>
+          <svg class="h-4 w-4 text-[var(--text-secondary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" /></svg>
+          components
+        </div>
+        <div class="flex items-center gap-2 border-l-[3px] border-blue-500 bg-[var(--bg-active)] py-1 pl-9 pr-3 text-[var(--text-primary)]">
+          <svg class="h-4 w-4 text-[var(--text-secondary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /><path d="M14 2v6h6" /><path d="M9 13l2 2 4-4" /></svg>
+          AppShell.tsx
+        </div>
+        <div class="flex items-center gap-2 border-l-[3px] border-transparent py-1 pl-9 pr-3 text-[var(--text-secondary)]">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /><path d="M14 2v6h6" /></svg>
+          TopNav.tsx
+        </div>
+        <div class="flex items-center gap-2 border-l-[3px] border-transparent py-1 pl-9 pr-3 text-[var(--text-secondary)]">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /><path d="M14 2v6h6" /></svg>
+          SideNav.tsx
+        </div>
+        <div class="mt-1 flex items-center gap-1.5 px-3 py-1 text-[var(--text-secondary)]">
+          <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6" /></svg>
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" /></svg>
+          public
+        </div>
+        <div class="flex items-center gap-2 py-1 pl-6 pr-3 text-[var(--text-secondary)]">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /><path d="M14 2v6h6" /></svg>
+          package.json
+        </div>
+        <div class="flex items-center gap-2 py-1 pl-6 pr-3 text-[var(--text-secondary)]">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /><path d="M14 2v6h6" /></svg>
+          README.md
+        </div>
+      </div>
+    </aside>
+
+    <main class="flex min-w-0 flex-1 flex-col rounded-tl-md border-l border-t border-[var(--border-color)] bg-[var(--bg-surface)]">
+      <div class="flex h-10 shrink-0 items-end gap-1 border-b border-[var(--border-color)] bg-[var(--bg-app)] px-2 pt-2">
+        <div class="flex min-w-[120px] items-center gap-2 rounded-t-md border border-b-0 border-[var(--border-color)] border-t-[3px] border-t-blue-500 bg-[var(--bg-surface)] px-4 py-1.5 text-[12px] font-medium text-[var(--text-primary)]">
+          <svg class="h-3.5 w-3.5 text-[var(--text-secondary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /><path d="M14 2v6h6" /></svg>
+          AppShell.tsx
+        </div>
+        <div class="flex min-w-[120px] items-center gap-2 rounded-t-md px-4 py-1.5 text-[12px] text-[var(--text-secondary)]">
+          <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /><path d="M14 2v6h6" /></svg>
+          TopNav.tsx
+        </div>
+        <div class="flex min-w-[120px] items-center gap-2 rounded-t-md px-4 py-1.5 text-[12px] text-[var(--text-secondary)]">
+          <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /><path d="M14 2v6h6" /></svg>
+          theme.ts
+        </div>
+      </div>
+
+      <div class="flex-1 overflow-y-auto p-6">
+        <div class="flex max-w-[800px] flex-col gap-2 font-mono">
+          <div class="flex h-3.5 items-center gap-3"><div class="h-full w-5 rounded bg-[var(--bg-hover)]"></div><div class="h-full rounded bg-[var(--bg-hover)]" style="width: 38%"></div></div>
+          <div class="flex h-3.5 items-center gap-3"><div class="h-full w-5 rounded bg-[var(--bg-hover)]"></div><div class="h-full rounded bg-[var(--bg-hover)]" style="width: 62%"></div></div>
+          <div class="flex h-3.5 items-center gap-3"><div class="h-full w-5 rounded bg-[var(--bg-hover)]"></div><div class="h-full rounded bg-[var(--bg-hover)]" style="width: 54%"></div></div>
+          <div class="h-3.5"></div>
+          <div class="flex h-3.5 items-center gap-3"><div class="h-full w-5 rounded bg-[var(--bg-hover)]"></div><div class="h-full rounded bg-[var(--bg-hover)]" style="width: 46%"></div></div>
+          <div class="flex h-3.5 items-center gap-3"><div class="h-full w-5 rounded bg-[var(--bg-hover)]"></div><div class="h-full rounded bg-[var(--bg-hover)]" style="width: 70%"></div></div>
+          <div class="flex h-3.5 items-center gap-3"><div class="h-full w-5 rounded bg-[var(--bg-hover)]"></div><div class="h-full rounded bg-[var(--bg-hover)]" style="width: 58%"></div></div>
+          <div class="flex h-3.5 items-center gap-3"><div class="h-full w-5 rounded bg-[var(--bg-hover)]"></div><div class="h-full rounded bg-[var(--bg-hover)]" style="width: 34%"></div></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

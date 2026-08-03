@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technical Documentation - Getting Started</title>
+  <meta name="description" content="Technical documentation guide with AI assistance prompt box, code blocks, prerequisites, step-by-step setup, theme support, and scrollspy navigation." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.3s ease-out',
+            'slide-up': 'slideUp 0.3s ease-out',
+            'scale-in': 'scaleIn 0.2s ease-out both',
+          },
+          keyframes: {
+            fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+            slideUp: { '0%': { opacity: '0', transform: 'translateY(8px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            scaleIn: { '0%': { opacity: '0', transform: 'scale(0.97)' }, '100%': { opacity: '1', transform: 'scale(1)' } },
+          },
+        },
+      },
+    };
+  </script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-app: #f4f4f6;
+      --bg-surface-raised: #ffffff;
+      --bg-surface-overlay: #f8f8fa;
+      --bg-popover: #ffffff;
+      --bg-hover: rgba(0, 0, 0, 0.04);
+      --bg-active: rgba(0, 0, 0, 0.06);
+      --border-color: rgba(0, 0, 0, 0.08);
+      --border-hover: rgba(0, 0, 0, 0.18);
+      --border-focus: rgba(100, 100, 100, 0.35);
+      --text-primary: #171717;
+      --text-secondary: #555555;
+      --text-tertiary: #777777;
+      --text-muted: #999999;
+      --scrollbar-thumb: rgba(0, 0, 0, 0.15);
+      --code-bg: #f8f9fa;
+      --code-border: #e2e8f0;
+      --shadow-popover: 0 16px 40px rgba(0, 0, 0, 0.12);
+      --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.03);
+      --send-btn-bg: #171717;
+      --send-btn-fg: #ffffff;
+      --send-btn-hover: #333333;
+    }
+
+    html.dark {
+      --bg-app: #141414;
+      --bg-surface-raised: #222222;
+      --bg-surface-overlay: #2a2a2a;
+      --bg-popover: #222222;
+      --bg-hover: rgba(255, 255, 255, 0.04);
+      --bg-active: rgba(255, 255, 255, 0.07);
+      --border-color: rgba(255, 255, 255, 0.07);
+      --border-hover: rgba(255, 255, 255, 0.14);
+      --border-focus: rgba(180, 180, 180, 0.3);
+      --text-primary: #e8e8e8;
+      --text-secondary: #999999;
+      --text-tertiary: #666666;
+      --text-muted: #555555;
+      --scrollbar-thumb: rgba(255, 255, 255, 0.08);
+      --code-bg: #1a1a1a;
+      --code-border: rgba(255, 255, 255, 0.08);
+      --shadow-popover: 0 20px 50px rgba(0, 0, 0, 0.75);
+      --shadow-card: none;
+      --send-btn-bg: rgba(255, 255, 255, 0.08);
+      --send-btn-fg: #999999;
+      --send-btn-hover: rgba(255, 255, 255, 0.14);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-app);
+      color: var(--text-primary);
+      transition: background-color 0.2s ease, color 0.2s ease;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Petite Classic Scrollbars */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--scrollbar-thumb) transparent;
+    }
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+
+    .outline-item {
+      display: block; padding: 4px 10px; border-left: 2px solid transparent;
+      font-size: 12.5px; color: var(--text-muted); cursor: pointer; transition: all 0.12s;
+    }
+    .outline-item:hover { color: var(--text-secondary); }
+    .outline-item.active { border-left-color: var(--text-primary); color: var(--text-primary); font-weight: 500; }
+
+    .popover-menu {
+      position: absolute; z-index: 100; min-width: 160px;
+      border: 1px solid var(--border-hover);
+      border-radius: 10px; background-color: var(--bg-popover);
+      box-shadow: var(--shadow-popover);
+      padding: 4px;
+      animation: scaleIn 0.15s ease-out both;
+    }
+    .popover-item {
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 10px; border-radius: 6px;
+      cursor: pointer; font-size: 13px; color: var(--text-secondary);
+      transition: all 0.12s;
+    }
+    .popover-item:hover { background: var(--bg-hover); color: var(--text-primary); }
+
+    .toast {
+      position: fixed; bottom: 24px; right: 24px; z-index: 100;
+      padding: 10px 16px; border-radius: 10px; background: var(--bg-popover);
+      border: 1px solid var(--border-hover); box-shadow: var(--shadow-popover);
+      font-size: 13px; color: var(--text-primary);
+      animation: slideUp 0.2s ease-out both;
+    }
+  </style>
+</head>
+<body class="flex flex-col h-screen antialiased overflow-hidden">
+
+  <!-- Header / Top Bar -->
+  <header class="flex items-center justify-between px-6 py-3 border-b border-[var(--border-color)] bg-[var(--bg-surface-raised)] flex-shrink-0 z-30">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-lg bg-[var(--bg-hover)] flex items-center justify-center font-bold text-sm text-[var(--text-primary)]">
+        A
+      </div>
+      <div>
+        <h2 class="text-sm font-semibold text-[var(--text-primary)]">Astryx Documentation</h2>
+        <p class="text-[11px] text-[var(--text-muted)]">Technical Guides & API Reference</p>
+      </div>
+    </div>
+
+    <!-- Search Input -->
+    <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg border border-[var(--border-color)] bg-[var(--bg-app)] w-72 text-xs text-[var(--text-muted)]">
+      <i data-lucide="search" class="w-3.5 h-3.5"></i>
+      <input type="text" placeholder="Search technical docs..." class="bg-transparent outline-none w-full text-[var(--text-primary)] placeholder-[var(--text-muted)] text-xs" />
+      <span class="text-[10px] border border-[var(--border-color)] px-1 rounded">⌘K</span>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <!-- Theme Toggle Button -->
+      <button id="themeToggleBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[var(--border-color)] text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-all cursor-pointer">
+        <i data-lucide="sun" id="themeIconSun" class="w-3.5 h-3.5"></i>
+        <i data-lucide="moon" id="themeIconMoon" class="w-3.5 h-3.5 hidden"></i>
+        <span id="themeLabel">Light</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Split Layout -->
+  <div class="flex flex-1 min-h-0 w-full relative">
+
+    <!-- Center Main Documentation Scroll Area -->
+    <main id="mainScrollArea" class="flex-1 overflow-y-auto p-8 sm:p-12 flex justify-center">
+      <div class="max-w-3xl w-full flex flex-col gap-10 animate-fade-in">
+
+        <!-- Title & Header -->
+        <div class="flex flex-col gap-1 border-b border-[var(--border-color)] pb-6">
+          <h1 class="text-4xl font-bold tracking-tight text-[var(--text-primary)]">Getting started with Product Name</h1>
+          <p class="text-xs text-[var(--text-muted)]">Last updated March 30, 2026</p>
+        </div>
+
+        <!-- AI Assistance Card -->
+        <div class="rounded-2xl border border-[var(--border-color)] bg-[var(--bg-surface-raised)] p-5 shadow-sm flex flex-col gap-3 transition-all">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2 cursor-pointer" onclick="toggleAIExpand()" id="aiExpandTrigger">
+              <i data-lucide="sparkles" class="w-4 h-4 text-blue-500"></i>
+              <span class="text-sm font-semibold text-[var(--text-primary)]">AI Assistance</span>
+              <i data-lucide="chevron-down" id="aiExpandIcon" class="w-3.5 h-3.5 text-[var(--text-muted)] transition-transform duration-200"></i>
+            </div>
+
+            <div class="flex items-center gap-1.5">
+              <button onclick="toggleEditPrompt()" id="editPromptBtn" class="flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] border border-[var(--border-color)] transition-all cursor-pointer">
+                <i data-lucide="edit-2" class="w-3.5 h-3.5"></i>
+                <span>Edit</span>
+              </button>
+              <button onclick="copyPrompt()" class="flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] border border-[var(--border-color)] transition-all cursor-pointer">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                <span>Copy prompt</span>
+              </button>
+
+              <div class="relative">
+                <button id="aiMoreBtn" class="flex items-center justify-center w-7 h-7 rounded-lg border border-[var(--border-color)] text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] cursor-pointer" title="More options">
+                  <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+                </button>
+                <div id="aiMoreMenu" class="popover-menu hidden" style="top: calc(100% + 4px); right: 0; min-width: 160px;">
+                  <div class="popover-item" onclick="openAITool('v0')"><i data-lucide="external-link" class="w-3.5 h-3.5"></i>Open in v0</div>
+                  <div class="popover-item" onclick="openAITool('Claude')"><i data-lucide="external-link" class="w-3.5 h-3.5"></i>Open in Claude</div>
+                  <div class="popover-item" onclick="openAITool('ChatGPT')"><i data-lucide="external-link" class="w-3.5 h-3.5"></i>Open in ChatGPT</div>
+                  <div class="popover-item" onclick="openAITool('Cursor')"><i data-lucide="external-link" class="w-3.5 h-3.5"></i>Open in Cursor</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p id="aiPromptText" class="text-xs text-[var(--text-secondary)] leading-relaxed bg-[var(--bg-hover)] p-3 rounded-xl border border-[var(--border-color)] font-mono outline-none transition-colors" contenteditable="false">
+            Help me get set up with Product Name. Based on my project, do the following: 1. Install @astryxdesign/core and the StyleX compiler. 2. Wrap my app in ThemeProvider. 3. Replace one existing component with an Astryx equivalent.
+          </p>
+
+          <!-- AI Expand Area -->
+          <div id="aiExpandArea" class="hidden flex-col gap-3 mt-2 pt-3 border-t border-[var(--border-color)] animate-slide-up">
+            <div class="relative">
+               <textarea id="aiInput" class="w-full bg-[var(--bg-app)] border border-[var(--border-color)] rounded-xl p-3 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none focus:border-blue-500 transition-colors resize-none h-20" placeholder="Ask a follow-up question about this guide..."></textarea>
+               <button class="absolute bottom-3 right-3 p-1.5 bg-[var(--send-btn-bg)] text-[var(--send-btn-fg)] rounded-lg hover:opacity-90 transition-opacity cursor-pointer" onclick="submitAIQuestion()">
+                 <i data-lucide="arrow-up" class="w-4 h-4"></i>
+               </button>
+            </div>
+            <div id="aiResponse" class="hidden text-sm text-[var(--text-secondary)] bg-[var(--bg-hover)] p-4 rounded-xl border border-[var(--border-color)] animate-fade-in">
+               <!-- Response goes here -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Prerequisites Section -->
+        <section id="prerequisites" class="flex flex-col gap-4">
+          <h2 class="text-xl font-bold text-[var(--text-primary)]">Prerequisites</h2>
+          <ul class="list-disc list-inside text-sm text-[var(--text-secondary)] space-y-2">
+            <li><strong class="text-[var(--text-primary)]">Node.js 18+</strong> — Recommended LTS version</li>
+            <li><strong class="text-[var(--text-primary)]">React 18 or 19</strong> — Supported framework version</li>
+            <li><strong class="text-[var(--text-primary)]">A package manager</strong> (npm, yarn, or pnpm)</li>
+          </ul>
+        </section>
+
+        <hr class="border-[var(--border-color)]" />
+
+        <!-- Install Package Section -->
+        <section id="install-package" class="flex flex-col gap-6">
+          <h2 class="text-xl font-bold text-[var(--text-primary)]">Install the package</h2>
+          <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+            Every project starts with installing the core package. This gives you access to all components, tokens, and utilities.
+          </p>
+
+          <!-- Step 1 -->
+          <div class="flex flex-col gap-2">
+            <h3 class="text-sm font-bold text-[var(--text-primary)]">Step 1: Install the core package</h3>
+            <div class="rounded-xl border border-[var(--code-border)] bg-[var(--code-bg)] overflow-hidden font-mono text-xs">
+              <div class="flex items-center justify-between px-3 py-1.5 border-b border-[var(--code-border)] bg-[var(--bg-hover)] text-[11px] text-[var(--text-muted)]">
+                <span>terminal</span>
+                <button onclick="copyCode('npm install @astryxdesign/core')" class="hover:text-[var(--text-primary)] flex items-center gap-1 cursor-pointer"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
+              </div>
+              <pre class="p-3.5 overflow-x-auto text-[var(--text-primary)]"><code>npm install @astryxdesign/core</code></pre>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="flex flex-col gap-2">
+            <h3 class="text-sm font-bold text-[var(--text-primary)]">Step 2: Import the precompiled styles</h3>
+            <p class="text-xs text-[var(--text-secondary)] leading-relaxed">
+              Astryx ships precompiled CSS, so there is no build plugin to configure. Import the reset and component stylesheets once at your app entry point.
+            </p>
+            <div class="rounded-xl border border-[var(--code-border)] bg-[var(--code-bg)] overflow-hidden font-mono text-xs">
+              <div class="flex items-center justify-between px-3 py-1.5 border-b border-[var(--code-border)] bg-[var(--bg-hover)] text-[11px] text-[var(--text-muted)]">
+                <span>app.tsx</span>
+                <button onclick="copyCode(&quot;import '@astryxdesign/core/reset.css';\nimport '@astryxdesign/core/astryx.css';&quot;)" class="hover:text-[var(--text-primary)] flex items-center gap-1 cursor-pointer"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
+              </div>
+              <pre class="p-3.5 overflow-x-auto text-[var(--text-primary)]"><code>import '@astryxdesign/core/reset.css';
+import '@astryxdesign/core/astryx.css';</code></pre>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="flex flex-col gap-2">
+            <h3 class="text-sm font-bold text-[var(--text-primary)]">Step 3: Import your first component</h3>
+            <div class="rounded-xl border border-[var(--code-border)] bg-[var(--code-bg)] overflow-hidden font-mono text-xs">
+              <div class="flex items-center justify-between px-3 py-1.5 border-b border-[var(--code-border)] bg-[var(--bg-hover)] text-[11px] text-[var(--text-muted)]">
+                <span>App.tsx</span>
+                <button onclick="copyCode(&quot;import { Button } from '@astryxdesign/core/Button';\n\nexport default function App() {\n  return &lt;Button label=\&quot;Hello Astryx\&quot; variant=\&quot;primary\&quot; /&gt;;\n}&quot;)" class="hover:text-[var(--text-primary)] flex items-center gap-1 cursor-pointer"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
+              </div>
+              <pre class="p-3.5 overflow-x-auto text-[var(--text-primary)]"><code>import { Button } from '@astryxdesign/core/Button';
+
+export default function App() {
+  return &lt;Button label="Hello Astryx" variant="primary" /&gt;;
+}</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <hr class="border-[var(--border-color)]" />
+
+        <!-- Configure Theming Section -->
+        <section id="configure-theming" class="flex flex-col gap-4">
+          <h2 class="text-xl font-bold text-[var(--text-primary)]">Configure theming</h2>
+          <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+            Astryx ships with a default theme that works out of the box. To customize colors, typography, and spacing, wrap your app in a theme provider.
+          </p>
+
+          <div class="rounded-xl border border-[var(--code-border)] bg-[var(--code-bg)] overflow-hidden font-mono text-xs">
+            <div class="flex items-center justify-between px-3 py-1.5 border-b border-[var(--code-border)] bg-[var(--bg-hover)] text-[11px] text-[var(--text-muted)]">
+              <span>ThemeProvider.tsx</span>
+              <button onclick="copyCode(&quot;import { ThemeProvider } from '@astryxdesign/core/Theme';\n\nexport default function App({ children }) {\n  return (\n    &lt;ThemeProvider theme=\&quot;default\&quot;&gt;\n      {children}\n    &lt;/ThemeProvider&gt;\n  );\n}&quot;)" class="hover:text-[var(--text-primary)] flex items-center gap-1 cursor-pointer"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
+            </div>
+            <pre class="p-3.5 overflow-x-auto text-[var(--text-primary)]"><code>import { ThemeProvider } from '@astryxdesign/core/Theme';
+
+export default function App({ children }) {
+  return (
+    &lt;ThemeProvider theme="default"&gt;
+      {children}
+    &lt;/ThemeProvider&gt;
+  );
+}</code></pre>
+          </div>
+
+          <p class="text-xs text-[var(--text-muted)]">
+            See the theming guide for the full list of customizable design tokens.
+          </p>
+        </section>
+
+        <hr class="border-[var(--border-color)]" />
+
+        <!-- Next Steps Section -->
+        <section id="next-steps" class="flex flex-col gap-4 mb-10">
+          <h2 class="text-xl font-bold text-[var(--text-primary)]">Next steps</h2>
+          <ul class="list-disc list-inside text-sm text-[var(--text-secondary)] space-y-2">
+            <li><strong class="text-[var(--text-primary)]">Fundamental concepts</strong> — How theming, layout, and composition work</li>
+            <li><strong class="text-[var(--text-primary)]">Component API reference</strong> — Props, variants, and examples for every component</li>
+            <li><strong class="text-[var(--text-primary)]">Accessibility</strong> — Built-in a11y features and ARIA patterns</li>
+            <li><strong class="text-[var(--text-primary)]">CLI tools</strong> — Scaffold projects and manage templates</li>
+            <li><strong class="text-[var(--text-primary)]">Design tokens</strong> — Colors, spacing, typography, and sizing</li>
+          </ul>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- Right Sidebar Outline ("On this page") -->
+    <aside class="w-56 border-l border-[var(--border-color)] bg-[var(--bg-surface-raised)] p-6 hidden lg:flex flex-col gap-3 flex-shrink-0">
+      <span class="text-[11px] font-semibold text-[var(--text-muted)] uppercase tracking-wider">On this page</span>
+      <div class="flex flex-col gap-1">
+        <a onclick="scrollToSection('prerequisites')" class="outline-item active">Prerequisites</a>
+        <a onclick="scrollToSection('install-package')" class="outline-item">Install the package</a>
+        <a onclick="scrollToSection('configure-theming')" class="outline-item">Configure theming</a>
+        <a onclick="scrollToSection('next-steps')" class="outline-item">Next steps</a>
+      </div>
+    </aside>
+
+  </div>
+
+  <script>
+    const $ = id => document.getElementById(id);
+
+    // ─── Theme Toggle ────────────────────────────────────────────────────
+    const themeToggleBtn = $('themeToggleBtn');
+    const themeIconSun = $('themeIconSun');
+    const themeIconMoon = $('themeIconMoon');
+    const themeLabel = $('themeLabel');
+
+    function updateThemeUI(isDark) {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        themeIconSun.classList.remove('hidden');
+        themeIconMoon.classList.add('hidden');
+        themeLabel.textContent = 'Light';
+      } else {
+        document.documentElement.classList.remove('dark');
+        themeIconSun.classList.add('hidden');
+        themeIconMoon.classList.remove('hidden');
+        themeLabel.textContent = 'Dark';
+      }
+      lucide.createIcons();
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      const isCurrentlyDark = document.documentElement.classList.contains('dark');
+      updateThemeUI(!isCurrentlyDark);
+    });
+
+    updateThemeUI(true);
+
+    // ─── AI More Dropdown Menu ───────────────────────────────────────────
+    const aiMoreBtn = $('aiMoreBtn');
+    const aiMoreMenu = $('aiMoreMenu');
+
+    aiMoreBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      aiMoreMenu.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', () => aiMoreMenu.classList.add('hidden'));
+
+    function openAITool(toolName) {
+      showToast(`Opening prompt in ${toolName}...`);
+      aiMoreMenu.classList.add('hidden');
+    }
+
+    // ─── AI Inline Assist ────────────────────────────────────────────────
+    function toggleAIExpand() {
+      const area = $('aiExpandArea');
+      const icon = $('aiExpandIcon');
+      if (area.classList.contains('hidden')) {
+        area.classList.remove('hidden');
+        area.classList.add('flex');
+        icon.style.transform = 'rotate(-180deg)';
+        $('aiInput').focus();
+      } else {
+        area.classList.add('hidden');
+        area.classList.remove('flex');
+        icon.style.transform = '';
+      }
+    }
+
+    function toggleEditPrompt() {
+      const p = $('aiPromptText');
+      const btn = $('editPromptBtn');
+      const isEditable = p.getAttribute('contenteditable') === 'true';
+      if (isEditable) {
+        p.setAttribute('contenteditable', 'false');
+        p.classList.remove('ring-2', 'ring-blue-500', 'bg-[var(--bg-active)]');
+        btn.innerHTML = '<i data-lucide="edit-2" class="w-3.5 h-3.5"></i><span>Edit</span>';
+        lucide.createIcons();
+      } else {
+        p.setAttribute('contenteditable', 'true');
+        p.classList.add('ring-2', 'ring-blue-500', 'bg-[var(--bg-active)]');
+        p.focus();
+        btn.innerHTML = '<i data-lucide="check" class="w-3.5 h-3.5"></i><span>Save</span>';
+        lucide.createIcons();
+      }
+    }
+
+    function submitAIQuestion() {
+      const input = $('aiInput');
+      const val = input.value.trim();
+      if (!val) return;
+      
+      const btn = input.nextElementSibling;
+      btn.innerHTML = '<div class="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>';
+      
+      setTimeout(() => {
+        const responseEl = $('aiResponse');
+        responseEl.innerHTML = `<p class="font-medium text-[var(--text-primary)] mb-2">You asked: ${val}</p><p>To answer your question, you would typically look at the design tokens available in the package. Check the ThemeProvider documentation for a full list of customizable properties.</p>`;
+        responseEl.classList.remove('hidden');
+        btn.innerHTML = '<i data-lucide="arrow-up" class="w-4 h-4"></i>';
+        lucide.createIcons();
+        input.value = '';
+      }, 1000);
+    }
+
+    // ─── Copy Prompt ──────────────────────────────────────────────────────
+    function copyPrompt() {
+      const promptText = $('aiPromptText').innerText;
+      navigator.clipboard.writeText(promptText);
+      showToast('AI prompt copied to clipboard!');
+    }
+
+    function copyCode(codeText) {
+      navigator.clipboard.writeText(codeText);
+      showToast('Code copied to clipboard!');
+    }
+
+    function showToast(msg) {
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.textContent = msg;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 2200);
+    }
+
+    // ─── Smooth Scroll & ScrollSpy ──────────────────────────────────────
+    const mainScrollArea = $('mainScrollArea');
+
+    function scrollToSection(id) {
+      const el = $(id);
+      if (el && mainScrollArea) {
+        const topPos = el.offsetTop - 24;
+        mainScrollArea.scrollTo({ top: topPos, behavior: 'smooth' });
+      }
+    }
+
+    if (mainScrollArea) {
+      mainScrollArea.addEventListener('scroll', () => {
+        const sections = ['prerequisites', 'install-package', 'configure-theming', 'next-steps'];
+        const outlineItems = document.querySelectorAll('.outline-item');
+        let current = 'prerequisites';
+
+        for (const id of sections) {
+          const el = $(id);
+          if (el) {
+            const top = el.offsetTop - mainScrollArea.scrollTop;
+            if (top <= 120) {
+              current = id;
+            }
+          }
+        }
+
+        outlineItems.forEach(item => {
+          const onclickAttr = item.getAttribute('onclick') || '';
+          if (onclickAttr.includes(`'${current}'`)) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
+          }
+        });
+      });
+    }
+
+    lucide.createIcons();
+  </script>
+</body>
+</html>

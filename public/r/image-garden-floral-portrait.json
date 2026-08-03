@@ -29,6 +29,13 @@
       "depthOfField": "Moderate; near blossoms soft",
       "focus": "The face turned back to camera"
     },
+    "framing": {
+      "subjectScale": "Figure spans ~35% of frame width, centred in dense planting",
+      "subjectBox": "Figure x≈32–68%, y≈18–95%; blossom fills all surrounding area",
+      "anchors": "Eyeline at ~28% from top; waist ~62%",
+      "edges": "Blossom bleeds off all four edges",
+      "negativeSpace": "None — planting encloses the figure completely"
+    },
     "environment": {
       "setting": "Garden",
       "background": "Dense pink flowering shrubs enclosing the frame on all sides",

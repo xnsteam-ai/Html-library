@@ -1,0 +1,10 @@
+{
+  "name": "switch-list",
+  "title": "Switch List",
+  "description": "Labeled toggle rows for a settings panel, including a disabled row managed by an admin.",
+  "category": "ui",
+  "order": 20,
+  "tags": ["switch", "toggle", "settings"],
+  "previewBg": "muted",
+  "previewHeight": 320
+}

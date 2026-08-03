@@ -1,0 +1,10 @@
+{
+  "name": "spinner-overlay",
+  "title": "Spinner Overlay",
+  "description": "A blocking loading overlay with a spinner and label over blurred underlying content.",
+  "category": "ui",
+  "order": 18,
+  "tags": ["spinner", "loading", "overlay"],
+  "previewBg": "muted",
+  "previewHeight": 280
+}

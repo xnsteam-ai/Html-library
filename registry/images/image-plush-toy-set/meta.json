@@ -23,6 +23,13 @@
       "depthOfField": "Deep",
       "focus": "The face of each toy"
     },
+    "framing": {
+      "subjectScale": "Four equal cells; each toy fills ~55% of its cell",
+      "subjectBox": "Two-by-two grid, boundaries at 50% both axes; toy centred per cell",
+      "anchors": "Each toy sits on a cell baseline at roughly 80% of cell height",
+      "edges": "No cropping — every toy fully inside its cell",
+      "negativeSpace": "Generous pastel margin around each toy — roughly 20% per side"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Flat pastel sweep behind each item, alternating tones",

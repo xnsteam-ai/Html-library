@@ -29,6 +29,13 @@
       "depthOfField": "Deep",
       "focus": "The shoe"
     },
+    "framing": {
+      "subjectScale": "Figure upper band ~35% of height; product lower band",
+      "subjectBox": "Figure x≈15–85%, y≈12–48%; shoe x≈25–85%, y≈55–85%; type x≈8–92%, y≈50–58% and ~90%",
+      "anchors": "Type band at ~52%; shoe centre ~70%",
+      "edges": "Figure crops at the top edge; shoe bleeds toward the right edge",
+      "negativeSpace": "Saturated ground carries the margins; no clean border"
+    },
     "environment": {
       "setting": "Graphic field",
       "background": "Flat saturated orange-red ground, heavy display lettering",

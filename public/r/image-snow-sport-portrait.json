@@ -29,6 +29,13 @@
       "depthOfField": "Shallow; sky soft behind",
       "focus": "The goggles and helmet edge"
     },
+    "framing": {
+      "subjectScale": "Head and shoulders fill ~60% of frame width, lower three-quarters",
+      "subjectBox": "Head and helmet x≈25–75%, y≈8–55%; shoulders to x≈8–92% by y≈80%",
+      "anchors": "Goggles band at ~25%; eyeline ~38%; shoulder line ~62%",
+      "edges": "Shoulders exit the bottom edge",
+      "negativeSpace": "Upper ~8% is flat overcast sky"
+    },
     "environment": {
       "setting": "Outdoors, altitude",
       "background": "Flat overcast sky, no terrain reference",

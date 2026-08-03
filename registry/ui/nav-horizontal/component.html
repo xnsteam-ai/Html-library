@@ -1,0 +1,59 @@
+<!--
+  Nav Horizontal — Fluent UI style tab strip, restored with its own theme
+  (Segoe-style neutrals + Fluent brand blue) via a scoped <style> block of
+  CSS custom properties, exactly as the source file defined them. The
+  selected tab is a radio group; the sliding indicator reacts via `peer-checked`.
+-->
+<style>
+  .fnh-root {
+    --bg-surface: #ffffff;
+    --text-primary: #242424;
+    --text-secondary: #616161;
+    --border-color: #e0e0e0;
+    --bg-hover: #f0f0f0;
+    --fluent-brand: #0f6cbd;
+  }
+  .dark .fnh-root {
+    --bg-surface: #333333;
+    --text-primary: #ffffff;
+    --text-secondary: #d1d1d1;
+    --border-color: #424242;
+    --bg-hover: #3d3d3d;
+    --fluent-brand: #479ef5;
+  }
+</style>
+
+<div class="fnh-root mx-auto w-full max-w-lg rounded-lg border border-[var(--border-color)] bg-[var(--bg-surface)] p-6 shadow-sm">
+  <h2 class="mb-5 text-[15px] font-semibold text-[var(--text-primary)]">Horizontal Navigation (Fluent TabNav)</h2>
+
+  <nav class="flex border-b border-[var(--border-color)] pb-[1px]" role="tablist">
+    <label class="fnh-item group relative flex h-11 cursor-pointer items-center gap-1.5 rounded px-3 text-[14px] text-[var(--text-primary)] transition hover:bg-[var(--bg-hover)]">
+      <input type="radio" name="fnh-tab" class="peer sr-only" checked />
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 9.5L12 3l9 6.5V21a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z" /></svg>
+      <span class="peer-checked:font-semibold">Home</span>
+      <span class="absolute inset-x-3 -bottom-px h-[3px] rounded-t bg-transparent peer-checked:bg-[var(--fluent-brand)]"></span>
+    </label>
+    <label class="fnh-item group relative flex h-11 cursor-pointer items-center gap-1.5 rounded px-3 text-[14px] text-[var(--text-primary)] transition hover:bg-[var(--bg-hover)]">
+      <input type="radio" name="fnh-tab" class="peer sr-only" />
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /><path d="M14 2v6h6" /></svg>
+      <span class="peer-checked:font-semibold">Documents</span>
+      <span class="absolute inset-x-3 -bottom-px h-[3px] rounded-t bg-transparent peer-checked:bg-[var(--fluent-brand)]"></span>
+    </label>
+    <label class="fnh-item group relative flex h-11 cursor-pointer items-center gap-1.5 rounded px-3 text-[14px] text-[var(--text-primary)] transition hover:bg-[var(--bg-hover)]">
+      <input type="radio" name="fnh-tab" class="peer sr-only" />
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" /></svg>
+      <span class="peer-checked:font-semibold">Team</span>
+      <span class="absolute inset-x-3 -bottom-px h-[3px] rounded-t bg-transparent peer-checked:bg-[var(--fluent-brand)]"></span>
+    </label>
+    <label class="fnh-item group relative flex h-11 cursor-pointer items-center gap-1.5 rounded px-3 text-[14px] text-[var(--text-primary)] transition hover:bg-[var(--bg-hover)]">
+      <input type="radio" name="fnh-tab" class="peer sr-only" />
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.7 1.7 0 00.3 1.9l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.9-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.1A1.7 1.7 0 008 19.4a1.7 1.7 0 00-1.9.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.9 1.7 1.7 0 00-1.5-1H2a2 2 0 110-4h.1A1.7 1.7 0 004.6 8a1.7 1.7 0 00-.3-1.9l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 001.9.3H9a1.7 1.7 0 001-1.5V2a2 2 0 114 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.9-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.9V9a1.7 1.7 0 001.5 1H22a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z" /></svg>
+      <span class="peer-checked:font-semibold">Settings</span>
+      <span class="absolute inset-x-3 -bottom-px h-[3px] rounded-t bg-transparent peer-checked:bg-[var(--fluent-brand)]"></span>
+    </label>
+  </nav>
+
+  <div class="mt-6 rounded-lg border border-dashed border-[var(--border-color)] p-8 text-center text-[13px] text-[var(--text-secondary)]">
+    Page content goes here
+  </div>
+</div>

@@ -1,0 +1,131 @@
+<!-- Site Component Docs — restored with its own scoped Astryx theme -->
+<style>
+  .scd-root {
+    --bg-app: #f4f4f6; --bg-surface-raised: #ffffff; --bg-hover: rgba(0,0,0,.04);
+    --border-color: rgba(0,0,0,.08); --text-primary: #171717; --text-secondary: #555555; --text-muted: #999999;
+    --code-bg: #f8f9fa; --code-border: #e2e8f0;
+    --badge-success-bg: rgba(34,197,94,.1); --badge-success-fg: #15803d;
+    --badge-error-bg: rgba(239,68,68,.1); --badge-error-fg: #b91c1c;
+  }
+  .dark .scd-root {
+    --bg-app: #141414; --bg-surface-raised: #222222; --bg-hover: rgba(255,255,255,.04);
+    --border-color: rgba(255,255,255,.07); --text-primary: #e8e8e8; --text-secondary: #999999; --text-muted: #555555;
+    --code-bg: #1a1a1a; --code-border: rgba(255,255,255,.08);
+    --badge-success-bg: rgba(34,197,94,.15); --badge-success-fg: #4ade80;
+    --badge-error-bg: rgba(239,68,68,.15); --badge-error-fg: #f87171;
+  }
+</style>
+
+<div class="scd-root flex h-[800px] w-[1280px] flex-col overflow-hidden bg-[var(--bg-app)]">
+  <header class="flex items-center justify-between border-b border-[var(--border-color)] bg-[var(--bg-surface-raised)] px-6 py-3">
+    <div class="flex items-center gap-3">
+      <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--bg-hover)] text-sm font-bold text-[var(--text-primary)]">A</span>
+      <div>
+        <h2 class="text-[13.5px] font-semibold text-[var(--text-primary)]">Astryx Design System</h2>
+        <p class="text-[11px] text-[var(--text-muted)]">v2.4.0 · Component Documentation</p>
+      </div>
+    </div>
+    <div class="flex w-72 items-center gap-2 rounded-lg border border-[var(--border-color)] bg-[var(--bg-app)] px-3 py-1.5 text-[12px] text-[var(--text-muted)]">
+      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" /></svg>
+      <span>Search documentation...</span>
+      <span class="ml-auto rounded border border-[var(--border-color)] px-1 text-[10px]">⌘K</span>
+    </div>
+  </header>
+
+  <div class="flex flex-1 min-h-0">
+    <aside class="flex w-60 shrink-0 flex-col gap-6 overflow-y-auto border-r border-[var(--border-color)] bg-[var(--bg-surface-raised)] p-4">
+      <div>
+        <p class="mb-1 px-2.5 text-[11px] font-semibold uppercase tracking-wider text-[var(--text-muted)]">Core</p>
+        <div class="flex flex-col gap-0.5 text-[13px]">
+          <span class="rounded-md bg-[var(--bg-hover)] px-2.5 py-1.5 font-semibold text-[var(--text-primary)]">Button</span>
+          <span class="rounded-md px-2.5 py-1.5 text-[var(--text-secondary)]">Avatar</span>
+          <span class="rounded-md px-2.5 py-1.5 text-[var(--text-secondary)]">Badge</span>
+          <span class="rounded-md px-2.5 py-1.5 text-[var(--text-secondary)]">Banner</span>
+          <span class="rounded-md px-2.5 py-1.5 text-[var(--text-secondary)]">Card</span>
+          <span class="rounded-md px-2.5 py-1.5 text-[var(--text-secondary)]">Dialog</span>
+        </div>
+      </div>
+      <div>
+        <p class="mb-1 px-2.5 text-[11px] font-semibold uppercase tracking-wider text-[var(--text-muted)]">Typography</p>
+        <div class="flex flex-col gap-0.5 text-[13px] text-[var(--text-secondary)]">
+          <span class="rounded-md px-2.5 py-1.5">Heading</span>
+          <span class="rounded-md px-2.5 py-1.5">Text</span>
+        </div>
+      </div>
+      <div>
+        <p class="mb-1 px-2.5 text-[11px] font-semibold uppercase tracking-wider text-[var(--text-muted)]">Layout</p>
+        <div class="flex flex-col gap-0.5 text-[13px] text-[var(--text-secondary)]">
+          <span class="rounded-md px-2.5 py-1.5">AppShell</span>
+          <span class="rounded-md px-2.5 py-1.5">Grid</span>
+          <span class="rounded-md px-2.5 py-1.5">Section</span>
+          <span class="rounded-md px-2.5 py-1.5">Stack</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="flex flex-1 justify-center overflow-y-auto p-10">
+      <div class="flex w-full max-w-2xl flex-col gap-8">
+        <div class="border-b border-[var(--border-color)] pb-5">
+          <h1 class="text-[32px] font-bold tracking-tight text-[var(--text-primary)]">Button</h1>
+          <p class="mt-1 text-[12px] text-[var(--text-muted)]">March 30, 2026 · Updated 5:40 p.m. PST</p>
+        </div>
+
+        <div class="flex min-h-[160px] items-center justify-center rounded-2xl border border-[var(--border-color)] bg-[var(--bg-surface-raised)] p-10 shadow-sm">
+          <button type="button" class="flex items-center gap-1.5 rounded-lg border border-[var(--border-color)] bg-[var(--bg-surface-raised)] px-3.5 py-1.5 text-[13px] font-medium text-[var(--text-primary)] shadow-sm">
+            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14" /></svg>
+            Button
+            <span class="rounded bg-blue-500/10 px-1.5 py-0.5 text-[10px] font-semibold text-blue-500">New</span>
+          </button>
+        </div>
+
+        <section class="flex flex-col gap-3">
+          <h2 class="text-[18px] font-bold text-[var(--text-primary)]">Usage</h2>
+          <p class="text-[14px] leading-relaxed text-[var(--text-secondary)]">Buttons provide visual cues for actions and events. Use a Button when a user needs to submit a form, start a new task, or trigger a new UI element to appear on the page.</p>
+        </section>
+
+        <section class="flex flex-col gap-3">
+          <h3 class="text-[15px] font-semibold text-[var(--text-primary)]">Best practices</h3>
+          <div class="overflow-hidden rounded-xl border border-[var(--border-color)] text-[12.5px]">
+            <table class="w-full border-collapse text-left">
+              <tbody class="divide-y divide-[var(--border-color)]">
+                <tr>
+                  <td class="w-24 px-4 py-2.5"><span class="rounded px-2 py-0.5 text-[11px] font-semibold" style="background:var(--badge-success-bg);color:var(--badge-success-fg)">Do</span></td>
+                  <td class="px-4 py-2.5 text-[var(--text-secondary)]">Each surface should only have one primary button.</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-2.5"><span class="rounded px-2 py-0.5 text-[11px] font-semibold" style="background:var(--badge-error-bg);color:var(--badge-error-fg)">Don't</span></td>
+                  <td class="px-4 py-2.5 text-[var(--text-secondary)]">Overuse colored buttons — it creates visual confusion.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="flex flex-col gap-4 border-t border-[var(--border-color)] pt-5">
+          <h2 class="text-[18px] font-bold text-[var(--text-primary)]">Examples</h2>
+          <div class="overflow-hidden rounded-xl border border-[var(--border-color)] shadow-sm">
+            <div class="flex items-center justify-between border-b border-[var(--border-color)] bg-[var(--bg-hover)] px-4 py-2.5">
+              <span class="text-[12.5px] font-semibold text-[var(--text-primary)]">Semantics</span>
+              <span class="rounded border border-[var(--border-color)] px-2 py-1 text-[11px] text-[var(--text-muted)]">Copy</span>
+            </div>
+            <div class="flex min-h-[100px] items-center justify-center gap-2 bg-[var(--bg-app)] p-8">
+              <button type="button" class="rounded-lg px-3 py-1.5 text-[13px] font-medium text-[var(--text-secondary)]">Flat</button>
+              <button type="button" class="rounded-lg border border-[var(--border-color)] px-3 py-1.5 text-[13px] font-medium text-[var(--text-primary)]">Default</button>
+              <button type="button" class="rounded-lg bg-[var(--text-primary)] px-3 py-1.5 text-[13px] font-medium text-[var(--bg-app)]">Primary</button>
+              <button type="button" class="rounded-lg bg-red-600/10 px-3 py-1.5 text-[13px] font-medium text-red-500">Destructive</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <aside class="flex w-48 shrink-0 flex-col gap-3 border-l border-[var(--border-color)] bg-[var(--bg-surface-raised)] p-6">
+      <span class="text-[11px] font-semibold uppercase tracking-wider text-[var(--text-muted)]">On this page</span>
+      <div class="flex flex-col gap-1 text-[12.5px]">
+        <span class="border-l-2 border-[var(--text-primary)] pl-2.5 font-medium text-[var(--text-primary)]">Usage</span>
+        <span class="border-l-2 border-transparent pl-2.5 text-[var(--text-muted)]">Best practices</span>
+        <span class="border-l-2 border-transparent pl-2.5 text-[var(--text-muted)]">Examples</span>
+      </div>
+    </aside>
+  </div>
+</div>

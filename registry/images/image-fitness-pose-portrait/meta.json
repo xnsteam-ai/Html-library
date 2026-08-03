@@ -30,6 +30,13 @@
       "depthOfField": "Shallow; gym equipment soft behind",
       "focus": "The torso and face"
     },
+    "framing": {
+      "subjectScale": "Figure fills ~45% of frame width, full height",
+      "subjectBox": "Figure x≈28–72%, y≈5–100%; raised arms x≈30–70%, y≈5–25%",
+      "anchors": "Eyeline at ~25% from top; waist ~58%",
+      "edges": "Arms graze the top edge; legs exit the bottom edge",
+      "negativeSpace": "Dark gym interior fills both side margins"
+    },
     "environment": {
       "setting": "Gym interior",
       "background": "Racks and equipment reduced to dark soft shapes",

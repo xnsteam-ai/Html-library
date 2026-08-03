@@ -23,6 +23,13 @@
       "depthOfField": "Deep",
       "focus": "The layer separation and callout lines"
     },
+    "framing": {
+      "subjectScale": "Exploded stack spans ~55% of frame width on a diagonal",
+      "subjectBox": "Stack x≈25–80%, y≈12–85%; callout rules extend to x≈5% and x≈95%",
+      "anchors": "Layer separations stepped between ~20% and ~80%",
+      "edges": "Callout rules exit both side edges",
+      "negativeSpace": "Pale technical ground fills the outer ~10%"
+    },
     "environment": {
       "setting": "Studio / vector composite",
       "background": "Pale technical ground with fine callout rules and labels",

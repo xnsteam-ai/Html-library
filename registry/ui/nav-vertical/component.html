@@ -1,0 +1,62 @@
+<!-- Nav Vertical — Fluent UI sidebar nav, restored with its own scoped theme (brand blue selected rail) -->
+<style>
+  .fnv-root {
+    --bg-surface: #ffffff;
+    --text-primary: #242424;
+    --text-secondary: #616161;
+    --border-color: #e0e0e0;
+    --bg-hover: #f0f0f0;
+    --bg-selected: #f0f6fa;
+    --fluent-brand: #0f6cbd;
+  }
+  .dark .fnv-root {
+    --bg-surface: #333333;
+    --text-primary: #ffffff;
+    --text-secondary: #d1d1d1;
+    --border-color: #424242;
+    --bg-hover: #3d3d3d;
+    --bg-selected: #243a5e;
+    --fluent-brand: #479ef5;
+  }
+</style>
+
+<div class="fnv-root mx-auto flex min-h-[420px] w-full max-w-lg overflow-hidden rounded-lg border border-[var(--border-color)] bg-[var(--bg-surface)] shadow-sm">
+  <nav class="flex w-56 shrink-0 flex-col gap-0.5 border-r border-[var(--border-color)] bg-[var(--bg-surface)] p-2">
+    <div class="px-4 py-3 mb-2">
+      <h2 class="text-[13px] font-semibold tracking-wide text-[var(--text-primary)]">Application</h2>
+    </div>
+
+    <label class="fnv-item group relative flex h-11 cursor-pointer items-center gap-3 rounded px-4 text-[14px] text-[var(--text-primary)] transition hover:bg-[var(--bg-hover)] has-checked:bg-[var(--bg-selected)] has-checked:font-semibold">
+      <input type="radio" name="fnv-item" class="peer sr-only" checked />
+      <span class="absolute bottom-2.5 left-0.5 top-2.5 w-[3px] rounded bg-transparent peer-checked:bg-[var(--fluent-brand)]"></span>
+      <svg class="h-5 w-5 text-[var(--text-secondary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9.5L12 3l9 6.5V21a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z" /></svg>
+      Dashboard
+    </label>
+    <label class="fnv-item group relative flex h-11 cursor-pointer items-center gap-3 rounded px-4 text-[14px] text-[var(--text-primary)] transition hover:bg-[var(--bg-hover)] has-checked:bg-[var(--bg-selected)] has-checked:font-semibold">
+      <input type="radio" name="fnv-item" class="peer sr-only" />
+      <span class="absolute bottom-2.5 left-0.5 top-2.5 w-[3px] rounded bg-transparent peer-checked:bg-[var(--fluent-brand)]"></span>
+      <svg class="h-5 w-5 text-[var(--text-secondary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 12h-6l-2 3h-4l-2-3H2" /><path d="M5.45 5.11L2 12v6a2 2 0 002 2h16a2 2 0 002-2v-6l-3.45-6.89A2 2 0 0016.76 4H7.24a2 2 0 00-1.79 1.11z" /></svg>
+      Inbox
+    </label>
+    <label class="fnv-item group relative flex h-11 cursor-pointer items-center gap-3 rounded px-4 text-[14px] text-[var(--text-primary)] transition hover:bg-[var(--bg-hover)] has-checked:bg-[var(--bg-selected)] has-checked:font-semibold">
+      <input type="radio" name="fnv-item" class="peer sr-only" />
+      <span class="absolute bottom-2.5 left-0.5 top-2.5 w-[3px] rounded bg-transparent peer-checked:bg-[var(--fluent-brand)]"></span>
+      <svg class="h-5 w-5 text-[var(--text-secondary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /></svg>
+      Calendar
+    </label>
+
+    <div class="mt-auto border-t border-[var(--border-color)] pt-2">
+      <label class="fnv-item group relative flex h-11 cursor-pointer items-center gap-3 rounded px-4 text-[14px] text-[var(--text-primary)] transition hover:bg-[var(--bg-hover)] has-checked:bg-[var(--bg-selected)] has-checked:font-semibold">
+        <input type="radio" name="fnv-item" class="peer sr-only" />
+        <span class="absolute bottom-2.5 left-0.5 top-2.5 w-[3px] rounded bg-transparent peer-checked:bg-[var(--fluent-brand)]"></span>
+        <svg class="h-5 w-5 text-[var(--text-secondary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.7 1.7 0 00.3 1.9l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.9-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.1A1.7 1.7 0 008 19.4a1.7 1.7 0 00-1.9.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.9 1.7 1.7 0 00-1.5-1H2a2 2 0 110-4h.1A1.7 1.7 0 004.6 8a1.7 1.7 0 00-.3-1.9l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 001.9.3H9a1.7 1.7 0 001-1.5V2a2 2 0 114 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.9-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.9V9a1.7 1.7 0 001.5 1H22a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z" /></svg>
+        Settings
+      </label>
+    </div>
+  </nav>
+
+  <div class="flex-1 bg-[var(--bg-surface)] p-8">
+    <h1 class="text-[20px] font-semibold text-[var(--text-primary)]">Vertical Navigation</h1>
+    <p class="mt-2 text-[13.5px] text-[var(--text-secondary)]">Content responds to sidebar selection.</p>
+  </div>
+</div>

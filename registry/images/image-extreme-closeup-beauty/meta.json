@@ -30,6 +30,13 @@
       "depthOfField": "Shallow; ears and hairline soften",
       "focus": "The irises"
     },
+    "framing": {
+      "subjectScale": "Face fills ~80% of frame width and ~95% of frame height",
+      "subjectBox": "Face x≈10–90%, y≈2–98%; eyes x≈22–78%, y≈38–48%",
+      "anchors": "Eyeline at ~42% from top; nose tip ~62%; mouth ~78%",
+      "edges": "Hairline crops at the top edge; both ears crop at the side edges; chin at the bottom edge",
+      "negativeSpace": "Effectively none — the crop is edge-to-edge by design"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Flat neutral ground, barely visible",

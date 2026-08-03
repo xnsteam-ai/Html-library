@@ -30,6 +30,13 @@
       "depthOfField": "Moderate; foreground petals soft, subject sharp",
       "focus": "The figure against the sky"
     },
+    "framing": {
+      "subjectScale": "Figure spans ~22% of frame width, occupying the middle band of height",
+      "subjectBox": "Figure x≈38–60%, y≈28–72%; flower field fills y≈60–100% full width",
+      "anchors": "Eyeline at ~34% from top; horizon/field line at ~62%; foreground bloom at ~85%",
+      "edges": "Field and foreground bloom exit the bottom and both side edges",
+      "negativeSpace": "Upper ~28% is open sky — generous headroom above the figure"
+    },
     "environment": {
       "setting": "Outdoor meadow",
       "background": "Dense yellow wildflowers to the horizon, bright cumulus and blue sky above, loose petals in the air",

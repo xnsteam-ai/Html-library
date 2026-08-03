@@ -29,6 +29,13 @@
       "depthOfField": "Shallow; ground falls to black",
       "focus": "The face and shoulder line"
     },
+    "framing": {
+      "subjectScale": "Figure fills ~50% of frame width, full height",
+      "subjectBox": "Figure x≈25–78%, y≈5–100%; raised arm x≈30–60%, y≈5–28%",
+      "anchors": "Eyeline at ~22% from top; waist ~62%",
+      "edges": "Arm grazes the top edge; legs exit the bottom edge",
+      "negativeSpace": "Near-black ground fills both side margins"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Near-black backdrop with a faint warm spill",

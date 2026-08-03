@@ -29,6 +29,13 @@
       "depthOfField": "Shallow; interior soft behind",
       "focus": "The torso and face"
     },
+    "framing": {
+      "subjectScale": "Figure fills ~45% of frame width, full height",
+      "subjectBox": "Figure x≈28–72%, y≈8–100%; hands at waist x≈35–65%, y≈52–62%",
+      "anchors": "Eyeline at ~22% from top; waist ~57%",
+      "edges": "Legs exit the bottom edge",
+      "negativeSpace": "Interior fills both side margins"
+    },
     "environment": {
       "setting": "Gym or studio interior",
       "background": "Warm wood and equipment reduced to soft shapes",

@@ -1,0 +1,10 @@
+{
+  "name": "nav-horizontal",
+  "title": "Nav Horizontal",
+  "description": "A top tab strip with a sliding underline indicator, working via a radio group and CSS — no JavaScript.",
+  "category": "ui",
+  "order": 13,
+  "tags": ["nav", "tabs", "navigation"],
+  "previewBg": "plain",
+  "previewHeight": 220
+}

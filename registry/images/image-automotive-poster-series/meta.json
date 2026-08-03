@@ -23,6 +23,13 @@
       "depthOfField": "Deep throughout",
       "focus": "The car in each panel"
     },
+    "framing": {
+      "subjectScale": "Panels tile the upper two-thirds; hero car across the lower band",
+      "subjectBox": "Panel row x≈5–95%, y≈8–58%; hero car x≈10–90%, y≈62–88%",
+      "anchors": "Panel row baseline at ~58%; hero car axis at ~75%",
+      "edges": "Panels crop at their own boundaries; hero approaches both side edges",
+      "negativeSpace": "Dark ground carries a thin margin all round"
+    },
     "environment": {
       "setting": "Studio / composite",
       "background": "Dark ground with fine rules and small type between panels",

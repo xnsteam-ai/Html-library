@@ -30,6 +30,13 @@
       "depthOfField": "Moderate; motion in the extremities",
       "focus": "The wordmark and the nearest gear"
     },
+    "framing": {
+      "subjectScale": "Figure and gear span ~85% of frame width on a strong diagonal",
+      "subjectBox": "Figure x≈8–95%, y≈15–90%; wordmark x≈25–75%, y≈42–55%",
+      "anchors": "Wordmark centred at ~48%; diagonal axis roughly 25° off horizontal",
+      "edges": "Limbs and gear exit the left, right and bottom edges",
+      "negativeSpace": "Almost none — the composition deliberately fills the frame"
+    },
     "environment": {
       "setting": "Composited sky / debris field",
       "background": "Cloud and fragment texture behind the figure",

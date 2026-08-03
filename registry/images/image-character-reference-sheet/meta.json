@@ -30,6 +30,13 @@
       "depthOfField": "Flat — illustration, no optical depth",
       "focus": "The full-length turnaround"
     },
+    "framing": {
+      "subjectScale": "Turnaround occupies left ~35%; studies and swatches the right",
+      "subjectBox": "Full-length figure x≈8–40%, y≈15–90%; head studies x≈45–95%, y≈12–55%; props and palette y≈58–92%",
+      "anchors": "Header at ~8%; study row baseline ~55%; palette strip ~88%",
+      "edges": "Nothing cropped — sheet fully contained",
+      "negativeSpace": "Even parchment margin, roughly 5%"
+    },
     "environment": {
       "setting": "Illustrated sheet",
       "background": "Warm parchment ground with fine rules, labels and a colour palette strip",

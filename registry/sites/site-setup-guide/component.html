@@ -1,0 +1,112 @@
+<!-- Site Setup Guide — restored with its own scoped Astryx theme -->
+<style>
+  .ssg-root {
+    --bg-app: #f4f4f6; --bg-surface-raised: #ffffff; --bg-hover: rgba(0,0,0,.04);
+    --border-color: rgba(0,0,0,.08); --text-primary: #171717; --text-secondary: #555555; --text-muted: #999999;
+    --code-bg: #f8f9fa; --code-border: #e2e8f0;
+  }
+  .dark .ssg-root {
+    --bg-app: #141414; --bg-surface-raised: #222222; --bg-hover: rgba(255,255,255,.04);
+    --border-color: rgba(255,255,255,.07); --text-primary: #e8e8e8; --text-secondary: #999999; --text-muted: #555555;
+    --code-bg: #1a1a1a; --code-border: rgba(255,255,255,.08);
+  }
+</style>
+
+<div class="ssg-root flex h-[800px] w-[1280px] flex-col overflow-hidden bg-[var(--bg-app)]">
+  <header class="flex shrink-0 items-center justify-between border-b border-[var(--border-color)] bg-[var(--bg-surface-raised)] px-6 py-3">
+    <div class="flex items-center gap-3">
+      <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--bg-hover)] text-sm font-bold text-[var(--text-primary)]">A</span>
+      <div>
+        <h2 class="text-[13.5px] font-semibold text-[var(--text-primary)]">Astryx Documentation</h2>
+        <p class="text-[11px] text-[var(--text-muted)]">Technical Guides &amp; API Reference</p>
+      </div>
+    </div>
+    <div class="flex w-72 items-center gap-2 rounded-lg border border-[var(--border-color)] bg-[var(--bg-app)] px-3 py-1.5 text-[12px] text-[var(--text-muted)]">
+      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" /></svg>
+      <span>Search technical docs...</span>
+      <span class="ml-auto rounded border border-[var(--border-color)] px-1 text-[10px]">⌘K</span>
+    </div>
+  </header>
+
+  <div class="flex flex-1 min-h-0">
+    <main class="flex flex-1 justify-center overflow-y-auto p-10">
+      <div class="flex w-full max-w-2xl flex-col gap-8">
+        <div class="border-b border-[var(--border-color)] pb-5">
+          <h1 class="text-[32px] font-bold tracking-tight text-[var(--text-primary)]">Getting started with Product Name</h1>
+          <p class="mt-1 text-[12px] text-[var(--text-muted)]">Last updated March 30, 2026</p>
+        </div>
+
+        <div class="flex flex-col gap-3 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-surface-raised)] p-5 shadow-sm">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <svg class="h-4 w-4 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2z" /></svg>
+              <span class="text-[13.5px] font-semibold text-[var(--text-primary)]">AI Assistance</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="flex items-center gap-1 rounded-lg border border-[var(--border-color)] px-2.5 py-1 text-[12px] font-medium text-[var(--text-secondary)]">Edit</span>
+              <span class="flex items-center gap-1 rounded-lg border border-[var(--border-color)] px-2.5 py-1 text-[12px] font-medium text-[var(--text-secondary)]">Copy prompt</span>
+            </div>
+          </div>
+          <p class="rounded-xl border border-[var(--border-color)] bg-[var(--bg-hover)] p-3 font-mono text-[12px] leading-relaxed text-[var(--text-secondary)]">
+            Help me get set up with Product Name. Based on my project, do the following: 1. Install @astryxdesign/core and the StyleX compiler. 2. Wrap my app in ThemeProvider. 3. Replace one existing component with an Astryx equivalent.
+          </p>
+        </div>
+
+        <section class="flex flex-col gap-3">
+          <h2 class="text-[18px] font-bold text-[var(--text-primary)]">Prerequisites</h2>
+          <ul class="list-disc space-y-1.5 pl-5 text-[13.5px] text-[var(--text-secondary)]">
+            <li><strong class="font-semibold text-[var(--text-primary)]">Node.js 18+</strong> — recommended LTS version</li>
+            <li><strong class="font-semibold text-[var(--text-primary)]">React 18 or 19</strong> — supported framework version</li>
+            <li><strong class="font-semibold text-[var(--text-primary)]">A package manager</strong> (npm, yarn or pnpm)</li>
+          </ul>
+        </section>
+
+        <hr class="border-[var(--border-color)]" />
+
+        <section class="flex flex-col gap-4">
+          <h2 class="text-[18px] font-bold text-[var(--text-primary)]">Install the package</h2>
+          <div class="flex flex-col gap-2">
+            <h3 class="text-[14px] font-bold text-[var(--text-primary)]">Step 1: Install the core package</h3>
+            <div class="overflow-hidden rounded-xl border border-[var(--code-border)] font-mono text-[12px]">
+              <div class="flex items-center justify-between border-b border-[var(--code-border)] bg-[var(--bg-hover)] px-3 py-1.5 text-[11px] text-[var(--text-muted)]">
+                <span>terminal</span><span>Copy</span>
+              </div>
+              <pre class="overflow-x-auto bg-[var(--code-bg)] p-3.5 text-[var(--text-primary)]"><code>npm install @astryxdesign/core</code></pre>
+            </div>
+          </div>
+          <div class="flex flex-col gap-2">
+            <h3 class="text-[14px] font-bold text-[var(--text-primary)]">Step 2: Import the precompiled styles</h3>
+            <div class="overflow-hidden rounded-xl border border-[var(--code-border)] font-mono text-[12px]">
+              <div class="flex items-center justify-between border-b border-[var(--code-border)] bg-[var(--bg-hover)] px-3 py-1.5 text-[11px] text-[var(--text-muted)]">
+                <span>app.tsx</span><span>Copy</span>
+              </div>
+              <pre class="overflow-x-auto bg-[var(--code-bg)] p-3.5 text-[var(--text-primary)]"><code>import '@astryxdesign/core/reset.css';
+import '@astryxdesign/core/astryx.css';</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <hr class="border-[var(--border-color)]" />
+
+        <section class="flex flex-col gap-4 pb-6">
+          <h2 class="text-[18px] font-bold text-[var(--text-primary)]">Next steps</h2>
+          <ul class="list-disc space-y-1.5 pl-5 text-[13.5px] text-[var(--text-secondary)]">
+            <li><strong class="font-semibold text-[var(--text-primary)]">Fundamental concepts</strong> — how theming, layout and composition work</li>
+            <li><strong class="font-semibold text-[var(--text-primary)]">Component API reference</strong> — props, variants and examples</li>
+            <li><strong class="font-semibold text-[var(--text-primary)]">Accessibility</strong> — built-in a11y features and ARIA patterns</li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <aside class="flex w-56 shrink-0 flex-col gap-3 border-l border-[var(--border-color)] bg-[var(--bg-surface-raised)] p-6">
+      <span class="text-[11px] font-semibold uppercase tracking-wider text-[var(--text-muted)]">On this page</span>
+      <div class="flex flex-col gap-1 text-[12.5px]">
+        <span class="border-l-2 border-[var(--text-primary)] pl-2.5 font-medium text-[var(--text-primary)]">Prerequisites</span>
+        <span class="border-l-2 border-transparent pl-2.5 text-[var(--text-muted)]">Install the package</span>
+        <span class="border-l-2 border-transparent pl-2.5 text-[var(--text-muted)]">Configure theming</span>
+        <span class="border-l-2 border-transparent pl-2.5 text-[var(--text-muted)]">Next steps</span>
+      </div>
+    </aside>
+  </div>
+</div>

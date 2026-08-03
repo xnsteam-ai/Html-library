@@ -29,6 +29,13 @@
       "depthOfField": "Shallow per frame",
       "focus": "The shoe in each cell"
     },
+    "framing": {
+      "subjectScale": "Six cells; product or limb fills ~50% of each cell",
+      "subjectBox": "Three-by-two grid; boundaries at 33%/67% horizontally, 50% vertically",
+      "anchors": "Subject centred per cell; no shared anchor across cells",
+      "edges": "Subjects crop at cell edges",
+      "negativeSpace": "Thin gutters; hazy pastel fills each cell"
+    },
     "environment": {
       "setting": "Domestic interior",
       "background": "Soft bedding and pastel furnishing, deliberately hazy",

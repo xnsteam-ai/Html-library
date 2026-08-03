@@ -30,6 +30,13 @@
       "depthOfField": "Shallow for portraits, flat for swatches",
       "focus": "The primary large portrait"
     },
+    "framing": {
+      "subjectScale": "Portraits occupy the left ~55%; palette and wardrobe tiles the right",
+      "subjectBox": "Portrait column x≈5–55%; swatch and garment tiles x≈58–95%; both spanning y≈10–92%",
+      "anchors": "Header at ~6%; tile rows step at roughly 12% intervals",
+      "edges": "Nothing cropped — sheet fully contained",
+      "negativeSpace": "Clean white margin, roughly 5% all round"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Clean white sheet ground",

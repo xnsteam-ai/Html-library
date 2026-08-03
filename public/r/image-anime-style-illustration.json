@@ -29,6 +29,13 @@
       "depthOfField": "Flat — illustrated depth via layering",
       "focus": "The figure against the sky"
     },
+    "framing": {
+      "subjectScale": "Figure spans ~40% of frame width, middle band",
+      "subjectBox": "Figure x≈32–72%, y≈22–82%; poppy foreground y≈70–100%; cloud bank y≈5–40%",
+      "anchors": "Eyeline at ~30% from top; horizon ~72%",
+      "edges": "Foreground poppies exit the bottom and side edges",
+      "negativeSpace": "Upper ~22% is sky and cloud"
+    },
     "environment": {
       "setting": "Illustrated meadow",
       "background": "Poppies and tall grass in the foreground, cloud-stacked sky above",

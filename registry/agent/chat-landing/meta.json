@@ -1,0 +1,10 @@
+{
+  "name": "chat-landing",
+  "title": "Chat Landing",
+  "description": "A full-page AI assistant home: greeting, rich composer, category toggles and filtered suggestion cards.",
+  "category": "agent",
+  "surface": "site",
+  "order": 22,
+  "tags": ["chat", "landing", "composer", "suggestions"],
+  "tagline": "Greeting, composer & prompts"
+}

@@ -29,6 +29,13 @@
       "depthOfField": "Shallow; backdrop plain",
       "focus": "The eyes behind the glasses"
     },
+    "framing": {
+      "subjectScale": "Head and shoulders fill ~65% of frame width, lower three-quarters",
+      "subjectBox": "Head x≈28–72%, y≈10–52%; shoulders widen to x≈5–95% by y≈78%",
+      "anchors": "Eyeline at ~28% from top; chin ~48%",
+      "edges": "Shoulders exit the bottom edge",
+      "negativeSpace": "Upper ~10% clean backdrop"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Flat warm-grey backdrop",

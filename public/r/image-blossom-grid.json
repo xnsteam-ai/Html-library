@@ -29,6 +29,13 @@
       "depthOfField": "Shallow per frame",
       "focus": "The face in each cell"
     },
+    "framing": {
+      "subjectScale": "Six cells; subject fills ~60% of each cell",
+      "subjectBox": "Three-by-two grid; boundaries at 33%/67% horizontally, 50% vertically",
+      "anchors": "Each cell eyeline at roughly 30% of cell height",
+      "edges": "Subjects crop at cell edges; blossom bleeds within cells",
+      "negativeSpace": "Thin gutters; no outer margin"
+    },
     "environment": {
       "setting": "Outdoors under blossom",
       "background": "Pink blossom and blue sky, softly rendered",

@@ -30,6 +30,13 @@
       "depthOfField": "Moderate; room legible behind",
       "focus": "The subject and the cat"
     },
+    "framing": {
+      "subjectScale": "Figure spans ~40% of frame width, lower two-thirds",
+      "subjectBox": "Figure x≈32–72%, y≈30–92%; cat x≈62–82%, y≈62–85%; sofa x≈5–95%, y≈35–95%",
+      "anchors": "Eyeline at ~38% from top; seat line ~70%; floor ~95%",
+      "edges": "Sofa exits both side edges",
+      "negativeSpace": "Upper ~28% is wall and window light"
+    },
     "environment": {
       "setting": "Living room",
       "background": "Sofa, cushions, window light and furnishing detail visible",

@@ -30,6 +30,13 @@
       "depthOfField": "Shallow; edges fall to black",
       "focus": "The eyes — the brightest point in frame"
     },
+    "framing": {
+      "subjectScale": "Face fills ~55% of frame width; only the lit band is legible",
+      "subjectBox": "Face x≈25–80%, y≈15–85%; lit eye band x≈30–75%, y≈32–48%",
+      "anchors": "Eyeline at ~40% from top — the single brightest line in the frame",
+      "edges": "Head crops softly into darkness at all edges rather than at a hard boundary",
+      "negativeSpace": "Surrounding ~25% falls to near-black on every side"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Near-black teal field, no detail",

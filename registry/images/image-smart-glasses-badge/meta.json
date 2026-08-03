@@ -30,6 +30,13 @@
       "depthOfField": "Deep",
       "focus": "The glasses frame and lens"
     },
+    "framing": {
+      "subjectScale": "Head fills ~55% of frame width, upper three-quarters of height",
+      "subjectBox": "Head x≈22–78%, y≈8–72%; circular graphic behind at x≈12–88%, y≈5–65%; badge lower-centre",
+      "anchors": "Eyeline and glasses at ~35% from top; badge centre ~82%",
+      "edges": "Shoulders exit the bottom edge",
+      "negativeSpace": "White field fills the outer ~12% all round"
+    },
     "environment": {
       "setting": "Studio / graphic composite",
       "background": "Pure white ground with a circular graphic device behind the head",

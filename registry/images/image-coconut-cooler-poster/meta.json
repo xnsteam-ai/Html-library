@@ -23,6 +23,13 @@
       "depthOfField": "Moderate; background props soft",
       "focus": "The glass and its contents"
     },
+    "framing": {
+      "subjectScale": "Glass occupies ~35% of frame width, centred lower",
+      "subjectBox": "Glass x≈35–70%, y≈45–85%; headline x≈10–90%, y≈12–38%; props along y≈75–95%",
+      "anchors": "Headline baseline at ~38%; glass rim ~45%; prop line ~85%",
+      "edges": "Props bleed off both side edges",
+      "negativeSpace": "Illustrated sky fills the top ~12%"
+    },
     "environment": {
       "setting": "Tropical set",
       "background": "Palm, sand and sky illustration behind; coconut and fruit props at the base",

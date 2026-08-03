@@ -23,6 +23,13 @@
       "depthOfField": "Deep",
       "focus": "The packaging faces"
     },
+    "framing": {
+      "subjectScale": "Four equal cells; product fills ~55% of each cell",
+      "subjectBox": "Two-by-two grid; boundaries at 50% on both axes",
+      "anchors": "Each product stands on a cell baseline at roughly 85% of cell height",
+      "edges": "No cropping — each pack fully inside its cell",
+      "negativeSpace": "Even coloured margin inside each cell"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Saturated single-colour ground per cell, tuned to each brand",

@@ -30,6 +30,13 @@
       "depthOfField": "Shallow, matched",
       "focus": "The hairline and the eye crops"
     },
+    "framing": {
+      "subjectScale": "Upper rows of head shots; lower rows of macro detail crops",
+      "subjectBox": "Head row x≈5–95%, y≈8–52%; detail crops x≈5–95%, y≈55–92%",
+      "anchors": "Row boundary at ~52%; uniform column pitch of ~22%",
+      "edges": "Nothing cropped",
+      "negativeSpace": "Even white margin, roughly 5%"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Flat white ground, identical per cell",

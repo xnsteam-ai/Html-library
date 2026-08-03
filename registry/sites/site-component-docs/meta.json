@@ -1,0 +1,10 @@
+{
+  "name": "site-component-docs",
+  "title": "Component Docs",
+  "description": "A design-system component reference: category nav tree, live stage preview, best-practices table, examples, and an on-this-page rail.",
+  "category": "sites",
+  "surface": "site",
+  "tagline": "Nav, live stage & examples",
+  "order": 30,
+  "tags": ["docs", "design-system", "reference"]
+}

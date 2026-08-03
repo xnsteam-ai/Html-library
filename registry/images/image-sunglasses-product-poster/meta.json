@@ -23,6 +23,13 @@
       "depthOfField": "Deep — frames fully sharp",
       "focus": "The lens and hinge"
     },
+    "framing": {
+      "subjectScale": "Product spans ~55% of frame width, centred vertically",
+      "subjectBox": "Sunglasses x≈22–78%, y≈42–62%; wordmark x≈15–85%, y≈18–35%",
+      "anchors": "Wordmark baseline at ~35%; product axis at ~52%; reflection to ~72%",
+      "edges": "Nothing cropped",
+      "negativeSpace": "Upper ~18% and lower ~28% are clean gradient ground"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Graduated pale blue-white ground, subtle reflection beneath",

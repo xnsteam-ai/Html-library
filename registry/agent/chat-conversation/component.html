@@ -1,0 +1,177 @@
+<!-- Chat Conversation — restored with its own scoped theme, incl. the blue token chips and warm code-block palette -->
+<style>
+  .acc-root {
+    --bg-surface-raised: #ffffff; --bg-hover: rgba(0,0,0,.04); --border-color: rgba(0,0,0,.08);
+    --text-primary: #171717; --text-secondary: #555555; --text-muted: #999999;
+    --token-blue-bg: rgba(59,130,246,.1); --token-blue-fg: #2563eb;
+    --code-bg: #f8f9fa; --code-border: #e2e8f0; --user-bubble-bg: #e8e8ec;
+  }
+  .dark .acc-root {
+    --bg-surface-raised: #222222; --bg-hover: rgba(255,255,255,.04); --border-color: rgba(255,255,255,.07);
+    --text-primary: #e8e8e8; --text-secondary: #999999; --text-muted: #555555;
+    --token-blue-bg: rgba(147,180,252,.12); --token-blue-fg: #8eaadc;
+    --code-bg: #1a1a1a; --code-border: rgba(255,255,255,.08); --user-bubble-bg: #2a2a2a;
+  }
+</style>
+
+<div class="acc-root flex h-[800px] w-[1280px] overflow-hidden bg-[var(--bg-surface-raised)]">
+  <div class="flex min-w-0 flex-1 flex-col">
+    <!-- Header -->
+    <header class="flex shrink-0 items-center justify-between border-b border-[var(--border-color)] px-6 py-3">
+      <div class="flex items-center gap-3">
+        <span class="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--bg-hover)] text-[11px] font-semibold text-[var(--text-secondary)]">AI</span>
+        <div>
+          <h2 class="text-[13.5px] font-semibold text-[var(--text-primary)]">JWT Token Refresh Design</h2>
+          <p class="text-[11px] text-[var(--text-muted)]">Active session · 4 messages</p>
+        </div>
+      </div>
+      <span class="flex items-center gap-1.5 rounded-lg border border-[var(--border-color)] px-3 py-1.5 text-[12px] font-medium text-[var(--text-secondary)]">
+        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /><path d="M14 2v6h6" /></svg>
+        Artifact Panel
+      </span>
+    </header>
+
+    <!-- Thread -->
+    <div class="flex-1 overflow-y-auto px-8 py-6">
+      <div class="mx-auto flex max-w-2xl flex-col gap-6">
+        <div class="flex items-center gap-4">
+          <div class="h-px flex-1 bg-[var(--border-color)]"></div>
+          <span class="text-[11px] font-medium uppercase tracking-wider text-[var(--text-muted)]">Today</span>
+          <div class="h-px flex-1 bg-[var(--border-color)]"></div>
+        </div>
+
+        <!-- User message -->
+        <div class="flex flex-col items-end gap-1.5">
+          <div class="mb-1 flex items-center gap-1.5">
+            <span class="rounded-md bg-[var(--token-blue-bg)] px-2 py-0.5 text-[12px] font-medium text-[var(--token-blue-fg)]">auth-service.ts</span>
+            <span class="rounded-md bg-[var(--token-blue-bg)] px-2 py-0.5 text-[12px] font-medium text-[var(--token-blue-fg)]">middleware.ts</span>
+          </div>
+          <div class="max-w-[85%] rounded-2xl bg-[var(--user-bubble-bg)] px-3.5 py-2.5 text-[14px] leading-relaxed text-[var(--text-primary)]">
+            <span class="font-medium text-[var(--token-blue-fg)]">@agent</span> Can you review these auth files? The JWT refresh logic seems broken — tokens expire but the middleware doesn't catch it.
+          </div>
+          <span class="px-1 text-[10.5px] text-[var(--text-muted)]">10:15 AM</span>
+        </div>
+
+        <!-- Assistant message -->
+        <div class="flex items-start gap-3">
+          <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--bg-hover)] text-[11px] font-semibold text-[var(--text-secondary)]">A</span>
+          <div class="flex min-w-0 flex-1 flex-col gap-3">
+            <p class="text-[14px] leading-relaxed text-[var(--text-primary)]">Looking into the auth files now. Let me read through the code and trace the token refresh flow.</p>
+
+            <!-- Tool calls (default open) -->
+            <div class="rounded-lg border border-[var(--border-color)] bg-[var(--bg-surface-raised)] p-2.5 text-[12px]">
+              <div class="flex items-center gap-1.5 text-[var(--text-muted)]">
+                <svg class="h-3.5 w-3.5 rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6" /></svg>
+                <span class="font-medium">3 tool calls executed</span>
+                <span class="ml-auto text-[10px]">203ms</span>
+              </div>
+              <div class="mt-2 flex flex-col gap-1.5 border-t border-[var(--border-color)] pt-2 font-mono text-[11.5px] text-[var(--text-muted)]">
+                <div class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>read</span> <span>auth-service.ts</span> <span class="ml-auto text-[10px]">45ms</span></div>
+                <div class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>read</span> <span>middleware.ts</span> <span class="ml-auto text-[10px]">38ms</span></div>
+                <div class="flex items-center gap-2"><span class="text-green-500">✓</span> <span>bash</span> <span>grep -rn "refreshToken" src/</span> <span class="ml-auto text-[10px]">120ms</span></div>
+              </div>
+            </div>
+
+            <p class="text-[13.5px] leading-relaxed text-[var(--text-primary)]">
+              Found the issue. In <code class="rounded bg-[var(--bg-hover)] px-1 py-0.5 font-mono text-[12px]">middleware.ts</code>, token validation runs <strong class="font-semibold">before</strong> the refresh check. When a token expires, the middleware rejects the request immediately instead of attempting a refresh.
+            </p>
+
+            <!-- Code block -->
+            <div class="overflow-hidden rounded-xl border border-[var(--code-border)] font-mono text-[12.5px]">
+              <div class="flex items-center justify-between border-b border-[var(--code-border)] bg-[var(--bg-hover)] px-3 py-1.5 text-[11px] text-[var(--text-muted)]">
+                <span>middleware.ts</span>
+                <span>typescript</span>
+              </div>
+              <pre class="overflow-x-auto bg-[var(--code-bg)] p-3.5 leading-relaxed text-[var(--text-primary)]"><code>async function authMiddleware(req: Request) {
+  try {
+    const decoded = validateToken(req.headers.authorization);
+    req.user = decoded;
+  } catch (err) {
+    if (err instanceof TokenExpiredError) {
+      const refreshed = await refreshToken(req.cookies.refreshToken);
+      if (refreshed) {
+        req.user = refreshed.user;
+        return next(req);
+      }
+    }
+    return new Response('Unauthorized', { status: 401 });
+  }
+  return next(req);
+}</code></pre>
+            </div>
+
+            <span class="rounded-xl border border-[var(--border-color)] bg-[var(--bg-surface-raised)] p-3 text-left shadow-sm">
+              <span class="flex items-center gap-3">
+                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[var(--bg-hover)]"><svg class="h-4 w-4 text-[var(--text-secondary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /><path d="M14 2v6h6" /></svg></span>
+                <span class="min-w-0 flex-1">
+                  <span class="block text-[13px] font-semibold text-[var(--text-primary)]">JWT Token Refresh: Design &amp; Rollout</span>
+                  <span class="block text-[11px] text-[var(--text-muted)]">Document · Click to view</span>
+                </span>
+              </span>
+            </span>
+
+            <span class="text-[10.5px] text-[var(--text-muted)]">10:15 AM · Agent</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Composer -->
+    <div class="mx-auto w-full max-w-2xl shrink-0 px-4 pb-4 pt-2">
+      <div class="rounded-2xl border border-[var(--border-color)] bg-[var(--bg-surface-raised)]">
+        <div class="px-3 py-3">
+          <p class="text-[14px] text-[var(--text-muted)]">Ask anything...</p>
+        </div>
+        <div class="flex items-center justify-between border-t border-[var(--border-color)] px-3 pb-2 pt-1">
+          <span class="flex items-center gap-1 rounded px-2 py-1 text-[12px] text-[var(--text-secondary)]">Ask<svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6" /></svg></span>
+          <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--bg-hover)] text-[var(--text-muted)]">
+            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7" /></svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Artifact panel (open by default) -->
+  <div class="flex w-[440px] shrink-0 flex-col border-l border-[var(--border-color)]">
+    <div class="flex items-center justify-between border-b border-[var(--border-color)] px-5 py-3">
+      <div class="flex min-w-0 items-center gap-2.5">
+        <svg class="h-4 w-4 shrink-0 text-[var(--text-secondary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /><path d="M14 2v6h6" /></svg>
+        <div class="min-w-0">
+          <h3 class="truncate text-[13.5px] font-semibold text-[var(--text-primary)]">JWT Token Refresh: Design &amp; Rollout</h3>
+          <span class="text-[11px] text-[var(--text-muted)]">Document · Updated just now</span>
+        </div>
+      </div>
+      <span class="rounded border border-[var(--border-color)] px-2 py-1 text-[11px] text-[var(--text-secondary)]">v2</span>
+    </div>
+
+    <div class="flex-1 overflow-y-auto p-6">
+      <h1 class="text-[20px] font-bold text-[var(--text-primary)]">JWT Token Refresh: Design &amp; Rollout</h1>
+
+      <h2 class="mt-5 text-[15px] font-semibold text-[var(--text-primary)]">Overview</h2>
+      <p class="mt-2 text-[13px] leading-relaxed text-[var(--text-secondary)]">Our API gateway authenticates every request with a short-lived JWT access token. This document describes the silent-refresh flow we just shipped.</p>
+
+      <h2 class="mt-5 text-[15px] font-semibold text-[var(--text-primary)]">The Fix</h2>
+      <ul class="mt-2 list-disc space-y-1 pl-5 text-[13px] leading-relaxed text-[var(--text-secondary)]">
+        <li><strong class="font-semibold text-[var(--text-primary)]">Transparent</strong> — valid sessions never see an interruption</li>
+        <li><strong class="font-semibold text-[var(--text-primary)]">Safe</strong> — a missing or invalid refresh token still returns 401</li>
+        <li><strong class="font-semibold text-[var(--text-primary)]">Cheap</strong> — refresh only runs on the expiry path</li>
+      </ul>
+
+      <h2 class="mt-5 text-[15px] font-semibold text-[var(--text-primary)]">Testing Matrix</h2>
+      <table class="mt-2 w-full border-collapse text-[12.5px]">
+        <thead>
+          <tr class="border-b border-[var(--border-color)]">
+            <th class="py-1.5 pr-2 text-left font-semibold text-[var(--text-primary)]">Scenario</th>
+            <th class="py-1.5 text-left font-semibold text-[var(--text-primary)]">Result</th>
+          </tr>
+        </thead>
+        <tbody class="text-[var(--text-secondary)]">
+          <tr class="border-b border-[var(--border-color)]"><td class="py-1.5 pr-2">Valid token</td><td class="py-1.5">200 OK</td></tr>
+          <tr class="border-b border-[var(--border-color)]"><td class="py-1.5 pr-2">Expired, valid refresh</td><td class="py-1.5">200 OK + new token</td></tr>
+          <tr><td class="py-1.5 pr-2">Expired, invalid refresh</td><td class="py-1.5">401</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

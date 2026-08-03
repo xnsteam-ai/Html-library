@@ -1,0 +1,10 @@
+{
+  "name": "spinner",
+  "title": "Spinner",
+  "description": "A spinning ring loading indicator in four sizes.",
+  "category": "ui",
+  "order": 17,
+  "tags": ["spinner", "loading", "indicator"],
+  "previewBg": "plain",
+  "previewHeight": 200
+}

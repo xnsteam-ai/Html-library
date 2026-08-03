@@ -30,6 +30,13 @@
       "depthOfField": "Moderate",
       "focus": "The face and the blazer shoulder"
     },
+    "framing": {
+      "subjectScale": "Figure occupies right ~55% of frame, full height",
+      "subjectBox": "Figure x≈40–95%, y≈10–100%; script headline x≈5–60%, y≈5–20%; photo inset x≈55–85%, y≈62–90%",
+      "anchors": "Headline baseline at ~20%; eyeline at ~28%; inset centre at ~76%",
+      "edges": "Figure exits the bottom edge; newsprint texture bleeds to all edges",
+      "negativeSpace": "Left ~35% carries type and newsprint as negative space"
+    },
     "environment": {
       "setting": "Studio / graphic composite",
       "background": "Newsprint texture as the ground, script headline and a photo inset overlaid",

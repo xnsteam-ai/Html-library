@@ -23,6 +23,13 @@
       "depthOfField": "Shallow; background reduced to warm bokeh",
       "focus": "Ice cubes and the glass rim"
     },
+    "framing": {
+      "subjectScale": "Glass occupies ~50% of frame width and the lower ~58% of frame height",
+      "subjectBox": "Glass x≈25–75%, y≈42–95%; ice and splash x≈15–85%, y≈8–45%",
+      "anchors": "Glass rim at ~42% from top; caption band at ~53%; glass base at ~93%",
+      "edges": "Splash and beans exit the top edge; base sits just inside the bottom edge",
+      "negativeSpace": "Upper ~10% reserved as dark bokeh negative space"
+    },
     "environment": {
       "setting": "Cafe-suggestive studio set",
       "background": "Warm out-of-focus interior tones, no readable detail",

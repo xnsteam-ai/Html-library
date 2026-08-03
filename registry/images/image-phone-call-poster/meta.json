@@ -30,6 +30,13 @@
       "depthOfField": "Deep",
       "focus": "The phone product render"
     },
+    "framing": {
+      "subjectScale": "Figure occupies right ~50%; product and type the left",
+      "subjectBox": "Figure x≈48–95%, y≈25–100%; device render x≈15–45%, y≈35–75%; wordmark x≈8–60%, y≈8–25%",
+      "anchors": "Wordmark baseline at ~25%; device centre ~55%",
+      "edges": "Figure exits the bottom edge",
+      "negativeSpace": "Orange field carries the margins"
+    },
     "environment": {
       "setting": "Studio / graphic composite",
       "background": "Saturated orange ground with large display type",

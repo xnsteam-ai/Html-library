@@ -30,6 +30,13 @@
       "depthOfField": "Deep",
       "focus": "The face"
     },
+    "framing": {
+      "subjectScale": "Figure fills ~65% of frame width, full height",
+      "subjectBox": "Figure x≈20–85%, y≈5–100%; extended arm exits toward the bottom-right",
+      "anchors": "Eyeline at ~25% from top; frame tilted roughly 8° off level",
+      "edges": "Arm and torso exit the bottom edge; cap grazes the top edge",
+      "negativeSpace": "Slight sky margin upper-left; minimal elsewhere"
+    },
     "environment": {
       "setting": "Outdoor, urban",
       "background": "Pale wall and sky, low detail",

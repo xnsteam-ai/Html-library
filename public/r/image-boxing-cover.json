@@ -29,6 +29,13 @@
       "depthOfField": "Deep",
       "focus": "The face and folded arms"
     },
+    "framing": {
+      "subjectScale": "Figure fills ~70% of frame width, lower three-quarters of height",
+      "subjectBox": "Figure x≈15–85%, y≈22–100%; masthead x≈5–95%, y≈2–18%",
+      "anchors": "Masthead baseline at ~18%; eyeline at ~34%; folded arms at ~62%",
+      "edges": "Torso and arms exit the bottom edge; masthead bleeds to both side edges",
+      "negativeSpace": "Top ~20% is masthead band; almost no margin elsewhere"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Deep red-to-black backdrop; masthead and cover lines overlaid",

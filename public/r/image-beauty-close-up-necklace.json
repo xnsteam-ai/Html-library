@@ -29,6 +29,13 @@
       "depthOfField": "Shallow; background black",
       "focus": "The eyes, then the necklace"
     },
+    "framing": {
+      "subjectScale": "Head fills ~60% of frame width, upper three-quarters",
+      "subjectBox": "Head x≈22–78%, y≈5–62%; necklace x≈35–70%, y≈68–85%",
+      "anchors": "Eyeline at ~28% from top; jawline ~55%; necklace at ~75%",
+      "edges": "Crown grazes the top edge; shoulders exit the bottom edge",
+      "negativeSpace": "Black ground fills roughly 20% each side"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Near-black backdrop",

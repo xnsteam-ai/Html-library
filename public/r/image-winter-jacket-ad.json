@@ -29,6 +29,13 @@
       "depthOfField": "Deep",
       "focus": "The jacket"
     },
+    "framing": {
+      "subjectScale": "Figure spans ~45% of frame width, right of centre",
+      "subjectBox": "Figure x≈45–92%, y≈18–92%; slogan x≈5–48%, y≈28–58%",
+      "anchors": "Slogan block centred at ~42%; figure centre of mass ~58%",
+      "edges": "Figure grazes the right edge",
+      "negativeSpace": "Left ~40% carries the slogan as negative space"
+    },
     "environment": {
       "setting": "Composited graphic ground",
       "background": "Pale ground with graphic marks and heavy lettering",

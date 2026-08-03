@@ -29,6 +29,13 @@
       "depthOfField": "Deep",
       "focus": "The reflection"
     },
+    "framing": {
+      "subjectScale": "Figure fills ~40% of frame width, full height",
+      "subjectBox": "Figure x≈32–72%, y≈8–100%; phone x≈42–58%, y≈25–38%",
+      "anchors": "Phone/face level at ~30% from top; hip ~62%",
+      "edges": "Legs exit the bottom edge",
+      "negativeSpace": "Plain wall fills both side margins"
+    },
     "environment": {
       "setting": "Domestic interior",
       "background": "Plain wall and door frame, minimal detail",

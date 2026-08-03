@@ -1,0 +1,10 @@
+{
+  "name": "site-setup-guide",
+  "title": "Setup Guide",
+  "description": "A getting-started documentation page: an AI assistance prompt card, prerequisites, install steps with code blocks, and an on-this-page rail.",
+  "category": "sites",
+  "surface": "site",
+  "tagline": "AI assist, steps & rail",
+  "order": 34,
+  "tags": ["docs", "onboarding", "guide"]
+}

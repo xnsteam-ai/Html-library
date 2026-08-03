@@ -29,6 +29,13 @@
       "depthOfField": "Shallow; edges of the frame dissolve",
       "focus": "Eyes behind the lenses"
     },
+    "framing": {
+      "subjectScale": "Head fills essentially the entire frame — face spans ~100% of frame width",
+      "subjectBox": "Head x≈0–100%, y≈0–92%; glasses span x≈8–92% at y≈36–46%",
+      "anchors": "Eyeline at ~40% from top; nose tip ~57%; mouth ~72%; beard base ~90%",
+      "edges": "Scalp cropped flat by the top edge; both ears cropped by the side edges; collar exits the bottom edge",
+      "negativeSpace": "Zero headroom and zero side margin — the crop is deliberately claustrophobic"
+    },
     "environment": {
       "setting": "Studio / composited",
       "background": "Dark aqua field broken by liquid and droplet texture overlaying the skin",

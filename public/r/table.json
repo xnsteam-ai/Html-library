@@ -1,0 +1,22 @@
+{
+  "$schema": "https://xnsteam-ai.github.io/Html-library/r/schema.json",
+  "name": "table",
+  "title": "Table",
+  "description": "A simple data table with a header, hover rows and a title/description block.",
+  "category": "ui",
+  "type": "html",
+  "version": "0.1.0",
+  "tailwind": "^4.0.0",
+  "tags": [
+    "table",
+    "data",
+    "list"
+  ],
+  "files": [
+    {
+      "path": "table.html",
+      "type": "html",
+      "content": "<!-- Table — Fluent UI style employee table, restored with its own scoped theme -->\n<style>\n  .ftb-root { --bg-surface: #ffffff; --text-primary: #242424; --text-secondary: #616161; --border-color: #e0e0e0; --bg-hover: #f0f0f0; }\n  .dark .ftb-root { --bg-surface: #333333; --text-primary: #ffffff; --text-secondary: #d1d1d1; --border-color: #424242; --bg-hover: #3d3d3d; }\n</style>\n\n<div class=\"ftb-root mx-auto w-full max-w-2xl overflow-hidden rounded-lg border border-[var(--border-color)] bg-[var(--bg-surface)] shadow-sm\">\n  <div class=\"border-b border-[var(--border-color)] p-6\">\n    <h2 class=\"text-[16px] font-semibold text-[var(--text-primary)]\">Employees</h2>\n    <p class=\"text-[13px] text-[var(--text-secondary)]\">A list of all employees in the organization.</p>\n  </div>\n\n  <div class=\"w-full overflow-x-auto\">\n    <table class=\"w-full whitespace-nowrap text-left text-[13.5px]\">\n      <thead>\n        <tr class=\"border-b border-[var(--border-color)] bg-[var(--bg-surface)]\">\n          <th class=\"px-6 py-3 font-semibold text-[var(--text-primary)]\">Name</th>\n          <th class=\"px-6 py-3 font-semibold text-[var(--text-primary)]\">Title</th>\n          <th class=\"px-6 py-3 font-semibold text-[var(--text-primary)]\">Department</th>\n          <th class=\"px-6 py-3 font-semibold text-[var(--text-primary)]\">Role</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr class=\"border-b border-[var(--border-color)] transition-colors hover:bg-[var(--bg-hover)]\">\n          <td class=\"px-6 py-3 font-medium text-[var(--text-primary)]\">Lindsay Walton</td>\n          <td class=\"px-6 py-3 text-[var(--text-secondary)]\">Front-end Developer</td>\n          <td class=\"px-6 py-3 text-[var(--text-secondary)]\">Engineering</td>\n          <td class=\"px-6 py-3 text-[var(--text-secondary)]\">Member</td>\n        </tr>\n        <tr class=\"border-b border-[var(--border-color)] transition-colors hover:bg-[var(--bg-hover)]\">\n          <td class=\"px-6 py-3 font-medium text-[var(--text-primary)]\">Courtney Henry</td>\n          <td class=\"px-6 py-3 text-[var(--text-secondary)]\">Designer</td>\n          <td class=\"px-6 py-3 text-[var(--text-secondary)]\">Design</td>\n          <td class=\"px-6 py-3 text-[var(--text-secondary)]\">Admin</td>\n        </tr>\n        <tr class=\"border-b border-[var(--border-color)] transition-colors hover:bg-[var(--bg-hover)]\">\n          <td class=\"px-6 py-3 font-medium text-[var(--text-primary)]\">Tom Cook</td>\n          <td class=\"px-6 py-3 text-[var(--text-secondary)]\">Director of Product</td>\n          <td class=\"px-6 py-3 text-[var(--text-secondary)]\">Product</td>\n          <td class=\"px-6 py-3 text-[var(--text-secondary)]\">Member</td>\n        </tr>\n        <tr class=\"transition-colors hover:bg-[var(--bg-hover)]\">\n          <td class=\"px-6 py-3 font-medium text-[var(--text-primary)]\">Whitney Francis</td>\n          <td class=\"px-6 py-3 text-[var(--text-secondary)]\">Copywriter</td>\n          <td class=\"px-6 py-3 text-[var(--text-secondary)]\">Marketing</td>\n          <td class=\"px-6 py-3 text-[var(--text-secondary)]\">Admin</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n</div>\n"
+    }
+  ]
+}

@@ -29,6 +29,13 @@
       "depthOfField": "Deep",
       "focus": "The face and the yellow top"
     },
+    "framing": {
+      "subjectScale": "Figure runs diagonally across ~80% of the frame",
+      "subjectBox": "Figure x≈15–90%, y≈8–95%; head x≈45–70%, y≈8–30%",
+      "anchors": "Head at ~20% from top; waist ~55%; hem ~85%; diagonal axis roughly 30° off vertical",
+      "edges": "Arms exit the top-right; legs exit the bottom edge",
+      "negativeSpace": "Bedding fills all margins; no clean border"
+    },
     "environment": {
       "setting": "Interior bedroom",
       "background": "Pale pink bedding filling the frame; a small plush prop at the edge",

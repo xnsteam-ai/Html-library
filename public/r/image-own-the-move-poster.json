@@ -29,6 +29,13 @@
       "depthOfField": "Deep",
       "focus": "The figure and shoe"
     },
+    "framing": {
+      "subjectScale": "Figure occupies right ~45%; type the left",
+      "subjectBox": "Figure x≈50–92%, y≈15–92%; type block x≈8–48%, y≈20–55%",
+      "anchors": "Type baseline at ~55%; figure centre ~55%",
+      "edges": "Figure grazes the right edge",
+      "negativeSpace": "Left ~45% is white and green field"
+    },
     "environment": {
       "setting": "Graphic field",
       "background": "Flat white and acid-green ground with heavy lettering",

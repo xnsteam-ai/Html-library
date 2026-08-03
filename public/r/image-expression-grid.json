@@ -29,6 +29,13 @@
       "depthOfField": "Shallow, consistent across frames",
       "focus": "The face in each cell"
     },
+    "framing": {
+      "subjectScale": "Nine equal cells; head fills ~60% of each cell width",
+      "subjectBox": "Three-by-three grid, boundaries at 33% and 67% on both axes; head centred per cell",
+      "anchors": "Eyeline at roughly 35% of each cell height, consistent across all nine",
+      "edges": "Shoulders crop at each cell bottom edge; no bleed between cells",
+      "negativeSpace": "Small uniform margin inside each cell; no outer margin"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Flat pale backdrop, identical in every frame",

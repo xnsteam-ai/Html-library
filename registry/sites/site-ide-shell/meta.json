@@ -1,0 +1,10 @@
+{
+  "name": "site-ide-shell",
+  "title": "IDE Shell",
+  "description": "A code-editor shell: menu bar, file-tree sidebar with an active file, editor tabs and a mock code area.",
+  "category": "sites",
+  "surface": "site",
+  "tagline": "Menu, file tree & editor",
+  "order": 33,
+  "tags": ["ide", "editor", "shell"]
+}

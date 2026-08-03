@@ -30,6 +30,13 @@
       "depthOfField": "Deep",
       "focus": "The face and the ice cream"
     },
+    "framing": {
+      "subjectScale": "Figure fills ~50% of frame width, lower three-quarters",
+      "subjectBox": "Figure x≈25–75%, y≈18–100%; bouquet x≈15–40%, y≈35–60%; cone x≈55–72%, y≈28–45%",
+      "anchors": "Eyeline at ~28% from top; hands at ~45%",
+      "edges": "Torso exits the bottom edge",
+      "negativeSpace": "Upper ~18% is clear blue sky"
+    },
     "environment": {
       "setting": "Outdoors",
       "background": "Clear blue sky, no ground reference",

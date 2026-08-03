@@ -29,6 +29,13 @@
       "depthOfField": "Deep",
       "focus": "The figure silhouette"
     },
+    "framing": {
+      "subjectScale": "Figure spans ~40% of frame width, right of centre, full height",
+      "subjectBox": "Figure x≈45–88%, y≈12–95%; lowercase wordmark x≈8–45%, y≈18–35%",
+      "anchors": "Wordmark baseline at ~35%; figure centre ~55%",
+      "edges": "Nothing cropped — figure held inside the frame",
+      "negativeSpace": "Left ~40% is empty white — the dominant negative space"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Flat white ground, nothing else",

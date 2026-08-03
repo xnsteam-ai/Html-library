@@ -30,6 +30,13 @@
       "depthOfField": "Shallow; backdrop entirely soft",
       "focus": "The eye and the feather edge nearest camera"
     },
+    "framing": {
+      "subjectScale": "Head and collar fill ~65% of frame width, lower two-thirds of height",
+      "subjectBox": "Head x≈32–68%, y≈22–55%; feather collar widens to x≈15–85% by y≈60–95%",
+      "anchors": "Eyeline at ~34% from top; jawline ~52%; collar mass centred at ~72%",
+      "edges": "Collar exits the bottom edge; backdrop clean to all other edges",
+      "negativeSpace": "Upper ~22% is empty dark teal — deliberate headroom above the head"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Deep teal-to-black gradient backdrop",

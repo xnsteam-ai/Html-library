@@ -30,6 +30,13 @@
       "depthOfField": "Deep — the stripes stay sharp",
       "focus": "The face and folded arms"
     },
+    "framing": {
+      "subjectScale": "Figure spans ~45% of frame width, lower two-thirds",
+      "subjectBox": "Figure x≈28–72%, y≈25–95%; stripe field fills the full frame behind",
+      "anchors": "Eyeline at ~32% from top; folded arms ~58%; knees ~88%",
+      "edges": "Stripes run the full frame height, exiting top and bottom",
+      "negativeSpace": "Stripe field carries all margins"
+    },
     "environment": {
       "setting": "Studio set",
       "background": "Bold blue and white vertical striped wall filling the frame",

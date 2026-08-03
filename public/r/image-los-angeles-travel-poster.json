@@ -22,6 +22,13 @@
       "depthOfField": "Flat — illustrated layering",
       "focus": "The foreground car and palms"
     },
+    "framing": {
+      "subjectScale": "Vista fills the full frame below a title band",
+      "subjectBox": "Title band x≈8–92%, y≈5–18%; car x≈15–65%, y≈62–85%; skyline x≈0–100%, y≈35–55%",
+      "anchors": "Title baseline at ~18%; horizon ~48%; foreground road from ~70%",
+      "edges": "Palms exit the top edge; road exits the bottom edge",
+      "negativeSpace": "Title band occupies the top ~18%"
+    },
     "environment": {
       "setting": "Illustrated cityscape",
       "background": "Palms, boulevard, distant towers and hills under a gradient sky",

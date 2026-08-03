@@ -29,6 +29,13 @@
       "depthOfField": "Moderate; far bank soft",
       "focus": "The figure"
     },
+    "framing": {
+      "subjectScale": "Figure spans ~30% of frame width, full height",
+      "subjectBox": "Figure x≈35–65%, y≈12–100%; water line x≈0–100%, y≈45–70%",
+      "anchors": "Eyeline at ~20% from top; waterline ~52%; deck edge ~88%",
+      "edges": "Legs exit the bottom edge",
+      "negativeSpace": "Upper ~12% is far bank and planting"
+    },
     "environment": {
       "setting": "Poolside / lagoon",
       "background": "Turquoise water, palms and a far bank in soft focus",

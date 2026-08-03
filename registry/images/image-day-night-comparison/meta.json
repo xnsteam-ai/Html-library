@@ -30,6 +30,13 @@
       "depthOfField": "Shallow, matched",
       "focus": "The face in each half"
     },
+    "framing": {
+      "subjectScale": "Two half-frames; each head fills ~55% of its own half",
+      "subjectBox": "Split at x=50%; left head x≈12–45%, right head x≈55–88%; both y≈15–100%",
+      "anchors": "Labels across the top ~8%; both eyelines at ~35% of frame height",
+      "edges": "Both subjects exit the bottom edge",
+      "negativeSpace": "Narrow gutter at the 50% split; label band at the top"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Pale flat ground left, darker warm ground right",

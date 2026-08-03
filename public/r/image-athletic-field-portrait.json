@@ -29,6 +29,13 @@
       "depthOfField": "Moderate; the field softens behind",
       "focus": "The torso and face"
     },
+    "framing": {
+      "subjectScale": "Figure spans ~30% of frame width, lower three-quarters",
+      "subjectBox": "Figure x≈35–68%, y≈18–100%; treeline x≈0–100%, y≈25–38%",
+      "anchors": "Eyeline at ~25% from top; horizon ~35%; grass from ~55%",
+      "edges": "Figure exits the bottom edge; field fills both side edges",
+      "negativeSpace": "Upper ~25% is overcast sky"
+    },
     "environment": {
       "setting": "Open grass field",
       "background": "Tall grass, distant treeline and overcast sky",

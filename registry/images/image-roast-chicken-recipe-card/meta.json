@@ -23,6 +23,13 @@
       "depthOfField": "Deep",
       "focus": "The roast chicken"
     },
+    "framing": {
+      "subjectScale": "Hero dish occupies ~45% of frame width, centred",
+      "subjectBox": "Dish x≈30–72%, y≈32–72%; callouts ring the hero across x≈2–98%, y≈15–92%",
+      "anchors": "Title band at ~8%; hero centre at ~52%; footer notes ~92%",
+      "edges": "Nothing cropped — layout fully contained",
+      "negativeSpace": "Even white margin, roughly 5%"
+    },
     "environment": {
       "setting": "Studio tabletop",
       "background": "Clean pale ground with herbs and ingredients arranged as callouts",

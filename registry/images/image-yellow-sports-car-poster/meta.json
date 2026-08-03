@@ -23,6 +23,13 @@
       "depthOfField": "Deep",
       "focus": "The front wheel arch and headlight"
     },
+    "framing": {
+      "subjectScale": "Car spans ~85% of frame width across the lower half",
+      "subjectBox": "Car x≈8–95%, y≈45–82%; wordmark x≈10–90%, y≈8–35%",
+      "anchors": "Wordmark baseline at ~35%; car horizontal axis at ~62%; ground shadow ~82%",
+      "edges": "Front wing bleeds toward the right edge",
+      "negativeSpace": "Top ~35% is type; bottom ~15% dark ground"
+    },
     "environment": {
       "setting": "Studio / composite",
       "background": "Flat dark ground with heavy display type",

@@ -30,6 +30,13 @@
       "depthOfField": "Shallow; sky and cloud soft behind",
       "focus": "The face and collarbone"
     },
+    "framing": {
+      "subjectScale": "Figure fills ~55% of frame width, lower three-quarters of height",
+      "subjectBox": "Figure x≈22–78%, y≈18–100%; head x≈38–62%, y≈18–45%",
+      "anchors": "Eyeline at ~28% from top; shoulder line ~52%; bodice ~70%",
+      "edges": "Torso exits the bottom edge; sky fills both side margins",
+      "negativeSpace": "Upper ~18% is open sky — clear headroom"
+    },
     "environment": {
       "setting": "Outdoors",
       "background": "Blue sky with soft cloud, no ground reference",

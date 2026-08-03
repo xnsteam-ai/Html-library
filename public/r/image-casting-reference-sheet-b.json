@@ -29,6 +29,13 @@
       "depthOfField": "Shallow, matched",
       "focus": "The face in each cell"
     },
+    "framing": {
+      "subjectScale": "Dense grid of small frames covering ~90% of the sheet",
+      "subjectBox": "Roughly six columns by five rows across x≈5–95%, y≈10–92%",
+      "anchors": "Header band at ~6%; uniform row pitch of ~16%",
+      "edges": "Nothing cropped",
+      "negativeSpace": "Even white margin, roughly 5%"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Flat white ground behind every cell",

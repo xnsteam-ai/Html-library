@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Storefront - Lumen</title>
+  <meta name="description" content="E-commerce storefront top navigation with mega menus." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.3s ease-out',
+            'slide-up': 'slideUp 0.3s ease-out',
+            'mega-menu-in': 'megaMenuIn 0.2s ease-out both',
+          },
+          keyframes: {
+            fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+            slideUp: { '0%': { opacity: '0', transform: 'translateY(8px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            megaMenuIn: { '0%': { opacity: '0', transform: 'translateY(-4px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            scaleIn: { '0%': { opacity: '0', transform: 'scale(0.97)' }, '100%': { opacity: '1', transform: 'scale(1)' } },
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-app: #f4f4f6;
+      --bg-surface-raised: #ffffff;
+      --bg-surface-overlay: #f8f8fa;
+      --bg-popover: #ffffff;
+      --bg-hover: rgba(0, 0, 0, 0.04);
+      --bg-active: rgba(0, 0, 0, 0.06);
+      --border-color: rgba(0, 0, 0, 0.08);
+      --border-hover: rgba(0, 0, 0, 0.18);
+      --border-focus: rgba(100, 100, 100, 0.35);
+      --text-primary: #171717;
+      --text-secondary: #555555;
+      --text-muted: #999999;
+      --scrollbar-thumb: rgba(0, 0, 0, 0.15);
+      --shadow-popover: 0 16px 40px rgba(0, 0, 0, 0.12);
+      --send-btn-bg: #171717;
+      --send-btn-fg: #ffffff;
+      --send-btn-hover: #333333;
+    }
+
+    html.dark {
+      --bg-app: #141414;
+      --bg-surface-raised: #222222;
+      --bg-surface-overlay: #2a2a2a;
+      --bg-popover: #222222;
+      --bg-hover: rgba(255, 255, 255, 0.04);
+      --bg-active: rgba(255, 255, 255, 0.07);
+      --border-color: rgba(255, 255, 255, 0.07);
+      --border-hover: rgba(255, 255, 255, 0.14);
+      --border-focus: rgba(180, 180, 180, 0.3);
+      --text-primary: #e8e8e8;
+      --text-secondary: #999999;
+      --text-muted: #555555;
+      --scrollbar-thumb: rgba(255, 255, 255, 0.08);
+      --shadow-popover: 0 20px 50px rgba(0, 0, 0, 0.75);
+      --send-btn-bg: rgba(255, 255, 255, 0.08);
+      --send-btn-fg: #999999;
+      --send-btn-hover: rgba(255, 255, 255, 0.14);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-app);
+      color: var(--text-primary);
+      transition: background-color 0.2s ease, color 0.2s ease;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Petite Classic Scrollbars */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--scrollbar-thumb) transparent;
+    }
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+
+    /* Mega Menu Hover Logic */
+    .mega-menu-trigger:hover .mega-menu-panel,
+    .mega-menu-panel:hover {
+      display: flex;
+    }
+    .mega-menu-panel {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--bg-popover);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      box-shadow: var(--shadow-popover);
+      z-index: 50;
+      padding: 24px;
+      margin-top: 8px;
+    }
+
+    /* Invisible hover bridge to prevent menu from closing when moving cursor down */
+    .mega-menu-trigger::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      background: transparent;
+    }
+  </style>
+</head>
+<body class="flex flex-col h-screen antialiased overflow-hidden">
+
+  <!-- Top Navigation (Shell) -->
+  <header class="w-full flex items-center justify-between px-6 py-4 border-b border-[var(--border-color)] bg-[var(--bg-surface-raised)] relative z-40">
+    
+    <!-- Left: Logo & Heading -->
+    <a href="#" class="flex items-center gap-3 group">
+      <div class="w-8 h-8 rounded-lg bg-[var(--bg-hover)] group-hover:bg-[var(--bg-active)] flex items-center justify-center transition-colors">
+        <i data-lucide="shopping-bag" class="w-4 h-4 text-[var(--text-primary)]"></i>
+      </div>
+      <h1 class="text-base font-bold tracking-tight text-[var(--text-primary)]">Lumen</h1>
+    </a>
+
+    <!-- Center: Navigation Links & Mega Menus -->
+    <nav class="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2 h-full">
+      
+      <!-- Shop Mega Menu -->
+      <div class="relative h-full flex items-center mega-menu-trigger">
+        <button class="px-3 py-2 rounded-lg text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-colors flex items-center gap-1 cursor-pointer">
+          Shop
+          <i data-lucide="chevron-down" class="w-3.5 h-3.5 mt-0.5 opacity-50"></i>
+        </button>
+        
+        <!-- Shop Mega Menu Panel -->
+        <div class="mega-menu-panel animate-mega-menu-in gap-8">
+          <!-- 2-col Links Grid -->
+          <div class="grid grid-cols-2 gap-y-6 gap-x-8 w-[520px]">
+            <a href="#" class="flex items-start gap-3 group">
+              <div class="p-2 rounded bg-[var(--bg-hover)] group-hover:bg-[var(--bg-active)] transition-colors text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]"><i data-lucide="sparkles" class="w-5 h-5"></i></div>
+              <div><h4 class="text-sm font-semibold text-[var(--text-primary)]">New Arrivals</h4><p class="text-xs text-[var(--text-muted)] mt-0.5">The latest drops</p></div>
+            </a>
+            <a href="#" class="flex items-start gap-3 group">
+              <div class="p-2 rounded bg-[var(--bg-hover)] group-hover:bg-[var(--bg-active)] transition-colors text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]"><i data-lucide="swatch-book" class="w-5 h-5"></i></div>
+              <div><h4 class="text-sm font-semibold text-[var(--text-primary)]">Womenswear</h4><p class="text-xs text-[var(--text-muted)] mt-0.5">Dresses, knitwear & more</p></div>
+            </a>
+            <a href="#" class="flex items-start gap-3 group">
+              <div class="p-2 rounded bg-[var(--bg-hover)] group-hover:bg-[var(--bg-active)] transition-colors text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]"><i data-lucide="tag" class="w-5 h-5"></i></div>
+              <div><h4 class="text-sm font-semibold text-[var(--text-primary)]">Menswear</h4><p class="text-xs text-[var(--text-muted)] mt-0.5">Shirts, tailoring & more</p></div>
+            </a>
+            <a href="#" class="flex items-start gap-3 group">
+              <div class="p-2 rounded bg-[var(--bg-hover)] group-hover:bg-[var(--bg-active)] transition-colors text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]"><i data-lucide="home" class="w-5 h-5"></i></div>
+              <div><h4 class="text-sm font-semibold text-[var(--text-primary)]">Home</h4><p class="text-xs text-[var(--text-muted)] mt-0.5">Bedding, lighting & décor</p></div>
+            </a>
+            <a href="#" class="flex items-start gap-3 group">
+              <div class="p-2 rounded bg-[var(--bg-hover)] group-hover:bg-[var(--bg-active)] transition-colors text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]"><i data-lucide="smile" class="w-5 h-5"></i></div>
+              <div><h4 class="text-sm font-semibold text-[var(--text-primary)]">Beauty</h4><p class="text-xs text-[var(--text-muted)] mt-0.5">Skincare, fragrance & makeup</p></div>
+            </a>
+            <a href="#" class="flex items-start gap-3 group">
+              <div class="p-2 rounded bg-[var(--bg-hover)] group-hover:bg-[var(--bg-active)] transition-colors text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]"><i data-lucide="shopping-bag" class="w-5 h-5"></i></div>
+              <div><h4 class="text-sm font-semibold text-[var(--text-primary)]">Accessories</h4><p class="text-xs text-[var(--text-muted)] mt-0.5">Bags, hats & sunglasses</p></div>
+            </a>
+            <a href="#" class="flex items-start gap-3 group">
+              <div class="p-2 rounded bg-[var(--bg-hover)] group-hover:bg-[var(--bg-active)] transition-colors text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]"><i data-lucide="percent" class="w-5 h-5"></i></div>
+              <div><h4 class="text-sm font-semibold text-[var(--text-primary)]">Sale</h4><p class="text-xs text-[var(--text-muted)] mt-0.5">Up to 50% off</p></div>
+            </a>
+            <a href="#" class="flex items-start gap-3 group">
+              <div class="p-2 rounded bg-[var(--bg-hover)] group-hover:bg-[var(--bg-active)] transition-colors text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]"><i data-lucide="gift" class="w-5 h-5"></i></div>
+              <div><h4 class="text-sm font-semibold text-[var(--text-primary)]">Gift Cards</h4><p class="text-xs text-[var(--text-muted)] mt-0.5">The perfect present</p></div>
+            </a>
+          </div>
+          <!-- Featured Card -->
+          <a href="#autumn-edit" class="w-[240px] flex flex-col gap-3 group block border-l border-[var(--border-color)] pl-8">
+            <div class="w-full aspect-[4/3] rounded-lg bg-[var(--bg-hover)] overflow-hidden flex items-center justify-center relative">
+              <!-- Placeholder Image SVG -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-50"><rect width="400" height="300" fill="currentColor" class="text-[var(--bg-hover)]"/><g transform="translate(200 150)" fill="none" stroke="currentColor" class="text-[var(--text-muted)]" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><rect x="-44" y="-44" width="88" height="88" rx="16"/><circle cx="18" cy="-18" r="2.5" fill="currentColor" stroke="none"/><path d="M-34 30 L-8 0 L10 18 L20 8 L34 24"/></g></svg>
+            </div>
+            <div>
+              <h4 class="text-sm font-semibold text-[var(--text-primary)]">The Autumn Edit</h4>
+              <p class="text-xs text-[var(--text-secondary)] mt-1">Layering staples in warm, earthy tones.</p>
+              <span class="text-xs font-semibold text-[var(--text-primary)] mt-3 inline-flex items-center gap-1 group-hover:underline">Shop the edit <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Brands Mega Menu -->
+      <div class="relative h-full flex items-center mega-menu-trigger">
+        <button class="px-3 py-2 rounded-lg text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-colors flex items-center gap-1 cursor-pointer">
+          Brands
+          <i data-lucide="chevron-down" class="w-3.5 h-3.5 mt-0.5 opacity-50"></i>
+        </button>
+
+        <!-- Brands Mega Menu Panel -->
+        <div class="mega-menu-panel animate-mega-menu-in gap-8">
+          <!-- 2-col Links Grid -->
+          <div class="grid grid-cols-2 gap-y-6 gap-x-8 w-[520px]">
+            <a href="#" class="flex items-start gap-3 group">
+              <div class="p-2 rounded bg-[var(--bg-hover)] group-hover:bg-[var(--bg-active)] transition-colors text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]"><i data-lucide="sparkles" class="w-5 h-5"></i></div>
+              <div><h4 class="text-sm font-semibold text-[var(--text-primary)]">Aether</h4><p class="text-xs text-[var(--text-muted)] mt-0.5">Performance essentials</p></div>
+            </a>
+            <a href="#" class="flex items-start gap-3 group">
+              <div class="p-2 rounded bg-[var(--bg-hover)] group-hover:bg-[var(--bg-active)] transition-colors text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]"><i data-lucide="cloud" class="w-5 h-5"></i></div>
+              <div><h4 class="text-sm font-semibold text-[var(--text-primary)]">Northwind</h4><p class="text-xs text-[var(--text-muted)] mt-0.5">Outdoor & technical</p></div>
+            </a>
+            <a href="#" class="flex items-start gap-3 group">
+              <div class="p-2 rounded bg-[var(--bg-hover)] group-hover:bg-[var(--bg-active)] transition-colors text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]"><i data-lucide="zap" class="w-5 h-5"></i></div>
+              <div><h4 class="text-sm font-semibold text-[var(--text-primary)]">Loomwell</h4><p class="text-xs text-[var(--text-muted)] mt-0.5">Everyday knitwear</p></div>
+            </a>
+            <a href="#" class="flex items-start gap-3 group">
+              <div class="p-2 rounded bg-[var(--bg-hover)] group-hover:bg-[var(--bg-active)] transition-colors text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]"><i data-lucide="sun" class="w-5 h-5"></i></div>
+              <div><h4 class="text-sm font-semibold text-[var(--text-primary)]">Verdant</h4><p class="text-xs text-[var(--text-muted)] mt-0.5">Sustainable basics</p></div>
+            </a>
+            <a href="#" class="flex items-start gap-3 group">
+              <div class="p-2 rounded bg-[var(--bg-hover)] group-hover:bg-[var(--bg-active)] transition-colors text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]"><i data-lucide="star" class="w-5 h-5"></i></div>
+              <div><h4 class="text-sm font-semibold text-[var(--text-primary)]">Studio Mara</h4><p class="text-xs text-[var(--text-muted)] mt-0.5">Modern tailoring</p></div>
+            </a>
+            <a href="#" class="flex items-start gap-3 group">
+              <div class="p-2 rounded bg-[var(--bg-hover)] group-hover:bg-[var(--bg-active)] transition-colors text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]"><i data-lucide="flame" class="w-5 h-5"></i></div>
+              <div><h4 class="text-sm font-semibold text-[var(--text-primary)]">Atelier Kos</h4><p class="text-xs text-[var(--text-muted)] mt-0.5">Limited ateliers</p></div>
+            </a>
+            <a href="#" class="flex items-start gap-3 group">
+              <div class="p-2 rounded bg-[var(--bg-hover)] group-hover:bg-[var(--bg-active)] transition-colors text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]"><i data-lucide="globe" class="w-5 h-5"></i></div>
+              <div><h4 class="text-sm font-semibold text-[var(--text-primary)]">Rue & Co</h4><p class="text-xs text-[var(--text-muted)] mt-0.5">City streetwear</p></div>
+            </a>
+            <a href="#" class="flex items-start gap-3 group">
+              <div class="p-2 rounded bg-[var(--bg-hover)] group-hover:bg-[var(--bg-active)] transition-colors text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]"><i data-lucide="moon" class="w-5 h-5"></i></div>
+              <div><h4 class="text-sm font-semibold text-[var(--text-primary)]">Halden</h4><p class="text-xs text-[var(--text-muted)] mt-0.5">Minimal staples</p></div>
+            </a>
+          </div>
+          <!-- Featured Card -->
+          <a href="#studio-mara" class="w-[240px] flex flex-col gap-3 group block border-l border-[var(--border-color)] pl-8">
+            <div class="w-full aspect-[4/3] rounded-lg bg-[var(--bg-hover)] overflow-hidden flex items-center justify-center relative">
+              <!-- Placeholder Image SVG -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-50"><rect width="400" height="300" fill="currentColor" class="text-[var(--bg-hover)]"/><g transform="translate(200 150)" fill="none" stroke="currentColor" class="text-[var(--text-muted)]" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><rect x="-44" y="-44" width="88" height="88" rx="16"/><circle cx="18" cy="-18" r="2.5" fill="currentColor" stroke="none"/><path d="M-34 30 L-8 0 L10 18 L20 8 L34 24"/></g></svg>
+            </div>
+            <div>
+              <h4 class="text-sm font-semibold text-[var(--text-primary)]">Meet Studio Mara</h4>
+              <p class="text-xs text-[var(--text-secondary)] mt-1">Modern tailoring, made to last.</p>
+              <span class="text-xs font-semibold text-[var(--text-primary)] mt-3 inline-flex items-center gap-1 group-hover:underline">Discover the label <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <a href="#" class="px-3 py-2 rounded-lg text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-colors">Sale</a>
+      <a href="#" class="px-3 py-2 rounded-lg text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-colors">Service</a>
+    </nav>
+
+    <!-- Right: Actions -->
+    <div class="flex items-center gap-2">
+      <!-- Theme Toggle Button -->
+      <button id="themeToggleBtn" class="hidden sm:flex items-center justify-center w-8 h-8 rounded-lg border border-[var(--border-color)] text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-all cursor-pointer">
+        <i data-lucide="sun" id="themeIconSun" class="w-4 h-4"></i>
+        <i data-lucide="moon" id="themeIconMoon" class="w-4 h-4 hidden"></i>
+      </button>
+
+      <button id="searchBtn" class="w-8 h-8 flex items-center justify-center rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-colors cursor-pointer" title="Search products">
+        <i data-lucide="search" class="w-4 h-4"></i>
+      </button>
+      <button id="loginBtn" class="px-3 py-1.5 rounded-lg text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-colors cursor-pointer">
+        Sign in
+      </button>
+      <button id="cartBtn" class="px-3 py-1.5 rounded-lg text-sm font-medium bg-[var(--send-btn-bg)] text-[var(--send-btn-fg)] hover:bg-[var(--send-btn-hover)] transition-colors cursor-pointer flex items-center gap-2">
+        <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+        <span>Checkout</span>
+        <span class="px-1.5 py-0.5 rounded-md text-[10px] font-bold bg-[var(--bg-hover)] text-[var(--text-primary)]">3</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Page Body -->
+  <main class="flex-1 overflow-y-auto p-6 sm:p-12 relative z-10">
+    <div class="max-w-[1100px] mx-auto flex flex-col gap-10">
+      
+      <!-- Hero Banner Placeholder -->
+      <div class="w-full h-[360px] rounded-xl bg-[var(--bg-hover)] border border-[var(--border-color)] flex items-center justify-center text-[var(--text-muted)] animate-fade-in">
+        Hero Banner
+      </div>
+
+      <!-- Categories Grids -->
+      <div class="flex flex-col gap-10">
+        <!-- Section 1 -->
+        <div class="flex flex-col gap-4 animate-fade-in" style="animation-delay: 0.1s;">
+          <div class="w-[200px] h-[24px] rounded bg-[var(--bg-hover)] border border-[var(--border-color)]"></div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            <!-- Category Tiles -->
+            <div class="flex flex-col gap-2"><div class="w-full h-[120px] rounded-lg bg-[var(--bg-hover)] border border-[var(--border-color)]"></div><div class="w-3/5 h-3.5 rounded bg-[var(--bg-hover)] border border-[var(--border-color)]"></div></div>
+            <div class="flex flex-col gap-2"><div class="w-full h-[120px] rounded-lg bg-[var(--bg-hover)] border border-[var(--border-color)]"></div><div class="w-3/5 h-3.5 rounded bg-[var(--bg-hover)] border border-[var(--border-color)]"></div></div>
+            <div class="flex flex-col gap-2"><div class="w-full h-[120px] rounded-lg bg-[var(--bg-hover)] border border-[var(--border-color)]"></div><div class="w-3/5 h-3.5 rounded bg-[var(--bg-hover)] border border-[var(--border-color)]"></div></div>
+            <div class="flex flex-col gap-2"><div class="w-full h-[120px] rounded-lg bg-[var(--bg-hover)] border border-[var(--border-color)]"></div><div class="w-3/5 h-3.5 rounded bg-[var(--bg-hover)] border border-[var(--border-color)]"></div></div>
+            <div class="flex flex-col gap-2"><div class="w-full h-[120px] rounded-lg bg-[var(--bg-hover)] border border-[var(--border-color)]"></div><div class="w-3/5 h-3.5 rounded bg-[var(--bg-hover)] border border-[var(--border-color)]"></div></div>
+            <div class="flex flex-col gap-2"><div class="w-full h-[120px] rounded-lg bg-[var(--bg-hover)] border border-[var(--border-color)]"></div><div class="w-3/5 h-3.5 rounded bg-[var(--bg-hover)] border border-[var(--border-color)]"></div></div>
+          </div>
+        </div>
+        
+        <!-- Section 2 -->
+        <div class="flex flex-col gap-4 animate-fade-in" style="animation-delay: 0.2s;">
+          <div class="w-[200px] h-[24px] rounded bg-[var(--bg-hover)] border border-[var(--border-color)]"></div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div class="flex flex-col gap-2"><div class="w-full h-[120px] rounded-lg bg-[var(--bg-hover)] border border-[var(--border-color)]"></div><div class="w-3/5 h-3.5 rounded bg-[var(--bg-hover)] border border-[var(--border-color)]"></div></div>
+            <div class="flex flex-col gap-2"><div class="w-full h-[120px] rounded-lg bg-[var(--bg-hover)] border border-[var(--border-color)]"></div><div class="w-3/5 h-3.5 rounded bg-[var(--bg-hover)] border border-[var(--border-color)]"></div></div>
+            <div class="flex flex-col gap-2"><div class="w-full h-[120px] rounded-lg bg-[var(--bg-hover)] border border-[var(--border-color)]"></div><div class="w-3/5 h-3.5 rounded bg-[var(--bg-hover)] border border-[var(--border-color)]"></div></div>
+            <div class="flex flex-col gap-2"><div class="w-full h-[120px] rounded-lg bg-[var(--bg-hover)] border border-[var(--border-color)]"></div><div class="w-3/5 h-3.5 rounded bg-[var(--bg-hover)] border border-[var(--border-color)]"></div></div>
+            <div class="flex flex-col gap-2"><div class="w-full h-[120px] rounded-lg bg-[var(--bg-hover)] border border-[var(--border-color)]"></div><div class="w-3/5 h-3.5 rounded bg-[var(--bg-hover)] border border-[var(--border-color)]"></div></div>
+            <div class="flex flex-col gap-2"><div class="w-full h-[120px] rounded-lg bg-[var(--bg-hover)] border border-[var(--border-color)]"></div><div class="w-3/5 h-3.5 rounded bg-[var(--bg-hover)] border border-[var(--border-color)]"></div></div>
+          </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="flex flex-col gap-4 mb-10 animate-fade-in" style="animation-delay: 0.3s;">
+          <div class="w-[200px] h-[24px] rounded bg-[var(--bg-hover)] border border-[var(--border-color)]"></div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div class="flex flex-col gap-2"><div class="w-full h-[120px] rounded-lg bg-[var(--bg-hover)] border border-[var(--border-color)]"></div><div class="w-3/5 h-3.5 rounded bg-[var(--bg-hover)] border border-[var(--border-color)]"></div></div>
+            <div class="flex flex-col gap-2"><div class="w-full h-[120px] rounded-lg bg-[var(--bg-hover)] border border-[var(--border-color)]"></div><div class="w-3/5 h-3.5 rounded bg-[var(--bg-hover)] border border-[var(--border-color)]"></div></div>
+            <div class="flex flex-col gap-2"><div class="w-full h-[120px] rounded-lg bg-[var(--bg-hover)] border border-[var(--border-color)]"></div><div class="w-3/5 h-3.5 rounded bg-[var(--bg-hover)] border border-[var(--border-color)]"></div></div>
+            <div class="flex flex-col gap-2"><div class="w-full h-[120px] rounded-lg bg-[var(--bg-hover)] border border-[var(--border-color)]"></div><div class="w-3/5 h-3.5 rounded bg-[var(--bg-hover)] border border-[var(--border-color)]"></div></div>
+            <div class="flex flex-col gap-2"><div class="w-full h-[120px] rounded-lg bg-[var(--bg-hover)] border border-[var(--border-color)]"></div><div class="w-3/5 h-3.5 rounded bg-[var(--bg-hover)] border border-[var(--border-color)]"></div></div>
+            <div class="flex flex-col gap-2"><div class="w-full h-[120px] rounded-lg bg-[var(--bg-hover)] border border-[var(--border-color)]"></div><div class="w-3/5 h-3.5 rounded bg-[var(--bg-hover)] border border-[var(--border-color)]"></div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Search Modal -->
+  <div id="searchModal" class="fixed inset-0 z-50 flex items-start justify-center pt-20 hidden">
+    <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" id="searchBackdrop"></div>
+    <div class="relative w-full max-w-2xl bg-[var(--bg-popover)] rounded-2xl shadow-2xl border border-[var(--border-color)] overflow-hidden animate-slide-up flex flex-col">
+      <div class="flex items-center px-4 py-3 border-b border-[var(--border-color)]">
+        <i data-lucide="search" class="w-5 h-5 text-[var(--text-muted)] mr-3"></i>
+        <input type="text" id="searchInput" placeholder="Search products, brands, categories..." class="flex-1 bg-transparent border-none outline-none text-base text-[var(--text-primary)] placeholder:text-[var(--text-muted)]" />
+        <button class="px-2 py-1 rounded text-xs font-medium bg-[var(--bg-hover)] text-[var(--text-secondary)]" id="searchCloseBtn">ESC</button>
+      </div>
+      <div class="p-4 max-h-[60vh] overflow-y-auto hidden" id="searchResults">
+        <!-- Results placeholder -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+    <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" id="loginBackdrop"></div>
+    <div class="relative w-full max-w-sm bg-[var(--bg-popover)] rounded-2xl shadow-2xl border border-[var(--border-color)] p-6 animate-scale-in flex flex-col gap-5">
+      <div class="flex justify-between items-center">
+        <h3 class="text-lg font-bold text-[var(--text-primary)]">Sign in</h3>
+        <button id="loginCloseBtn" class="text-[var(--text-muted)] hover:text-[var(--text-primary)]"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <div class="flex flex-col gap-3">
+        <input type="email" placeholder="Email address" class="w-full px-4 py-2.5 rounded-lg border border-[var(--border-color)] bg-[var(--bg-hover)] text-[var(--text-primary)] outline-none focus:border-[var(--border-focus)]" />
+        <input type="password" placeholder="Password" class="w-full px-4 py-2.5 rounded-lg border border-[var(--border-color)] bg-[var(--bg-hover)] text-[var(--text-primary)] outline-none focus:border-[var(--border-focus)]" />
+      </div>
+      <button class="w-full py-2.5 rounded-lg bg-[var(--send-btn-bg)] text-[var(--send-btn-fg)] font-medium hover:bg-[var(--send-btn-hover)] transition-colors">Continue</button>
+    </div>
+  </div>
+
+  <!-- Cart Drawer -->
+  <div id="cartDrawer" class="fixed inset-0 z-50 flex justify-end hidden">
+    <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" id="cartBackdrop"></div>
+    <div class="relative w-full max-w-md bg-[var(--bg-popover)] h-full border-l border-[var(--border-color)] shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300" id="cartPanel">
+      <div class="flex justify-between items-center p-6 border-b border-[var(--border-color)]">
+        <h3 class="text-lg font-bold text-[var(--text-primary)]">Your Cart (3)</h3>
+        <button id="cartCloseBtn" class="text-[var(--text-muted)] hover:text-[var(--text-primary)]"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <div class="flex-1 overflow-y-auto p-6 flex flex-col gap-4">
+        <!-- Cart Item -->
+        <div class="flex gap-4">
+          <div class="w-20 h-24 rounded-md bg-[var(--bg-hover)] overflow-hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" class="w-full h-full object-cover opacity-50"><rect width="400" height="300" fill="currentColor" class="text-[var(--bg-hover)]"/><g transform="translate(200 150)" fill="none" stroke="currentColor" class="text-[var(--text-muted)]" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><rect x="-44" y="-44" width="88" height="88" rx="16"/><circle cx="18" cy="-18" r="2.5" fill="currentColor" stroke="none"/><path d="M-34 30 L-8 0 L10 18 L20 8 L34 24"/></g></svg>
+          </div>
+          <div class="flex-1 flex flex-col justify-between py-1">
+            <div>
+              <h4 class="text-sm font-semibold text-[var(--text-primary)]">Merino Wool Sweater</h4>
+              <p class="text-xs text-[var(--text-muted)] mt-1">Size: M · Color: Charcoal</p>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm font-bold text-[var(--text-primary)]">$145</span>
+              <div class="flex items-center gap-2 bg-[var(--bg-hover)] rounded px-2 py-1 text-xs font-medium">
+                <button class="text-[var(--text-secondary)] hover:text-[var(--text-primary)]">-</button>
+                <span>1</span>
+                <button class="text-[var(--text-secondary)] hover:text-[var(--text-primary)]">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-6 border-t border-[var(--border-color)] flex flex-col gap-4">
+        <div class="flex justify-between items-center text-sm font-bold text-[var(--text-primary)]">
+          <span>Subtotal</span>
+          <span>$145.00</span>
+        </div>
+        <button class="w-full py-3 rounded-lg bg-[var(--send-btn-bg)] text-[var(--send-btn-fg)] font-medium hover:bg-[var(--send-btn-hover)] transition-colors">Proceed to Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const $ = id => document.getElementById(id);
+
+    // ─── Theme Toggle ────────────────────────────────────────────────────
+    const themeToggleBtn = $('themeToggleBtn');
+    const themeIconSun = $('themeIconSun');
+    const themeIconMoon = $('themeIconMoon');
+
+    function updateThemeUI(isDark) {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        themeIconSun.classList.remove('hidden');
+        themeIconMoon.classList.add('hidden');
+      } else {
+        document.documentElement.classList.remove('dark');
+        themeIconSun.classList.add('hidden');
+        themeIconMoon.classList.remove('hidden');
+      }
+      lucide.createIcons();
+    }
+
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', () => {
+        const isCurrentlyDark = document.documentElement.classList.contains('dark');
+        updateThemeUI(!isCurrentlyDark);
+      });
+    }
+
+    updateThemeUI(true);
+
+    // Modal Logic
+    const searchModal = $('searchModal');
+    const loginModal = $('loginModal');
+    const cartDrawer = $('cartDrawer');
+    const cartPanel = $('cartPanel');
+
+    // Search
+    $('searchBtn').addEventListener('click', () => {
+      searchModal.classList.remove('hidden');
+      $('searchInput').focus();
+    });
+    $('searchCloseBtn').addEventListener('click', () => searchModal.classList.add('hidden'));
+    $('searchBackdrop').addEventListener('click', () => searchModal.classList.add('hidden'));
+
+    // Login
+    $('loginBtn').addEventListener('click', () => loginModal.classList.remove('hidden'));
+    $('loginCloseBtn').addEventListener('click', () => loginModal.classList.add('hidden'));
+    $('loginBackdrop').addEventListener('click', () => loginModal.classList.add('hidden'));
+
+    // Cart
+    $('cartBtn').addEventListener('click', () => {
+      cartDrawer.classList.remove('hidden');
+      // small delay to allow display:block to apply before animating transform
+      setTimeout(() => cartPanel.classList.remove('translate-x-full'), 10);
+    });
+    
+    function closeCart() {
+      cartPanel.classList.add('translate-x-full');
+      setTimeout(() => cartDrawer.classList.add('hidden'), 300);
+    }
+    $('cartCloseBtn').addEventListener('click', closeCart);
+    $('cartBackdrop').addEventListener('click', closeCart);
+
+    // Global ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        searchModal.classList.add('hidden');
+        loginModal.classList.add('hidden');
+        closeCart();
+      }
+    });
+
+    lucide.createIcons();
+  </script>
+</body>
+</html>

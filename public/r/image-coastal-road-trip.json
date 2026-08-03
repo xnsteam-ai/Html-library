@@ -22,6 +22,13 @@
       "depthOfField": "Deep — foreground flowers to distant headland sharp",
       "focus": "The van against the coastline"
     },
+    "framing": {
+      "subjectScale": "Van occupies ~28% of frame width; landscape fills the rest",
+      "subjectBox": "Van x≈32–62%, y≈38–62%; flower foreground y≈62–100% full width; sea x≈0–100%, y≈25–45%",
+      "anchors": "Horizon at ~28% from top; road line ~55%; foreground bloom from ~70%",
+      "edges": "Flowers and road exit the bottom and both side edges",
+      "negativeSpace": "Upper ~25% is sky"
+    },
     "environment": {
       "setting": "Coastal road",
       "background": "Ocean, headland and hillside; dense yellow wildflowers across the foreground",

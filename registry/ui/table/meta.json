@@ -1,0 +1,10 @@
+{
+  "name": "table",
+  "title": "Table",
+  "description": "A simple data table with a header, hover rows and a title/description block.",
+  "category": "ui",
+  "order": 21,
+  "tags": ["table", "data", "list"],
+  "previewBg": "muted",
+  "previewHeight": 320
+}

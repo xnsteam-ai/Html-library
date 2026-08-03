@@ -29,6 +29,13 @@
       "depthOfField": "Shallow; ground dark and plain",
       "focus": "The sunglasses and jewellery"
     },
+    "framing": {
+      "subjectScale": "Head and shoulders fill ~65% of frame width, lower three-quarters",
+      "subjectBox": "Head x≈25–78%, y≈10–55%; earrings x≈28–72%, y≈42–58%",
+      "anchors": "Sunglasses band at ~30%; jawline ~52%",
+      "edges": "Shoulders exit the bottom edge",
+      "negativeSpace": "Dark ground fills the upper ~10%"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Deep neutral ground, unlit",

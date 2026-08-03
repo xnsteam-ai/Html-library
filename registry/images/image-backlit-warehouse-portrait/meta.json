@@ -30,6 +30,13 @@
       "depthOfField": "Moderate; the space stays legible",
       "focus": "The face"
     },
+    "framing": {
+      "subjectScale": "Figure spans ~28% of frame width, lower two-thirds of height",
+      "subjectBox": "Figure x≈35–65%, y≈30–100%; window shafts x≈5–95%, y≈0–45%",
+      "anchors": "Eyeline at ~38% from top; light shafts converge around ~20%",
+      "edges": "Figure exits the bottom edge; architecture fills all other edges",
+      "negativeSpace": "Upper ~30% is haze and window light — atmospheric headroom"
+    },
     "environment": {
       "setting": "Industrial interior",
       "background": "Warehouse framing, high windows and hanging light, visible but dim",

@@ -30,6 +30,13 @@
       "depthOfField": "Shallow",
       "focus": "The face, particularly the cheekbone"
     },
+    "framing": {
+      "subjectScale": "Head fills ~50% of frame width; knit fills the lower half",
+      "subjectBox": "Head x≈25–75%, y≈15–58%; sweater widens to x≈0–100% by y≈65%",
+      "anchors": "Eyeline at ~32% from top; chin ~52%; shoulder line ~65%",
+      "edges": "Sweater exits the bottom and both side edges",
+      "negativeSpace": "Upper ~15% clean blue backdrop as headroom"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Deep blue backdrop matching the knit",

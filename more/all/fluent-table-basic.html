@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fluent UI - Basic Table</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-app: #f5f5f5;
+      --bg-surface: #ffffff;
+      --text-primary: #242424;
+      --text-secondary: #616161;
+      --border-color: #e0e0e0;
+      --bg-hover: #f0f0f0;
+    }
+    html.dark {
+      --bg-app: #292929;
+      --bg-surface: #333333;
+      --text-primary: #ffffff;
+      --text-secondary: #d1d1d1;
+      --border-color: #424242;
+      --bg-hover: #3d3d3d;
+    }
+    body {
+      background-color: var(--bg-app);
+      color: var(--text-primary);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      transition: background-color 0.2s, color 0.2s;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6">
+
+  <!-- Container -->
+  <div class="w-full max-w-4xl bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-lg shadow-sm overflow-hidden relative">
+    
+    <!-- Theme Toggle -->
+    <button id="themeToggleBtn" class="absolute top-4 right-4 w-8 h-8 rounded hover:bg-[var(--bg-hover)] flex items-center justify-center transition-colors">
+      <i data-lucide="moon" id="themeIconMoon" class="w-4 h-4 text-[var(--text-secondary)]"></i>
+      <i data-lucide="sun" id="themeIconSun" class="w-4 h-4 text-[var(--text-secondary)] hidden"></i>
+    </button>
+
+    <div class="p-6 border-b border-[var(--border-color)]">
+      <h2 class="text-lg font-semibold">Employees</h2>
+      <p class="text-sm text-[var(--text-secondary)]">A list of all employees in the organization.</p>
+    </div>
+    
+    <div class="w-full overflow-x-auto">
+      <table class="w-full text-left text-sm whitespace-nowrap">
+        <thead>
+          <tr class="border-b border-[var(--border-color)] bg-[var(--bg-surface)]">
+            <th class="px-6 py-3 font-semibold text-[var(--text-primary)]">Name</th>
+            <th class="px-6 py-3 font-semibold text-[var(--text-primary)]">Title</th>
+            <th class="px-6 py-3 font-semibold text-[var(--text-primary)]">Department</th>
+            <th class="px-6 py-3 font-semibold text-[var(--text-primary)]">Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-[var(--border-color)] hover:bg-[var(--bg-hover)] transition-colors">
+            <td class="px-6 py-3 text-[var(--text-primary)] font-medium">Lindsay Walton</td>
+            <td class="px-6 py-3 text-[var(--text-secondary)]">Front-end Developer</td>
+            <td class="px-6 py-3 text-[var(--text-secondary)]">Engineering</td>
+            <td class="px-6 py-3 text-[var(--text-secondary)]">Member</td>
+          </tr>
+          <tr class="border-b border-[var(--border-color)] hover:bg-[var(--bg-hover)] transition-colors">
+            <td class="px-6 py-3 text-[var(--text-primary)] font-medium">Courtney Henry</td>
+            <td class="px-6 py-3 text-[var(--text-secondary)]">Designer</td>
+            <td class="px-6 py-3 text-[var(--text-secondary)]">Design</td>
+            <td class="px-6 py-3 text-[var(--text-secondary)]">Admin</td>
+          </tr>
+          <tr class="border-b border-[var(--border-color)] hover:bg-[var(--bg-hover)] transition-colors">
+            <td class="px-6 py-3 text-[var(--text-primary)] font-medium">Tom Cook</td>
+            <td class="px-6 py-3 text-[var(--text-secondary)]">Director of Product</td>
+            <td class="px-6 py-3 text-[var(--text-secondary)]">Product</td>
+            <td class="px-6 py-3 text-[var(--text-secondary)]">Member</td>
+          </tr>
+          <tr class="hover:bg-[var(--bg-hover)] transition-colors">
+            <td class="px-6 py-3 text-[var(--text-primary)] font-medium">Whitney Francis</td>
+            <td class="px-6 py-3 text-[var(--text-secondary)]">Copywriter</td>
+            <td class="px-6 py-3 text-[var(--text-secondary)]">Marketing</td>
+            <td class="px-6 py-3 text-[var(--text-secondary)]">Admin</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+    
+    // Theme logic
+    const toggleBtn = document.getElementById('themeToggleBtn');
+    const moon = document.getElementById('themeIconMoon');
+    const sun = document.getElementById('themeIconSun');
+    
+    toggleBtn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      const isDark = document.documentElement.classList.contains('dark');
+      moon.classList.toggle('hidden', isDark);
+      sun.classList.toggle('hidden', !isDark);
+    });
+  </script>
+</body>
+</html>

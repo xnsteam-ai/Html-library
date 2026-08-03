@@ -1,0 +1,10 @@
+{
+  "name": "site-storefront",
+  "title": "Storefront",
+  "description": "An ecommerce top nav with a hover mega menu, hero banner and category grid rows.",
+  "category": "sites",
+  "surface": "site",
+  "tagline": "Mega menu, hero & categories",
+  "order": 31,
+  "tags": ["ecommerce", "nav", "mega-menu"]
+}

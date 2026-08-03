@@ -29,6 +29,13 @@
       "depthOfField": "Deep — the layout is graphic, not photographic",
       "focus": "The eyes, framed by the counters of the type"
     },
+    "framing": {
+      "subjectScale": "Face occupies ~45% of frame width, framed inside the letterforms",
+      "subjectBox": "Face x≈28–72%, y≈18–62%; display type spans x≈2–98%, y≈10–72%",
+      "anchors": "Eyeline at ~34% from top; type baseline at ~70%",
+      "edges": "Letterforms bleed off both side edges; gold field fills all edges",
+      "negativeSpace": "Type counters form the only negative space around the face"
+    },
     "environment": {
       "setting": "Studio / graphic composite",
       "background": "Solid gold-amber field; oversized glossy display lettering overlays the portrait",

@@ -29,6 +29,13 @@
       "depthOfField": "Shallow; ground plain",
       "focus": "The jersey and glasses"
     },
+    "framing": {
+      "subjectScale": "Figure fills ~60% of frame width, lower three-quarters",
+      "subjectBox": "Figure x≈20–80%, y≈12–100%; folded arms x≈25–75%, y≈62–82%",
+      "anchors": "Eyeline at ~25% from top; arms at ~70%",
+      "edges": "Torso exits the bottom edge",
+      "negativeSpace": "Upper ~12% is plain wall"
+    },
     "environment": {
       "setting": "Interior, plain",
       "background": "Neutral wall, no detail",

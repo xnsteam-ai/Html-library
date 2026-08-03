@@ -30,6 +30,13 @@
       "depthOfField": "Shallow within each print",
       "focus": "The largest central print"
     },
+    "framing": {
+      "subjectScale": "Scattered prints cover ~92% of the frame; largest print ~30% of frame width",
+      "subjectBox": "Dominant print x≈32–68%, y≈28–72%; smaller prints tile the surround",
+      "anchors": "Central print eyeline at ~45% of frame height",
+      "edges": "Outer prints crop at all four frame edges",
+      "negativeSpace": "Small pale gaps between prints; no clean outer margin"
+    },
     "environment": {
       "setting": "Studio, restaged as a physical layout",
       "background": "Pale surface beneath the scattered prints",

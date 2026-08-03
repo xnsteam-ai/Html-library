@@ -30,6 +30,13 @@
       "depthOfField": "Shallow; equipment soft behind",
       "focus": "The turned face and the waistline"
     },
+    "framing": {
+      "subjectScale": "Figure spans ~35% of frame width, full height",
+      "subjectBox": "Figure x≈35–70%, y≈8–100%; turned head x≈45–62%, y≈8–22%",
+      "anchors": "Eyeline at ~15% from top; waist ~55%",
+      "edges": "Legs exit the bottom edge",
+      "negativeSpace": "Dark gym interior fills both side margins"
+    },
     "environment": {
       "setting": "Gym interior",
       "background": "Racks and mirrors reduced to dark soft shapes",

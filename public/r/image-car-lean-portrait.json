@@ -29,6 +29,13 @@
       "depthOfField": "Moderate; sky and ground soft",
       "focus": "The face and the car nose"
     },
+    "framing": {
+      "subjectScale": "Figure and car together span ~70% of frame width, lower half",
+      "subjectBox": "Figure x≈38–62%, y≈32–75%; car x≈15–85%, y≈55–88%",
+      "anchors": "Eyeline at ~38% from top; horizon ~62%; ground ~90%",
+      "edges": "Car exits both side edges",
+      "negativeSpace": "Upper ~32% is heavy cloud — dominant headroom"
+    },
     "environment": {
       "setting": "Open exterior, overcast",
       "background": "Flat ground and a heavy cloud bank, no landmarks",

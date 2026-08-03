@@ -1,0 +1,30 @@
+<!-- Skeleton Card — Fluent UI style, restored with its own warm-gray "skeleton base" theme -->
+<style>
+  .fsc-root { --bg-surface: #ffffff; --border-color: #e0e0e0; --fluent-skeleton-base: #e1dfdd; }
+  .dark .fsc-root { --bg-surface: #333333; --border-color: #424242; --fluent-skeleton-base: #484644; }
+  @keyframes fsc-pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+  .fsc-root .fsc-block { animation: fsc-pulse 2s cubic-bezier(0.4, 0, 0.2, 1) infinite; background-color: var(--fluent-skeleton-base); border-radius: 4px; }
+</style>
+
+<div class="fsc-root mx-auto w-full max-w-sm min-w-[320px] rounded-lg border border-[var(--border-color)] bg-[var(--bg-surface)] p-4 shadow-sm">
+  <div class="flex items-center gap-3">
+    <div class="fsc-block h-12 w-12 shrink-0 !rounded-full"></div>
+    <div class="flex flex-1 flex-col gap-2">
+      <div class="fsc-block h-4 w-3/4"></div>
+      <div class="fsc-block h-3 w-1/2"></div>
+    </div>
+  </div>
+
+  <div class="fsc-block mt-4 aspect-video w-full !rounded-md"></div>
+
+  <div class="mt-4 flex flex-col gap-2">
+    <div class="fsc-block h-3 w-full"></div>
+    <div class="fsc-block h-3 w-[90%]"></div>
+    <div class="fsc-block h-3 w-[80%]"></div>
+  </div>
+
+  <div class="mt-4 flex items-center gap-2 border-t border-[var(--border-color)] pt-4">
+    <div class="fsc-block h-8 w-20 !rounded"></div>
+    <div class="fsc-block h-8 w-24 !rounded"></div>
+  </div>
+</div>

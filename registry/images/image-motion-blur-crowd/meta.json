@@ -30,6 +30,13 @@
       "depthOfField": "Deep, but motion blur destroys edge detail",
       "focus": "The least-blurred figure, right of centre"
     },
+    "framing": {
+      "subjectScale": "Sharp central figure spans ~14% of frame width; blurred figures fill the rest",
+      "subjectBox": "Sharp figure x≈44–58%, y≈28–100%; flanking blurs x≈2–38% and x≈60–98%",
+      "anchors": "Eyeline of the sharp figure at ~34% from top; floor line at ~88%",
+      "edges": "All figures exit the bottom edge; blurred forms exit both side edges",
+      "negativeSpace": "Upper ~28% is empty high-key wall — deliberate headroom"
+    },
     "environment": {
       "setting": "Bright interior or covered walkway",
       "background": "Near-white wall and floor with almost no detail",

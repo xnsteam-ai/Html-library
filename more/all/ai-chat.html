@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Chat Conversation</title>
+  <meta name="description" content="AI Chat Conversation interface with real markdown rendering, tool call logs, code blocks, and a real draggable split-pane resize bar." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.3s ease-out',
+            'slide-up': 'slideUp 0.3s ease-out',
+            'scale-in': 'scaleIn 0.2s ease-out both',
+          },
+          keyframes: {
+            fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+            slideUp: { '0%': { opacity: '0', transform: 'translateY(8px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            scaleIn: { '0%': { opacity: '0', transform: 'scale(0.97)' }, '100%': { opacity: '1', transform: 'scale(1)' } },
+          },
+        },
+      },
+    };
+  </script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Marked Markdown Parser -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-app: #f4f4f6;
+      --bg-surface-raised: #ffffff;
+      --bg-surface-overlay: #f8f8fa;
+      --bg-popover: #ffffff;
+      --bg-hover: rgba(0, 0, 0, 0.04);
+      --bg-active: rgba(0, 0, 0, 0.06);
+      --border-color: rgba(0, 0, 0, 0.08);
+      --border-hover: rgba(0, 0, 0, 0.18);
+      --border-focus: rgba(100, 100, 100, 0.35);
+      --text-primary: #171717;
+      --text-secondary: #555555;
+      --text-tertiary: #777777;
+      --text-muted: #999999;
+      --placeholder-color: #aaaaaa;
+      --token-blue-bg: rgba(59, 130, 246, 0.1);
+      --token-blue-fg: #2563eb;
+      --token-yellow-bg: rgba(234, 179, 8, 0.12);
+      --token-yellow-fg: #ca8a04;
+      --token-orange-bg: rgba(249, 115, 22, 0.1);
+      --token-orange-fg: #ea580c;
+      --shadow-popover: 0 16px 40px rgba(0, 0, 0, 0.12);
+      --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.03);
+      --send-btn-bg: #171717;
+      --send-btn-fg: #ffffff;
+      --send-btn-hover: #333333;
+      --scrollbar-thumb: rgba(0, 0, 0, 0.15);
+      --avatar-bg: rgba(0, 0, 0, 0.05);
+      --code-bg: #f8f9fa;
+      --code-border: #e2e8f0;
+      --user-bubble-bg: #e8e8ec;
+      --resize-handle-active: #2563eb;
+    }
+
+    html.dark {
+      --bg-app: #141414;
+      --bg-surface-raised: #222222;
+      --bg-surface-overlay: #2a2a2a;
+      --bg-popover: #222222;
+      --bg-hover: rgba(255, 255, 255, 0.04);
+      --bg-active: rgba(255, 255, 255, 0.07);
+      --border-color: rgba(255, 255, 255, 0.07);
+      --border-hover: rgba(255, 255, 255, 0.14);
+      --border-focus: rgba(180, 180, 180, 0.3);
+      --text-primary: #e8e8e8;
+      --text-secondary: #999999;
+      --text-tertiary: #666666;
+      --text-muted: #555555;
+      --placeholder-color: #555555;
+      --token-blue-bg: rgba(147, 180, 252, 0.12);
+      --token-blue-fg: #8eaadc;
+      --token-yellow-bg: rgba(220, 190, 100, 0.12);
+      --token-yellow-fg: #c8b06a;
+      --token-orange-bg: rgba(210, 150, 100, 0.12);
+      --token-orange-fg: #c9a07a;
+      --shadow-popover: 0 20px 50px rgba(0, 0, 0, 0.75);
+      --shadow-card: none;
+      --send-btn-bg: rgba(255, 255, 255, 0.08);
+      --send-btn-fg: #999999;
+      --send-btn-hover: rgba(255, 255, 255, 0.14);
+      --scrollbar-thumb: rgba(255, 255, 255, 0.08);
+      --avatar-bg: rgba(255, 255, 255, 0.06);
+      --code-bg: #1a1a1a;
+      --code-border: rgba(255, 255, 255, 0.08);
+      --user-bubble-bg: #2a2a2a;
+      --resize-handle-active: #8eaadc;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-app);
+      color: var(--text-primary);
+      transition: background-color 0.2s ease, color 0.2s ease;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    body.is-resizing {
+      user-select: none !important;
+      cursor: col-resize !important;
+    }
+
+    /* Petite Classic Scrollbars */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--scrollbar-thumb) transparent;
+    }
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+
+    #composerInput:focus { outline: none; }
+    #composerInput:empty::before {
+      content: attr(data-placeholder);
+      color: var(--placeholder-color);
+      pointer-events: none;
+    }
+
+    .token-chip {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 2px 8px; border-radius: 5px;
+      font-size: 12px; font-weight: 500; line-height: 1.5; white-space: nowrap;
+    }
+    .token-blue { background: var(--token-blue-bg); color: var(--token-blue-fg); }
+
+    .popover-menu {
+      position: absolute; z-index: 100; min-width: 160px;
+      border: 1px solid var(--border-hover);
+      border-radius: 10px; background-color: var(--bg-popover);
+      box-shadow: var(--shadow-popover);
+      padding: 4px;
+      animation: scaleIn 0.15s ease-out both;
+    }
+    .popover-item {
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 10px; border-radius: 6px;
+      cursor: pointer; font-size: 13px; color: var(--text-secondary);
+      transition: all 0.12s;
+    }
+    .popover-item:hover { background: var(--bg-hover); color: var(--text-primary); }
+
+    .user-bubble {
+      background-color: var(--user-bubble-bg);
+      color: var(--text-primary);
+      border-radius: 16px;
+      padding: 10px 14px;
+      max-width: 85%;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .tool-calls-header {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 12px; color: var(--text-muted);
+      padding: 4px 0; cursor: pointer;
+    }
+    .tool-calls-header:hover { color: var(--text-secondary); }
+
+    /* ─── Real Markdown Content Styling ───────────────────────────── */
+    .markdown-content {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: var(--text-primary);
+    }
+    .markdown-content h1 {
+      font-size: 1.5rem; font-weight: 700; margin-top: 1rem; margin-bottom: 0.75rem; color: var(--text-primary); tracking: -0.02em;
+    }
+    .markdown-content h2 {
+      font-size: 1.2rem; font-weight: 600; margin-top: 1.25rem; margin-bottom: 0.5rem; color: var(--text-primary);
+    }
+    .markdown-content h3 {
+      font-size: 1rem; font-weight: 600; margin-top: 1rem; margin-bottom: 0.35rem; color: var(--text-primary);
+    }
+    .markdown-content p {
+      margin-bottom: 0.75rem; color: var(--text-secondary);
+    }
+    .markdown-content p:last-child { margin-bottom: 0; }
+    .markdown-content ul {
+      list-style-type: disc; padding-left: 1.25rem; margin-bottom: 0.75rem; color: var(--text-secondary);
+    }
+    .markdown-content ol {
+      list-style-type: decimal; padding-left: 1.25rem; margin-bottom: 0.75rem; color: var(--text-secondary);
+    }
+    .markdown-content li { margin-bottom: 0.25rem; }
+    .markdown-content code {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.85em;
+      padding: 0.15em 0.4em; border-radius: 4px; background: var(--bg-hover); color: var(--text-primary);
+    }
+    .markdown-content pre {
+      background: var(--code-bg); border: 1px solid var(--code-border);
+      border-radius: 8px; padding: 12px 14px; margin: 10px 0; overflow-x: auto;
+    }
+    .markdown-content pre code {
+      background: transparent; padding: 0; font-size: 12.5px; line-height: 1.5; color: var(--text-primary);
+    }
+    .markdown-content table {
+      width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 12.5px;
+    }
+    .markdown-content th, .markdown-content td {
+      border: 1px solid var(--border-color); padding: 7px 10px; text-align: left;
+    }
+    .markdown-content th { background: var(--bg-hover); font-weight: 600; color: var(--text-primary); }
+    .markdown-content blockquote {
+      border-left: 3px solid var(--border-hover); padding-left: 12px; margin: 10px 0; color: var(--text-muted); font-style: italic;
+    }
+    .markdown-content strong { font-weight: 600; color: var(--text-primary); }
+  </style>
+</head>
+<body class="flex flex-col h-screen antialiased overflow-hidden">
+
+  <!-- Header / Top Bar -->
+  <header class="flex items-center justify-between px-6 py-3 border-b border-[var(--border-color)] bg-[var(--bg-surface-raised)] flex-shrink-0 z-30">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-full bg-[var(--avatar-bg)] flex items-center justify-center font-semibold text-xs text-[var(--text-secondary)]">
+        AI
+      </div>
+      <div>
+        <h2 class="text-sm font-semibold text-[var(--text-primary)]">JWT Token Refresh Design</h2>
+        <p class="text-[11px] text-[var(--text-muted)]">Active session · 4 messages</p>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <!-- Artifact Toggle Button -->
+      <button id="toggleArtifactBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[var(--border-color)] text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-all cursor-pointer">
+        <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+        <span>Artifact Panel</span>
+      </button>
+
+      <!-- Theme Toggle Button -->
+      <button id="themeToggleBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[var(--border-color)] text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-all cursor-pointer">
+        <i data-lucide="sun" id="themeIconSun" class="w-3.5 h-3.5"></i>
+        <i data-lucide="moon" id="themeIconMoon" class="w-3.5 h-3.5 hidden"></i>
+        <span id="themeLabel">Light</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Layout (Chat + Artifact Split Pane) -->
+  <div class="flex flex-1 min-h-0 w-full relative">
+
+    <!-- Chat Column -->
+    <div id="chatColumn" class="flex-1 flex flex-col min-w-0 h-full relative transition-all duration-300">
+
+      <!-- Message Thread Scroll Container (scrollbar anchored to column border edge) -->
+      <div id="chatScrollArea" class="flex-1 w-full overflow-y-auto">
+        <div id="messageThread" class="px-4 py-6 sm:px-8 max-w-3xl w-full mx-auto flex flex-col gap-6">
+
+        <!-- Date Divider -->
+        <div class="flex items-center gap-4 my-2">
+          <div class="flex-1 h-px bg-[var(--border-color)]"></div>
+          <span class="text-[11px] font-medium text-[var(--text-muted)] tracking-wider uppercase">Today</span>
+          <div class="flex-1 h-px bg-[var(--border-color)]"></div>
+        </div>
+
+        <!-- Message 1: User -->
+        <div class="flex flex-col items-end gap-1.5 animate-fade-in">
+          <div class="flex items-center gap-1.5 mb-1">
+            <span class="token-chip token-blue">auth-service.ts</span>
+            <span class="token-chip token-blue">middleware.ts</span>
+          </div>
+          <div class="user-bubble">
+            <span class="text-[var(--token-blue-fg)] font-medium">@agent</span> Can you review these auth files? The JWT refresh logic seems broken — tokens expire but the middleware doesn't catch it.
+          </div>
+          <span class="text-[10.5px] text-[var(--text-muted)] px-1">10:15 AM</span>
+        </div>
+
+        <!-- Message 2: Assistant -->
+        <div class="flex items-start gap-3 animate-fade-in">
+          <div class="w-7 h-7 rounded-full bg-[var(--avatar-bg)] flex items-center justify-center text-xs font-semibold text-[var(--text-secondary)] flex-shrink-0 mt-0.5">
+            A
+          </div>
+          <div class="flex flex-col gap-3 min-w-0 flex-1">
+            <p class="text-[14px] text-[var(--text-primary)] leading-relaxed">
+              Looking into the auth files now. Let me read through the code and trace the token refresh flow.
+            </p>
+
+            <!-- Tool Calls Accordion -->
+            <div class="border border-[var(--border-color)] rounded-lg p-2.5 bg-[var(--bg-surface-raised)] text-xs">
+              <div onclick="toggleToolCalls(this)" class="tool-calls-header">
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5 transition-transform duration-200"></i>
+                <span class="font-medium text-[var(--text-secondary)]">3 tool calls executed</span>
+                <span class="text-[10px] text-[var(--text-muted)] ml-auto">203ms</span>
+              </div>
+              <div class="tool-calls-body hidden flex flex-col gap-1.5 pt-2 border-t border-[var(--border-color)] mt-2 font-mono text-[11.5px]">
+                <div class="flex items-center gap-2 text-[var(--text-muted)]">
+                  <span class="text-green-500">✓</span> <span>read</span> <span class="text-[var(--text-secondary)]">auth-service.ts</span> <span class="ml-auto text-[10px]">45ms</span>
+                </div>
+                <div class="flex items-center gap-2 text-[var(--text-muted)]">
+                  <span class="text-green-500">✓</span> <span>read</span> <span class="text-[var(--text-secondary)]">middleware.ts</span> <span class="ml-auto text-[10px]">38ms</span>
+                </div>
+                <div class="flex items-center gap-2 text-[var(--text-muted)]">
+                  <span class="text-green-500">✓</span> <span>bash</span> <span class="text-[var(--text-secondary)]">grep -rn "refreshToken" src/</span> <span class="ml-auto text-[10px]">120ms</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Explanation with Real Markdown Parsing -->
+            <div class="markdown-content" data-markdown="Found the issue. In `middleware.ts`, token validation runs **before** the refresh check. When a token expires, the middleware rejects the request immediately instead of attempting a refresh.
+
+Sequence of failure:
+1. Request arrives with an expired access token
+2. `validateToken()` throws `TokenExpiredError`
+3. The catch block returns `401` — never reaching `refreshToken()`
+
+The fix is to catch `TokenExpiredError` specifically and attempt a refresh before rejecting:"></div>
+
+            <!-- Code Block -->
+            <div class="rounded-xl border border-[var(--code-border)] bg-[var(--code-bg)] overflow-hidden font-mono text-[12.5px]">
+              <div class="flex items-center justify-between px-3 py-1.5 border-b border-[var(--code-border)] bg-[var(--bg-hover)] text-[11px] text-[var(--text-muted)]">
+                <span>middleware.ts</span>
+                <span>typescript</span>
+              </div>
+              <pre class="p-3.5 overflow-x-auto text-[var(--text-primary)] leading-relaxed"><code>async function authMiddleware(req: Request) {
+  try {
+    const decoded = validateToken(req.headers.authorization);
+    req.user = decoded;
+  } catch (err) {
+    if (err instanceof TokenExpiredError) {
+      // Attempt silent refresh before rejecting
+      const refreshed = await refreshToken(req.cookies.refreshToken);
+      if (refreshed) {
+        req.user = refreshed.user;
+        req.newAccessToken = refreshed.accessToken;
+        return next(req);
+      }
+    }
+    return new Response('Unauthorized', { status: 401 });
+  }
+  return next(req);
+}</code></pre>
+            </div>
+
+            <!-- Artifact Card Button -->
+            <button onclick="openArtifactPanel()" class="group flex items-center gap-3 p-3 rounded-xl border border-[var(--border-color)] bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-overlay)] hover:border-[var(--border-hover)] transition-all cursor-pointer max-w-sm text-left shadow-sm">
+              <div class="w-8 h-8 rounded-lg bg-[var(--bg-hover)] flex items-center justify-center flex-shrink-0">
+                <i data-lucide="file-text" class="w-4 h-4 text-[var(--text-secondary)]"></i>
+              </div>
+              <div class="flex flex-col min-w-0 flex-1">
+                <span class="text-[13px] font-semibold text-[var(--text-primary)] truncate">JWT Token Refresh: Design & Rollout</span>
+                <span class="text-[11px] text-[var(--text-muted)]">Document · Click to view</span>
+              </div>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-[var(--text-muted)] group-hover:translate-x-0.5 transition-transform"></i>
+            </button>
+
+            <span class="text-[10.5px] text-[var(--text-muted)]">10:15 AM · Agent</span>
+          </div>
+        </div>
+
+      </div>
+      </div>
+
+      <!-- Chat Composer -->
+      <div class="px-4 pb-4 pt-2 max-w-3xl w-full mx-auto flex-shrink-0 z-20">
+        <div id="composerCard" class="relative rounded-2xl border border-[var(--border-color)] bg-[var(--bg-surface-raised)] shadow-[var(--shadow-card)] transition-all duration-200 focus-within:border-[var(--border-focus)]">
+
+          <!-- Header tools -->
+          <div class="flex items-center justify-between px-3 pt-2 pb-0.5">
+            <div class="flex items-center gap-1">
+              <div class="relative">
+                <button id="mentionBtn" class="w-6 h-6 flex items-center justify-center rounded text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] cursor-pointer" title="Reference member">
+                  <i data-lucide="at-sign" class="w-3.5 h-3.5"></i>
+                </button>
+                <div id="mentionMenu" class="popover-menu hidden" style="top:calc(100% + 4px); left: 0; min-width: 200px;"></div>
+              </div>
+
+              <div class="relative">
+                <button id="attachBtn" class="w-6 h-6 flex items-center justify-center rounded text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] cursor-pointer" title="Attach file">
+                  <i data-lucide="paperclip" class="w-3.5 h-3.5"></i>
+                </button>
+                <input type="file" id="fileInput" class="hidden" multiple />
+              </div>
+            </div>
+          </div>
+
+          <!-- Input -->
+          <div class="px-3 py-1">
+            <div id="composerInput" contenteditable="true" role="textbox" aria-multiline="true" data-placeholder="Ask anything..."
+              class="w-full min-h-[44px] max-h-[160px] overflow-y-auto text-[14px] leading-relaxed text-[var(--text-primary)] bg-transparent outline-none"></div>
+          </div>
+
+          <!-- Footer -->
+          <div class="flex items-center justify-between px-3 pb-2 pt-1 border-t border-[var(--border-color)]">
+            <div class="relative">
+              <button id="modeBtn" class="flex items-center gap-1 text-[12px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] px-2 py-1 rounded hover:bg-[var(--bg-hover)] cursor-pointer">
+                <span id="modeLabel">Ask</span>
+                <i data-lucide="chevron-down" class="w-3 h-3 text-[var(--text-muted)]"></i>
+              </button>
+              <div id="modeMenu" class="popover-menu hidden" style="bottom:calc(100% + 4px); left: 0;">
+                <div class="popover-item" onclick="setMode('Ask')">Ask</div>
+                <div class="popover-item" onclick="setMode('Edit')">Edit</div>
+              </div>
+            </div>
+
+            <button id="sendBtn" class="w-7 h-7 flex items-center justify-center rounded-lg bg-[var(--send-btn-bg)] text-[var(--send-btn-fg)] hover:bg-[var(--send-btn-hover)] transition-all disabled:opacity-25" disabled>
+              <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Real Draggable Resize Handle -->
+    <div id="resizeHandle" class="relative w-0 cursor-col-resize flex-shrink-0 z-30 select-none group hidden" title="Drag to resize panel">
+      <!-- Invisible hit box (12px wide for easy dragging) -->
+      <div class="absolute inset-y-0 -left-1.5 -right-1.5 flex items-center justify-center cursor-col-resize">
+        <div class="w-[1px] h-full bg-[var(--border-color)] group-hover:bg-[var(--text-secondary)] transition-colors"></div>
+        <div class="absolute w-[3px] h-6 rounded-full bg-[var(--text-secondary)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </div>
+    </div>
+
+    <!-- Artifact Side Panel (Desktop Split Pane) -->
+    <div id="artifactPanel" class="w-[520px] border-l border-[var(--border-color)] bg-[var(--bg-surface-raised)] flex flex-col h-full hidden animate-fade-in flex-shrink-0 z-20">
+
+      <!-- Artifact Panel Header -->
+      <div class="flex items-center justify-between px-5 py-3 border-b border-[var(--border-color)] flex-shrink-0">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <i data-lucide="file-text" class="w-4 h-4 text-[var(--text-secondary)] flex-shrink-0"></i>
+          <div class="flex flex-col min-w-0">
+            <h3 class="text-[13.5px] font-semibold text-[var(--text-primary)] truncate">JWT Token Refresh: Design & Rollout</h3>
+            <span class="text-[11px] text-[var(--text-muted)]">Document · Updated just now</span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-1">
+          <div class="relative">
+            <button id="versionBtn" class="px-2 py-1 rounded text-xs text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] border border-[var(--border-color)] flex items-center gap-1 cursor-pointer">
+              <span id="versionLabel">v2</span>
+              <i data-lucide="chevron-down" class="w-3 h-3 text-[var(--text-muted)]"></i>
+            </button>
+            <div id="versionMenu" class="popover-menu hidden" style="top:calc(100% + 4px); right: 0; min-width: 120px;">
+              <div class="popover-item" onclick="setVersion('v2')">v2 (current)</div>
+              <div class="popover-item" onclick="setVersion('v1')">v1</div>
+            </div>
+          </div>
+          <button class="w-7 h-7 flex items-center justify-center rounded text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--bg-hover)]" title="Copy">
+            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+          </button>
+          <button onclick="closeArtifactPanel()" class="w-7 h-7 flex items-center justify-center rounded text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--bg-hover)]" title="Close">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Real Markdown Render Container -->
+      <div id="artifactMarkdown" class="flex-1 overflow-y-auto p-6 markdown-content" data-markdown="# JWT Token Refresh: Design & Rollout
+
+## Overview
+Our API gateway authenticates every request with a short-lived JWT access token. Until now, an expired token meant an immediate `401` — even when the user still held a valid refresh token. This document describes the silent-refresh flow we just shipped and how we're rolling it out.
+
+## The Problem
+Token validation ran **before** any refresh logic, so the middleware rejected expired tokens outright:
+
+1. A request arrives with an expired access token
+2. `validateToken()` throws `TokenExpiredError`
+3. The catch block returns `401` — `refreshToken()` is never reached
+
+The result was users getting logged out whenever an access token lapsed mid-session.
+
+## The Fix
+The middleware now catches `TokenExpiredError` specifically and attempts a silent refresh before rejecting. On success it reissues an access token and continues the request; on failure it falls back to `401`.
+
+- **Transparent** — valid sessions never see an interruption
+- **Safe** — a missing or invalid refresh token still returns `401`
+- **Cheap** — refresh only runs on the expiry path, not on every request
+
+## Testing Matrix
+
+| Scenario | Expected Result | Status |
+|----------|-----------------|--------|
+| Valid token passes through | `200 OK` | ✅ Passed |
+| Expired token, valid refresh | `200 OK` + new token | ✅ Passed |
+| Expired token, invalid refresh | `401 Unauthorized` | ✅ Passed |
+| Malformed token | `401 Unauthorized` | ✅ Passed |
+
+## Rollout & Monitoring
+1. Ship behind the `silent_refresh` flag at 5% of traffic
+2. Watch `auth.refresh.success` and `auth.refresh.failure` counters
+3. Alert if the failure rate exceeds **2%** over any 5-minute window
+4. Ramp to 100% once metrics hold steady for 24 hours"></div>
+    </div>
+
+  </div>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    const composerInput = $('composerInput');
+    const sendBtn = $('sendBtn');
+    const artifactPanel = $('artifactPanel');
+    const resizeHandle = $('resizeHandle');
+    const toggleArtifactBtn = $('toggleArtifactBtn');
+    const modeBtn = $('modeBtn');
+    const modeMenu = $('modeMenu');
+    const modeLabel = $('modeLabel');
+
+    // ─── Real Markdown Parser ─────────────────────────────────────────────
+    function renderAllMarkdown() {
+      if (typeof marked === 'undefined') return;
+      document.querySelectorAll('[data-markdown]').forEach(el => {
+        const rawMarkdown = el.getAttribute('data-markdown');
+        if (rawMarkdown) {
+          el.innerHTML = marked.parse(rawMarkdown);
+        }
+      });
+    }
+
+    // ─── Real Draggable Resize Bar ────────────────────────────────────────
+    let isResizing = false;
+    let startX = 0;
+    let startWidth = 0;
+
+    function initResizeHandle() {
+      resizeHandle.addEventListener('mousedown', (e) => {
+        isResizing = true;
+        startX = e.clientX;
+        startWidth = artifactPanel.offsetWidth;
+        document.body.classList.add('is-resizing');
+        document.addEventListener('mousemove', handleMouseMove);
+        document.addEventListener('mouseup', handleMouseUp);
+      });
+
+      // Touch support
+      resizeHandle.addEventListener('touchstart', (e) => {
+        isResizing = true;
+        startX = e.touches[0].clientX;
+        startWidth = artifactPanel.offsetWidth;
+        document.body.classList.add('is-resizing');
+        document.addEventListener('touchmove', handleTouchMove);
+        document.addEventListener('touchend', handleTouchUp);
+      });
+    }
+
+    function handleMouseMove(e) {
+      if (!isResizing) return;
+      // Dragging left increases artifact panel width (since panel is on the right)
+      const diffX = startX - e.clientX;
+      const newWidth = Math.min(Math.max(startWidth + diffX, 320), window.innerWidth * 0.75);
+      artifactPanel.style.width = `${newWidth}px`;
+    }
+
+    function handleMouseUp() {
+      if (!isResizing) return;
+      isResizing = false;
+      document.body.classList.remove('is-resizing');
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+    }
+
+    function handleTouchMove(e) {
+      if (!isResizing) return;
+      const diffX = startX - e.touches[0].clientX;
+      const newWidth = Math.min(Math.max(startWidth + diffX, 320), window.innerWidth * 0.75);
+      artifactPanel.style.width = `${newWidth}px`;
+    }
+
+    function handleTouchUp() {
+      if (!isResizing) return;
+      isResizing = false;
+      document.body.classList.remove('is-resizing');
+      document.removeEventListener('touchmove', handleTouchMove);
+      document.removeEventListener('touchend', handleTouchUp);
+    }
+
+    // ─── Theme Toggle ────────────────────────────────────────────────────
+    const themeToggleBtn = $('themeToggleBtn');
+    const themeIconSun = $('themeIconSun');
+    const themeIconMoon = $('themeIconMoon');
+    const themeLabel = $('themeLabel');
+
+    function updateThemeUI(isDark) {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        themeIconSun.classList.remove('hidden');
+        themeIconMoon.classList.add('hidden');
+        themeLabel.textContent = 'Light';
+      } else {
+        document.documentElement.classList.remove('dark');
+        themeIconSun.classList.add('hidden');
+        themeIconMoon.classList.remove('hidden');
+        themeLabel.textContent = 'Dark';
+      }
+      lucide.createIcons();
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      const isCurrentlyDark = document.documentElement.classList.contains('dark');
+      updateThemeUI(!isCurrentlyDark);
+    });
+
+    updateThemeUI(true);
+
+    // ─── Artifact Panel Controls ──────────────────────────────────────────
+    function openArtifactPanel() {
+      artifactPanel.classList.remove('hidden');
+      resizeHandle.classList.remove('hidden');
+    }
+
+    function closeArtifactPanel() {
+      artifactPanel.classList.add('hidden');
+      resizeHandle.classList.add('hidden');
+    }
+
+    toggleArtifactBtn.addEventListener('click', () => {
+      const isHidden = artifactPanel.classList.contains('hidden');
+      if (isHidden) openArtifactPanel(); else closeArtifactPanel();
+    });
+
+    // ─── Dropdown Menus ───────────────────────────────────────────────────
+    const MENTION_ITEMS = [
+      { id: 'cindy', label: 'Cindy Zhang', role: 'Design Systems' },
+      { id: 'alex', label: 'Alex Johnson', role: 'Frontend' },
+      { id: 'sam', label: 'Sam Rivera', role: 'Backend' },
+      { id: 'jordan', label: 'Jordan Lee', role: 'Product' },
+    ];
+
+    const mentionBtn = $('mentionBtn');
+    const mentionMenu = $('mentionMenu');
+    const attachBtn = $('attachBtn');
+    const versionBtn = $('versionBtn');
+    const versionMenu = $('versionMenu');
+    const versionLabel = $('versionLabel');
+
+    function closeAllMenus() {
+      [mentionMenu, modeMenu, versionMenu].forEach(m => m && m.classList.add('hidden'));
+    }
+
+    function toggleMenu(menu, e) {
+      if (e) e.stopPropagation();
+      const isHidden = menu.classList.contains('hidden');
+      closeAllMenus();
+      if (isHidden) menu.classList.remove('hidden');
+    }
+
+    // Mention Menu
+    if (mentionBtn) {
+      mentionBtn.addEventListener('click', (e) => {
+        renderMentionMenu();
+        toggleMenu(mentionMenu, e);
+      });
+    }
+
+    function renderMentionMenu() {
+      mentionMenu.innerHTML = MENTION_ITEMS.map(item => `
+        <div class="popover-item" onclick="insertMention('${item.id}')">
+          <div class="w-5 h-5 rounded-full bg-[var(--avatar-bg)] flex items-center justify-center flex-shrink-0 text-[10px] font-semibold text-[var(--text-secondary)]">
+            ${item.label.charAt(0)}
+          </div>
+          <div class="flex flex-col">
+            <span class="text-[12.5px] font-medium">${item.label}</span>
+            <span class="text-[10px] text-[var(--text-muted)]">${item.role}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function insertMention(id) {
+      const item = MENTION_ITEMS.find(i => i.id === id);
+      if (!item) return;
+      const chip = document.createElement('span');
+      chip.className = 'token-chip token-blue'; chip.contentEditable = 'false';
+      chip.textContent = `@${item.label}`;
+      composerInput.appendChild(chip);
+      composerInput.appendChild(document.createTextNode('\u00A0'));
+      composerInput.focus();
+      sendBtn.disabled = false;
+      closeAllMenus();
+    }
+
+    // Attach Menu (Real file picker)
+    if (attachBtn) {
+      attachBtn.addEventListener('click', () => $('fileInput').click());
+    }
+    const fileInput = $('fileInput');
+    if (fileInput) {
+      fileInput.addEventListener('change', (e) => {
+        if (!e.target.files.length) return;
+        for (let i = 0; i < e.target.files.length; i++) {
+          attachFile(e.target.files[i].name);
+        }
+        e.target.value = '';
+      });
+    }
+
+    function attachFile(filename) {
+      const chip = document.createElement('span');
+      chip.className = 'token-chip token-blue'; chip.contentEditable = 'false';
+      chip.textContent = filename;
+      composerInput.appendChild(chip);
+      composerInput.appendChild(document.createTextNode('\u00A0'));
+      composerInput.focus();
+      sendBtn.disabled = false;
+      closeAllMenus();
+    }
+
+    // Mode Menu
+    if (modeBtn) {
+      modeBtn.addEventListener('click', (e) => toggleMenu(modeMenu, e));
+    }
+
+    function setMode(mode) {
+      modeLabel.textContent = mode;
+      closeAllMenus();
+    }
+
+    // Version Menu
+    if (versionBtn) {
+      versionBtn.addEventListener('click', (e) => toggleMenu(versionMenu, e));
+    }
+
+    function setVersion(ver) {
+      versionLabel.textContent = ver;
+      closeAllMenus();
+    }
+
+    document.addEventListener('click', closeAllMenus);
+
+    // ─── Composer ────────────────────────────────────────────────────────
+    composerInput.addEventListener('input', () => {
+      sendBtn.disabled = !composerInput.textContent.trim();
+    });
+
+    composerInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendBtn.click();
+      }
+    });
+
+    const messageThread = $('messageThread');
+
+    function scrollToBottom() {
+      const area = $('chatScrollArea');
+      setTimeout(() => area.scrollTop = area.scrollHeight, 50);
+    }
+
+    function appendUserMessage(text, tokens) {
+      const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+      const tokenHtml = tokens.map(t => `<span class="token-chip token-blue">${t}</span>`).join('');
+      const html = `
+        <div class="flex flex-col items-end gap-1.5 animate-fade-in mt-4">
+          ${tokenHtml ? `<div class="flex items-center gap-1.5 mb-1">${tokenHtml}</div>` : ''}
+          <div class="user-bubble">${text.replace(/\\n/g, '<br>')}</div>
+          <span class="text-[10.5px] text-[var(--text-muted)] px-1">${time}</span>
+        </div>
+      `;
+      messageThread.insertAdjacentHTML('beforeend', html);
+      scrollToBottom();
+    }
+
+    function appendAssistantMessage(text) {
+      const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+      const parsedText = typeof marked !== 'undefined' ? marked.parse(text) : text;
+      const html = `
+        <div class="flex items-start gap-3 animate-fade-in mt-4">
+          <div class="w-7 h-7 rounded-full bg-[var(--avatar-bg)] flex items-center justify-center text-xs font-semibold text-[var(--text-secondary)] flex-shrink-0 mt-0.5">A</div>
+          <div class="flex flex-col gap-3 min-w-0 flex-1">
+            <div class="markdown-content">${parsedText}</div>
+            <span class="text-[10.5px] text-[var(--text-muted)]">${time} · Agent</span>
+          </div>
+        </div>
+      `;
+      messageThread.insertAdjacentHTML('beforeend', html);
+      scrollToBottom();
+    }
+
+    sendBtn.addEventListener('click', () => {
+      if (!composerInput.textContent.trim()) return;
+      
+      const textNodes = [];
+      const tokens = [];
+      composerInput.childNodes.forEach(node => {
+        if (node.nodeType === Node.TEXT_NODE) textNodes.push(node.textContent);
+        else if (node.classList && node.classList.contains('token-chip')) tokens.push(node.textContent.trim());
+        else if (node.nodeName === 'DIV' || node.nodeName === 'BR') textNodes.push('\\n' + (node.textContent || ''));
+        else textNodes.push(node.textContent);
+      });
+      
+      const finalMsg = textNodes.join('').trim() || composerInput.textContent.trim();
+
+      appendUserMessage(finalMsg, tokens);
+      composerInput.innerHTML = '';
+      sendBtn.disabled = true;
+
+      // Simulate AI response
+      setTimeout(() => {
+        appendAssistantMessage("I'm looking into this now. I will analyze the attached context and provide an updated implementation plan shortly.");
+      }, 800);
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const query = urlParams.get('q');
+      if (query) {
+        composerInput.textContent = query;
+        sendBtn.disabled = false;
+        placeCaretAtEnd(composerInput);
+      }
+    });
+
+    function placeCaretAtEnd(el) {
+      if (typeof window.getSelection !== 'undefined' && typeof document.createRange !== 'undefined') {
+        const range = document.createRange();
+        range.selectNodeContents(el);
+        range.collapse(false);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      }
+    }
+
+    // ─── Tool Calls Accordion ─────────────────────────────────────────────
+    function toggleToolCalls(headerEl) {
+      const bodyEl = headerEl.nextElementSibling;
+      if (!bodyEl) return;
+      const isHidden = bodyEl.classList.contains('hidden');
+      bodyEl.classList.toggle('hidden', !isHidden);
+      const icon = headerEl.querySelector('svg') || headerEl.querySelector('i');
+      if (icon) {
+        icon.style.transform = isHidden ? 'rotate(90deg)' : 'rotate(0deg)';
+      }
+    }
+
+    // ─── Initialize ──────────────────────────────────────────────────────
+    renderAllMarkdown();
+    initResizeHandle();
+    openArtifactPanel(); // Open panel by default to demonstrate split-pane & resize
+    lucide.createIcons();
+  </script>
+</body>
+</html>

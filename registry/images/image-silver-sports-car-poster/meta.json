@@ -23,6 +23,13 @@
       "depthOfField": "Deep",
       "focus": "The flank and wheel"
     },
+    "framing": {
+      "subjectScale": "Car spans ~80% of frame width on a diagonal",
+      "subjectBox": "Car x≈10–92%, y≈40–75%; model name band x≈45–95%, y≈8–25%",
+      "anchors": "Name band baseline at ~25%; car axis at ~58%",
+      "edges": "Front and rear approach both side edges",
+      "negativeSpace": "Red diagonal band crosses the upper right"
+    },
     "environment": {
       "setting": "Studio / composite",
       "background": "Pale ground with a red diagonal graphic band",

@@ -30,6 +30,13 @@
       "depthOfField": "Shallow; room soft behind",
       "focus": "The face"
     },
+    "framing": {
+      "subjectScale": "Head and torso fill ~55% of frame width, lower three-quarters",
+      "subjectBox": "Figure x≈25–80%, y≈15–100%; head x≈38–68%, y≈15–48%",
+      "anchors": "Eyeline at ~28% from top; shoulder line ~55%",
+      "edges": "Torso exits the bottom edge",
+      "negativeSpace": "Upper ~15% is headboard and wall"
+    },
     "environment": {
       "setting": "Bedroom",
       "background": "Headboard, bedding and a lamp visible but softened",

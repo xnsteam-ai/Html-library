@@ -29,6 +29,13 @@
       "depthOfField": "Moderate; far shore soft",
       "focus": "The face"
     },
+    "framing": {
+      "subjectScale": "Figure spans ~30% of frame width, lower-middle band",
+      "subjectBox": "Figure x≈32–65%, y≈42–88%; far shore x≈0–100%, y≈22–40%",
+      "anchors": "Horizon at ~32% from top; figure eyeline ~48%; bank line ~88%",
+      "edges": "Foreground bank exits the bottom edge",
+      "negativeSpace": "Upper ~30% is sky and far shore"
+    },
     "environment": {
       "setting": "Lakeside",
       "background": "Still water, distant bank and blossoming trees",

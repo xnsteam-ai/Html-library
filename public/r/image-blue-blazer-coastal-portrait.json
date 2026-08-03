@@ -29,6 +29,13 @@
       "depthOfField": "Deep",
       "focus": "The sunglasses and blazer lapel"
     },
+    "framing": {
+      "subjectScale": "Head and shoulders fill ~60% of frame width, lower three-quarters",
+      "subjectBox": "Head x≈28–72%, y≈15–58%; lapels widen to x≈12–88% by y≈85%",
+      "anchors": "Sunglasses band at ~32%; jawline ~55%",
+      "edges": "Shoulders exit the bottom edge",
+      "negativeSpace": "Upper ~15% is clear blue sky"
+    },
     "environment": {
       "setting": "Outdoors",
       "background": "Clear saturated blue sky, no ground reference",

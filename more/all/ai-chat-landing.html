@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Chat Landing</title>
+  <meta name="description" content="AI Chat Landing — an interactive AI assistant interface with rich composer, category suggestions, and light/dark theme support." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.4s ease-out',
+            'fade-in-up': 'fadeInUp 0.5s ease-out both',
+            'slide-up': 'slideUp 0.35s ease-out',
+            'scale-in': 'scaleIn 0.25s ease-out both',
+            'shimmer': 'shimmer 3s ease-in-out infinite',
+            'pulse-soft': 'pulseSoft 4s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+            fadeInUp: { '0%': { opacity: '0', transform: 'translateY(14px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            slideUp: { '0%': { opacity: '0', transform: 'translateY(8px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            scaleIn: { '0%': { opacity: '0', transform: 'scale(0.96)' }, '100%': { opacity: '1', transform: 'scale(1)' } },
+            shimmer: { '0%, 100%': { opacity: '0.4' }, '50%': { opacity: '0.8' } },
+            pulseSoft: { '0%, 100%': { opacity: '0.5' }, '50%': { opacity: '1' } },
+          },
+        },
+      },
+    };
+  </script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-app: #f4f4f6;
+      --bg-surface-raised: #ffffff;
+      --bg-surface-overlay: #f8f8fa;
+      --bg-popover: #ffffff;
+      --bg-hover: rgba(0, 0, 0, 0.04);
+      --bg-active: rgba(0, 0, 0, 0.06);
+      --border-color: rgba(0, 0, 0, 0.08);
+      --border-hover: rgba(0, 0, 0, 0.18);
+      --border-focus: rgba(100, 100, 100, 0.35);
+      --text-primary: #171717;
+      --text-secondary: #555555;
+      --text-tertiary: #777777;
+      --text-muted: #999999;
+      --placeholder-color: #aaaaaa;
+      --token-blue-bg: rgba(59, 130, 246, 0.1);
+      --token-blue-fg: #2563eb;
+      --token-yellow-bg: rgba(234, 179, 8, 0.12);
+      --token-yellow-fg: #ca8a04;
+      --token-orange-bg: rgba(249, 115, 22, 0.1);
+      --token-orange-fg: #ea580c;
+      --shadow-popover: 0 16px 40px rgba(0, 0, 0, 0.12);
+      --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.03);
+      --send-btn-bg: #171717;
+      --send-btn-fg: #ffffff;
+      --send-btn-hover: #333333;
+      --scrollbar-thumb: rgba(0, 0, 0, 0.15);
+      --avatar-bg: rgba(0, 0, 0, 0.05);
+    }
+
+    html.dark {
+      --bg-app: #141414;
+      --bg-surface-raised: #222222;
+      --bg-surface-overlay: #2a2a2a;
+      --bg-popover: #222222;
+      --bg-hover: rgba(255, 255, 255, 0.04);
+      --bg-active: rgba(255, 255, 255, 0.07);
+      --border-color: rgba(255, 255, 255, 0.07);
+      --border-hover: rgba(255, 255, 255, 0.14);
+      --border-focus: rgba(180, 180, 180, 0.3);
+      --text-primary: #e8e8e8;
+      --text-secondary: #999999;
+      --text-tertiary: #666666;
+      --text-muted: #555555;
+      --placeholder-color: #555555;
+      --token-blue-bg: rgba(147, 180, 252, 0.12);
+      --token-blue-fg: #8eaadc;
+      --token-yellow-bg: rgba(220, 190, 100, 0.12);
+      --token-yellow-fg: #c8b06a;
+      --token-orange-bg: rgba(210, 150, 100, 0.12);
+      --token-orange-fg: #c9a07a;
+      --shadow-popover: 0 20px 50px rgba(0, 0, 0, 0.75);
+      --shadow-card: none;
+      --send-btn-bg: rgba(255, 255, 255, 0.08);
+      --send-btn-fg: #999999;
+      --send-btn-hover: rgba(255, 255, 255, 0.14);
+      --scrollbar-thumb: rgba(255, 255, 255, 0.08);
+      --avatar-bg: rgba(255, 255, 255, 0.06);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-app);
+      color: var(--text-primary);
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    /* Petite Classic Scrollbars */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--scrollbar-thumb) transparent;
+    }
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+
+    #composerInput:focus { outline: none; }
+    #composerInput:empty::before {
+      content: attr(data-placeholder);
+      color: var(--placeholder-color);
+      pointer-events: none;
+    }
+
+    .token-chip {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 2px 8px; border-radius: 5px;
+      font-size: 12.5px; font-weight: 500; line-height: 1.5; white-space: nowrap;
+      vertical-align: middle;
+    }
+    .token-blue { background: var(--token-blue-bg); color: var(--token-blue-fg); }
+    .token-yellow { background: var(--token-yellow-bg); color: var(--token-yellow-fg); }
+    .token-orange { background: var(--token-orange-bg); color: var(--token-orange-fg); }
+
+    .popover-menu {
+      position: absolute; z-index: 100; min-width: 200px;
+      border: 1px solid var(--border-hover);
+      border-radius: 12px; background-color: var(--bg-popover);
+      box-shadow: var(--shadow-popover);
+      padding: 5px;
+      animation: scaleIn 0.15s ease-out both;
+    }
+    .popover-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 7px 10px; border-radius: 7px;
+      cursor: pointer; font-size: 13.5px; color: var(--text-secondary);
+      transition: all 0.12s;
+    }
+    .popover-item:hover { background: var(--bg-hover); color: var(--text-primary); }
+    .popover-item i { width: 16px; height: 16px; color: var(--text-tertiary); }
+    .popover-item:hover i { color: var(--text-secondary); }
+    .popover-divider { height: 1px; background: var(--border-color); margin: 3px 8px; }
+
+    .attachment-chip {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 3px 9px; background: var(--bg-hover);
+      border: 1px solid var(--border-color); border-radius: 7px;
+      font-size: 12.5px; color: var(--text-tertiary); transition: all 0.12s;
+    }
+    .attachment-chip:hover { background: var(--bg-active); border-color: var(--border-hover); color: var(--text-secondary); }
+    .attachment-remove {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 15px; height: 15px; border-radius: 50%;
+      cursor: pointer; color: var(--text-muted); transition: all 0.12s;
+    }
+    .attachment-remove:hover { color: #dc2626; background: rgba(220, 38, 38, 0.12); }
+
+    .typeahead-popover {
+      position: absolute; bottom: 100%; left: 0; right: 0;
+      margin-bottom: 4px; z-index: 100;
+      border: 1px solid var(--border-hover);
+      border-radius: 12px; background-color: var(--bg-popover);
+      box-shadow: var(--shadow-popover);
+      padding: 5px; max-height: 220px; overflow-y: auto;
+      animation: slideUp 0.15s ease-out both;
+    }
+    .typeahead-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 7px 10px; border-radius: 7px;
+      cursor: pointer; transition: all 0.12s;
+    }
+    .typeahead-item:hover { background: var(--bg-hover); }
+
+    .card-element {
+      background-color: var(--bg-surface-raised);
+      border-color: var(--border-color);
+      box-shadow: var(--shadow-card);
+    }
+    .card-element:hover {
+      border-color: var(--border-hover);
+    }
+
+    @keyframes scaleIn {
+      0% { opacity: 0; transform: scale(0.96); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    @keyframes slideUp {
+      0% { opacity: 0; transform: translateY(6px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="min-h-screen antialiased">
+
+  <div id="app" class="min-h-screen flex flex-col items-center justify-center px-4 py-10 sm:px-6 lg:px-8">
+    <div class="w-full max-w-[720px] flex flex-col gap-8 animate-fade-in">
+
+      <!-- ═══════════ Greeting + Theme Toggle ═══════════ -->
+      <div class="flex flex-col gap-1.5 animate-fade-in-up">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2.5">
+            <i data-lucide="sparkles" class="w-5 h-5 text-[var(--text-secondary)] animate-pulse-soft"></i>
+            <span class="text-base font-medium text-[var(--text-secondary)] tracking-wide">Hi, Andrew</span>
+          </div>
+
+          <!-- Theme Toggle Button -->
+          <button id="themeToggleBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-[var(--border-color)] bg-[var(--bg-surface-raised)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-hover)] transition-all duration-200 text-xs font-medium cursor-pointer shadow-sm">
+            <i data-lucide="sun" id="themeIconSun" class="w-3.5 h-3.5"></i>
+            <i data-lucide="moon" id="themeIconMoon" class="w-3.5 h-3.5 hidden"></i>
+            <span id="themeLabel">Light</span>
+          </button>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl font-semibold tracking-tight text-[var(--text-primary)] leading-[1.15]">
+          Where should we start?
+        </h1>
+      </div>
+
+      <!-- ═══════════ Composer ═══════════ -->
+      <div class="relative z-20 animate-fade-in-up" style="animation-delay:0.08s">
+        <div id="composerCard" class="relative rounded-2xl border border-[var(--border-color)] bg-[var(--bg-surface-raised)] shadow-[var(--shadow-card)] transition-all duration-300 hover:border-[var(--border-hover)] focus-within:border-[var(--border-focus)]">
+
+          <!-- Header -->
+          <div class="flex items-center justify-between px-4 pt-2.5 pb-0.5">
+            <div class="flex items-center gap-1">
+              <div class="relative">
+                <button id="mentionBtn" class="flex items-center justify-center w-7 h-7 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] transition-all duration-150" title="Reference">
+                  <i data-lucide="at-sign" class="w-3.5 h-3.5"></i>
+                </button>
+                <div id="mentionMenu" class="popover-menu hidden" style="top:calc(100% + 4px);left:0;min-width:240px;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Typeahead -->
+          <div id="typeaheadPopover" class="typeahead-popover hidden"></div>
+
+          <!-- Input -->
+          <div class="px-4 py-1">
+            <div id="composerInput" contenteditable="true" role="textbox" aria-multiline="true" data-placeholder="Ask anything…"
+              class="w-full min-h-[48px] max-h-[200px] overflow-y-auto text-[14.5px] leading-relaxed text-[var(--text-primary)] bg-transparent outline-none resize-none"></div>
+          </div>
+
+          <!-- Attachments Drawer -->
+          <div id="attachmentDrawer" class="px-4 pb-1">
+            <div class="flex items-center gap-2 mb-1">
+              <button id="toggleAttachments" class="flex items-center gap-1.5 text-[11.5px] text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors">
+                <i data-lucide="paperclip" class="w-3.5 h-3.5"></i>
+                <span id="attachmentCount">5 files</span>
+                <i data-lucide="chevron-down" id="attachmentChevron" class="w-3 h-3 transition-transform duration-200"></i>
+              </button>
+              <button id="addFileBtn" class="w-5 h-5 rounded hover:bg-[var(--bg-hover)] text-[var(--text-muted)] hover:text-[var(--text-secondary)] flex items-center justify-center transition-colors ml-1" title="Add File">
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+              </button>
+              <input type="file" id="fileInput" class="hidden" multiple />
+            </div>
+            <div id="attachmentList" class="flex flex-wrap gap-2 hidden"></div>
+          </div>
+
+          <!-- Footer -->
+          <div class="flex items-center justify-between px-3 pb-2 pt-1 border-t border-[var(--border-color)]">
+            <div class="flex items-center gap-0.5">
+              <!-- Mode -->
+              <div class="relative">
+                <button id="modeBtn" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[13px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-all duration-150">
+                  <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[var(--text-tertiary)]"></i>
+                  <span id="modeLabel">Auto</span>
+                  <i data-lucide="chevron-down" class="w-3 h-3 text-[var(--text-muted)]"></i>
+                </button>
+                <div id="modeMenu" class="popover-menu hidden" style="bottom:calc(100% + 4px);left:0;"></div>
+              </div>
+              <!-- Settings -->
+              <div class="relative">
+                <button id="settingsBtn" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[13px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-all duration-150">
+                  <i data-lucide="settings" class="w-3.5 h-3.5 text-[var(--text-tertiary)]"></i>
+                  <span>Settings</span>
+                  <i data-lucide="chevron-down" class="w-3 h-3 text-[var(--text-muted)]"></i>
+                </button>
+                <div id="settingsMenu" class="popover-menu hidden" style="bottom:calc(100% + 4px);left:0;"></div>
+              </div>
+            </div>
+
+            <!-- Send + Mic -->
+            <div class="flex items-center gap-1.5">
+              <button id="micBtn" class="flex items-center justify-center w-8 h-8 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] transition-all duration-150" title="Dictate">
+                <i data-lucide="mic" class="w-4 h-4"></i>
+              </button>
+              <button id="sendBtn" class="flex items-center justify-center w-8 h-8 rounded-lg bg-[var(--send-btn-bg)] text-[var(--send-btn-fg)] hover:bg-[var(--send-btn-hover)] transition-all duration-200 active:scale-95 disabled:opacity-25 disabled:cursor-not-allowed disabled:active:scale-100" title="Send" disabled>
+                <i data-lucide="arrow-up" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════ Categories + Suggestions ═══════════ -->
+      <div class="flex flex-col gap-5 px-1 animate-fade-in-up" style="animation-delay:0.16s">
+
+        <!-- Category Toggles -->
+        <div class="flex flex-wrap items-center gap-2" role="radiogroup" aria-label="Category">
+          <button data-category="writing" class="category-btn group flex items-center gap-2 px-3.5 py-2 rounded-xl border border-[var(--border-color)] text-[13px] font-medium text-[var(--text-secondary)] bg-transparent hover:bg-[var(--bg-hover)] hover:border-[var(--border-hover)] hover:text-[var(--text-primary)] transition-all duration-200 cursor-pointer">
+            <i data-lucide="pencil-line" class="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--text-secondary)] transition-colors"></i>
+            Writing
+          </button>
+          <button data-category="coding" class="category-btn group flex items-center gap-2 px-3.5 py-2 rounded-xl border border-[var(--border-color)] text-[13px] font-medium text-[var(--text-secondary)] bg-transparent hover:bg-[var(--bg-hover)] hover:border-[var(--border-hover)] hover:text-[var(--text-primary)] transition-all duration-200 cursor-pointer">
+            <i data-lucide="code-xml" class="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--text-secondary)] transition-colors"></i>
+            Coding
+          </button>
+          <button data-category="research" class="category-btn group flex items-center gap-2 px-3.5 py-2 rounded-xl border border-[var(--border-color)] text-[13px] font-medium text-[var(--text-secondary)] bg-transparent hover:bg-[var(--bg-hover)] hover:border-[var(--border-hover)] hover:text-[var(--text-primary)] transition-all duration-200 cursor-pointer">
+            <i data-lucide="search" class="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--text-secondary)] transition-colors"></i>
+            Research
+          </button>
+          <button data-category="creative" class="category-btn group flex items-center gap-2 px-3.5 py-2 rounded-xl border border-[var(--border-color)] text-[13px] font-medium text-[var(--text-secondary)] bg-transparent hover:bg-[var(--bg-hover)] hover:border-[var(--border-hover)] hover:text-[var(--text-primary)] transition-all duration-200 cursor-pointer">
+            <i data-lucide="lightbulb" class="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--text-secondary)] transition-colors"></i>
+            Creative
+          </button>
+        </div>
+
+        <!-- Suggestion Cards -->
+        <div id="suggestionsGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 hidden"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ─── Data ────────────────────────────────────────────────────────────
+    const CATEGORY_SUGGESTIONS = {
+      writing: [
+        { heading: 'Draft a professional email', body: 'Compose a clear, polished email for any audience', prompt: 'Help me draft a professional email', icon: 'mail' },
+        { heading: 'Improve my writing', body: 'Enhance the clarity, tone, and flow of my text', prompt: 'Review and improve the following text:', icon: 'spell-check' },
+        { heading: 'Create a project proposal', body: 'Write a proposal with goals, timeline, and deliverables', prompt: 'Help me write a project proposal for', icon: 'file-text' },
+        { heading: 'Summarize a document', body: 'Condense a long document into key takeaways', prompt: 'Summarize the following document into key points:', icon: 'list-collapse' },
+      ],
+      coding: [
+        { heading: 'Debug my code', body: 'Find and fix issues in a code snippet', prompt: 'Help me debug the following code:', icon: 'bug' },
+        { heading: 'Write a function', body: 'Generate a well-typed function with error handling', prompt: 'Write a function that', icon: 'braces' },
+        { heading: 'Explain this code', body: 'Break down complex code into understandable pieces', prompt: 'Explain what the following code does:', icon: 'message-circle-question' },
+        { heading: 'Review my pull request', body: 'Check for bugs, performance, and best practices', prompt: 'Review this code for bugs and improvements:', icon: 'git-pull-request' },
+      ],
+      research: [
+        { heading: 'Compare options', body: 'Analyze pros and cons of different approaches', prompt: 'Compare the pros and cons of', icon: 'scale' },
+        { heading: 'Explain a concept', body: 'Break down a complex topic in simple terms', prompt: 'Explain the concept of', icon: 'graduation-cap' },
+        { heading: 'Find best practices', body: 'Research standards and recommended approaches', prompt: 'What are the best practices for', icon: 'bookmark' },
+        { heading: 'Summarize findings', body: 'Compile research into a structured overview', prompt: 'Summarize the key findings on', icon: 'clipboard-list' },
+      ],
+      creative: [
+        { heading: 'Brainstorm ideas', body: 'Generate creative concepts for a project', prompt: 'Brainstorm ideas for', icon: 'zap' },
+        { heading: 'Write a story', body: 'Create an engaging narrative with characters', prompt: 'Write a short story about', icon: 'book-open' },
+        { heading: 'Design a concept', body: 'Explore product or visual design ideas', prompt: 'Help me design a concept for', icon: 'palette' },
+        { heading: 'Create a tagline', body: 'Craft a memorable phrase for a brand or product', prompt: 'Create a catchy tagline for', icon: 'quote' },
+      ],
+    };
+
+    const MENTION_ITEMS = [
+      { id: 'cindy', label: 'Cindy Zhang', role: 'Design Systems' },
+      { id: 'alex', label: 'Alex Johnson', role: 'Frontend' },
+      { id: 'sam', label: 'Sam Rivera', role: 'Backend' },
+      { id: 'jordan', label: 'Jordan Lee', role: 'Product' },
+      { id: 'taylor', label: 'Taylor Kim', role: 'Design' },
+      { id: 'morgan', label: 'Morgan Chen', role: 'Infrastructure' },
+    ];
+
+    const COMMAND_ITEMS = [
+      { id: 'summarize', label: 'summarize', description: 'Summarize the conversation', icon: 'list-collapse' },
+      { id: 'translate', label: 'translate', description: 'Translate text to another language', icon: 'languages' },
+      { id: 'search', label: 'search', description: 'Search the web or documents', icon: 'search' },
+      { id: 'code', label: 'code', description: 'Generate or explain code', icon: 'code-xml' },
+      { id: 'help', label: 'help', description: 'Show available commands', icon: 'circle-help' },
+    ];
+
+    const MODE_OPTIONS = [
+      { key: 'auto', label: 'Auto', icon: 'sparkles', token: null },
+      { key: 'writing', label: 'Writing', icon: 'pencil-line', token: null },
+      { key: 'coding', label: 'Coding', icon: 'code-xml', token: null },
+      { key: 'research', label: 'Research', icon: 'search', token: null },
+      { key: 'creative', label: 'Creative', icon: 'lightbulb', token: null },
+      { key: 'divider' },
+      { key: 'sensitive', label: 'Sensitive', icon: 'lock', token: '/sensitive' },
+      { key: 'deep', label: 'Deep Mode', icon: 'clock', token: '/deep-mode' },
+    ];
+
+    // ─── State ───────────────────────────────────────────────────────────
+    let activeCategory = null;
+    let activeMode = 'auto';
+    let attachments = ['project_brief.pdf', 'wireframes_v2.fig', 'api_spec.yaml', 'user_research.csv', 'brand_guidelines.pdf'];
+    let attachmentsExpanded = false;
+
+    // ─── DOM refs ────────────────────────────────────────────────────────
+    const $ = id => document.getElementById(id);
+    const composerInput = $('composerInput');
+    const sendBtn = $('sendBtn');
+    const suggestionsGrid = $('suggestionsGrid');
+    const attachmentDrawer = $('attachmentDrawer');
+    const attachmentList = $('attachmentList');
+    const attachmentCount = $('attachmentCount');
+    const attachmentChevron = $('attachmentChevron');
+    const toggleAttachmentsBtn = $('toggleAttachments');
+    const mentionBtn = $('mentionBtn');
+    const mentionMenu = $('mentionMenu');
+    const modeBtn = $('modeBtn');
+    const modeMenu = $('modeMenu');
+    const modeLabelEl = $('modeLabel');
+    const settingsBtn = $('settingsBtn');
+    const settingsMenu = $('settingsMenu');
+    const typeaheadPopover = $('typeaheadPopover');
+
+    // ─── Theme Toggle ────────────────────────────────────────────────────
+    const themeToggleBtn = $('themeToggleBtn');
+    const themeIconSun = $('themeIconSun');
+    const themeIconMoon = $('themeIconMoon');
+    const themeLabel = $('themeLabel');
+
+    function updateThemeUI(isDark) {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        themeIconSun.classList.remove('hidden');
+        themeIconMoon.classList.add('hidden');
+        themeLabel.textContent = 'Light';
+      } else {
+        document.documentElement.classList.remove('dark');
+        themeIconSun.classList.add('hidden');
+        themeIconMoon.classList.remove('hidden');
+        themeLabel.textContent = 'Dark';
+      }
+      lucide.createIcons();
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      const isCurrentlyDark = document.documentElement.classList.contains('dark');
+      updateThemeUI(!isCurrentlyDark);
+    });
+
+    // Initialize UI icons
+    updateThemeUI(true);
+
+    // ─── Categories ──────────────────────────────────────────────────────
+    document.querySelectorAll('.category-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cat = btn.dataset.category;
+        const wasActive = activeCategory === cat;
+        document.querySelectorAll('.category-btn').forEach(b => {
+          b.style.backgroundColor = '';
+          b.style.borderColor = '';
+          b.classList.remove('!text-[var(--text-primary)]');
+        });
+        activeCategory = wasActive ? null : cat;
+        if (!wasActive) {
+          btn.style.backgroundColor = 'var(--bg-hover)';
+          btn.style.borderColor = 'var(--border-hover)';
+          btn.classList.add('!text-[var(--text-primary)]');
+        }
+        renderSuggestions();
+      });
+    });
+
+    function renderSuggestions() {
+      if (!activeCategory || !CATEGORY_SUGGESTIONS[activeCategory]) {
+        suggestionsGrid.classList.add('hidden');
+        suggestionsGrid.innerHTML = '';
+        return;
+      }
+      const items = CATEGORY_SUGGESTIONS[activeCategory];
+      suggestionsGrid.innerHTML = items.map((s, i) => `
+        <button onclick="applySuggestion('${s.prompt.replace(/'/g, "\\'")}')"
+          class="group text-left p-4 rounded-xl border border-[var(--border-color)] bg-[var(--bg-surface-raised)] hover:bg-[var(--bg-surface-overlay)] hover:border-[var(--border-hover)] shadow-[var(--shadow-card)] transition-all duration-200 cursor-pointer animate-fade-in-up"
+          style="animation-delay:${i * 0.04}s">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-[var(--bg-hover)] flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-[var(--bg-active)] transition-colors">
+              <i data-lucide="${s.icon}" class="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--text-secondary)] transition-colors"></i>
+            </div>
+            <div class="flex flex-col gap-0.5 min-w-0">
+              <h4 class="text-[13.5px] font-medium text-[var(--text-primary)] group-hover:opacity-90 transition-colors">${s.heading}</h4>
+              <p class="text-[12px] text-[var(--text-muted)] leading-relaxed">${s.body}</p>
+            </div>
+          </div>
+        </button>
+      `).join('');
+      suggestionsGrid.classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function applySuggestion(prompt) {
+      composerInput.textContent = prompt;
+      composerInput.focus();
+      placeCaretAtEnd(composerInput);
+      updateSendBtn();
+      if (activeCategory) setMode(activeCategory);
+    }
+
+    // ─── Composer ────────────────────────────────────────────────────────
+    composerInput.addEventListener('input', () => { updateSendBtn(); checkTypeaheadTrigger(); });
+    function updateSendBtn() { sendBtn.disabled = !composerInput.textContent.trim(); }
+
+    sendBtn.addEventListener('click', () => {
+      if (!composerInput.textContent.trim()) return;
+      sendBtn.classList.add('scale-90');
+      setTimeout(() => sendBtn.classList.remove('scale-90'), 120);
+      
+      const query = encodeURIComponent(composerInput.textContent.trim());
+      window.location.href = `ai-chat.html?q=${query}`;
+    });
+
+    composerInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendBtn.click(); }
+    });
+
+    // ─── Attachments ─────────────────────────────────────────────────────
+    function renderAttachments() {
+      attachmentCount.textContent = `${attachments.length} file${attachments.length !== 1 ? 's' : ''}`;
+      if (!attachments.length) { attachmentDrawer.classList.add('hidden'); return; }
+      attachmentDrawer.classList.remove('hidden');
+      attachmentList.innerHTML = attachments.map(name => `
+        <span class="attachment-chip animate-scale-in">
+          <i data-lucide="file" class="w-3 h-3 text-[var(--text-muted)] flex-shrink-0"></i>
+          <span class="truncate max-w-[110px]">${name}</span>
+          <span class="attachment-remove" onclick="removeAttachment('${name.replace(/'/g, "\\'")}')" title="Remove">
+            <i data-lucide="x" class="w-2.5 h-2.5"></i>
+          </span>
+        </span>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    function removeAttachment(name) {
+      attachments = attachments.filter(a => a !== name);
+      renderAttachments();
+      if (!attachments.length) {
+        attachmentsExpanded = false;
+        attachmentList.classList.add('hidden');
+        attachmentChevron.style.transform = '';
+      }
+    }
+
+    toggleAttachmentsBtn.addEventListener('click', () => {
+      attachmentsExpanded = !attachmentsExpanded;
+      attachmentList.classList.toggle('hidden', !attachmentsExpanded);
+      attachmentChevron.style.transform = attachmentsExpanded ? 'rotate(180deg)' : '';
+    });
+    
+    $('addFileBtn').addEventListener('click', () => $('fileInput').click());
+    $('fileInput').addEventListener('change', (e) => {
+      if (!e.target.files.length) return;
+      for (let i = 0; i < e.target.files.length; i++) {
+        attachments.push(e.target.files[i].name);
+      }
+      attachmentsExpanded = true;
+      attachmentList.classList.remove('hidden');
+      attachmentChevron.style.transform = 'rotate(180deg)';
+      renderAttachments();
+      e.target.value = '';
+    });
+    
+    renderAttachments();
+
+    // ─── Dropdowns ───────────────────────────────────────────────────────
+    function closeAllMenus() { [mentionMenu, modeMenu, settingsMenu].forEach(m => m.classList.add('hidden')); }
+    function toggleMenu(menu) { const h = menu.classList.contains('hidden'); closeAllMenus(); if (h) menu.classList.remove('hidden'); }
+
+    mentionBtn.addEventListener('click', e => { e.stopPropagation(); renderMentionMenu(); toggleMenu(mentionMenu); });
+    function renderMentionMenu() {
+      mentionMenu.innerHTML = MENTION_ITEMS.map(item => `
+        <div class="popover-item" onclick="insertMention('${item.id}')">
+          <div class="w-7 h-7 rounded-full bg-[var(--avatar-bg)] flex items-center justify-center flex-shrink-0">
+            <span class="text-[11px] font-semibold text-[var(--text-secondary)]">${item.label.charAt(0)}</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-[13px] font-medium">${item.label}</span>
+            <span class="text-[11px] text-[var(--text-muted)]">${item.role}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function insertMention(id) {
+      const item = MENTION_ITEMS.find(i => i.id === id);
+      if (!item) return;
+      const chip = document.createElement('span');
+      chip.className = 'token-chip token-blue'; chip.contentEditable = 'false';
+      chip.textContent = `@${item.label}`;
+      composerInput.appendChild(chip);
+      composerInput.appendChild(document.createTextNode('\u00A0'));
+      composerInput.focus(); placeCaretAtEnd(composerInput); updateSendBtn(); closeAllMenus();
+    }
+
+    modeBtn.addEventListener('click', e => { e.stopPropagation(); renderModeMenu(); toggleMenu(modeMenu); });
+    function renderModeMenu() {
+      modeMenu.innerHTML = MODE_OPTIONS.map(opt => {
+        if (opt.key === 'divider') return '<div class="popover-divider"></div>';
+        return `<div class="popover-item" onclick="selectMode('${opt.key}')">
+          <i data-lucide="${opt.icon}" class="w-4 h-4"></i>${opt.label}
+        </div>`;
+      }).join('');
+      lucide.createIcons();
+    }
+
+    function setMode(key) {
+      activeMode = key;
+      modeLabelEl.textContent = (MODE_OPTIONS.find(o => o.key === key) || MODE_OPTIONS[0]).label;
+    }
+
+    function selectMode(key) {
+      const opt = MODE_OPTIONS.find(o => o.key === key);
+      if (opt && opt.token) insertModeToken(opt.token); else setMode(key);
+      closeAllMenus();
+    }
+
+    function insertModeToken(label) {
+      const chip = document.createElement('span');
+      chip.className = 'token-chip token-orange'; chip.contentEditable = 'false'; chip.textContent = label;
+      composerInput.appendChild(chip);
+      composerInput.appendChild(document.createTextNode('\u00A0'));
+      composerInput.focus(); placeCaretAtEnd(composerInput); updateSendBtn();
+    }
+
+    settingsBtn.addEventListener('click', e => { e.stopPropagation(); renderSettingsMenu(); toggleMenu(settingsMenu); });
+    function renderSettingsMenu() {
+      settingsMenu.innerHTML = [
+        { label: 'Preferences', icon: 'sliders-horizontal' },
+        { label: 'Keyboard shortcuts', icon: 'keyboard' },
+        { label: 'About', icon: 'info' },
+      ].map(s => `<div class="popover-item" onclick="closeAllMenus()"><i data-lucide="${s.icon}" class="w-4 h-4"></i>${s.label}</div>`).join('');
+      lucide.createIcons();
+    }
+
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.relative')) closeAllMenus();
+      if (!e.target.closest('#composerCard')) hideTypeahead();
+    });
+
+    // ─── Typeahead ───────────────────────────────────────────────────────
+    function checkTypeaheadTrigger() {
+      const text = composerInput.textContent;
+      const atIdx = text.lastIndexOf('@'), slIdx = text.lastIndexOf('/');
+      if (atIdx >= 0 && atIdx > slIdx) { const q = text.substring(atIdx+1); if (!q.includes(' ')) { renderTypeahead('@', q.toLowerCase()); return; } }
+      if (slIdx >= 0 && slIdx > atIdx) { const q = text.substring(slIdx+1); if (!q.includes(' ')) { renderTypeahead('/', q.toLowerCase()); return; } }
+      hideTypeahead();
+    }
+
+    function renderTypeahead(mode, query) {
+      let html = '';
+      if (mode === '@') {
+        const items = MENTION_ITEMS.filter(i => i.label.toLowerCase().includes(query));
+        html = items.map(i => `
+          <div class="typeahead-item" onclick="selectTypeahead('${i.id}','@')">
+            <div class="w-6 h-6 rounded-full bg-[var(--avatar-bg)] flex items-center justify-center flex-shrink-0">
+              <span class="text-[10px] font-semibold text-[var(--text-secondary)]">${i.label.charAt(0)}</span>
+            </div>
+            <div class="flex flex-col"><span class="text-[13px] font-medium text-[var(--text-primary)]">${i.label}</span><span class="text-[11px] text-[var(--text-muted)]">${i.role}</span></div>
+          </div>`).join('');
+        if (!items.length) { hideTypeahead(); return; }
+      } else {
+        const items = COMMAND_ITEMS.filter(i => i.label.includes(query));
+        html = items.map(i => `
+          <div class="typeahead-item" onclick="selectTypeahead('${i.id}','/')">
+            <i data-lucide="${i.icon}" class="w-4 h-4 text-[var(--text-muted)] flex-shrink-0"></i>
+            <div class="flex flex-col"><span class="text-[13px] font-medium text-[var(--text-primary)]">/${i.label}</span><span class="text-[11px] text-[var(--text-muted)]">${i.description}</span></div>
+          </div>`).join('');
+        if (!items.length) { hideTypeahead(); return; }
+      }
+      typeaheadPopover.innerHTML = html;
+      typeaheadPopover.classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function selectTypeahead(id, type) {
+      const text = composerInput.textContent;
+      const idx = text.lastIndexOf(type);
+      if (idx >= 0) composerInput.textContent = text.substring(0, idx);
+      const chip = document.createElement('span'); chip.contentEditable = 'false';
+      if (type === '@') {
+        const item = MENTION_ITEMS.find(i => i.id === id);
+        if (item) { chip.className = 'token-chip token-blue'; chip.textContent = `@${item.label}`; }
+      } else {
+        const item = COMMAND_ITEMS.find(i => i.id === id);
+        if (item) { chip.className = 'token-chip token-yellow'; chip.textContent = `/${item.label}`; }
+      }
+      composerInput.appendChild(chip);
+      composerInput.appendChild(document.createTextNode('\u00A0'));
+      composerInput.focus(); placeCaretAtEnd(composerInput); hideTypeahead(); updateSendBtn();
+    }
+
+    function hideTypeahead() { typeaheadPopover.classList.add('hidden'); }
+
+    // ─── Utils ───────────────────────────────────────────────────────────
+    function placeCaretAtEnd(el) {
+      const r = document.createRange(); r.selectNodeContents(el); r.collapse(false);
+      const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    }
+  </script>
+</body>
+</html>

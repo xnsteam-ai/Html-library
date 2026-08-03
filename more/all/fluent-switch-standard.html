@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fluent UI - Standard Switch</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-app: #f5f5f5;
+      --bg-surface: #ffffff;
+      --text-primary: #242424;
+      --text-secondary: #616161;
+      --border-color: #e0e0e0;
+      --fluent-brand: #0f6cbd;
+      --fluent-switch-bg: #ffffff;
+      --fluent-switch-border: #616161;
+      --fluent-switch-thumb: #616161;
+      --fluent-switch-hover-bg: #f5f5f5;
+    }
+    html.dark {
+      --bg-app: #292929;
+      --bg-surface: #333333;
+      --text-primary: #ffffff;
+      --text-secondary: #d1d1d1;
+      --border-color: #424242;
+      --fluent-brand: #479ef5;
+      --fluent-switch-bg: #333333;
+      --fluent-switch-border: #d1d1d1;
+      --fluent-switch-thumb: #d1d1d1;
+      --fluent-switch-hover-bg: #424242;
+    }
+    body {
+      background-color: var(--bg-app);
+      color: var(--text-primary);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      transition: background-color 0.2s, color 0.2s;
+    }
+    
+    /* Fluent Switch Styles */
+    .fluent-switch {
+      width: 40px;
+      height: 20px;
+      border-radius: 10px;
+      background-color: var(--fluent-switch-bg);
+      border: 1px solid var(--fluent-switch-border);
+      position: relative;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.33, 0, 0.2, 1);
+      display: inline-block;
+      flex-shrink: 0;
+    }
+    .fluent-switch:hover {
+      background-color: var(--fluent-switch-hover-bg);
+    }
+    
+    .fluent-switch-thumb {
+      width: 12px;
+      height: 12px;
+      background-color: var(--fluent-switch-thumb);
+      border-radius: 50%;
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      transition: all 0.2s cubic-bezier(0.33, 0, 0.2, 1);
+    }
+    
+    /* Checked State */
+    .fluent-switch.checked {
+      background-color: var(--fluent-brand);
+      border-color: var(--fluent-brand);
+    }
+    .fluent-switch.checked .fluent-switch-thumb {
+      background-color: #ffffff; /* Always white inside checked state */
+      left: 23px; /* 40 - 12 - 3(top) - 2(border approx) = 23 */
+    }
+    .fluent-switch.checked:hover {
+      background-color: var(--fluent-brand); /* subtle shade in real fluent, simplified here */
+      opacity: 0.9;
+    }
+
+    /* Disabled State */
+    .fluent-switch.disabled {
+      cursor: not-allowed;
+      opacity: 0.4;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6">
+
+  <!-- Container -->
+  <div class="w-full max-w-sm bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-lg shadow-sm p-8 relative">
+    
+    <!-- Theme Toggle -->
+    <button id="themeToggleBtn" class="absolute top-4 right-4 w-8 h-8 rounded hover:bg-black/5 flex items-center justify-center transition-colors">
+      <i data-lucide="moon" id="themeIconMoon" class="w-4 h-4 text-[var(--text-secondary)]"></i>
+      <i data-lucide="sun" id="themeIconSun" class="w-4 h-4 text-[var(--text-secondary)] hidden"></i>
+    </button>
+
+    <h2 class="text-xl font-semibold mb-8">Standard Switches</h2>
+    
+    <div class="flex flex-col gap-6">
+      
+      <!-- Unchecked Switch -->
+      <div class="flex items-center justify-between">
+        <label class="text-sm font-medium select-none cursor-pointer" onclick="this.nextElementSibling.click()">Wi-Fi</label>
+        <div class="fluent-switch" role="switch" aria-checked="false" onclick="toggleSwitch(this)">
+          <div class="fluent-switch-thumb"></div>
+        </div>
+      </div>
+
+      <!-- Checked Switch -->
+      <div class="flex items-center justify-between">
+        <label class="text-sm font-medium select-none cursor-pointer" onclick="this.nextElementSibling.click()">Bluetooth</label>
+        <div class="fluent-switch checked" role="switch" aria-checked="true" onclick="toggleSwitch(this)">
+          <div class="fluent-switch-thumb"></div>
+        </div>
+      </div>
+
+      <!-- Disabled Switch -->
+      <div class="flex items-center justify-between">
+        <label class="text-sm font-medium text-[var(--text-muted)] select-none">Airplane mode</label>
+        <div class="fluent-switch disabled" role="switch" aria-checked="false">
+          <div class="fluent-switch-thumb"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    // Switch logic
+    function toggleSwitch(el) {
+      if (el.classList.contains('disabled')) return;
+      const isChecked = el.classList.contains('checked');
+      if (isChecked) {
+        el.classList.remove('checked');
+        el.setAttribute('aria-checked', 'false');
+      } else {
+        el.classList.add('checked');
+        el.setAttribute('aria-checked', 'true');
+      }
+    }
+
+    // Theme logic
+    const toggleBtn = document.getElementById('themeToggleBtn');
+    const moon = document.getElementById('themeIconMoon');
+    const sun = document.getElementById('themeIconSun');
+    
+    toggleBtn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      const isDark = document.documentElement.classList.contains('dark');
+      moon.classList.toggle('hidden', isDark);
+      sun.classList.toggle('hidden', !isDark);
+    });
+  </script>
+</body>
+</html>

@@ -30,6 +30,13 @@
       "depthOfField": "Deep",
       "focus": "The figure silhouette"
     },
+    "framing": {
+      "subjectScale": "Figure spans ~50% of frame width, middle band of height",
+      "subjectBox": "Figure x≈28–78%, y≈25–80%; display type x≈5–95%, y≈5–25% and again y≈80–92%",
+      "anchors": "Upper type baseline at ~25%; figure centre ~52%; lower type ~86%",
+      "edges": "Type bleeds to both side edges",
+      "negativeSpace": "Type bands occupy the top ~25% and bottom ~15%"
+    },
     "environment": {
       "setting": "Graphic field",
       "background": "Flat saturated blue ground with heavy display lettering",

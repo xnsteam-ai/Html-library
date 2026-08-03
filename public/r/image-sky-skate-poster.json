@@ -29,6 +29,13 @@
       "depthOfField": "Deep",
       "focus": "The figure and board silhouette"
     },
+    "framing": {
+      "subjectScale": "Central figure spans ~45% of frame width across the middle band",
+      "subjectBox": "Figure x≈30–75%, y≈18–72%; wordmark x≈8–92%, y≈2–14%; secondary figures small at x≈8–20% and x≈78–92%",
+      "anchors": "Wordmark baseline at ~14%; figure centre of mass at ~45%; barcode/footer band at ~92%",
+      "edges": "Trailing foot and board exit toward the bottom-left; cloud fills all edges",
+      "negativeSpace": "Type band occupies the top ~15%; footer band the bottom ~8%"
+    },
     "environment": {
       "setting": "Sky",
       "background": "Bright cumulus cloud and blue sky filling the frame; large graphic type overlaid",

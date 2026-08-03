@@ -29,6 +29,13 @@
       "depthOfField": "Shallow; background softly out of focus",
       "focus": "Face and headphone cups"
     },
+    "framing": {
+      "subjectScale": "Head and headphones fill ~85% of frame width, upper two-thirds of height",
+      "subjectBox": "Head x≈12–88%, y≈5–62%; headphone band arcs across y≈8–20%",
+      "anchors": "Eyeline at ~33% from top; tongue/mouth ~48%; shoulders enter at ~65%",
+      "edges": "Cap crown grazes the top edge; shoulders and jacket exit the bottom edge",
+      "negativeSpace": "Minimal headroom; ~10% margin each side"
+    },
     "environment": {
       "setting": "Interior, non-specific",
       "background": "Muted mid-tone wall, softly blurred",

@@ -23,6 +23,13 @@
       "depthOfField": "Deep",
       "focus": "The primary product jar"
     },
+    "framing": {
+      "subjectScale": "Hero product cluster ~40% of frame width, upper-middle",
+      "subjectBox": "Hero x≈30–72%, y≈18–48%; numbered steps x≈8–92%, y≈52–92%",
+      "anchors": "Title at ~10%; hero centre ~33%; step list begins ~52%",
+      "edges": "Botanical props bleed slightly off the side edges",
+      "negativeSpace": "Even white margin, roughly 6%"
+    },
     "environment": {
       "setting": "Studio tabletop",
       "background": "Clean white ground with botanical props and green accents",

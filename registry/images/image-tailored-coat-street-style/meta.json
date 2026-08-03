@@ -30,6 +30,13 @@
       "depthOfField": "Moderate; street detail readable but soft",
       "focus": "The coat silhouette"
     },
+    "framing": {
+      "subjectScale": "Worn figure occupies right ~40%; garment tiles the left ~55%",
+      "subjectBox": "Figure x≈58–95%, y≈5–100%; garment tiles fill x≈5–52% in three stacked rows",
+      "anchors": "Figure eyeline at ~15% from top; tile row boundaries at ~35% and ~68%",
+      "edges": "Figure exits the bottom edge; tiles crop at the left edge",
+      "negativeSpace": "Thin gutter between the figure column and the tile column"
+    },
     "environment": {
       "setting": "Urban street",
       "background": "Shopfronts and pavement, kept muted and secondary",

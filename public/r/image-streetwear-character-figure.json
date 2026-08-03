@@ -29,6 +29,13 @@
       "depthOfField": "Deep — everything sharp",
       "focus": "The figure silhouette and footwear"
     },
+    "framing": {
+      "subjectScale": "Figure spans ~45% of frame width, full height",
+      "subjectBox": "Figure x≈28–72%, y≈8–92%; oversized footwear widest at x≈25–75%, y≈78–92%",
+      "anchors": "Head centre at ~20%; waist ~55%; ground contact ~92%",
+      "edges": "Nothing cropped — figure fully inside the frame",
+      "negativeSpace": "Even white margin, roughly 12% each side"
+    },
     "environment": {
       "setting": "Studio / render",
       "background": "Pure white ground with a soft contact shadow",

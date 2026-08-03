@@ -1,0 +1,10 @@
+{
+  "name": "skeleton-card",
+  "title": "Skeleton Card",
+  "description": "A pulsing placeholder for a card — avatar, image, text lines and action buttons — shown while real content loads.",
+  "category": "ui",
+  "order": 15,
+  "tags": ["skeleton", "loading", "placeholder"],
+  "previewBg": "muted",
+  "previewHeight": 340
+}

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shell Nav - Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] },
+          animation: { 'fade-in': 'fadeIn 0.2s ease-out both' },
+          keyframes: { fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } } }
+        }
+      }
+    };
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-app: #f4f4f6;
+      --bg-surface: #ffffff;
+      --bg-sidebar: #f8f8fa;
+      --bg-header: #ffffff;
+      --bg-popover: #ffffff;
+      --text-primary: #171717;
+      --text-secondary: #555555;
+      --text-muted: #999999;
+      --border-color: rgba(0,0,0,0.08);
+      --bg-hover: rgba(0,0,0,0.04);
+      --bg-active: rgba(0,0,0,0.06);
+      --shadow-popover: 0 4px 12px rgba(0,0,0,0.1);
+      --scrollbar-thumb: rgba(0,0,0,0.15);
+      --btn-secondary-bg: #e5e5e5;
+    }
+    html.dark {
+      --bg-app: #141414;
+      --bg-surface: #1e1e1e;
+      --bg-sidebar: #191919;
+      --bg-header: #1e1e1e;
+      --bg-popover: #252526;
+      --text-primary: #e8e8e8;
+      --text-secondary: #999999;
+      --text-muted: #555555;
+      --border-color: rgba(255,255,255,0.07);
+      --bg-hover: rgba(255,255,255,0.04);
+      --bg-active: rgba(255,255,255,0.08);
+      --shadow-popover: 0 4px 12px rgba(0,0,0,0.5);
+      --scrollbar-thumb: rgba(255,255,255,0.08);
+      --btn-secondary-bg: #333333;
+    }
+    body {
+      background-color: var(--bg-app);
+      color: var(--text-primary);
+      transition: background-color 0.2s, color 0.2s;
+    }
+    * { scrollbar-width: thin; scrollbar-color: var(--scrollbar-thumb) transparent; }
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 9999px; }
+
+    /* Resizer styling */
+    .resizer {
+      width: 1px;
+      background-color: var(--border-color);
+      position: relative;
+      cursor: col-resize;
+      z-index: 10;
+    }
+    .resizer::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -6px; right: -6px; bottom: 0;
+    }
+    .resizer:hover, .resizer:active {
+      background-color: #3b82f6; /* A generic blue active state */
+    }
+
+    /* Menu Dropdown logic */
+    .menu-dropdown {
+      display: none;
+    }
+    .menu-trigger:hover .menu-dropdown,
+    .menu-dropdown:hover {
+      display: block;
+    }
+    /* Kbd styling */
+    kbd {
+      background: var(--bg-hover);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 0 4px;
+      font-size: 10px;
+      color: var(--text-secondary);
+      font-family: inherit;
+    }
+  </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden">
+  
+  <!-- Top Nav Bar -->
+  <header class="h-12 border-b border-[var(--border-color)] bg-[var(--bg-header)] flex items-center justify-between px-2 shrink-0 z-40 relative">
+    
+    <!-- Menu Bars -->
+    <nav class="flex items-center h-full">
+      <!-- File -->
+      <div class="h-full flex items-center relative menu-trigger">
+        <button class="px-3 py-1.5 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] rounded transition-colors cursor-default">File</button>
+        <div class="menu-dropdown absolute top-full left-0 w-64 bg-[var(--bg-popover)] border border-[var(--border-color)] rounded-lg shadow-[var(--shadow-popover)] py-1 mt-0">
+          <div class="px-1 py-1">
+            <button class="w-full flex items-center justify-between px-2 py-1.5 rounded hover:bg-[var(--bg-hover)] text-sm text-[var(--text-primary)]"><span>New File</span><kbd>⌘N</kbd></button>
+            <button class="w-full flex items-center justify-between px-2 py-1.5 rounded hover:bg-[var(--bg-hover)] text-sm text-[var(--text-primary)]"><span>New Window</span><kbd>⇧⌘N</kbd></button>
+          </div>
+          <div class="h-px bg-[var(--border-color)] my-1"></div>
+          <div class="px-1 py-1">
+            <button class="w-full flex items-center justify-between px-2 py-1.5 rounded hover:bg-[var(--bg-hover)] text-sm text-[var(--text-primary)]"><span>Open...</span><kbd>⌘O</kbd></button>
+            <button class="w-full flex items-center justify-between px-2 py-1.5 rounded hover:bg-[var(--bg-hover)] text-sm text-[var(--text-primary)]"><span>Save</span><kbd>⌘S</kbd></button>
+            <button class="w-full flex items-center justify-between px-2 py-1.5 rounded hover:bg-[var(--bg-hover)] text-sm text-[var(--text-primary)]"><span>Save As...</span><kbd>⇧⌘S</kbd></button>
+          </div>
+          <div class="h-px bg-[var(--border-color)] my-1"></div>
+          <div class="px-1 py-1">
+            <button class="w-full flex items-center justify-between px-2 py-1.5 rounded hover:bg-[var(--bg-hover)] text-sm text-[var(--text-primary)]"><span>Close Editor</span><kbd>⌘W</kbd></button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Edit -->
+      <div class="h-full flex items-center relative menu-trigger">
+        <button class="px-3 py-1.5 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] rounded transition-colors cursor-default">Edit</button>
+        <div class="menu-dropdown absolute top-full left-0 w-64 bg-[var(--bg-popover)] border border-[var(--border-color)] rounded-lg shadow-[var(--shadow-popover)] py-1 mt-0">
+          <div class="px-1 py-1">
+            <button class="w-full flex items-center justify-between px-2 py-1.5 rounded hover:bg-[var(--bg-hover)] text-sm text-[var(--text-primary)]"><span>Undo</span><kbd>⌘Z</kbd></button>
+            <button class="w-full flex items-center justify-between px-2 py-1.5 rounded hover:bg-[var(--bg-hover)] text-sm text-[var(--text-primary)]"><span>Redo</span><kbd>⇧⌘Z</kbd></button>
+          </div>
+          <div class="h-px bg-[var(--border-color)] my-1"></div>
+          <div class="px-1 py-1">
+            <button class="w-full flex items-center justify-between px-2 py-1.5 rounded hover:bg-[var(--bg-hover)] text-sm text-[var(--text-primary)]"><span>Cut</span><kbd>⌘X</kbd></button>
+            <button class="w-full flex items-center justify-between px-2 py-1.5 rounded hover:bg-[var(--bg-hover)] text-sm text-[var(--text-primary)]"><span>Copy</span><kbd>⌘C</kbd></button>
+            <button class="w-full flex items-center justify-between px-2 py-1.5 rounded hover:bg-[var(--bg-hover)] text-sm text-[var(--text-primary)]"><span>Paste</span><kbd>⌘V</kbd></button>
+          </div>
+          <div class="h-px bg-[var(--border-color)] my-1"></div>
+          <div class="px-1 py-1">
+            <button class="w-full flex items-center justify-between px-2 py-1.5 rounded hover:bg-[var(--bg-hover)] text-sm text-[var(--text-primary)]"><span>Find</span><kbd>⌘F</kbd></button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- View -->
+      <div class="h-full flex items-center relative menu-trigger">
+        <button class="px-3 py-1.5 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] rounded transition-colors cursor-default">View</button>
+      </div>
+
+      <!-- Window -->
+      <div class="h-full flex items-center relative menu-trigger">
+        <button class="px-3 py-1.5 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] rounded transition-colors cursor-default">Window</button>
+      </div>
+
+      <!-- Help -->
+      <div class="h-full flex items-center relative menu-trigger">
+        <button class="px-3 py-1.5 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] rounded transition-colors cursor-default">Help</button>
+      </div>
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="flex items-center gap-2 px-2">
+      <!-- Search Input Box -->
+      <div id="searchTrigger" class="relative w-60 group cursor-pointer">
+        <div class="absolute inset-0 bg-transparent z-10"></div>
+        <i data-lucide="search" class="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors"></i>
+        <input type="text" placeholder="Search files and commands…" class="w-full bg-[var(--bg-app)] border border-[var(--border-color)] rounded-md py-1 pl-8 pr-3 text-xs text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none group-hover:border-[var(--text-secondary)] transition-colors pointer-events-none" />
+      </div>
+
+      <button class="w-7 h-7 flex items-center justify-center rounded hover:bg-[var(--bg-hover)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors cursor-pointer" title="Run project">
+        <i data-lucide="play" class="w-4 h-4"></i>
+      </button>
+
+      <!-- Theme Toggle -->
+      <button id="themeToggleBtn" class="w-7 h-7 flex items-center justify-center rounded border border-[var(--border-color)] bg-[var(--btn-secondary-bg)] hover:brightness-110 text-xs font-semibold cursor-pointer ml-2">
+        <i data-lucide="sun" id="themeIconSun" class="w-3.5 h-3.5 hidden"></i>
+        <i data-lucide="moon" id="themeIconMoon" class="w-3.5 h-3.5"></i>
+      </button>
+      
+      <button class="px-2.5 py-1 rounded bg-[var(--btn-secondary-bg)] border border-[var(--border-color)] text-xs font-medium text-[var(--text-primary)] hover:brightness-110 transition-all cursor-pointer">
+        Share
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Workspace (Sidebar + Editor) -->
+  <div class="flex-1 flex min-h-0 bg-[var(--bg-app)]">
+    
+    <!-- Sidebar -->
+    <aside id="sidebar" class="flex flex-col bg-[var(--bg-sidebar)] shrink-0 overflow-y-auto" style="width: 240px;">
+      <div class="p-4 py-3 pb-1">
+        <h2 class="text-[11px] font-semibold text-[var(--text-secondary)] uppercase tracking-wider">Explorer</h2>
+      </div>
+      <!-- File Tree -->
+      <div class="flex flex-col text-sm py-2">
+        <!-- Src Folder -->
+        <div class="flex flex-col">
+          <div class="folder-trigger flex items-center gap-1.5 px-3 py-1 text-[var(--text-primary)] hover:bg-[var(--bg-hover)] cursor-pointer">
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-[var(--text-muted)] transition-transform duration-200"></i>
+            <i data-lucide="folder" class="w-4 h-4 text-[var(--text-secondary)]"></i>
+            <span class="truncate">src</span>
+          </div>
+          <div class="folder-content flex flex-col">
+            <!-- Components -->
+            <div class="folder-trigger flex items-center gap-1.5 px-3 py-1 pl-6 text-[var(--text-primary)] hover:bg-[var(--bg-hover)] cursor-pointer">
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-[var(--text-muted)] transition-transform duration-200"></i>
+              <i data-lucide="folder" class="w-4 h-4 text-[var(--text-secondary)]"></i>
+              <span class="truncate">components</span>
+            </div>
+            <div class="folder-content flex flex-col">
+              <div class="file-item flex items-center gap-2 px-3 py-1 pl-10 bg-[var(--bg-active)] text-[var(--text-primary)] cursor-pointer border-l-[3px] border-l-blue-500">
+                <i data-lucide="file-code" class="w-4 h-4 text-[var(--text-secondary)]"></i>
+                <span class="truncate">AppShell.tsx</span>
+              </div>
+              <div class="file-item flex items-center gap-2 px-3 py-1 pl-10 text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] hover:text-[var(--text-primary)] cursor-pointer border-l-[3px] border-transparent">
+                <i data-lucide="file-code" class="w-4 h-4"></i>
+                <span class="truncate">TopNav.tsx</span>
+              </div>
+              <div class="file-item flex items-center gap-2 px-3 py-1 pl-10 text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] hover:text-[var(--text-primary)] cursor-pointer border-l-[3px] border-transparent">
+                <i data-lucide="file-code" class="w-4 h-4"></i>
+                <span class="truncate">SideNav.tsx</span>
+              </div>
+            </div>
+            
+            <!-- Hooks -->
+            <div class="folder-trigger flex items-center gap-1.5 px-3 py-1 pl-6 text-[var(--text-primary)] hover:bg-[var(--bg-hover)] cursor-pointer">
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-[var(--text-muted)] transition-transform duration-200"></i>
+              <i data-lucide="folder" class="w-4 h-4 text-[var(--text-secondary)]"></i>
+              <span class="truncate">hooks</span>
+            </div>
+            
+            <div class="folder-content flex flex-col hidden">
+              <div class="file-item flex items-center gap-2 px-3 py-1 pl-10 text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] hover:text-[var(--text-primary)] cursor-pointer border-l-[3px] border-transparent">
+                <i data-lucide="file-code" class="w-4 h-4"></i>
+                <span class="truncate">index.tsx</span>
+              </div>
+              <div class="file-item flex items-center gap-2 px-3 py-1 pl-10 text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] hover:text-[var(--text-primary)] cursor-pointer border-l-[3px] border-transparent">
+                <i data-lucide="file-code" class="w-4 h-4"></i>
+                <span class="truncate">App.tsx</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Public Folder (Collapsed) -->
+        <div class="flex flex-col mt-1">
+          <div class="folder-trigger flex items-center gap-1.5 px-3 py-1 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] cursor-pointer">
+            <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-[var(--text-muted)] transition-transform duration-200"></i>
+            <i data-lucide="folder" class="w-4 h-4"></i>
+            <span class="truncate">public</span>
+          </div>
+          <div class="folder-content flex flex-col hidden">
+             <div class="file-item flex items-center gap-2 px-3 py-1 pl-[26px] text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] hover:text-[var(--text-primary)] cursor-pointer border-l-[3px] border-transparent">
+              <i data-lucide="file-image" class="w-4 h-4"></i>
+              <span class="truncate">favicon.ico</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Root Files -->
+        <div class="file-item flex items-center gap-2 px-3 py-1 text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] hover:text-[var(--text-primary)] cursor-pointer pl-[26px] border-l-[3px] border-transparent">
+          <i data-lucide="file-json" class="w-4 h-4"></i>
+          <span class="truncate">package.json</span>
+        </div>
+        <div class="file-item flex items-center gap-2 px-3 py-1 text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] hover:text-[var(--text-primary)] cursor-pointer pl-[26px] border-l-[3px] border-transparent">
+          <i data-lucide="file-json" class="w-4 h-4"></i>
+          <span class="truncate">tsconfig.json</span>
+        </div>
+        <div class="file-item flex items-center gap-2 px-3 py-1 text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] hover:text-[var(--text-primary)] cursor-pointer pl-[26px] border-l-[3px] border-transparent">
+          <i data-lucide="file-text" class="w-4 h-4"></i>
+          <span class="truncate">README.md</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Resizer -->
+    <div id="resizer" class="resizer"></div>
+
+    <!-- Main Editor Area -->
+    <main class="flex-1 flex flex-col min-w-0 bg-[var(--bg-surface)] rounded-tl-md border-l border-t border-[var(--border-color)]">
+      
+      <!-- Editor Tabs -->
+      <div class="h-10 flex items-end border-b border-[var(--border-color)] overflow-x-auto shrink-0 px-2 pt-2 gap-1 bg-[var(--bg-app)]">
+        
+        <div class="editor-tab px-4 py-1.5 text-xs font-medium bg-[var(--bg-surface)] text-[var(--text-primary)] border border-b-0 border-[var(--border-color)] rounded-t-md flex items-center gap-2 cursor-pointer border-t-[3px] border-t-blue-500 min-w-[120px] transition-colors">
+          <i data-lucide="file-code" class="w-3.5 h-3.5 text-[var(--text-secondary)]"></i>
+          <span>AppShell.tsx</span>
+          <button class="tab-close ml-auto hover:bg-[var(--bg-hover)] rounded text-[var(--text-muted)] hover:text-[var(--text-primary)] p-0.5"><i data-lucide="x" class="w-3 h-3"></i></button>
+        </div>
+        
+        <div class="editor-tab px-4 py-1.5 text-xs text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] border border-transparent border-b-0 rounded-t-md flex items-center gap-2 cursor-pointer min-w-[120px] transition-colors">
+          <i data-lucide="file-code" class="w-3.5 h-3.5"></i>
+          <span>TopNav.tsx</span>
+          <button class="tab-close ml-auto hover:bg-[var(--bg-hover)] rounded text-[var(--text-muted)] hover:text-[var(--text-primary)] p-0.5"><i data-lucide="x" class="w-3 h-3"></i></button>
+        </div>
+        
+        <div class="editor-tab px-4 py-1.5 text-xs text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] border border-transparent border-b-0 rounded-t-md flex items-center gap-2 cursor-pointer min-w-[120px] transition-colors">
+          <i data-lucide="file-code" class="w-3.5 h-3.5"></i>
+          <span>theme.ts</span>
+          <button class="tab-close ml-auto hover:bg-[var(--bg-hover)] rounded text-[var(--text-muted)] hover:text-[var(--text-primary)] p-0.5"><i data-lucide="x" class="w-3 h-3"></i></button>
+        </div>
+
+      </div>
+
+      <!-- Editor Content -->
+      <div class="flex-1 p-6 overflow-y-auto">
+        <div class="flex flex-col gap-2 max-w-[800px]">
+          
+          <!-- Code Lines Mockup -->
+          <div class="flex items-center gap-3 h-3.5"><div class="w-5 h-full rounded bg-[var(--bg-hover)]"></div><div class="h-full rounded bg-[var(--bg-hover)]" style="width: 38%;"></div></div>
+          <div class="flex items-center gap-3 h-3.5"><div class="w-5 h-full rounded bg-[var(--bg-hover)]"></div><div class="h-full rounded bg-[var(--bg-hover)]" style="width: 62%;"></div></div>
+          <div class="flex items-center gap-3 h-3.5"><div class="w-5 h-full rounded bg-[var(--bg-hover)]"></div><div class="h-full rounded bg-[var(--bg-hover)]" style="width: 54%;"></div></div>
+          <div class="h-3.5 rounded bg-transparent"></div> <!-- Empty line -->
+          <div class="flex items-center gap-3 h-3.5"><div class="w-5 h-full rounded bg-[var(--bg-hover)]"></div><div class="h-full rounded bg-[var(--bg-hover)]" style="width: 46%;"></div></div>
+          <div class="flex items-center gap-3 h-3.5"><div class="w-5 h-full rounded bg-[var(--bg-hover)]"></div><div class="h-full rounded bg-[var(--bg-hover)]" style="width: 70%;"></div></div>
+          <div class="flex items-center gap-3 h-3.5"><div class="w-5 h-full rounded bg-[var(--bg-hover)]"></div><div class="h-full rounded bg-[var(--bg-hover)]" style="width: 58%;"></div></div>
+          <div class="flex items-center gap-3 h-3.5"><div class="w-5 h-full rounded bg-[var(--bg-hover)]"></div><div class="h-full rounded bg-[var(--bg-hover)]" style="width: 34%;"></div></div>
+          <div class="h-3.5 rounded bg-transparent"></div> <!-- Empty line -->
+          <div class="flex items-center gap-3 h-3.5"><div class="w-5 h-full rounded bg-[var(--bg-hover)]"></div><div class="h-full rounded bg-[var(--bg-hover)]" style="width: 50%;"></div></div>
+          <div class="flex items-center gap-3 h-3.5"><div class="w-5 h-full rounded bg-[var(--bg-hover)]"></div><div class="h-full rounded bg-[var(--bg-hover)]" style="width: 66%;"></div></div>
+          <div class="flex items-center gap-3 h-3.5"><div class="w-5 h-full rounded bg-[var(--bg-hover)]"></div><div class="h-full rounded bg-[var(--bg-hover)]" style="width: 42%;"></div></div>
+          <div class="flex items-center gap-3 h-3.5"><div class="w-5 h-full rounded bg-[var(--bg-hover)]"></div><div class="h-full rounded bg-[var(--bg-hover)]" style="width: 60%;"></div></div>
+          <div class="flex items-center gap-3 h-3.5"><div class="w-5 h-full rounded bg-[var(--bg-hover)]"></div><div class="h-full rounded bg-[var(--bg-hover)]" style="width: 28%;"></div></div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Command Palette Modal -->
+  <div id="cmdPalette" class="fixed inset-0 z-50 flex items-start justify-center pt-32 hidden">
+    <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" id="cmdBackdrop"></div>
+    <div class="relative w-full max-w-2xl bg-[var(--bg-popover)] rounded-xl shadow-2xl border border-[var(--border-color)] overflow-hidden animate-fade-in flex flex-col">
+      <div class="flex items-center px-4 py-3 border-b border-[var(--border-color)]">
+        <i data-lucide="search" class="w-4 h-4 text-[var(--text-muted)] mr-3"></i>
+        <input type="text" id="cmdInput" placeholder="Search files by name (e.g. AppShell.tsx)" class="flex-1 bg-transparent border-none outline-none text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)]" />
+        <span class="text-xs text-[var(--text-muted)] px-2">ESC</span>
+      </div>
+      <div class="p-2 max-h-[40vh] overflow-y-auto flex flex-col gap-1" id="cmdResults">
+        <div class="px-3 py-2 rounded-lg bg-[var(--bg-active)] flex items-center gap-3 cursor-pointer">
+          <i data-lucide="file-code" class="w-4 h-4 text-[var(--text-secondary)]"></i>
+          <span class="text-sm font-medium text-[var(--text-primary)]">AppShell.tsx</span>
+          <span class="text-xs text-[var(--text-muted)] ml-auto">src/components</span>
+        </div>
+        <div class="px-3 py-2 rounded-lg hover:bg-[var(--bg-hover)] flex items-center gap-3 cursor-pointer">
+          <i data-lucide="file-code" class="w-4 h-4 text-[var(--text-secondary)]"></i>
+          <span class="text-sm font-medium text-[var(--text-primary)]">TopNav.tsx</span>
+          <span class="text-xs text-[var(--text-muted)] ml-auto">src/components</span>
+        </div>
+        <div class="px-3 py-2 rounded-lg hover:bg-[var(--bg-hover)] flex items-center gap-3 cursor-pointer">
+          <i data-lucide="file-code" class="w-4 h-4 text-[var(--text-secondary)]"></i>
+          <span class="text-sm font-medium text-[var(--text-primary)]">SideNav.tsx</span>
+          <span class="text-xs text-[var(--text-muted)] ml-auto">src/components</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeIconSun = document.getElementById('themeIconSun');
+    const themeIconMoon = document.getElementById('themeIconMoon');
+
+    function updateThemeUI(isDark) {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        themeIconSun.classList.remove('hidden');
+        themeIconMoon.classList.add('hidden');
+      } else {
+        document.documentElement.classList.remove('dark');
+        themeIconSun.classList.add('hidden');
+        themeIconMoon.classList.remove('hidden');
+      }
+    }
+
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', () => {
+        const isCurrentlyDark = document.documentElement.classList.contains('dark');
+        updateThemeUI(!isCurrentlyDark);
+      });
+    }
+
+    updateThemeUI(true);
+    lucide.createIcons();
+
+    // Resizer Logic
+    const sidebar = document.getElementById('sidebar');
+    const resizer = document.getElementById('resizer');
+    let isResizing = false;
+
+    resizer.addEventListener('mousedown', (e) => {
+      isResizing = true;
+      document.body.style.cursor = 'col-resize';
+      document.body.style.userSelect = 'none';
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isResizing) return;
+      let newWidth = e.clientX;
+      if (newWidth < 180) newWidth = 180;
+      if (newWidth > 600) newWidth = 600;
+      sidebar.style.width = `${newWidth}px`;
+    });
+
+    document.addEventListener('mouseup', () => {
+      if (isResizing) {
+        isResizing = false;
+        document.body.style.cursor = '';
+        document.body.style.userSelect = '';
+      }
+    });
+
+    // File Tree Logic
+    document.querySelectorAll('.folder-trigger').forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const content = trigger.nextElementSibling;
+        if (content && content.classList.contains('folder-content')) {
+          const isHidden = content.classList.contains('hidden');
+          content.classList.toggle('hidden', !isHidden);
+          const icon = trigger.querySelector('[data-lucide^="chevron"]');
+          if (icon) {
+            // we rotate the icon based on state
+            icon.style.transform = isHidden ? '' : 'rotate(-90deg)';
+          }
+        }
+      });
+    });
+
+    const fileItems = document.querySelectorAll('.file-item');
+    fileItems.forEach(item => {
+      item.addEventListener('click', () => {
+        fileItems.forEach(i => {
+          i.classList.remove('bg-[var(--bg-active)]', 'text-[var(--text-primary)]', 'border-l-blue-500');
+          i.classList.add('text-[var(--text-secondary)]', 'border-transparent');
+        });
+        item.classList.add('bg-[var(--bg-active)]', 'text-[var(--text-primary)]', 'border-l-blue-500');
+        item.classList.remove('text-[var(--text-secondary)]', 'border-transparent');
+      });
+    });
+
+    // Editor Tabs Logic
+    const tabs = document.querySelectorAll('.editor-tab');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => {
+          t.classList.remove('bg-[var(--bg-surface)]', 'border-t-[3px]', 'border-t-blue-500', 'text-[var(--text-primary)]', 'font-medium', 'border-[var(--border-color)]');
+          t.classList.add('text-[var(--text-secondary)]', 'border-transparent');
+        });
+        tab.classList.add('bg-[var(--bg-surface)]', 'border-t-[3px]', 'border-t-blue-500', 'text-[var(--text-primary)]', 'font-medium', 'border-[var(--border-color)]');
+        tab.classList.remove('text-[var(--text-secondary)]', 'border-transparent');
+      });
+
+      const closeBtn = tab.querySelector('.tab-close');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          tab.remove();
+        });
+      }
+    });
+
+    // Command Palette Logic
+    const cmdPalette = document.getElementById('cmdPalette');
+    const cmdInput = document.getElementById('cmdInput');
+    
+    function openCmd() {
+      cmdPalette.classList.remove('hidden');
+      cmdInput.focus();
+    }
+    
+    function closeCmd() {
+      cmdPalette.classList.add('hidden');
+    }
+
+    document.getElementById('searchTrigger').addEventListener('click', openCmd);
+    document.getElementById('cmdBackdrop').addEventListener('click', closeCmd);
+
+    document.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'p') {
+        e.preventDefault();
+        openCmd();
+      }
+      if (e.key === 'Escape') closeCmd();
+    });
+
+  </script>
+</body>
+</html>

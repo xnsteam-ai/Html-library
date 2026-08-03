@@ -29,6 +29,13 @@
       "depthOfField": "Very shallow; hands soft, face sharper",
       "focus": "The face between the hands"
     },
+    "framing": {
+      "subjectScale": "Hands fill ~70% of frame width in the foreground; head smaller behind",
+      "subjectBox": "Hands x≈15–85%, y≈35–85%; head x≈35–65%, y≈12–45%",
+      "anchors": "Fingertips reach ~35% from top; eyeline at ~28%; wrists at ~80%",
+      "edges": "Forearms exit the bottom edge; flare washes all four edges",
+      "negativeSpace": "Upper ~12% is blown-out sky — flare rather than clean space"
+    },
     "environment": {
       "setting": "Outdoors",
       "background": "Dark foliage and open sky, reduced to warm shapes",

@@ -41,6 +41,19 @@ function aspect(width?: number, height?: number): string | undefined {
   return `${width}×${height} (${width / divisor}:${height / divisor})`
 }
 
+/**
+ * The canvas line is derived rather than authored — orientation and ratio are
+ * facts about the file, and stating them up front stops a model defaulting to
+ * a square or landscape frame for what is actually a tall portrait crop.
+ */
+function canvas(width?: number, height?: number): string | undefined {
+  if (!width || !height) return undefined
+  const divisor = gcd(width, height)
+  const ratio = `${width / divisor}:${height / divisor}`
+  const shape = width / height < 0.95 ? 'Vertical / portrait' : width / height > 1.05 ? 'Horizontal / landscape' : 'Square'
+  return `${shape} canvas, ${ratio} — compose for this exact aspect, do not letterbox or re-crop`
+}
+
 /** `- Label: value`, or nothing at all when the value is missing. */
 function line(label: string, value?: string): string[] {
   return value ? [`- ${label}: ${value}`] : []
@@ -57,7 +70,10 @@ function section(heading: string, lines: string[]): string[] {
 
 const RECREATION_DIRECTIVE =
   'Recreate this exact composition, lighting, camera characteristics, environment, ' +
-  'technical quality, and atmosphere. Only change the SUBJECT block when instructed. ' +
+  'technical quality, and atmosphere. Match the canvas aspect and the frame geometry ' +
+  'first: place the subject at the stated scale, bounding box and anchor lines, and ' +
+  'reproduce the stated edge crops rather than re-centring, adding headroom, or fitting ' +
+  'the whole subject inside the frame. Only change the SUBJECT block when instructed. ' +
   'Do not invent new background elements, alter the lighting setup, change the framing, ' +
   'or modify the technical aesthetic unless explicitly asked. Preserve the original ' +
   'quality exactly as described.'
@@ -65,7 +81,7 @@ const RECREATION_DIRECTIVE =
 export function buildPromptTemplate(item: RegistryItem): string {
   const spec: ImagePromptSpec = item.prompt ?? {}
   const { id, mediaUrl, width, height } = assetFacts(item)
-  const { subject, composition, environment, lighting, camera, atmosphere } = spec
+  const { subject, composition, framing, environment, lighting, camera, atmosphere } = spec
 
   const out: string[] = [
     '### MEDIA_ASSET',
@@ -86,8 +102,16 @@ export function buildPromptTemplate(item: RegistryItem): string {
       ...line('Clothing / accessories / surface details', subject?.clothing),
     ]),
 
+    // Geometry sits directly under shot type: a model reads top-down, and
+    // placement has to land before lighting or mood get a chance to drift it.
     ...section('COMPOSITION & FRAMING', [
       ...line('Shot type', composition?.shotType),
+      ...line('Canvas & orientation', canvas(width, height)),
+      ...line('Subject scale in frame', framing?.subjectScale),
+      ...line('Subject bounding box', framing?.subjectBox),
+      ...line('Key anchor lines', framing?.anchors),
+      ...line('Edge crops', framing?.edges),
+      ...line('Negative space / margins', framing?.negativeSpace),
       ...line('Camera angle', composition?.angle),
       ...line('Subject placement', composition?.placement),
       ...line('Distance to subject', composition?.distance),

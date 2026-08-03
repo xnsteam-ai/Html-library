@@ -30,6 +30,13 @@
       "depthOfField": "Deep",
       "focus": "The headphone cups"
     },
+    "framing": {
+      "subjectScale": "Figure and product fill ~60% of frame width, lower two-thirds",
+      "subjectBox": "Figure x≈22–82%, y≈32–100%; headphones x≈38–72%, y≈35–58%; wordmark x≈8–92%, y≈5–28%",
+      "anchors": "Wordmark baseline at ~28%; product centre ~46%",
+      "edges": "Figure exits the bottom edge",
+      "negativeSpace": "Top ~28% is the type band"
+    },
     "environment": {
       "setting": "Studio / graphic composite",
       "background": "Pale grey ground with large display lettering",

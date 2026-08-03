@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Gallery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] },
+          animation: { 
+            'fade-in': 'fadeIn 0.4s ease-out both',
+            'scale-in': 'scaleIn 0.2s ease-out both'
+          },
+          keyframes: { 
+            fadeIn: { '0%': { opacity: '0', transform: 'translateY(10px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            scaleIn: { '0%': { opacity: '0', transform: 'scale(0.97)' }, '100%': { opacity: '1', transform: 'scale(1)' } }
+          },
+        }
+      }
+    };
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-app: #f4f4f6;
+      --bg-surface: #ffffff;
+      --text-primary: #171717;
+      --text-secondary: #555555;
+      --text-muted: #999999;
+      --border-color: rgba(0,0,0,0.08);
+      --bg-hover: rgba(0,0,0,0.04);
+      --btn-primary-bg: #171717;
+      --btn-primary-fg: #ffffff;
+      --scrollbar-thumb: rgba(0,0,0,0.15);
+    }
+    html.dark {
+      --bg-app: #141414;
+      --bg-surface: #222222;
+      --text-primary: #e8e8e8;
+      --text-secondary: #999999;
+      --text-muted: #555555;
+      --border-color: rgba(255,255,255,0.07);
+      --bg-hover: rgba(255,255,255,0.04);
+      --btn-primary-bg: #ffffff;
+      --btn-primary-fg: #171717;
+      --scrollbar-thumb: rgba(255,255,255,0.08);
+    }
+    body {
+      background-color: var(--bg-app);
+      color: var(--text-primary);
+      transition: background-color 0.2s, color 0.2s;
+    }
+    * { scrollbar-width: thin; scrollbar-color: var(--scrollbar-thumb) transparent; }
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 9999px; }
+    
+    .product-img-placeholder {
+      background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20300%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%3Crect%20width%3D%22400%22%20height%3D%22300%22%20fill%3D%22%232a2a2a%22%2F%3E%3Cg%20transform%3D%22translate%28200%20150%29%22%20fill%3D%22none%22%20stroke%3D%22%23444444%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%22-44%22%20y%3D%22-44%22%20width%3D%2288%22%20height%3D%2288%22%20rx%3D%2216%22%2F%3E%3Ccircle%20cx%3D%2218%22%20cy%3D%22-18%22%20r%3D%222.5%22%20fill%3D%22%23444444%22%20stroke%3D%22none%22%2F%3E%3Cpath%20d%3D%22M-34%2030%20L-8%200%20L10%2018%20L20%208%20L34%2024%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+      background-size: cover;
+      background-position: center;
+    }
+    html:not(.dark) .product-img-placeholder {
+      background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20300%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%3Crect%20width%3D%22400%22%20height%3D%22300%22%20fill%3D%22%23f5f6f8%22%2F%3E%3Cg%20transform%3D%22translate%28200%20150%29%22%20fill%3D%22none%22%20stroke%3D%22%23c2cad6%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%22-44%22%20y%3D%22-44%22%20width%3D%2288%22%20height%3D%2288%22%20rx%3D%2216%22%2F%3E%3Ccircle%20cx%3D%2218%22%20cy%3D%22-18%22%20r%3D%222.5%22%20fill%3D%22%23c2cad6%22%20stroke%3D%22none%22%2F%3E%3Cpath%20d%3D%22M-34%2030%20L-8%200%20L10%2018%20L20%208%20L34%2024%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+    }
+  </style>
+</head>
+<body class="h-screen flex flex-col overflow-y-auto">
+  <!-- Theme Toggle Floating -->
+  <button id="themeToggleBtn" class="fixed top-4 right-4 z-50 w-10 h-10 rounded-full bg-[var(--bg-surface)] border border-[var(--border-color)] shadow-sm flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-all cursor-pointer">
+    <i data-lucide="sun" id="themeIconSun" class="w-4 h-4 hidden"></i>
+    <i data-lucide="moon" id="themeIconMoon" class="w-4 h-4"></i>
+  </button>
+
+  <main class="w-full max-w-[1200px] mx-auto p-6 md:p-12 flex flex-col gap-16">
+    
+    <!-- Header -->
+    <header class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start animate-fade-in">
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)] leading-tight">
+        Make every day a little more delightful, one small detail at a time.
+      </h1>
+      <div class="flex flex-col gap-6 items-start">
+        <p class="text-[var(--text-secondary)] leading-relaxed text-lg">
+          We believe the smallest details are the ones that matter most.
+          A little color, a thoughtful touch, a moment that catches your
+          eye and makes you pause; that's what turns an ordinary
+          day into something worth remembering.
+        </p>
+        <button id="getStartedBtn" class="px-5 py-2.5 rounded-lg text-sm font-semibold bg-[var(--btn-primary-bg)] text-[var(--btn-primary-fg)] flex items-center gap-2 hover:opacity-90 transition-opacity cursor-pointer">
+          Get started
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Product Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 pb-24">
+      
+      <!-- Product 1 -->
+      <div class="product-card flex flex-col gap-4 animate-fade-in group cursor-pointer" style="animation-delay: 0.1s;">
+        <div class="w-full aspect-square rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] overflow-hidden">
+          <div class="w-full h-full product-img-placeholder group-hover:scale-105 transition-transform duration-500"></div>
+        </div>
+        <div class="flex flex-col gap-1.5 px-1">
+          <h2 class="text-xl font-bold text-[var(--text-primary)]">Going places</h2>
+          <p class="text-sm text-[var(--text-secondary)] line-clamp-2">Sometimes all it takes is one small thing to turn your whole day around. That's what good design is for.</p>
+          <span class="text-lg font-bold text-[var(--text-primary)] mt-1">$75.00</span>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card flex flex-col gap-4 animate-fade-in group cursor-pointer" style="animation-delay: 0.2s;">
+        <div class="w-full aspect-square rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] overflow-hidden">
+          <div class="w-full h-full product-img-placeholder group-hover:scale-105 transition-transform duration-500"></div>
+        </div>
+        <div class="flex flex-col gap-1.5 px-1">
+          <h2 class="text-xl font-bold text-[var(--text-primary)]">Meeting people</h2>
+          <p class="text-sm text-[var(--text-secondary)] line-clamp-2">Sometimes all it takes is one small thing to turn your whole day around. That's what good design is for.</p>
+          <span class="text-lg font-bold text-[var(--text-primary)] mt-1">$80.00</span>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card flex flex-col gap-4 animate-fade-in group cursor-pointer" style="animation-delay: 0.3s;">
+        <div class="w-full aspect-square rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] overflow-hidden">
+          <div class="w-full h-full product-img-placeholder group-hover:scale-105 transition-transform duration-500"></div>
+        </div>
+        <div class="flex flex-col gap-1.5 px-1">
+          <h2 class="text-xl font-bold text-[var(--text-primary)]">Seeing things</h2>
+          <p class="text-sm text-[var(--text-secondary)] line-clamp-2">Sometimes all it takes is one small thing to turn your whole day around. That's what good design is for.</p>
+          <span class="text-lg font-bold text-[var(--text-primary)] mt-1">$75.00</span>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card flex flex-col gap-4 animate-fade-in group cursor-pointer" style="animation-delay: 0.4s;">
+        <div class="w-full aspect-square rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] overflow-hidden">
+          <div class="w-full h-full product-img-placeholder group-hover:scale-105 transition-transform duration-500"></div>
+        </div>
+        <div class="flex flex-col gap-1.5 px-1">
+          <h2 class="text-xl font-bold text-[var(--text-primary)]">Sharing ideas</h2>
+          <p class="text-sm text-[var(--text-secondary)] line-clamp-2">Sometimes all it takes is one small thing to turn your whole day around. That's what good design is for.</p>
+          <span class="text-lg font-bold text-[var(--text-primary)] mt-1">$75.00</span>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="product-card flex flex-col gap-4 animate-fade-in group cursor-pointer" style="animation-delay: 0.5s;">
+        <div class="w-full aspect-square rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] overflow-hidden">
+          <div class="w-full h-full product-img-placeholder group-hover:scale-105 transition-transform duration-500"></div>
+        </div>
+        <div class="flex flex-col gap-1.5 px-1">
+          <h2 class="text-xl font-bold text-[var(--text-primary)]">Making memories</h2>
+          <p class="text-sm text-[var(--text-secondary)] line-clamp-2">Sometimes all it takes is one small thing to turn your whole day around. That's what good design is for.</p>
+          <span class="text-lg font-bold text-[var(--text-primary)] mt-1">$60.00</span>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="product-card flex flex-col gap-4 animate-fade-in group cursor-pointer" style="animation-delay: 0.6s;">
+        <div class="w-full aspect-square rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] overflow-hidden">
+          <div class="w-full h-full product-img-placeholder group-hover:scale-105 transition-transform duration-500"></div>
+        </div>
+        <div class="flex flex-col gap-1.5 px-1">
+          <h2 class="text-xl font-bold text-[var(--text-primary)]">Being free</h2>
+          <p class="text-sm text-[var(--text-secondary)] line-clamp-2">Sometimes all it takes is one small thing to turn your whole day around. That's what good design is for.</p>
+          <span class="text-lg font-bold text-[var(--text-primary)] mt-1">$80.00</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Quick View Modal -->
+  <div id="quickViewModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="quickViewBackdrop"></div>
+    <div class="relative w-full max-w-4xl bg-[var(--bg-surface)] rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row max-h-[90vh] animate-scale-in">
+      <button id="quickViewClose" class="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-[var(--bg-hover)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors cursor-pointer"><i data-lucide="x" class="w-4 h-4"></i></button>
+      <div class="w-full md:w-1/2 bg-[var(--bg-hover)] product-img-placeholder flex-shrink-0 min-h-[300px]"></div>
+      <div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col overflow-y-auto">
+        <h2 id="qvTitle" class="text-3xl font-bold text-[var(--text-primary)]">Product Name</h2>
+        <span id="qvPrice" class="text-xl font-semibold text-[var(--text-secondary)] mt-2">$0.00</span>
+        <p id="qvDesc" class="text-[var(--text-muted)] mt-6 leading-relaxed">Sometimes all it takes is one small thing to turn your whole day around. That's what good design is for.</p>
+        
+        <div class="mt-8 flex flex-col gap-3">
+          <label class="text-sm font-semibold text-[var(--text-primary)]">Size</label>
+          <div class="flex gap-2">
+            <button class="w-10 h-10 rounded border border-[var(--border-color)] flex items-center justify-center text-sm font-medium hover:border-[var(--text-primary)] transition-colors cursor-pointer">S</button>
+            <button class="w-10 h-10 rounded border border-[var(--text-primary)] flex items-center justify-center text-sm font-medium bg-[var(--bg-hover)] cursor-pointer">M</button>
+            <button class="w-10 h-10 rounded border border-[var(--border-color)] flex items-center justify-center text-sm font-medium hover:border-[var(--text-primary)] transition-colors cursor-pointer">L</button>
+          </div>
+        </div>
+
+        <button class="mt-auto pt-8 w-full py-3 rounded-lg text-sm font-semibold bg-[var(--btn-primary-bg)] text-[var(--btn-primary-fg)] flex items-center justify-center gap-2 hover:opacity-90 transition-opacity cursor-pointer">
+          <i data-lucide="shopping-bag" class="w-4 h-4"></i> Add to cart
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeIconSun = document.getElementById('themeIconSun');
+    const themeIconMoon = document.getElementById('themeIconMoon');
+
+    function updateThemeUI(isDark) {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        themeIconSun.classList.remove('hidden');
+        themeIconMoon.classList.add('hidden');
+      } else {
+        document.documentElement.classList.remove('dark');
+        themeIconSun.classList.add('hidden');
+        themeIconMoon.classList.remove('hidden');
+      }
+    }
+
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', () => {
+        const isCurrentlyDark = document.documentElement.classList.contains('dark');
+        updateThemeUI(!isCurrentlyDark);
+      });
+    }
+
+    updateThemeUI(true);
+
+    // Get Started Scroll
+    document.getElementById('getStartedBtn').addEventListener('click', () => {
+      window.scrollBy({ top: window.innerHeight * 0.5, behavior: 'smooth' });
+    });
+
+    // Quick View Modal
+    const quickViewModal = document.getElementById('quickViewModal');
+    const qvTitle = document.getElementById('qvTitle');
+    const qvPrice = document.getElementById('qvPrice');
+    const qvDesc = document.getElementById('qvDesc');
+
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const title = card.querySelector('h2').textContent;
+        const desc = card.querySelector('p').textContent;
+        const price = card.querySelector('span').textContent;
+        
+        qvTitle.textContent = title;
+        qvDesc.textContent = desc;
+        qvPrice.textContent = price;
+        
+        quickViewModal.classList.remove('hidden');
+      });
+    });
+
+    function closeQuickView() {
+      quickViewModal.classList.add('hidden');
+    }
+    document.getElementById('quickViewClose').addEventListener('click', closeQuickView);
+    document.getElementById('quickViewBackdrop').addEventListener('click', closeQuickView);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeQuickView();
+    });
+
+    lucide.createIcons();
+  </script>
+</body>
+</html>

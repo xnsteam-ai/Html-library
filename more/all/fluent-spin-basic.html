@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fluent UI - Basic Spinner</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-app: #f5f5f5;
+      --bg-surface: #ffffff;
+      --text-primary: #242424;
+      --text-secondary: #616161;
+      --border-color: #e0e0e0;
+      --fluent-brand: #0f6cbd;
+      --fluent-brand-alpha: rgba(15, 108, 189, 0.2);
+    }
+    html.dark {
+      --bg-app: #292929;
+      --bg-surface: #333333;
+      --text-primary: #ffffff;
+      --text-secondary: #d1d1d1;
+      --border-color: #424242;
+      --fluent-brand: #479ef5;
+      --fluent-brand-alpha: rgba(71, 158, 245, 0.2);
+    }
+    body {
+      background-color: var(--bg-app);
+      color: var(--text-primary);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      transition: background-color 0.2s, color 0.2s;
+    }
+    
+    @keyframes fluentSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .fluent-spinner {
+      border: 2px solid var(--fluent-brand-alpha);
+      border-top-color: var(--fluent-brand);
+      border-radius: 50%;
+      animation: fluentSpin 1.3s cubic-bezier(0.53, 0.21, 0.29, 0.67) infinite;
+    }
+    
+    /* Sizes */
+    .spinner-sm { width: 16px; height: 16px; border-width: 1.5px; }
+    .spinner-md { width: 24px; height: 24px; border-width: 2px; }
+    .spinner-lg { width: 36px; height: 36px; border-width: 2.5px; }
+    .spinner-xl { width: 48px; height: 48px; border-width: 3px; }
+    
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6">
+
+  <!-- Container -->
+  <div class="w-full max-w-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-lg shadow-sm p-8 relative">
+    
+    <!-- Theme Toggle -->
+    <button id="themeToggleBtn" class="absolute top-4 right-4 w-8 h-8 rounded hover:bg-black/5 flex items-center justify-center transition-colors">
+      <i data-lucide="moon" id="themeIconMoon" class="w-4 h-4 text-[var(--text-secondary)]"></i>
+      <i data-lucide="sun" id="themeIconSun" class="w-4 h-4 text-[var(--text-secondary)] hidden"></i>
+    </button>
+
+    <h2 class="text-xl font-semibold mb-8 text-center">Spinners (Fluent UI Style)</h2>
+    
+    <div class="flex flex-col gap-10 items-center justify-center pt-4 pb-8">
+      
+      <div class="flex flex-col items-center gap-3">
+        <div class="fluent-spinner spinner-xl"></div>
+        <span class="text-sm font-medium text-[var(--text-secondary)]">Extra Large</span>
+      </div>
+
+      <div class="flex flex-col items-center gap-3">
+        <div class="fluent-spinner spinner-lg"></div>
+        <span class="text-sm font-medium text-[var(--text-secondary)]">Large</span>
+      </div>
+
+      <div class="flex flex-col items-center gap-3">
+        <div class="fluent-spinner spinner-md"></div>
+        <span class="text-sm font-medium text-[var(--text-secondary)]">Medium</span>
+      </div>
+      
+      <div class="flex flex-col items-center gap-3">
+        <div class="fluent-spinner spinner-sm"></div>
+        <span class="text-sm font-medium text-[var(--text-secondary)]">Small</span>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    // Theme logic
+    const toggleBtn = document.getElementById('themeToggleBtn');
+    const moon = document.getElementById('themeIconMoon');
+    const sun = document.getElementById('themeIconSun');
+    
+    toggleBtn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      const isDark = document.documentElement.classList.contains('dark');
+      moon.classList.toggle('hidden', isDark);
+      sun.classList.toggle('hidden', !isDark);
+    });
+  </script>
+</body>
+</html>

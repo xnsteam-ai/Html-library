@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fluent UI - Card Skeleton</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-app: #f5f5f5;
+      --bg-surface: #ffffff;
+      --text-primary: #242424;
+      --text-secondary: #616161;
+      --border-color: #e0e0e0;
+      --fluent-skeleton-base: #e1dfdd;
+    }
+    html.dark {
+      --bg-app: #292929;
+      --bg-surface: #333333;
+      --text-primary: #ffffff;
+      --text-secondary: #d1d1d1;
+      --border-color: #424242;
+      --fluent-skeleton-base: #484644;
+    }
+    body {
+      background-color: var(--bg-app);
+      color: var(--text-primary);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      transition: background-color 0.2s, color 0.2s;
+    }
+    
+    @keyframes fluentPulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.3; }
+      100% { opacity: 1; }
+    }
+    .fluent-skeleton {
+      animation: fluentPulse 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      background-color: var(--fluent-skeleton-base);
+      border-radius: 4px;
+    }
+    .fluent-skeleton.circle {
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6">
+
+  <!-- Container -->
+  <div class="relative">
+    <!-- Theme Toggle -->
+    <button id="themeToggleBtn" class="absolute -top-12 right-0 w-8 h-8 rounded hover:bg-black/5 flex items-center justify-center transition-colors">
+      <i data-lucide="moon" id="themeIconMoon" class="w-4 h-4 text-[var(--text-secondary)]"></i>
+      <i data-lucide="sun" id="themeIconSun" class="w-4 h-4 text-[var(--text-secondary)] hidden"></i>
+    </button>
+
+    <!-- Card Skeleton -->
+    <div class="w-full max-w-sm bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-lg shadow-sm p-4 flex flex-col gap-4 min-w-[320px]">
+      
+      <!-- Header Skeleton -->
+      <div class="flex items-center gap-3">
+        <div class="fluent-skeleton circle w-12 h-12 shrink-0"></div>
+        <div class="flex flex-col gap-2 flex-1">
+          <div class="fluent-skeleton h-4 w-3/4"></div>
+          <div class="fluent-skeleton h-3 w-1/2"></div>
+        </div>
+      </div>
+      
+      <!-- Body Image Skeleton -->
+      <div class="fluent-skeleton w-full aspect-video rounded-md mt-2"></div>
+      
+      <!-- Body Text Skeleton -->
+      <div class="flex flex-col gap-2 mt-2">
+        <div class="fluent-skeleton h-3 w-full"></div>
+        <div class="fluent-skeleton h-3 w-[90%]"></div>
+        <div class="fluent-skeleton h-3 w-[80%]"></div>
+      </div>
+      
+      <!-- Action Buttons Skeleton -->
+      <div class="flex items-center gap-2 mt-4 pt-4 border-t border-[var(--border-color)]">
+        <div class="fluent-skeleton h-8 w-20 rounded"></div>
+        <div class="fluent-skeleton h-8 w-24 rounded"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    // Theme logic
+    const toggleBtn = document.getElementById('themeToggleBtn');
+    const moon = document.getElementById('themeIconMoon');
+    const sun = document.getElementById('themeIconSun');
+    
+    toggleBtn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      const isDark = document.documentElement.classList.contains('dark');
+      moon.classList.toggle('hidden', isDark);
+      sun.classList.toggle('hidden', !isDark);
+    });
+  </script>
+</body>
+</html>

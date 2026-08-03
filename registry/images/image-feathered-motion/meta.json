@@ -30,6 +30,13 @@
       "depthOfField": "Shallow; background falls to soft grey haze",
       "focus": "Eyes and the feather edge along the collarbone"
     },
+    "framing": {
+      "subjectScale": "Figure spans ~70% of frame width and the full frame height",
+      "subjectBox": "Head x≈35–65%, y≈18–45%; feathered bodice widens to x≈8–92% by the bottom edge",
+      "anchors": "Eyeline at ~30% from top; hair plume rises to and past the top edge",
+      "edges": "Hair exits the top edge; bodice exits the bottom edge; smoke fills both side margins",
+      "negativeSpace": "No headroom — hair is cut by the frame; ~10% clear margin each side at head height"
+    },
     "environment": {
       "setting": "Studio",
       "background": "Featureless smoke-grey backdrop with soft tonal falloff, no props",

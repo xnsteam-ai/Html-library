@@ -1,0 +1,77 @@
+<!-- Site Product Gallery — restored with its own scoped theme -->
+<style>
+  .spg-root {
+    --bg-app: #f4f4f6; --bg-surface: #ffffff; --text-primary: #171717; --text-secondary: #555555;
+    --border-color: rgba(0,0,0,.08); --btn-primary-bg: #171717; --btn-primary-fg: #ffffff;
+  }
+  .dark .spg-root {
+    --bg-app: #141414; --bg-surface: #222222; --text-primary: #e8e8e8; --text-secondary: #999999;
+    --border-color: rgba(255,255,255,.07); --btn-primary-bg: #ffffff; --btn-primary-fg: #171717;
+  }
+</style>
+
+<div class="spg-root h-[800px] w-[1280px] overflow-y-auto bg-[var(--bg-app)]">
+  <div class="mx-auto flex max-w-[1100px] flex-col gap-14 p-12">
+    <header class="grid grid-cols-2 items-start gap-8">
+      <h1 class="text-[40px] font-bold leading-tight tracking-tight text-[var(--text-primary)]">Make every day a little more delightful, one small detail at a time.</h1>
+      <div class="flex flex-col items-start gap-5">
+        <p class="text-[16px] leading-relaxed text-[var(--text-secondary)]">We believe the smallest details are the ones that matter most — a little color, a thoughtful touch, a moment that catches your eye.</p>
+        <span class="flex items-center gap-2 rounded-lg bg-[var(--btn-primary-bg)] px-4 py-2.5 text-[13px] font-semibold text-[var(--btn-primary-fg)]">
+          Get started
+          <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+        </span>
+      </div>
+    </header>
+
+    <div class="grid grid-cols-3 gap-x-8 gap-y-10">
+      <div class="flex flex-col gap-3">
+        <div class="aspect-square overflow-hidden rounded-2xl border border-[var(--border-color)] bg-[var(--bg-surface)]"></div>
+        <div class="flex flex-col gap-1 px-1">
+          <h2 class="text-[17px] font-bold text-[var(--text-primary)]">Going places</h2>
+          <p class="text-[13px] text-[var(--text-secondary)]">Sometimes all it takes is one small thing to turn your day around.</p>
+          <span class="mt-1 text-[15px] font-bold text-[var(--text-primary)]">$75.00</span>
+        </div>
+      </div>
+      <div class="flex flex-col gap-3">
+        <div class="aspect-square overflow-hidden rounded-2xl border border-[var(--border-color)] bg-[var(--bg-surface)]"></div>
+        <div class="flex flex-col gap-1 px-1">
+          <h2 class="text-[17px] font-bold text-[var(--text-primary)]">Meeting people</h2>
+          <p class="text-[13px] text-[var(--text-secondary)]">Sometimes all it takes is one small thing to turn your day around.</p>
+          <span class="mt-1 text-[15px] font-bold text-[var(--text-primary)]">$80.00</span>
+        </div>
+      </div>
+      <div class="flex flex-col gap-3">
+        <div class="aspect-square overflow-hidden rounded-2xl border border-[var(--border-color)] bg-[var(--bg-surface)]"></div>
+        <div class="flex flex-col gap-1 px-1">
+          <h2 class="text-[17px] font-bold text-[var(--text-primary)]">Seeing things</h2>
+          <p class="text-[13px] text-[var(--text-secondary)]">Sometimes all it takes is one small thing to turn your day around.</p>
+          <span class="mt-1 text-[15px] font-bold text-[var(--text-primary)]">$75.00</span>
+        </div>
+      </div>
+      <div class="flex flex-col gap-3">
+        <div class="aspect-square overflow-hidden rounded-2xl border border-[var(--border-color)] bg-[var(--bg-surface)]"></div>
+        <div class="flex flex-col gap-1 px-1">
+          <h2 class="text-[17px] font-bold text-[var(--text-primary)]">Sharing ideas</h2>
+          <p class="text-[13px] text-[var(--text-secondary)]">Sometimes all it takes is one small thing to turn your day around.</p>
+          <span class="mt-1 text-[15px] font-bold text-[var(--text-primary)]">$75.00</span>
+        </div>
+      </div>
+      <div class="flex flex-col gap-3">
+        <div class="aspect-square overflow-hidden rounded-2xl border border-[var(--border-color)] bg-[var(--bg-surface)]"></div>
+        <div class="flex flex-col gap-1 px-1">
+          <h2 class="text-[17px] font-bold text-[var(--text-primary)]">Making memories</h2>
+          <p class="text-[13px] text-[var(--text-secondary)]">Sometimes all it takes is one small thing to turn your day around.</p>
+          <span class="mt-1 text-[15px] font-bold text-[var(--text-primary)]">$60.00</span>
+        </div>
+      </div>
+      <div class="flex flex-col gap-3">
+        <div class="aspect-square overflow-hidden rounded-2xl border border-[var(--border-color)] bg-[var(--bg-surface)]"></div>
+        <div class="flex flex-col gap-1 px-1">
+          <h2 class="text-[17px] font-bold text-[var(--text-primary)]">Being free</h2>
+          <p class="text-[13px] text-[var(--text-secondary)]">Sometimes all it takes is one small thing to turn your day around.</p>
+          <span class="mt-1 text-[15px] font-bold text-[var(--text-primary)]">$80.00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
