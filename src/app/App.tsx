@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { LayoutGrid, PanelLeft, Search } from 'lucide-react'
-import { CATEGORY_META, getComponent } from '../registry'
+import { PanelLeft, Search } from 'lucide-react'
+import { CATEGORY_META, GALLERY_CATEGORIES, getByCategory, getComponent } from '../registry'
 import { CommandPalette } from './components/CommandPalette'
 import { ComponentPage } from './components/ComponentPage'
 import { Gallery } from './components/Gallery'
@@ -51,15 +51,6 @@ function breadcrumb(route: Route): string {
     return item ? `${CATEGORY_META[item.category].title} · ${item.title}` : 'Not found'
   }
   return 'Not found'
-}
-
-function routeCategory(route: Route): string | null {
-  if (route.kind === 'gallery') return route.category
-  if (route.kind === 'component') {
-    const item = getComponent(route.name)
-    return item?.category ?? null
-  }
-  return null
 }
 
 function Content({ route }: { route: Route }) {
@@ -141,23 +132,35 @@ export default function App() {
             </button>
           )}
           <span className="text-[13px] text-muted-foreground">{breadcrumb(route)}</span>
-          {(() => {
-            const cat = routeCategory(route)
-            if (!cat) return null
-            return (
-              <a
-                href={galleryHref(cat as any)}
-                className="flex items-center gap-1.5 rounded-md px-2 py-1 text-[12.5px] text-muted-foreground transition hover:bg-subtle hover:text-foreground"
-                title={`Browse ${CATEGORY_META[cat as keyof typeof CATEGORY_META].title} gallery`}
-              >
-                <LayoutGrid size={14} />
-              </a>
-            )
-          })()}
+
+          {/* Gallery category toggle — centered */}
+          <div className="mx-auto flex rounded-full bg-neutral-200 p-[3px] dark:bg-neutral-800" role="tablist" aria-label="Category">
+            {GALLERY_CATEGORIES.map((cat) => {
+              const active =
+                (route.kind === 'gallery' && route.category === cat) ||
+                (route.kind === 'component' && getComponent(route.name)?.category === cat)
+              return (
+                <a
+                  key={cat}
+                  href={galleryHref(cat)}
+                  aria-current={active ? 'page' : undefined}
+                  className={`flex items-center gap-1.5 rounded-full px-3 py-1 text-[11.5px] font-medium transition ${
+                    active
+                      ? 'bg-white dark:bg-neutral-700 text-foreground shadow-sm'
+                      : 'text-muted-foreground hover:text-foreground'
+                  }`}
+                >
+                  {CATEGORY_META[cat].title}
+                  <span className="text-[10px] text-muted-foreground">{getByCategory(cat).length}</span>
+                </a>
+              )
+            })}
+          </div>
+
           <button
             type="button"
             onClick={() => setSearchOpen(true)}
-            className="ml-auto flex items-center gap-1.5 rounded-md px-2 py-1 text-[12.5px] text-muted-foreground transition hover:bg-subtle hover:text-foreground"
+            className="flex items-center gap-1.5 rounded-md px-2 py-1 text-[12.5px] text-muted-foreground transition hover:bg-subtle hover:text-foreground"
           >
             <Search size={14} />
             <kbd className="font-mono text-[11px]">⌘K</kbd>
