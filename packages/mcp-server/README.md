@@ -48,7 +48,9 @@ Add it to your MCP client. Nothing to scaffold, no config file to generate.
 }
 ```
 
-> Not published to npm yet. To run it from a clone, point `command` at `node` and `args` at the absolute path of `packages/mcp-server/bin/html-library-mcp.mjs` after `npm run build:mcp`.
+> Working from a clone instead? Run `npm run build:mcp`, then point `command` at
+> `node` and `args` at `packages/mcp-server/bin/html-library-mcp.mjs`. This repo
+> already ships that as [`.mcp.json`](../../.mcp.json).
 
 ## Where the data comes from
 

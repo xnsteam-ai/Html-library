@@ -151,15 +151,19 @@ export function McpServer() {
             },
           ]}
         />
-        <Callout>
-          The package is not on npm yet, so the <Code>npx</Code> blocks will not resolve until it is
-          published. Until then use the <strong className="font-medium text-foreground">From a clone</strong>{' '}
-          tab, or point <Code>args</Code> at the absolute path of{' '}
-          <Code>packages/mcp-server/bin/html-library-mcp.mjs</Code>.
-        </Callout>
         <P>
-          In Claude Code, run <Code>/mcp</Code> to confirm the server connected and to see the tools
-          it registered.
+          <Code>npx</Code> fetches{' '}
+          <a
+            href="https://www.npmjs.com/package/html-library-mcp"
+            target="_blank"
+            rel="noreferrer"
+            className="font-medium text-foreground underline underline-offset-2"
+          >
+            html-library-mcp
+          </a>{' '}
+          from npm on first run and caches it, so there is nothing to install ahead of time. In
+          Claude Code, run <Code>/mcp</Code> to confirm the server connected and see the tools it
+          registered.
         </P>
       </Section>
 

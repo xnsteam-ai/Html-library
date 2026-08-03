@@ -1,0 +1,110 @@
+name: Publish MCP server
+
+# Manual only. Publishing to npm is effectively irreversible — unpublish works
+# for 72 hours and the version number is burned forever after — so this never
+# runs off a push or a merge, and it defaults to a dry run.
+on:
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: 'Run every check and pack the tarball, but do not publish'
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+  id-token: write # required for npm provenance
+
+jobs:
+  publish:
+    name: Publish to npm
+    runs-on: ubuntu-latest
+    # Put NPM_TOKEN here (or at repo level). Adding required reviewers to this
+    # environment in repo settings turns a real publish into an approval gate.
+    environment: npm-publish
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: npm ci
+
+      - name: Build
+        run: npm run build:mcp
+
+      # Same gate as the regular MCP workflow: vendored core in sync, types
+      # clean, and 22 tests against the real registry.
+      - name: Verify
+        run: npm run verify:mcp
+
+      # Queries the registry over HTTP rather than with `npm view`: inside a
+      # workspace, npm resolves the name to the local package and reports it as
+      # existing whether or not it was ever published, which would block every
+      # release. A 200 here means the exact version is genuinely taken.
+      - name: Check this version is not already published
+        run: |
+          NAME=$(node -p "require('./packages/mcp-server/package.json').name")
+          VERSION=$(node -p "require('./packages/mcp-server/package.json').version")
+          echo "Releasing $NAME@$VERSION"
+          STATUS=$(curl -s -o /dev/null -w '%{http_code}' "https://registry.npmjs.org/$NAME/$VERSION")
+          if [ "$STATUS" = "200" ]; then
+            echo "::error::$NAME@$VERSION is already on npm. Bump the version in packages/mcp-server/package.json."
+            exit 1
+          fi
+          if [ "$STATUS" != "404" ]; then
+            echo "::error::Unexpected $STATUS from the npm registry — refusing to publish blind."
+            exit 1
+          fi
+          echo "$NAME@$VERSION is free."
+
+      # Proves the tarball installs and runs before anything is published:
+      # workspace hoisting resolves the SDK from the root node_modules, so only
+      # a clean install outside the workspace tests the real dependency list.
+      - name: Smoke-test the packed tarball
+        run: |
+          TARBALL=$(npm pack --workspace packages/mcp-server --silent | tail -1)
+          TARBALL_PATH="$PWD/$TARBALL"
+          echo "Packed $TARBALL"
+          mkdir -p /tmp/mcp-smoke && cd /tmp/mcp-smoke
+          npm init -y >/dev/null
+          npm install "$TARBALL_PATH" --silent
+          # No registry/ here, so this exercises the remote-fetch path an npx
+          # user actually gets.
+          node -e "
+            const { spawn } = require('node:child_process');
+            const bin = 'node_modules/html-library-mcp/bin/html-library-mcp.mjs';
+            const child = spawn(process.execPath, [bin], { stdio: ['pipe','pipe','pipe'] });
+            let out = '';
+            child.stdout.on('data', d => out += d);
+            child.stdin.write(JSON.stringify({jsonrpc:'2.0',id:1,method:'initialize',params:{protocolVersion:'2024-11-05',capabilities:{},clientInfo:{name:'ci',version:'0'}}}) + '\n');
+            setTimeout(() => {
+              child.stdin.write(JSON.stringify({jsonrpc:'2.0',id:2,method:'tools/list',params:{}}) + '\n');
+            }, 500);
+            setTimeout(() => {
+              child.kill();
+              const lines = out.trim().split('\n').filter(Boolean).map(JSON.parse);
+              const tools = lines.find(m => m.id === 2)?.result?.tools ?? [];
+              if (tools.length !== 12) {
+                console.error('Expected 12 tools, got ' + tools.length);
+                process.exit(1);
+              }
+              console.log('Smoke test OK — ' + tools.length + ' tools over stdio');
+            }, 8000);
+          "
+
+      - name: Publish
+        if: ${{ inputs.dry-run == false }}
+        run: npm publish --workspace packages/mcp-server --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Dry run summary
+        if: ${{ inputs.dry-run }}
+        run: |
+          echo "### Dry run — nothing was published" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "Every check passed and the tarball installs and runs." >> "$GITHUB_STEP_SUMMARY"
+          echo "Re-run with **dry-run unchecked** to publish for real." >> "$GITHUB_STEP_SUMMARY"
