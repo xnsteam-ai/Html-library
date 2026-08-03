@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { PanelLeft, Search } from 'lucide-react'
+import { LayoutGrid, PanelLeft, Search } from 'lucide-react'
 import { CATEGORY_META, getComponent } from '../registry'
 import { CommandPalette } from './components/CommandPalette'
 import { ComponentPage } from './components/ComponentPage'
@@ -7,7 +7,7 @@ import { Gallery } from './components/Gallery'
 import { ImagesGallery } from './components/ImagesGallery'
 import { PreviewPage } from './components/PreviewPage'
 import { Sidebar } from './components/Sidebar'
-import { docHref, useHashRoute, type Route } from './hooks/useHashRoute'
+import { docHref, galleryHref, useHashRoute, type Route } from './hooks/useHashRoute'
 import { Installation } from './pages/Installation'
 import { Introduction } from './pages/Introduction'
 import { McpServer } from './pages/McpServer'
@@ -51,6 +51,15 @@ function breadcrumb(route: Route): string {
     return item ? `${CATEGORY_META[item.category].title} · ${item.title}` : 'Not found'
   }
   return 'Not found'
+}
+
+function routeCategory(route: Route): string | null {
+  if (route.kind === 'gallery') return route.category
+  if (route.kind === 'component') {
+    const item = getComponent(route.name)
+    return item?.category ?? null
+  }
+  return null
 }
 
 function Content({ route }: { route: Route }) {
@@ -132,6 +141,19 @@ export default function App() {
             </button>
           )}
           <span className="text-[13px] text-muted-foreground">{breadcrumb(route)}</span>
+          {(() => {
+            const cat = routeCategory(route)
+            if (!cat) return null
+            return (
+              <a
+                href={galleryHref(cat as any)}
+                className="flex items-center gap-1.5 rounded-md px-2 py-1 text-[12.5px] text-muted-foreground transition hover:bg-subtle hover:text-foreground"
+                title={`Browse ${CATEGORY_META[cat as keyof typeof CATEGORY_META].title} gallery`}
+              >
+                <LayoutGrid size={14} />
+              </a>
+            )
+          })()}
           <button
             type="button"
             onClick={() => setSearchOpen(true)}
