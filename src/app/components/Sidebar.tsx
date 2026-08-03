@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ChevronsLeft, Github, Moon, Search, Star, Sun } from 'lucide-react'
+import { ChevronsLeft, Github, Search, Star } from 'lucide-react'
 import { CATEGORY_META, categories, getComponent, REPO, REPO_URL, type CategoryId } from '../../registry'
 import { componentHref, docHref, type Route } from '../hooks/useHashRoute'
 import { useTheme } from '../hooks/useTheme'
@@ -154,7 +154,7 @@ export function Sidebar({ route, onCollapse, onOpenSearch }: SidebarProps) {
           className="rounded-md p-1.5 text-muted-foreground transition hover:bg-subtle hover:text-foreground"
           aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
         >
-          {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-4.5"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M12 3l0 18" /><path d="M12 9l4.65 -4.65" /><path d="M12 14.3l7.37 -7.37" /><path d="M12 19.6l8.85 -8.85" /></svg>
         </button>
         <a
           href={REPO_URL}

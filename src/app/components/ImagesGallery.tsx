@@ -22,8 +22,22 @@ function localSrc(item: RegistryItem): string | undefined {
   return file ? `${import.meta.env.BASE_URL}images/${file}` : undefined
 }
 
-/** The strip along the top — a scrollable rail of style cards. */
-function StyleRail({ items }: { items: RegistryItem[] }) {
+/**
+ * The strip along the top — a scrollable rail of style cards. Clicking a card
+ * does not navigate; it drives the "similar to…" filter in Discover below, so
+ * this is a toggle button rather than a link. Selecting the already-selected
+ * card clears it, and its own detail page stays reachable through the "View
+ * this image" link Discover renders once it is active.
+ */
+function StyleRail({
+  items,
+  selectedName,
+  onSelect,
+}: {
+  items: RegistryItem[]
+  selectedName: string | null
+  onSelect: (name: string) => void
+}) {
   const rail = useRef<HTMLDivElement>(null)
 
   const scrollBy = (direction: 1 | -1) => {
@@ -38,12 +52,17 @@ function StyleRail({ items }: { items: RegistryItem[] }) {
       >
         {items.map((item) => {
           const src = localSrc(item)
+          const active = item.name === selectedName
           return (
-            <a
+            <button
               key={item.name}
-              href={componentHref(item.name)}
-              className="group/card relative aspect-[3/4] w-[150px] shrink-0 snap-start overflow-hidden rounded-lg bg-muted sm:w-[168px]"
-              title={item.description}
+              type="button"
+              aria-pressed={active}
+              onClick={() => onSelect(item.name)}
+              className={`group/card relative aspect-[3/4] w-[150px] shrink-0 snap-start overflow-hidden rounded-lg bg-muted text-left transition sm:w-[168px] ${
+                active ? 'ring-2 ring-primary ring-offset-2 ring-offset-background' : ''
+              }`}
+              title={`Show images similar to ${item.title}`}
             >
               {src && (
                 <img
@@ -58,7 +77,7 @@ function StyleRail({ items }: { items: RegistryItem[] }) {
                   {item.title}
                 </span>
               </div>
-            </a>
+            </button>
           )
         })}
       </div>
@@ -131,18 +150,56 @@ function MasonryTile({ item }: { item: RegistryItem }) {
 
 export function ImagesGallery() {
   const [query, setQuery] = useState('')
+  // The image a rail card is currently selected for, driving a "similar to…"
+  // filter on Discover. Mutually exclusive with the text search — starting
+  // either one clears the other, so only one filter is ever in effect.
+  const [selectedName, setSelectedName] = useState<string | null>(null)
   const meta = CATEGORY_META.images
   const all = getByCategory('images')
+  const selected = selectedName ? all.find((item) => item.name === selectedName) : undefined
+
+  const selectRailImage = (name: string) => {
+    setQuery('')
+    setSelectedName((current) => (current === name ? null : name))
+  }
+
+  const searchQuery = (value: string) => {
+    setQuery(value)
+    setSelectedName(null)
+  }
+
+  // Ranked by how many tags a candidate shares with the selected image — the
+  // same vocabulary already used for search, repurposed as a similarity score
+  // rather than a text match. Undefined (no selection) and empty array
+  // (selection has no match) are kept distinct so the empty state can tell
+  // "nothing chosen" apart from "chose one, found nothing like it".
+  const similar = useMemo(() => {
+    if (!selected) return undefined
+    const selectedTags = new Set(selected.tags ?? [])
+    if (selectedTags.size === 0) return []
+    return all
+      .filter((item) => item.name !== selected.name)
+      .map((item) => ({
+        item,
+        score: (item.tags ?? []).filter((tag) => selectedTags.has(tag)).length,
+      }))
+      .filter((entry) => entry.score > 0)
+      .sort((a, b) => b.score - a.score || a.item.title.localeCompare(b.item.title))
+      .map((entry) => entry.item)
+  }, [all, selected])
 
   const results = useMemo(() => {
     const needle = query.trim().toLowerCase()
-    if (!needle) return all
-    return all.filter((item) =>
-      `${item.title} ${item.tagline ?? ''} ${item.description} ${(item.tags ?? []).join(' ')}`
-        .toLowerCase()
-        .includes(needle),
-    )
-  }, [all, query])
+    if (needle) {
+      return all.filter((item) =>
+        `${item.title} ${item.tagline ?? ''} ${item.description} ${(item.tags ?? []).join(' ')}`
+          .toLowerCase()
+          .includes(needle),
+      )
+    }
+    if (selected) return similar ?? []
+    return all
+  }, [all, query, selected, similar])
 
   const tab = (value: CategoryId) => (
     <a
@@ -187,7 +244,7 @@ export function ImagesGallery() {
           />
           <input
             value={query}
-            onChange={(event) => setQuery(event.target.value)}
+            onChange={(event) => searchQuery(event.target.value)}
             placeholder="Search images…"
             aria-label="Search images"
             className="w-full rounded-full bg-neutral-200 py-2 pl-9 pr-8 text-[13px] text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring dark:bg-neutral-800"
@@ -195,7 +252,7 @@ export function ImagesGallery() {
           {query && (
             <button
               type="button"
-              onClick={() => setQuery('')}
+              onClick={() => searchQuery('')}
               className="absolute right-2.5 top-1/2 -translate-y-1/2 rounded-full p-1 text-muted-foreground transition hover:bg-subtle hover:text-foreground"
               aria-label="Clear search"
             >
@@ -206,13 +263,51 @@ export function ImagesGallery() {
       </div>
 
       {/* The rail always shows the full set — it is a shelf, not a result list. */}
-      <StyleRail items={all} />
+      <StyleRail items={all} selectedName={selectedName} onSelect={selectRailImage} />
 
-      <h2 className="mb-4 mt-9 text-[19px] font-semibold tracking-tight text-foreground">
-        Discover
-      </h2>
+      <div className="mb-4 mt-9 flex flex-wrap items-center gap-x-3 gap-y-1.5">
+        <h2 className="text-[19px] font-semibold tracking-tight text-foreground">Discover</h2>
+        {selected && (
+          <>
+            <span className="text-[13px] text-muted-foreground">
+              Similar to <span className="font-medium text-foreground">“{selected.title}”</span>
+              {similar && similar.length > 0 ? ` · ${similar.length} match${similar.length === 1 ? '' : 'es'}` : ''}
+            </span>
+            <a
+              href={componentHref(selected.name)}
+              className="rounded-full border border-border px-2.5 py-1 text-[12px] font-medium text-foreground transition hover:bg-subtle"
+            >
+              View this image
+            </a>
+            <button
+              type="button"
+              onClick={() => setSelectedName(null)}
+              className="flex items-center gap-1 rounded-full px-2.5 py-1 text-[12px] font-medium text-muted-foreground transition hover:bg-subtle hover:text-foreground"
+            >
+              <X size={11} />
+              Clear
+            </button>
+          </>
+        )}
+      </div>
 
-      {results.length === 0 ? (
+      {selected && (!similar || similar.length === 0) ? (
+        <div className="flex flex-col items-center rounded-xl border border-dashed border-border px-6 py-14 text-center">
+          <p className="text-[14px] font-medium text-foreground">
+            No images similar to “{selected.title}” yet
+          </p>
+          <p className="mt-1 text-[13px] text-muted-foreground">
+            Nothing else in the library shares its tags. Browse everything instead.
+          </p>
+          <button
+            type="button"
+            onClick={() => setSelectedName(null)}
+            className="mt-4 rounded-lg bg-primary px-3 py-1.5 text-[12.5px] font-medium text-primary-foreground transition hover:opacity-90"
+          >
+            Show all images
+          </button>
+        </div>
+      ) : results.length === 0 ? (
         <div className="flex flex-col items-center rounded-xl border border-dashed border-border px-6 py-14 text-center">
           <p className="text-[14px] font-medium text-foreground">No images match “{query}”</p>
           <p className="mt-1 text-[13px] text-muted-foreground">
@@ -220,7 +315,7 @@ export function ImagesGallery() {
           </p>
           <button
             type="button"
-            onClick={() => setQuery('')}
+            onClick={() => searchQuery('')}
             className="mt-4 rounded-lg bg-primary px-3 py-1.5 text-[12.5px] font-medium text-primary-foreground transition hover:opacity-90"
           >
             Clear search
