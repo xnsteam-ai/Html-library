@@ -22,6 +22,57 @@ function localSrc(item: RegistryItem): string | undefined {
   return file ? `${import.meta.env.BASE_URL}images/${file}` : undefined
 }
 
+/** How many style cards the rail offers. A shelf, not the catalogue. */
+const RAIL_SIZE = 10
+
+/**
+ * Pick the rail's line-up: one strong representative per leading style.
+ *
+ * Putting all 110 images here made it a scrollbar rather than a choice, and the
+ * first ten happened to repeat the same few looks. So rank tags by how much of
+ * the library each covers, then take the highest-priority image carrying each
+ * one that has not been used yet — which yields ten visibly different styles
+ * (portrait, product, poster, editorial, grid…) rather than ten near-duplicates.
+ *
+ * Derived rather than hand-listed, so it re-balances itself as images are added
+ * instead of silently going stale. Ties break alphabetically and candidates are
+ * taken in registry order, so the result is stable between renders.
+ */
+function pickStyleRail(items: RegistryItem[], count = RAIL_SIZE): RegistryItem[] {
+  const frequency = new Map<string, number>()
+  for (const item of items) {
+    for (const tag of item.tags ?? []) frequency.set(tag, (frequency.get(tag) ?? 0) + 1)
+  }
+
+  const tagsByReach = [...frequency.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([tag]) => tag)
+
+  const picked: RegistryItem[] = []
+  const used = new Set<string>()
+
+  for (const tag of tagsByReach) {
+    if (picked.length >= count) break
+    const match = items.find((item) => !used.has(item.name) && (item.tags ?? []).includes(tag))
+    if (match) {
+      used.add(match.name)
+      picked.push(match)
+    }
+  }
+
+  // Untagged images are invisible to the loop above, so top up in registry
+  // order rather than leaving the shelf short.
+  for (const item of items) {
+    if (picked.length >= count) break
+    if (!used.has(item.name)) {
+      used.add(item.name)
+      picked.push(item)
+    }
+  }
+
+  return picked
+}
+
 /**
  * The strip along the top — a scrollable rail of style cards. Clicking a card
  * does not navigate; it drives the "similar to…" filter in Discover below, so
@@ -157,6 +208,7 @@ export function ImagesGallery() {
   const meta = CATEGORY_META.images
   const all = getByCategory('images')
   const selected = selectedName ? all.find((item) => item.name === selectedName) : undefined
+  const railItems = useMemo(() => pickStyleRail(all), [all])
 
   const selectRailImage = (name: string) => {
     setQuery('')
@@ -262,8 +314,9 @@ export function ImagesGallery() {
         </div>
       </div>
 
-      {/* The rail always shows the full set — it is a shelf, not a result list. */}
-      <StyleRail items={all} selectedName={selectedName} onSelect={selectRailImage} />
+      {/* Ten styles to pick from, not the catalogue — Discover below still
+          searches and matches against all of them. */}
+      <StyleRail items={railItems} selectedName={selectedName} onSelect={selectRailImage} />
 
       <div className="mb-4 mt-9 flex flex-wrap items-center gap-x-3 gap-y-1.5">
         <h2 className="text-[19px] font-semibold tracking-tight text-foreground">Discover</h2>
