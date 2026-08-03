@@ -16,10 +16,8 @@ import { ScreenFrame } from './ScreenFrame'
 // Card previews are scaled to roughly a third of the authored size; sites are
 // far wider than phones, so each surface needs its own factor to land on
 // similar card heights. Sections additionally clamp to a fixed authored
-// height so a long section still yields a tidy card. `element` is unused here
-// — ScreenCard scales those to fit via `fit`, not a fixed factor — but the
-// map has to stay exhaustive over Surface.
-const CARD_SCALE: Record<Surface, number> = { app: 0.88, site: 0.22, section: 0.28, element: 1 }
+// height so a long section still yields a tidy card.
+const CARD_SCALE: Record<Surface, number> = { app: 0.88, site: 0.22, section: 0.28, element: 0.48 }
 
 const STATUS_LABEL = { new: 'New', updated: 'Updated' } as const
 
@@ -75,16 +73,18 @@ function AppCard({ item }: { item: RegistryItem }) {
 
 function ScreenCard({ item }: { item: RegistryItem }) {
   const surface = item.surface ?? 'element'
+  const isElement = surface === 'element'
 
   return (
     <div className="flex flex-col group">
       <a
         href={componentHref(item.name)}
-        className={`relative flex ${surface === 'site' ? 'items-start' : ''} justify-center h-[200px] overflow-hidden rounded-xl border border-border bg-muted transition`}
+        className={`relative flex ${surface === 'site' ? 'items-start' : 'items-center'} justify-center h-[200px] overflow-hidden rounded-xl border border-border bg-muted transition`}
       >
         <ScreenFrame
           item={item}
-          fit={true}
+          fit={!isElement}
+          scale={isElement ? CARD_SCALE['element'] : undefined}
           unframed={true}
         />
       </a>

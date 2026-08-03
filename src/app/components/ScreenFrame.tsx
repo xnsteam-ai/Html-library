@@ -101,7 +101,7 @@ function ScaledScreen({
     >
       <div
         style={{ width, height, transform: `scale(${scale})`, transformOrigin: 'top left' }}
-        className={`relative overflow-hidden`}
+        className="relative overflow-hidden"
       >
         <div
           ref={contentRef}
@@ -208,7 +208,7 @@ export function ScreenFrame({
 
   // The ref must sit on a full-width box for the measurement to be meaningful.
   return (
-    <div ref={fitRef} className="flex w-full items-center justify-center">
+    <div ref={fitRef} className="flex w-full justify-center">
       {applied > 0 && framed}
     </div>
   )
