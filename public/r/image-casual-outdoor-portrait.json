@@ -59,6 +59,13 @@
       "micro": "Genuine soft smile — nothing held"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "nature",
+    "lighting": "soft",
+    "aspect": 0.75
+  },
   "files": [
     {
       "path": "image-casual-outdoor-portrait.html",

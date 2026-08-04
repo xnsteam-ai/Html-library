@@ -59,6 +59,13 @@
       "micro": "Unblinking, level gaze — the whole image rests on it"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "cool",
+    "subject": "beauty",
+    "lighting": "hard",
+    "aspect": 1
+  },
   "files": [
     {
       "path": "image-teal-eyes-portrait.html",

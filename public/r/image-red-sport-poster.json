@@ -58,6 +58,13 @@
       "story": "A sportswear campaign built on impact."
     }
   },
+  "facets": {
+    "style": "graphic",
+    "palette": "cool",
+    "subject": "sport",
+    "lighting": "hard",
+    "aspect": 1.791
+  },
   "files": [
     {
       "path": "image-red-sport-poster.html",

@@ -59,5 +59,12 @@
       "story": "A face half-hidden and still looking straight back.",
       "micro": "Unblinking, level gaze — the whole image rests on it"
     }
+  },
+  "facets": {
+    "style": "photo",
+    "palette": "cool",
+    "subject": "beauty",
+    "lighting": "hard",
+    "aspect": 1
   }
 }

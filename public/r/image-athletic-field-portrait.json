@@ -58,6 +58,13 @@
       "story": "A pause during training in an open field."
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "cool",
+    "subject": "sport",
+    "lighting": "soft",
+    "aspect": 0.558
+  },
   "files": [
     {
       "path": "image-athletic-field-portrait.html",

@@ -58,6 +58,13 @@
       "story": "A pause between sets, held deliberately."
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "sport",
+    "lighting": "hard",
+    "aspect": 0.805
+  },
   "files": [
     {
       "path": "image-fitness-pose-portrait.html",

@@ -58,6 +58,13 @@
       "story": "A product shot that borrows a whole attitude."
     }
   },
+  "facets": {
+    "style": "product",
+    "palette": "cool",
+    "subject": "beauty",
+    "lighting": "hard",
+    "aspect": 0.8
+  },
   "files": [
     {
       "path": "image-lip-gloss-product-shot.html",

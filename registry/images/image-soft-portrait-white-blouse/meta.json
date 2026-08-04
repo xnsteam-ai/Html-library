@@ -59,5 +59,12 @@
       "story": "A simple portrait against a strong colour.",
       "micro": "Soft unforced smile"
     }
+  },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "beauty",
+    "lighting": "soft",
+    "aspect": 0.563
   }
 }

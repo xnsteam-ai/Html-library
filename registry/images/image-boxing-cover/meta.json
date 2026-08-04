@@ -59,5 +59,12 @@
       "story": "A cover that wants you to feel outmatched.",
       "micro": "Set jaw and level stare — hold the challenge"
     }
+  },
+  "facets": {
+    "style": "graphic",
+    "palette": "warm",
+    "subject": "sport",
+    "lighting": "hard",
+    "aspect": 0.667
   }
 }

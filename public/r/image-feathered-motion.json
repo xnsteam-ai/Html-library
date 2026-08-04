@@ -59,6 +59,13 @@
       "micro": "Closed eyes and unclenched jaw — calm, not strained"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "mono",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 0.671
+  },
   "files": [
     {
       "path": "image-feathered-motion.html",

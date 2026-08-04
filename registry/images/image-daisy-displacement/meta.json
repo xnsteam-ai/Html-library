@@ -58,5 +58,12 @@
       "mood": "Quiet dissociation",
       "story": "A portrait interrupted mid-read."
     }
+  },
+  "facets": {
+    "style": "photo",
+    "palette": "mono",
+    "subject": "nature",
+    "lighting": "soft",
+    "aspect": 0.8
   }
 }

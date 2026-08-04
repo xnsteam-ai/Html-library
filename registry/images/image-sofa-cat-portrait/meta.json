@@ -59,5 +59,12 @@
       "story": "An afternoon at home with the cat.",
       "micro": "Attention directed at the animal, not the lens"
     }
+  },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 0.747
   }
 }

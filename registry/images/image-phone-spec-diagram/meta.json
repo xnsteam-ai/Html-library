@@ -51,5 +51,12 @@
       "mood": "Explanatory",
       "story": "A device broken down into its parts."
     }
+  },
+  "facets": {
+    "style": "product",
+    "palette": "warm",
+    "subject": "tech",
+    "lighting": "soft",
+    "aspect": 0.747
   }
 }

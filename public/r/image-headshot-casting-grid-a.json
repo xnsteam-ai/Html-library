@@ -59,6 +59,13 @@
       "micro": "Variations should stay subtle — this is a reference, not a mood board"
     }
   },
+  "facets": {
+    "style": "sheet",
+    "palette": "neutral",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 0.563
+  },
   "files": [
     {
       "path": "image-headshot-casting-grid-a.html",

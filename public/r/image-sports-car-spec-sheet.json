@@ -51,6 +51,13 @@
       "story": "A model laid out with its numbers."
     }
   },
+  "facets": {
+    "style": "graphic",
+    "palette": "cool",
+    "subject": "automotive",
+    "lighting": "soft",
+    "aspect": 0.707
+  },
   "files": [
     {
       "path": "image-sports-car-spec-sheet.html",

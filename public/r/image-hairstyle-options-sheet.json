@@ -59,6 +59,13 @@
       "micro": "Expression deliberately held constant so the hair is the variable"
     }
   },
+  "facets": {
+    "style": "sheet",
+    "palette": "neutral",
+    "subject": "beauty",
+    "lighting": "soft",
+    "aspect": 0.749
+  },
   "files": [
     {
       "path": "image-hairstyle-options-sheet.html",

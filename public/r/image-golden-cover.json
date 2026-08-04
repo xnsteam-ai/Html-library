@@ -58,6 +58,13 @@
       "story": "A cover built to be seen from across a newsstand."
     }
   },
+  "facets": {
+    "style": "graphic",
+    "palette": "mono",
+    "subject": "people",
+    "lighting": "hard",
+    "aspect": 1.01
+  },
   "files": [
     {
       "path": "image-golden-cover.html",

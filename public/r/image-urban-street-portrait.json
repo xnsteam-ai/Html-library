@@ -59,6 +59,13 @@
       "micro": "Level, unhurried gaze"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 0.806
+  },
   "files": [
     {
       "path": "image-urban-street-portrait.html",

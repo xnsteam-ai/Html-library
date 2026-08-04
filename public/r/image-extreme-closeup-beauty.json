@@ -59,6 +59,13 @@
       "micro": "No performance at all — stillness is the point"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "neutral",
+    "subject": "beauty",
+    "lighting": "soft",
+    "aspect": 0.692
+  },
   "files": [
     {
       "path": "image-extreme-closeup-beauty.html",

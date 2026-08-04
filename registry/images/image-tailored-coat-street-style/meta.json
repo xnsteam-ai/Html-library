@@ -58,5 +58,12 @@
       "mood": "Understated",
       "story": "One coat, shown worn and shown flat."
     }
+  },
+  "facets": {
+    "style": "photo",
+    "palette": "cool",
+    "subject": "apparel",
+    "lighting": "soft",
+    "aspect": 0.747
   }
 }

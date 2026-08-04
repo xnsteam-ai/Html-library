@@ -59,6 +59,13 @@
       "micro": "Closed eyes and a loose jaw — keep the ease"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "apparel",
+    "lighting": "soft",
+    "aspect": 0.75
+  },
   "files": [
     {
       "path": "image-blue-knit.html",

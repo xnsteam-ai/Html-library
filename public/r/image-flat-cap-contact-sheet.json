@@ -59,6 +59,13 @@
       "micro": "Deliberately low-affect — the sheet is about geometry, not mood"
     }
   },
+  "facets": {
+    "style": "sheet",
+    "palette": "warm",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 0.671
+  },
   "files": [
     {
       "path": "image-flat-cap-contact-sheet.html",

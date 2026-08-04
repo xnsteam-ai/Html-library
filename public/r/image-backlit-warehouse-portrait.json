@@ -59,6 +59,13 @@
       "micro": "Lowered brow and set mouth — hold the fatigue"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "people",
+    "lighting": "hard",
+    "aspect": 0.747
+  },
   "files": [
     {
       "path": "image-backlit-warehouse-portrait.html",

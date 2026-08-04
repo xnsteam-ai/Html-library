@@ -51,5 +51,12 @@
       "mood": "Precise",
       "story": "A performance car presented as engineering."
     }
+  },
+  "facets": {
+    "style": "graphic",
+    "palette": "cool",
+    "subject": "automotive",
+    "lighting": "hard",
+    "aspect": 0.707
   }
 }

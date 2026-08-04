@@ -58,5 +58,12 @@
       "mood": "Windswept calm",
       "story": "A character standing in a field as the weather turns."
     }
+  },
+  "facets": {
+    "style": "art",
+    "palette": "warm",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 0.563
   }
 }

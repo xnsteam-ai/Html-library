@@ -58,6 +58,13 @@
       "story": "A trick held at its apex, printed as a poster."
     }
   },
+  "facets": {
+    "style": "graphic",
+    "palette": "cool",
+    "subject": "sport",
+    "lighting": "hard",
+    "aspect": 0.563
+  },
   "files": [
     {
       "path": "image-sky-skate-poster.html",

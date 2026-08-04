@@ -58,6 +58,13 @@
       "story": "Headphones sold as an everyday object."
     }
   },
+  "facets": {
+    "style": "graphic",
+    "palette": "cool",
+    "subject": "tech",
+    "lighting": "soft",
+    "aspect": 0.563
+  },
   "files": [
     {
       "path": "image-headphones-product-poster.html",

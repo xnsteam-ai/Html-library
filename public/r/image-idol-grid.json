@@ -58,6 +58,13 @@
       "story": "A photobook spread built from one shoot."
     }
   },
+  "facets": {
+    "style": "sheet",
+    "palette": "warm",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 1
+  },
   "files": [
     {
       "path": "image-idol-grid.html",

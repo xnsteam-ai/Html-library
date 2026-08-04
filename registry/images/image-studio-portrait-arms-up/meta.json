@@ -59,5 +59,12 @@
       "story": "A portrait taken from directly above, nothing hidden.",
       "micro": "Held eye contact with the lens"
     }
+  },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "beauty",
+    "lighting": "soft",
+    "aspect": 0.558
   }
 }

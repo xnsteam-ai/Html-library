@@ -58,5 +58,12 @@
       "mood": "Aspirational leisure",
       "story": "A phone launch sold as a holiday."
     }
+  },
+  "facets": {
+    "style": "graphic",
+    "palette": "warm",
+    "subject": "tech",
+    "lighting": "hard",
+    "aspect": 0.8
   }
 }

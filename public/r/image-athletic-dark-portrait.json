@@ -59,6 +59,13 @@
       "micro": "Steady gaze, no strain"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "sport",
+    "lighting": "hard",
+    "aspect": 0.558
+  },
   "files": [
     {
       "path": "image-athletic-dark-portrait.html",

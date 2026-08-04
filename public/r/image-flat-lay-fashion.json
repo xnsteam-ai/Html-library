@@ -58,6 +58,13 @@
       "story": "An outfit shot from directly above, no styling fuss."
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "apparel",
+    "lighting": "soft",
+    "aspect": 0.558
+  },
   "files": [
     {
       "path": "image-flat-lay-fashion.html",

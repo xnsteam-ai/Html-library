@@ -58,5 +58,12 @@
       "mood": "Cool and unbothered",
       "story": "A jersey worn as an outfit, not a kit."
     }
+  },
+  "facets": {
+    "style": "photo",
+    "palette": "neutral",
+    "subject": "sport",
+    "lighting": "soft",
+    "aspect": 0.751
   }
 }

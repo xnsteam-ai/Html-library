@@ -58,5 +58,12 @@
       "mood": "Composed before the run",
       "story": "A pause at the top of the slope."
     }
+  },
+  "facets": {
+    "style": "photo",
+    "palette": "cool",
+    "subject": "sport",
+    "lighting": "soft",
+    "aspect": 0.732
   }
 }

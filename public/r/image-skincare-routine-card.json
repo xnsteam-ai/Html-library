@@ -51,6 +51,13 @@
       "story": "A routine broken into numbered steps."
     }
   },
+  "facets": {
+    "style": "graphic",
+    "palette": "cool",
+    "subject": "beauty",
+    "lighting": "soft",
+    "aspect": 0.667
+  },
   "files": [
     {
       "path": "image-skincare-routine-card.html",

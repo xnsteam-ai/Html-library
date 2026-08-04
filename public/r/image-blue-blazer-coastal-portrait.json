@@ -58,6 +58,13 @@
       "story": "A tailored look shot against nothing but sky."
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "apparel",
+    "lighting": "hard",
+    "aspect": 0.559
+  },
   "files": [
     {
       "path": "image-blue-blazer-coastal-portrait.html",

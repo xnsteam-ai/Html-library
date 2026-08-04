@@ -51,6 +51,13 @@
       "story": "A case pulled apart to show what it is made of."
     }
   },
+  "facets": {
+    "style": "product",
+    "palette": "cool",
+    "subject": "tech",
+    "lighting": "soft",
+    "aspect": 0.747
+  },
   "files": [
     {
       "path": "image-phone-case-exploded-view.html",

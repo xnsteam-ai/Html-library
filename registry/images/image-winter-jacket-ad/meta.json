@@ -58,5 +58,12 @@
       "mood": "Restless",
       "story": "A jacket sold on not staying indoors."
     }
+  },
+  "facets": {
+    "style": "graphic",
+    "palette": "vivid",
+    "subject": "apparel",
+    "lighting": "hard",
+    "aspect": 0.8
   }
 }

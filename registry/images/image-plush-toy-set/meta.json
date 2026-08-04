@@ -51,5 +51,12 @@
       "mood": "Soft and collectible",
       "story": "A merchandise line laid out for a store page."
     }
+  },
+  "facets": {
+    "style": "product",
+    "palette": "neutral",
+    "subject": "other",
+    "lighting": "soft",
+    "aspect": 1
   }
 }

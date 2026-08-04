@@ -58,5 +58,12 @@
       "mood": "Everyday self-documentation",
       "story": "A single outfit photographed four ways."
     }
+  },
+  "facets": {
+    "style": "sheet",
+    "palette": "cool",
+    "subject": "apparel",
+    "lighting": "soft",
+    "aspect": 0.8
   }
 }

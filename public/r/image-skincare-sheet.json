@@ -51,6 +51,13 @@
       "story": "A skincare line presented as fresh and ingredient-led."
     }
   },
+  "facets": {
+    "style": "product",
+    "palette": "cool",
+    "subject": "beauty",
+    "lighting": "soft",
+    "aspect": 1
+  },
   "files": [
     {
       "path": "image-skincare-sheet.html",

@@ -58,5 +58,12 @@
       "mood": "Driving",
       "story": "A running shoe sold on forward motion."
     }
+  },
+  "facets": {
+    "style": "graphic",
+    "palette": "warm",
+    "subject": "apparel",
+    "lighting": "hard",
+    "aspect": 0.8
   }
 }

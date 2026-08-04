@@ -59,6 +59,13 @@
       "micro": "Squint and half-smile — pleasure, not discomfort"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "people",
+    "lighting": "hard",
+    "aspect": 0.8
+  },
   "files": [
     {
       "path": "image-sunlit-hands.html",

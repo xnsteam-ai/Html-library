@@ -58,5 +58,12 @@
       "mood": "Uncomplicated joy",
       "story": "A turn taken for the sake of the skirt."
     }
+  },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "apparel",
+    "lighting": "hard",
+    "aspect": 0.558
   }
 }

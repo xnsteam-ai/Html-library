@@ -59,5 +59,12 @@
       "story": "A character documented before being animated.",
       "micro": "Head studies carry the range — keep each distinct"
     }
+  },
+  "facets": {
+    "style": "art",
+    "palette": "warm",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 1.25
   }
 }

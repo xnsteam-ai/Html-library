@@ -59,6 +59,13 @@
       "micro": "Level gaze, unforced mouth"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "cool",
+    "subject": "beauty",
+    "lighting": "soft",
+    "aspect": 0.671
+  },
   "files": [
     {
       "path": "image-short-hair-teal-portrait.html",

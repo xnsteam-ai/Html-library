@@ -59,6 +59,13 @@
       "micro": "Keep variation subtle and consistent"
     }
   },
+  "facets": {
+    "style": "sheet",
+    "palette": "warm",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 1
+  },
   "files": [
     {
       "path": "image-headshot-casting-grid-b.html",

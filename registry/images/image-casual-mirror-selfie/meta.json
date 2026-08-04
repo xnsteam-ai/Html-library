@@ -58,5 +58,12 @@
       "mood": "Plain self-documentation",
       "story": "An outfit recorded before going out."
     }
+  },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 0.667
   }
 }

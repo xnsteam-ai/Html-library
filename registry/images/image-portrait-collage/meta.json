@@ -58,5 +58,12 @@
       "mood": "Familiar and archival",
       "story": "A sitting laid out on a table to choose from."
     }
+  },
+  "facets": {
+    "style": "sheet",
+    "palette": "neutral",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 0.75
   }
 }

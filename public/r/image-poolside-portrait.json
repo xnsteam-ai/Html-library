@@ -58,6 +58,13 @@
       "story": "A pause at the water before getting in."
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "people",
+    "lighting": "hard",
+    "aspect": 0.558
+  },
   "files": [
     {
       "path": "image-poolside-portrait.html",

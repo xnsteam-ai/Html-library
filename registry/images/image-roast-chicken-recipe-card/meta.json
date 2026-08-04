@@ -51,5 +51,12 @@
       "mood": "Instructional and appetising",
       "story": "A recipe laid out to be followed at a glance."
     }
+  },
+  "facets": {
+    "style": "graphic",
+    "palette": "warm",
+    "subject": "food",
+    "lighting": "soft",
+    "aspect": 1
   }
 }

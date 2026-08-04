@@ -59,5 +59,12 @@
       "story": "A wearable sold on an easy smile.",
       "micro": "Genuine open smile — the product is the excuse"
     }
+  },
+  "facets": {
+    "style": "product",
+    "palette": "cool",
+    "subject": "tech",
+    "lighting": "soft",
+    "aspect": 0.806
   }
 }

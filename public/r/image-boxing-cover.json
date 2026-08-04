@@ -59,6 +59,13 @@
       "micro": "Set jaw and level stare — hold the challenge"
     }
   },
+  "facets": {
+    "style": "graphic",
+    "palette": "warm",
+    "subject": "sport",
+    "lighting": "hard",
+    "aspect": 0.667
+  },
   "files": [
     {
       "path": "image-boxing-cover.html",

@@ -59,6 +59,13 @@
       "micro": "Small unforced smile — keep the lack of effort"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 0.558
+  },
   "files": [
     {
       "path": "image-cozy-sweater-selfie.html",

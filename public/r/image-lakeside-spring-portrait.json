@@ -58,6 +58,13 @@
       "story": "An afternoon spent sitting by water."
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "nature",
+    "lighting": "soft",
+    "aspect": 0.558
+  },
   "files": [
     {
       "path": "image-lakeside-spring-portrait.html",

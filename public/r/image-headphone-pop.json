@@ -59,6 +59,13 @@
       "micro": "Tongue out and squinting eyes — keep the goofiness, not a posed smile"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 0.667
+  },
   "files": [
     {
       "path": "image-headphone-pop.html",

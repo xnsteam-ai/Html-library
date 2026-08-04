@@ -58,6 +58,13 @@
       "story": "A campaign built on forward motion."
     }
   },
+  "facets": {
+    "style": "graphic",
+    "palette": "vivid",
+    "subject": "sport",
+    "lighting": "hard",
+    "aspect": 0.8
+  },
   "files": [
     {
       "path": "image-own-the-move-poster.html",

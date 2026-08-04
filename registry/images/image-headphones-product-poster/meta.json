@@ -58,5 +58,12 @@
       "mood": "Light and current",
       "story": "Headphones sold as an everyday object."
     }
+  },
+  "facets": {
+    "style": "graphic",
+    "palette": "cool",
+    "subject": "tech",
+    "lighting": "soft",
+    "aspect": 0.563
   }
 }

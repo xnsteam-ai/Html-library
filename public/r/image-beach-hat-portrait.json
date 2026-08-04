@@ -58,6 +58,13 @@
       "story": "An afternoon that is not going anywhere."
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "people",
+    "lighting": "hard",
+    "aspect": 0.558
+  },
   "files": [
     {
       "path": "image-beach-hat-portrait.html",

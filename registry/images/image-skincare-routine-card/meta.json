@@ -51,5 +51,12 @@
       "mood": "Orderly and clean",
       "story": "A routine broken into numbered steps."
     }
+  },
+  "facets": {
+    "style": "graphic",
+    "palette": "cool",
+    "subject": "beauty",
+    "lighting": "soft",
+    "aspect": 0.667
   }
 }

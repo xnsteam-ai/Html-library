@@ -58,5 +58,12 @@
       "mood": "Cool and styled",
       "story": "A product shot that borrows a whole attitude."
     }
+  },
+  "facets": {
+    "style": "product",
+    "palette": "cool",
+    "subject": "beauty",
+    "lighting": "hard",
+    "aspect": 0.8
   }
 }

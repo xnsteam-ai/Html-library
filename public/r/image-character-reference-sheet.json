@@ -59,6 +59,13 @@
       "micro": "Head studies carry the range — keep each distinct"
     }
   },
+  "facets": {
+    "style": "art",
+    "palette": "warm",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 1.25
+  },
   "files": [
     {
       "path": "image-character-reference-sheet.html",

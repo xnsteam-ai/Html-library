@@ -51,5 +51,12 @@
       "mood": "Refreshing",
       "story": "A summer drink promoted with its whole holiday attached."
     }
+  },
+  "facets": {
+    "style": "graphic",
+    "palette": "warm",
+    "subject": "food",
+    "lighting": "soft",
+    "aspect": 0.8
   }
 }

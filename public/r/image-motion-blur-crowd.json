@@ -58,6 +58,13 @@
       "story": "A crowd passing through a space nobody stops in."
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "mono",
+    "subject": "other",
+    "lighting": "soft",
+    "aspect": 0.8
+  },
   "files": [
     {
       "path": "image-motion-blur-crowd.html",

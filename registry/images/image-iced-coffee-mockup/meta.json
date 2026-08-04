@@ -51,5 +51,12 @@
       "mood": "Cool refreshment",
       "story": "A drink caught the instant the ice lands."
     }
+  },
+  "facets": {
+    "style": "product",
+    "palette": "warm",
+    "subject": "food",
+    "lighting": "hard",
+    "aspect": 0.747
   }
 }

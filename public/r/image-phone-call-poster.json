@@ -58,6 +58,13 @@
       "story": "A phone sold mid-conversation."
     }
   },
+  "facets": {
+    "style": "graphic",
+    "palette": "warm",
+    "subject": "tech",
+    "lighting": "soft",
+    "aspect": 0.8
+  },
   "files": [
     {
       "path": "image-phone-call-poster.html",

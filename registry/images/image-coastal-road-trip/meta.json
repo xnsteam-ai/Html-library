@@ -51,5 +51,12 @@
       "mood": "Open-road calm",
       "story": "A stop on a coast road with nowhere to be."
     }
+  },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "nature",
+    "lighting": "soft",
+    "aspect": 1.498
   }
 }

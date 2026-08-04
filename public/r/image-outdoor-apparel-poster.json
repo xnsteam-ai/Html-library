@@ -58,6 +58,13 @@
       "story": "Gear presented as equipment for somewhere hostile."
     }
   },
+  "facets": {
+    "style": "graphic",
+    "palette": "cool",
+    "subject": "nature",
+    "lighting": "hard",
+    "aspect": 0.747
+  },
   "files": [
     {
       "path": "image-outdoor-apparel-poster.html",

@@ -51,5 +51,12 @@
       "mood": "Aggressive presence",
       "story": "A car photographed to look fast standing still."
     }
+  },
+  "facets": {
+    "style": "graphic",
+    "palette": "vivid",
+    "subject": "automotive",
+    "lighting": "hard",
+    "aspect": 0.8
   }
 }

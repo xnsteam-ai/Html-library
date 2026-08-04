@@ -58,6 +58,13 @@
       "story": "Two people stopping to look up on the way somewhere."
     }
   },
+  "facets": {
+    "style": "art",
+    "palette": "cool",
+    "subject": "nature",
+    "lighting": "soft",
+    "aspect": 0.667
+  },
   "files": [
     {
       "path": "image-anime-couple-illustration.html",

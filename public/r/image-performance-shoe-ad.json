@@ -58,6 +58,13 @@
       "story": "A running shoe sold on forward motion."
     }
   },
+  "facets": {
+    "style": "graphic",
+    "palette": "warm",
+    "subject": "apparel",
+    "lighting": "hard",
+    "aspect": 0.8
+  },
   "files": [
     {
       "path": "image-performance-shoe-ad.html",

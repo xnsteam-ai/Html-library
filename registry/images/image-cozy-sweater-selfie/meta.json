@@ -59,5 +59,12 @@
       "story": "A photo taken because the sweater felt good.",
       "micro": "Small unforced smile — keep the lack of effort"
     }
+  },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 0.558
   }
 }

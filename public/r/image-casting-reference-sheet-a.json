@@ -59,6 +59,13 @@
       "micro": "Deliberately low-affect — accuracy over mood"
     }
   },
+  "facets": {
+    "style": "sheet",
+    "palette": "neutral",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 0.75
+  },
   "files": [
     {
       "path": "image-casting-reference-sheet-a.html",

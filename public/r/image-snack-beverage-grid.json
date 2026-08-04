@@ -51,6 +51,13 @@
       "story": "A packshot set assembled as one sheet."
     }
   },
+  "facets": {
+    "style": "product",
+    "palette": "vivid",
+    "subject": "food",
+    "lighting": "soft",
+    "aspect": 0.8
+  },
   "files": [
     {
       "path": "image-snack-beverage-grid.html",

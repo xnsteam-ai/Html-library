@@ -51,5 +51,12 @@
       "mood": "Cold precision",
       "story": "A car rendered as a graphic object."
     }
+  },
+  "facets": {
+    "style": "graphic",
+    "palette": "cool",
+    "subject": "automotive",
+    "lighting": "hard",
+    "aspect": 0.667
   }
 }

@@ -59,6 +59,13 @@
       "micro": "Slight asymmetry in the brow; unbroken eye contact"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "cool",
+    "subject": "people",
+    "lighting": "hard",
+    "aspect": 0.667
+  },
   "files": [
     {
       "path": "image-weathered-portrait.html",

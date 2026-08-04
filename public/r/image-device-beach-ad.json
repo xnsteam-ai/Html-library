@@ -58,6 +58,13 @@
       "story": "A phone launch sold as a holiday."
     }
   },
+  "facets": {
+    "style": "graphic",
+    "palette": "warm",
+    "subject": "tech",
+    "lighting": "hard",
+    "aspect": 0.8
+  },
   "files": [
     {
       "path": "image-device-beach-ad.html",

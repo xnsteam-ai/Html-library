@@ -58,5 +58,12 @@
       "mood": "Kinetic",
       "story": "A shoe sold on momentum."
     }
+  },
+  "facets": {
+    "style": "graphic",
+    "palette": "cool",
+    "subject": "apparel",
+    "lighting": "hard",
+    "aspect": 0.8
   }
 }

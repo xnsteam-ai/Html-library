@@ -59,6 +59,13 @@
       "micro": "The point is the variation — keep each frame distinct"
     }
   },
+  "facets": {
+    "style": "sheet",
+    "palette": "warm",
+    "subject": "other",
+    "lighting": "soft",
+    "aspect": 1.333
+  },
   "files": [
     {
       "path": "image-expression-grid.html",

@@ -51,6 +51,13 @@
       "story": "A saloon presented plainly and confidently."
     }
   },
+  "facets": {
+    "style": "graphic",
+    "palette": "cool",
+    "subject": "automotive",
+    "lighting": "soft",
+    "aspect": 0.75
+  },
   "files": [
     {
       "path": "image-sedan-poster.html",

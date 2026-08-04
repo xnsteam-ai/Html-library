@@ -58,5 +58,12 @@
       "mood": "Light and abstract",
       "story": "A body used as a graphic mark."
     }
+  },
+  "facets": {
+    "style": "graphic",
+    "palette": "neutral",
+    "subject": "other",
+    "lighting": "soft",
+    "aspect": 0.667
   }
 }

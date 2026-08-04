@@ -59,6 +59,13 @@
       "micro": "Genuine open smile"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "beauty",
+    "lighting": "soft",
+    "aspect": 0.563
+  },
   "files": [
     {
       "path": "image-pink-floral-portrait.html",

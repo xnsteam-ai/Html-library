@@ -58,6 +58,13 @@
       "story": "A body used as a graphic mark."
     }
   },
+  "facets": {
+    "style": "graphic",
+    "palette": "neutral",
+    "subject": "other",
+    "lighting": "soft",
+    "aspect": 0.667
+  },
   "files": [
     {
       "path": "image-motion-pose-poster.html",

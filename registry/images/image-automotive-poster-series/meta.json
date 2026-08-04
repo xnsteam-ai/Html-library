@@ -51,5 +51,12 @@
       "mood": "Considered",
       "story": "One car examined from several angles at once."
     }
+  },
+  "facets": {
+    "style": "graphic",
+    "palette": "cool",
+    "subject": "automotive",
+    "lighting": "hard",
+    "aspect": 0.8
   }
 }

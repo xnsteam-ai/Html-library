@@ -58,6 +58,13 @@
       "story": "A photo taken at the end of the day."
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 0.757
+  },
   "files": [
     {
       "path": "image-casual-bedroom-selfie.html",

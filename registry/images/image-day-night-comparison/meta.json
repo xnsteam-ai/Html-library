@@ -59,5 +59,12 @@
       "story": "The same face shown under two lighting setups.",
       "micro": "Keep both halves expressionally identical — only the light should change"
     }
+  },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "beauty",
+    "lighting": "soft",
+    "aspect": 0.747
   }
 }

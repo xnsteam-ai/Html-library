@@ -59,6 +59,13 @@
       "micro": "Steady eyes, relaxed fingers — poise without tension"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "beauty",
+    "lighting": "soft",
+    "aspect": 0.563
+  },
   "files": [
     {
       "path": "image-beauty-hand-on-face.html",

@@ -58,6 +58,13 @@
       "story": "A gym shot with the intensity taken out."
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "sport",
+    "lighting": "soft",
+    "aspect": 0.558
+  },
   "files": [
     {
       "path": "image-gym-set-portrait.html",

@@ -59,5 +59,12 @@
       "story": "A sitter photographed from every angle for reference.",
       "micro": "Deliberately low-affect — the sheet is about geometry, not mood"
     }
+  },
+  "facets": {
+    "style": "sheet",
+    "palette": "warm",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 0.671
   }
 }

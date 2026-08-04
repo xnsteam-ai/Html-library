@@ -58,5 +58,12 @@
       "mood": "Considered and styled",
       "story": "A look presented as a magazine page."
     }
+  },
+  "facets": {
+    "style": "photo",
+    "palette": "neutral",
+    "subject": "apparel",
+    "lighting": "soft",
+    "aspect": 0.558
   }
 }

@@ -58,5 +58,12 @@
       "mood": "Playful and collectible",
       "story": "A streetwear look rendered as a figurine."
     }
+  },
+  "facets": {
+    "style": "art",
+    "palette": "vivid",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 1
   }
 }

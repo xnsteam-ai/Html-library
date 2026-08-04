@@ -59,5 +59,12 @@
       "story": "One performer running through their expressions for a casting file.",
       "micro": "The point is the variation — keep each frame distinct"
     }
+  },
+  "facets": {
+    "style": "sheet",
+    "palette": "warm",
+    "subject": "other",
+    "lighting": "soft",
+    "aspect": 1.333
   }
 }

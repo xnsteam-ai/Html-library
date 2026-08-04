@@ -59,6 +59,13 @@
       "micro": "Each cell should stay clearly distinct from its neighbours"
     }
   },
+  "facets": {
+    "style": "sheet",
+    "palette": "neutral",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 0.75
+  },
   "files": [
     {
       "path": "image-casting-reference-sheet-b.html",

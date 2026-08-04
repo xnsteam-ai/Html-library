@@ -50,6 +50,9 @@ function toRegistryItem({ meta, html }, version) {
     ...(meta.surface ? { surface: meta.surface } : {}),
     // Images ship their recreation brief so the JSON is as useful as the page.
     ...(meta.prompt ? { prompt: meta.prompt } : {}),
+    // …and the derived facets, so a consumer can group or filter images the
+    // same way the gallery's recommendations do.
+    ...(meta.facets ? { facets: meta.facets } : {}),
     files: [{ path: `${meta.name}.html`, type: 'html', content: html }],
   }
 }

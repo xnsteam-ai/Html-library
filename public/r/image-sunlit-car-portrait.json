@@ -59,6 +59,13 @@
       "micro": "Squint and open smile — keep the spontaneity"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "automotive",
+    "lighting": "hard",
+    "aspect": 0.558
+  },
   "files": [
     {
       "path": "image-sunlit-car-portrait.html",

@@ -59,6 +59,13 @@
       "micro": "Held eye contact with the lens"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "beauty",
+    "lighting": "soft",
+    "aspect": 0.558
+  },
   "files": [
     {
       "path": "image-studio-portrait-arms-up.html",

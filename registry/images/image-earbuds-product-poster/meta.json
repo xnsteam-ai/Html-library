@@ -51,5 +51,12 @@
       "mood": "Loud and light",
       "story": "Earbuds sold on typography as much as product."
     }
+  },
+  "facets": {
+    "style": "graphic",
+    "palette": "vivid",
+    "subject": "tech",
+    "lighting": "soft",
+    "aspect": 1
   }
 }

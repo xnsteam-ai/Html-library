@@ -58,6 +58,13 @@
       "story": "A shoe release shot as a morning at home."
     }
   },
+  "facets": {
+    "style": "product",
+    "palette": "warm",
+    "subject": "apparel",
+    "lighting": "soft",
+    "aspect": 1
+  },
   "files": [
     {
       "path": "image-shoe-lifestyle-collage.html",

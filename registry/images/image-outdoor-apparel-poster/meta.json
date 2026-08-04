@@ -58,5 +58,12 @@
       "mood": "Expedition-ready",
       "story": "Gear presented as equipment for somewhere hostile."
     }
+  },
+  "facets": {
+    "style": "graphic",
+    "palette": "cool",
+    "subject": "nature",
+    "lighting": "hard",
+    "aspect": 0.747
   }
 }

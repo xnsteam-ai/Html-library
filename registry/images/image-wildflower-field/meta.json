@@ -58,5 +58,12 @@
       "mood": "Open-air calm",
       "story": "A moment of standing still in the middle of a field."
     }
+  },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "nature",
+    "lighting": "hard",
+    "aspect": 0.806
   }
 }

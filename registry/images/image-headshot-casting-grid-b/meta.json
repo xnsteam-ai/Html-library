@@ -59,5 +59,12 @@
       "story": "A second casting set, warmer than the first.",
       "micro": "Keep variation subtle and consistent"
     }
+  },
+  "facets": {
+    "style": "sheet",
+    "palette": "warm",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 1
   }
 }

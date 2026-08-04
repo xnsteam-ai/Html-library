@@ -51,6 +51,13 @@
       "story": "A flavour range shown with its ingredients."
     }
   },
+  "facets": {
+    "style": "product",
+    "palette": "warm",
+    "subject": "food",
+    "lighting": "hard",
+    "aspect": 1
+  },
   "files": [
     {
       "path": "image-fruit-soda-set.html",

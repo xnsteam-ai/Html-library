@@ -58,6 +58,13 @@
       "story": "A quick outfit check posted as-is."
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "cool",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 0.558
+  },
   "files": [
     {
       "path": "image-cap-selfie.html",

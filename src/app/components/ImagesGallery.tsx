@@ -230,7 +230,13 @@ export function ImagesGallery() {
   const meta = CATEGORY_META.images
   const all = getByCategory('images')
   const selected = selectedName ? all.find((item) => item.name === selectedName) : undefined
-  const railItems = useMemo(() => pickStyleRail(all), [all])
+  // The shelf is an invitation, so it only offers images that lead somewhere.
+  // A few images are distinctive enough to have no eligible neighbours at all,
+  // which is a fine thing to discover by searching but a poor front door.
+  const railItems = useMemo(
+    () => pickStyleRail(all.filter((item) => findSimilarImages(all, item).length > 0)),
+    [all],
+  )
 
   const selectRailImage = (name: string) => {
     setQuery('')

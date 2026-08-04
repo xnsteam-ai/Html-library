@@ -59,5 +59,12 @@
       "story": "A straight portrait of someone with a look already decided.",
       "micro": "Level, unhurried gaze"
     }
+  },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 0.806
   }
 }

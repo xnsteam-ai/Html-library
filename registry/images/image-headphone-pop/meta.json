@@ -59,5 +59,12 @@
       "story": "Someone mugging for the camera between tracks.",
       "micro": "Tongue out and squinting eyes — keep the goofiness, not a posed smile"
     }
+  },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 0.667
   }
 }

@@ -59,6 +59,13 @@
       "micro": "Closed eyes and a relaxed jaw — acceptance, not distress"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "cool",
+    "subject": "nature",
+    "lighting": "hard",
+    "aspect": 0.8
+  },
   "files": [
     {
       "path": "image-blue-bloom.html",

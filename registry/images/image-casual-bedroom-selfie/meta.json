@@ -58,5 +58,12 @@
       "mood": "Relaxed and close",
       "story": "A photo taken at the end of the day."
     }
+  },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 0.757
   }
 }

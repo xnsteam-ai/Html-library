@@ -59,6 +59,13 @@
       "micro": "Held gaze under a lowered brow"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "mono",
+    "subject": "people",
+    "lighting": "hard",
+    "aspect": 0.747
+  },
   "files": [
     {
       "path": "image-dramatic-male-portrait.html",

@@ -59,5 +59,12 @@
       "story": "An expression library for one performer.",
       "micro": "Each cell should stay clearly distinct from its neighbours"
     }
+  },
+  "facets": {
+    "style": "sheet",
+    "palette": "neutral",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 0.75
   }
 }

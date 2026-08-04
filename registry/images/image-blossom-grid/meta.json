@@ -58,5 +58,12 @@
       "mood": "Gentle and seasonal",
       "story": "A spring photobook shot in one afternoon."
     }
+  },
+  "facets": {
+    "style": "sheet",
+    "palette": "warm",
+    "subject": "other",
+    "lighting": "soft",
+    "aspect": 1
   }
 }

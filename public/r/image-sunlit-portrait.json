@@ -59,6 +59,13 @@
       "micro": "Closed eyes and the beginning of a smile"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "nature",
+    "lighting": "hard",
+    "aspect": 0.75
+  },
   "files": [
     {
       "path": "image-sunlit-portrait.html",

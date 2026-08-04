@@ -123,9 +123,35 @@ const CHANNELS: Record<string, Channel> = {
 /** Every channel pooled into one vector, which catches resonance no single channel sees. */
 const EMBEDDING_WEIGHT = 0.1
 
-/** Keep a result only if it clears both a share of the best match and a hard floor. */
-const RELATIVE_FLOOR = 0.18
+/**
+ * Eligibility, decided before anything is ranked.
+ *
+ * Ranking alone was never the problem — every image in the library was a
+ * candidate, so anime illustration, casting headshots and product grids all
+ * competed for the same slots and the result read as noise. These decide who is
+ * allowed to compete; the cosine above then orders the survivors.
+ */
+
+/** Facets compared by the overlap gate. `aspect` is deliberately excluded. */
+const GATED_FACETS = ['style', 'palette', 'subject', 'lighting'] as const
+
+/**
+ * Share of facets that must agree. With four facets this resolves to 3-of-4 —
+ * 0.60 and 0.75 select identically, and pretending otherwise would imply finer
+ * control than four facets can express.
+ */
+const FACET_OVERLAP = 0.6
+
+/** Below this the match is not worth showing at all; the empty state is better. */
 const ABSOLUTE_FLOOR = 0.04
+
+/**
+ * How far below the best match a result may fall before it stops looking like a
+ * sibling. Raised from the earlier 0.18 because the gate now removes the noise
+ * this was compensating for, so it can do its actual job: keeping the set tight.
+ */
+const TIGHTNESS = 0.35
+
 const MAX_RESULTS = 24
 
 type Vector = Map<string, number>
@@ -214,9 +240,23 @@ function getIndex(items: RegistryItem[]): Index {
  */
 export function findSimilarImages(items: RegistryItem[], target: RegistryItem): SimilarImage[] {
   const index = getIndex(items)
+  const targetFacets = target.facets
 
-  const scored = items
-    .filter((item) => item.name !== target.name)
+  const eligible = items.filter((item) => {
+    if (item.name === target.name) return false
+    // Without facets on either side there is nothing to gate on, so fall
+    // through to scoring rather than silently returning nothing.
+    if (!targetFacets || !item.facets) return true
+
+    // Hard wall: photography, illustration, product shots and reference sheets
+    // never mix, whatever else they happen to share.
+    if (item.facets.style !== targetFacets.style) return false
+
+    const agreed = GATED_FACETS.filter((facet) => item.facets?.[facet] === targetFacets[facet]).length
+    return agreed / GATED_FACETS.length >= FACET_OVERLAP
+  })
+
+  const scored = eligible
     .map((item) => {
       let score = 0
       let bestChannel = ''
@@ -247,7 +287,7 @@ export function findSimilarImages(items: RegistryItem[], target: RegistryItem): 
   // Relative to the best match as well as absolute: a distinctive image has a
   // few strong neighbours, a generic one has many weak ones, and a single fixed
   // cutoff serves one of those badly.
-  const floor = Math.max(ABSOLUTE_FLOOR, best * RELATIVE_FLOOR)
+  const floor = Math.max(ABSOLUTE_FLOOR, best * TIGHTNESS)
 
   return scored.filter((entry) => entry.score >= floor).slice(0, MAX_RESULTS)
 }

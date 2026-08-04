@@ -58,5 +58,12 @@
       "mood": "Holiday ease",
       "story": "A pause at the water before getting in."
     }
+  },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "people",
+    "lighting": "hard",
+    "aspect": 0.558
   }
 }

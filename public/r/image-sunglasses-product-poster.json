@@ -51,6 +51,13 @@
       "story": "A pair of frames presented on their own merits."
     }
   },
+  "facets": {
+    "style": "graphic",
+    "palette": "cool",
+    "subject": "other",
+    "lighting": "soft",
+    "aspect": 0.8
+  },
   "files": [
     {
       "path": "image-sunglasses-product-poster.html",

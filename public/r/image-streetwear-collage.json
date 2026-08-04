@@ -58,6 +58,13 @@
       "story": "A single outfit photographed four ways."
     }
   },
+  "facets": {
+    "style": "sheet",
+    "palette": "cool",
+    "subject": "apparel",
+    "lighting": "soft",
+    "aspect": 0.8
+  },
   "files": [
     {
       "path": "image-streetwear-collage.html",

@@ -59,6 +59,13 @@
       "micro": "Slightly parted lips and steady eyes"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "beauty",
+    "lighting": "soft",
+    "aspect": 0.889
+  },
   "files": [
     {
       "path": "image-beauty-close-up-necklace.html",

@@ -59,6 +59,13 @@
       "micro": "Small unforced smile"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "people",
+    "lighting": "hard",
+    "aspect": 0.667
+  },
   "files": [
     {
       "path": "image-ice-cream-flowers-portrait.html",

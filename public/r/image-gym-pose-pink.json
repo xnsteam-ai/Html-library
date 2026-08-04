@@ -58,6 +58,13 @@
       "story": "A gym shot composed rather than caught."
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "sport",
+    "lighting": "soft",
+    "aspect": 0.747
+  },
   "files": [
     {
       "path": "image-gym-pose-pink.html",

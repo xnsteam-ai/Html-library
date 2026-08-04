@@ -58,6 +58,13 @@
       "story": "A magazine cover that wants to feel like a breath out."
     }
   },
+  "facets": {
+    "style": "graphic",
+    "palette": "warm",
+    "subject": "other",
+    "lighting": "soft",
+    "aspect": 0.567
+  },
   "files": [
     {
       "path": "image-urban-calm-cover.html",

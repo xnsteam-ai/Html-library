@@ -58,5 +58,12 @@
       "mood": "Systematic",
       "story": "One outfit documented worn and unworn."
     }
+  },
+  "facets": {
+    "style": "photo",
+    "palette": "cool",
+    "subject": "apparel",
+    "lighting": "soft",
+    "aspect": 0.666
   }
 }

@@ -59,6 +59,13 @@
       "micro": "Level gaze, no performance"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "neutral",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 0.799
+  },
   "files": [
     {
       "path": "image-ball-cap-portrait.html",

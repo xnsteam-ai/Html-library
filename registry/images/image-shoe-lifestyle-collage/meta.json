@@ -58,5 +58,12 @@
       "mood": "Soft domestic",
       "story": "A shoe release shot as a morning at home."
     }
+  },
+  "facets": {
+    "style": "product",
+    "palette": "warm",
+    "subject": "apparel",
+    "lighting": "soft",
+    "aspect": 1
   }
 }

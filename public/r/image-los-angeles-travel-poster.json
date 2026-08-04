@@ -51,6 +51,13 @@
       "story": "A city sold the way mid-century travel posters sold everywhere."
     }
   },
+  "facets": {
+    "style": "graphic",
+    "palette": "warm",
+    "subject": "other",
+    "lighting": "soft",
+    "aspect": 0.8
+  },
   "files": [
     {
       "path": "image-los-angeles-travel-poster.html",

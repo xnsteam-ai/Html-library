@@ -58,5 +58,12 @@
       "mood": "Everyday and unstaged",
       "story": "A gym-kit check in a hallway mirror."
     }
+  },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "sport",
+    "lighting": "soft",
+    "aspect": 0.558
   }
 }

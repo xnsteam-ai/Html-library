@@ -58,6 +58,13 @@
       "story": "A boot launch fronted by stillness rather than motion."
     }
   },
+  "facets": {
+    "style": "graphic",
+    "palette": "warm",
+    "subject": "apparel",
+    "lighting": "hard",
+    "aspect": 2
+  },
   "files": [
     {
       "path": "image-phantom-shoe-ad.html",

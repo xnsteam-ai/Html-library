@@ -59,6 +59,13 @@
       "micro": "Over-the-shoulder look — caught rather than posed"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "nature",
+    "lighting": "soft",
+    "aspect": 0.8
+  },
   "files": [
     {
       "path": "image-garden-floral-portrait.html",

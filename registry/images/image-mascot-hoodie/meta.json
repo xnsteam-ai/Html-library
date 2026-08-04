@@ -58,5 +58,12 @@
       "mood": "Friendly and branded",
       "story": "A character and its merchandise introduced together."
     }
+  },
+  "facets": {
+    "style": "art",
+    "palette": "mono",
+    "subject": "apparel",
+    "lighting": "soft",
+    "aspect": 0.563
   }
 }

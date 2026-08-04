@@ -51,6 +51,13 @@
       "story": "A recipe laid out to be followed at a glance."
     }
   },
+  "facets": {
+    "style": "graphic",
+    "palette": "warm",
+    "subject": "food",
+    "lighting": "soft",
+    "aspect": 1
+  },
   "files": [
     {
       "path": "image-roast-chicken-recipe-card.html",

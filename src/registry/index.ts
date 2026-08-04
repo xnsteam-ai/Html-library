@@ -37,6 +37,23 @@ export interface ComponentMeta {
    * descent) is left out rather than guessed at.
    */
   prompt?: ImagePromptSpec
+  /**
+   * Images only — closed-vocabulary facets derived from the tagline and prompt
+   * by `scripts/gen-image-facets.mjs`. These gate which images are eligible to
+   * recommend one another; see `app/lib/imageSimilarity.ts`. `aspect` is
+   * recorded for completeness but not gated on, since almost every image in the
+   * library is the same tall portrait ratio.
+   */
+  facets?: ImageFacets
+}
+
+export interface ImageFacets {
+  /** Content type, and the wall recommendations may never cross. */
+  style: 'photo' | 'graphic' | 'product' | 'sheet' | 'art'
+  palette: 'warm' | 'cool' | 'neutral' | 'vivid' | 'mono'
+  subject: string
+  lighting: 'soft' | 'hard' | 'dramatic'
+  aspect?: number
 }
 
 /**

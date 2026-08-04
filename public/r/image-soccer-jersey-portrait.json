@@ -58,6 +58,13 @@
       "story": "A jersey worn as an outfit, not a kit."
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "neutral",
+    "subject": "sport",
+    "lighting": "soft",
+    "aspect": 0.751
+  },
   "files": [
     {
       "path": "image-soccer-jersey-portrait.html",

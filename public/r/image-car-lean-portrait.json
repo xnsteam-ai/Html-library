@@ -59,6 +59,13 @@
       "micro": "Level, unhurried gaze"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "mono",
+    "subject": "automotive",
+    "lighting": "soft",
+    "aspect": 0.747
+  },
   "files": [
     {
       "path": "image-car-lean-portrait.html",

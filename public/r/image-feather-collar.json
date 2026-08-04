@@ -59,6 +59,13 @@
       "micro": "Lowered lids and a still mouth — restraint, not sadness"
     }
   },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "people",
+    "lighting": "soft",
+    "aspect": 0.8
+  },
   "files": [
     {
       "path": "image-feather-collar.html",

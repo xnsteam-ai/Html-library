@@ -58,5 +58,12 @@
       "mood": "Glamorous and closed",
       "story": "A portrait that gives you the styling and not the eyes."
     }
+  },
+  "facets": {
+    "style": "photo",
+    "palette": "warm",
+    "subject": "beauty",
+    "lighting": "hard",
+    "aspect": 0.8
   }
 }
