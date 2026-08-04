@@ -6,9 +6,18 @@ Not React. No package to install for the components themselves, no CLI, no build
 
 ## Install
 
-Add it to your MCP client. Nothing to scaffold, no config file to generate.
+Add it to your MCP client. Nothing to scaffold, no config file to generate — this
+is a **local server run over stdio**, not a remote HTTP one, so it is added by
+editing a config file, never through a "remote server URL" / OAuth connector
+dialog. If a client offers both, use the config-file path below.
 
-**Claude Code** — `.mcp.json` in your project:
+**Claude Code** — one command:
+
+```bash
+claude mcp add html-library -- npx -y html-library-mcp
+```
+
+Equivalent, if you'd rather edit `.mcp.json` in your project directly:
 
 ```json
 {
@@ -34,7 +43,27 @@ Add it to your MCP client. Nothing to scaffold, no config file to generate.
 }
 ```
 
-**Claude Desktop** — `claude_desktop_config.json`. It launches with an unrelated working directory, so pin the source explicitly:
+**Claude Desktop** — this is the one client that has a *second*, unrelated
+"Connectors → Add custom connector" dialog for remote servers. That dialog
+wants a URL and immediately tries an OAuth handshake against it, so pasting an
+`npx` command there fails with something like *"couldn't register with
+html-library's sign-in service"* — there's no such service, because this isn't
+a remote OAuth server. Skip that dialog entirely and edit the config file
+instead:
+
+1. Claude menu → **Settings** → **Developer** tab → **Edit Config**. This
+   opens the file, creating it if it doesn't exist yet:
+   - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+   - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+2. Add the block below (merge into an existing `mcpServers` object if you
+   already have other servers configured).
+3. Save, then **fully quit** Claude Desktop — not just close the window — and
+   reopen it.
+4. Confirm it connected via the **+** icon in the message box → **Connectors**
+   → **Manage connectors** → `html-library` should be listed with its tools.
+
+Desktop launches with an unrelated working directory, so the source is pinned
+explicitly:
 
 ```json
 {
@@ -100,6 +129,13 @@ components, and every tool here assumes plain HTML.
 
 ## Tools
 
+**Guide** — read before generating markup
+
+| Tool | Does |
+|---|---|
+| `get_design_guide` | The measured design system — palette, type scale, radius rhythm, dark-mode strategy, state vocabulary |
+| `get_category_guide` | How one category (apps / sites / agent / ui / images) behaves and looks |
+
 **Discovery**
 
 | Tool | Does |
@@ -139,7 +175,7 @@ components, and every tool here assumes plain HTML.
 
 ## Why `check_portability` exists
 
-Two class vocabularies live in this registry. Most components use literal Tailwind (`bg-gray-900`) and paste anywhere. **55 of the 191** use theme tokens — `text-muted-foreground`, `bg-background` — that resolve only inside the library's own docs app. Paste one of those into your project and the text renders invisible, with no error to tell you why.
+Two class vocabularies live in this registry. Most components use literal Tailwind (`bg-gray-900`) and paste anywhere. **54 of the 191** use theme tokens — `text-muted-foreground`, `bg-background` — that resolve only inside the library's own docs app. Paste one of those into your project and the text renders invisible, with no error to tell you why.
 
 `check_portability` finds them and hands back fixed markup:
 

@@ -11,6 +11,8 @@ const APP_TOKEN_RE =
 const TOTAL = components.length
 const NEEDS_SUBSTITUTION = components.filter((item) => APP_TOKEN_RE.test(item.html)).length
 
+const CLAUDE_CODE_CLI = `claude mcp add html-library -- npx -y html-library-mcp`
+
 const NPX_CONFIG = `{
   "mcpServers": {
     "html-library": {
@@ -53,6 +55,13 @@ const PORTABILITY_EXAMPLE = `{
 
 const TOOL_GROUPS: { group: string; tools: [string, string][] }[] = [
   {
+    group: 'Guide',
+    tools: [
+      ['get_design_guide', 'The measured design system — palette, type scale, radius rhythm, dark-mode strategy, state vocabulary.'],
+      ['get_category_guide', 'How one category — apps, sites, agent or ui — behaves and looks.'],
+    ],
+  },
+  {
     group: 'Discovery',
     tools: [
       ['list_components', 'List by category, surface or tag, paginated.'],
@@ -94,7 +103,7 @@ export function McpServer() {
     <DocPage
       eyebrow="Docs"
       title="MCP Server"
-      lede="Query the registry live from your editor — twelve tools for finding components, pulling their markup, and checking that what you paste will actually render."
+      lede="Query the registry live from your editor — fourteen tools for finding components, pulling their markup, and checking that what you paste will actually render."
     >
       <Section title="Introduction">
         <P>
@@ -120,16 +129,26 @@ export function McpServer() {
 
       <Section title="Configuring MCP">
         <P>
-          Add the server to your client's MCP config. Pick your client below; each block is the
-          complete file.
+          This is a <strong className="font-medium text-foreground">local server run over stdio</strong>,
+          not a remote HTTP one — it is added by editing a config file, never through a "remote
+          server URL" or OAuth connector dialog. If your client offers both, use the config-file
+          path below; the connector dialog will try to sign in to a service that does not exist and
+          fail.
         </P>
         <CodeTabs
           tabs={[
             {
               label: 'Claude Code',
+              filename: 'terminal',
+              code: CLAUDE_CODE_CLI,
+              language: 'bash',
+              note: 'One command. Or edit .mcp.json directly — see the next tab.',
+            },
+            {
+              label: 'Claude Code (.mcp.json)',
               filename: '.mcp.json',
               code: NPX_CONFIG,
-              note: 'Project-scoped. Drop this at the root of the project you are working in.',
+              note: 'Same result as the CLI command. Project-scoped — drop this at the root of the project you are working in.',
             },
             {
               label: 'Cursor',
@@ -141,7 +160,7 @@ export function McpServer() {
               label: 'Claude Desktop',
               filename: 'claude_desktop_config.json',
               code: DESKTOP_CONFIG,
-              note: 'Desktop launches with an unrelated working directory, so the source is pinned explicitly.',
+              note: 'Settings → Developer → Edit Config opens this file. Desktop launches with an unrelated working directory, so the source is pinned explicitly.',
             },
             {
               label: 'From a clone',
@@ -151,6 +170,18 @@ export function McpServer() {
             },
           ]}
         />
+        <Callout>
+          <strong className="font-medium text-foreground">Claude Desktop specifically:</strong>{' '}
+          the Claude menu → <strong className="font-medium text-foreground">Settings</strong> →{' '}
+          <strong className="font-medium text-foreground">Developer</strong> tab →{' '}
+          <strong className="font-medium text-foreground">Edit Config</strong> opens (or creates)
+          the file directly — no need to find it by hand. It lives at{' '}
+          <Code>~/Library/Application Support/Claude/claude_desktop_config.json</Code> on macOS or{' '}
+          <Code>%APPDATA%\Claude\claude_desktop_config.json</Code> on Windows. After saving, fully
+          quit Claude Desktop — not just close the window — and reopen it. Then check the{' '}
+          <Code>+</Code> icon in the message box → Connectors → Manage connectors to confirm
+          <Code>html-library</Code> is listed.
+        </Callout>
         <P>
           <Code>npx</Code> fetches{' '}
           <a
@@ -188,8 +219,8 @@ export function McpServer() {
 
       <Section title="Tools">
         <P>
-          Twelve tools in five groups. Discovery and retrieval are what you would expect; the rest
-          exist because this registry has constraints a React library does not.
+          Fourteen tools in six groups. Discovery and retrieval are what you would expect; most of
+          the rest exist because this registry has constraints a React library does not.
         </P>
         <Table
           headers={['Group', 'Tool', 'What it does']}
