@@ -13,31 +13,21 @@ const NEEDS_SUBSTITUTION = components.filter((item) => APP_TOKEN_RE.test(item.ht
 
 const CLAUDE_CODE_CLI = `claude mcp add html-library -- npx -y html-library-mcp`
 
-const NPX_CONFIG = `{
-  "mcpServers": {
-    "html-library": {
-      "command": "npx",
-      "args": ["-y", "html-library-mcp"]
-    }
-  }
-}`
-
-const DESKTOP_CONFIG = `{
+/**
+ * One block for every client that takes a JSON config. Naming the registry
+ * explicitly does two things: it pins the source, so a client that launches
+ * from an unrelated working directory (Claude Desktop does) cannot pick the
+ * wrong one — and it shows where the components come from, so pointing at a
+ * fork is an edit rather than a lookup.
+ */
+const MCP_CONFIG = `{
   "mcpServers": {
     "html-library": {
       "command": "npx",
       "args": ["-y", "html-library-mcp"],
-      "env": { "HTML_LIBRARY_SOURCE": "remote" }
-    }
-  }
-}`
-
-const LOCAL_CONFIG = `{
-  "mcpServers": {
-    "html-library": {
-      "command": "node",
-      "args": ["packages/mcp-server/bin/html-library-mcp.mjs"],
-      "env": { "HTML_LIBRARY_SOURCE": "local" }
+      "env": {
+        "HTML_LIBRARY_REGISTRY_URL": "${PAGES_URL}/r/index.json"
+      }
     }
   }
 }`
@@ -142,45 +132,36 @@ export function McpServer() {
               filename: 'terminal',
               code: CLAUDE_CODE_CLI,
               language: 'bash',
-              note: 'One command. Or edit .mcp.json directly — see the next tab.',
-            },
-            {
-              label: 'Claude Code (.mcp.json)',
-              filename: '.mcp.json',
-              code: NPX_CONFIG,
-              note: 'Same result as the CLI command. Project-scoped — drop this at the root of the project you are working in.',
+              note: 'One command, run anywhere. Then /mcp to confirm it connected.',
             },
             {
               label: 'Cursor',
               filename: '.cursor/mcp.json',
-              code: NPX_CONFIG,
-              note: 'Use ~/.cursor/mcp.json instead to enable it for every project.',
+              code: MCP_CONFIG,
+              note: 'Per project. Use ~/.cursor/mcp.json instead to enable it everywhere.',
             },
             {
-              label: 'Claude Desktop',
-              filename: 'claude_desktop_config.json',
-              code: DESKTOP_CONFIG,
-              note: 'Settings → Developer → Edit Config opens this file. Desktop launches with an unrelated working directory, so the source is pinned explicitly.',
-            },
-            {
-              label: 'From a clone',
-              filename: '.mcp.json',
-              code: LOCAL_CONFIG,
-              note: 'Working inside this repo. Run npm run build:mcp first — this repo already ships this file.',
+              label: 'Others',
+              filename: 'mcp.json',
+              code: MCP_CONFIG,
+              note: 'The same block works in Claude Desktop, Windsurf, Zed, VS Code and any other MCP client — only the file it goes in changes.',
             },
           ]}
         />
         <Callout>
-          <strong className="font-medium text-foreground">Claude Desktop specifically:</strong>{' '}
-          the Claude menu → <strong className="font-medium text-foreground">Settings</strong> →{' '}
-          <strong className="font-medium text-foreground">Developer</strong> tab →{' '}
-          <strong className="font-medium text-foreground">Edit Config</strong> opens (or creates)
-          the file directly — no need to find it by hand. It lives at{' '}
-          <Code>~/Library/Application Support/Claude/claude_desktop_config.json</Code> on macOS or{' '}
-          <Code>%APPDATA%\Claude\claude_desktop_config.json</Code> on Windows. After saving, fully
-          quit Claude Desktop — not just close the window — and reopen it. Then check the{' '}
-          <Code>+</Code> icon in the message box → Connectors → Manage connectors to confirm
-          <Code>html-library</Code> is listed.
+          <strong className="font-medium text-foreground">Using Claude Desktop?</strong> Take the{' '}
+          <strong className="font-medium text-foreground">Others</strong> block above and put it in{' '}
+          <Code>claude_desktop_config.json</Code>. The Claude menu →{' '}
+          <strong className="font-medium text-foreground">Settings</strong> →{' '}
+          <strong className="font-medium text-foreground">Developer</strong> →{' '}
+          <strong className="font-medium text-foreground">Edit Config</strong> opens that file, or
+          creates it — no need to find it by hand. It lives at{' '}
+          <Code>~/Library/Application Support/Claude/claude_desktop_config.json</Code> on macOS and{' '}
+          <Code>%APPDATA%\Claude\claude_desktop_config.json</Code> on Windows. Save, then fully quit
+          Claude Desktop — closing the window is not enough — and reopen it. Do{' '}
+          <strong className="font-medium text-foreground">not</strong> use Settings → Connectors →
+          Add custom connector: that dialog is for remote servers and will fail trying to sign in to
+          a service this one does not have.
         </Callout>
         <P>
           <Code>npx</Code> fetches{' '}
