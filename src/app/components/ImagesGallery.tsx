@@ -1,5 +1,5 @@
 import { useMemo, useRef, useState } from 'react'
-import { Check, ChevronLeft, ChevronRight, Copy, Search, X } from 'lucide-react'
+import { Check, ChevronLeft, ChevronRight, Copy, Search, Sparkles, X } from 'lucide-react'
 import {
   CATEGORY_META,
   GALLERY_CATEGORIES,
@@ -9,6 +9,7 @@ import {
 } from '../../registry'
 import { componentHref, galleryHref } from '../hooks/useHashRoute'
 import { useCopy } from '../hooks/useCopy'
+import { findSimilarImages } from '../lib/imageSimilarity'
 import { toStandaloneHtml } from '../lib/standaloneHtml'
 
 /**
@@ -159,7 +160,16 @@ function StyleRail({
  * breaking across a column boundary and carries its own bottom margin — grid
  * `gap` does not apply inside a multi-column flow.
  */
-function MasonryTile({ item }: { item: RegistryItem }) {
+function MasonryTile({
+  item,
+  reason,
+  onExplore,
+}: {
+  item: RegistryItem
+  /** Why this result surfaced, when it came from a similarity search. */
+  reason?: string
+  onExplore: (name: string) => void
+}) {
   const { copied, copy } = useCopy()
   const src = localSrc(item)
 
@@ -180,12 +190,23 @@ function MasonryTile({ item }: { item: RegistryItem }) {
         )}
       </a>
 
-      {/* Caption + copy sit over the image, revealed on hover. */}
+      {/* Caption + actions sit over the image, revealed on hover. */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end gap-2 rounded-b-xl bg-gradient-to-t from-black/80 via-black/20 to-transparent p-2.5 opacity-0 transition group-hover:opacity-100">
         <span className="min-w-0 flex-1">
           <span className="block truncate text-[12.5px] font-medium text-white">{item.title}</span>
-          <span className="block truncate text-[11px] text-white/70">{item.tagline}</span>
+          <span className="block truncate text-[11px] text-white/70">{reason ?? item.tagline}</span>
         </span>
+        {/* Re-seeding from a result is what makes this explorable rather than a
+            single lookup — every image is a door to the next set. */}
+        <button
+          type="button"
+          onClick={() => onExplore(item.name)}
+          className="pointer-events-auto flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-white/15 text-white backdrop-blur transition hover:bg-white/30"
+          title={`More like ${item.title}`}
+          aria-label={`More like ${item.title}`}
+        >
+          <Sparkles size={13} />
+        </button>
         <button
           type="button"
           onClick={() => copy(toStandaloneHtml(item))}
@@ -205,6 +226,7 @@ export function ImagesGallery() {
   // filter on Discover. Mutually exclusive with the text search — starting
   // either one clears the other, so only one filter is ever in effect.
   const [selectedName, setSelectedName] = useState<string | null>(null)
+  const discover = useRef<HTMLDivElement>(null)
   const meta = CATEGORY_META.images
   const all = getByCategory('images')
   const selected = selectedName ? all.find((item) => item.name === selectedName) : undefined
@@ -220,25 +242,26 @@ export function ImagesGallery() {
     setSelectedName(null)
   }
 
-  // Ranked by how many tags a candidate shares with the selected image — the
-  // same vocabulary already used for search, repurposed as a similarity score
-  // rather than a text match. Undefined (no selection) and empty array
-  // (selection has no match) are kept distinct so the empty state can tell
-  // "nothing chosen" apart from "chose one, found nothing like it".
-  const similar = useMemo(() => {
-    if (!selected) return undefined
-    const selectedTags = new Set(selected.tags ?? [])
-    if (selectedTags.size === 0) return []
-    return all
-      .filter((item) => item.name !== selected.name)
-      .map((item) => ({
-        item,
-        score: (item.tags ?? []).filter((tag) => selectedTags.has(tag)).length,
-      }))
-      .filter((entry) => entry.score > 0)
-      .sort((a, b) => b.score - a.score || a.item.title.localeCompare(b.item.title))
-      .map((entry) => entry.item)
-  }, [all, selected])
+  // Re-seeding from a result several screens down would otherwise swap the grid
+  // silently underneath the reader, so bring the new set into view.
+  const exploreFrom = (name: string) => {
+    selectRailImage(name)
+    discover.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
+  // Ranked by the multi-channel scorer in lib/imageSimilarity — tags, theme,
+  // look and technique, IDF-weighted so a rare shared trait outweighs a generic
+  // one. Undefined (no selection) and empty array (selection has no match) are
+  // kept distinct so the empty state can tell "nothing chosen" apart from
+  // "chose one, found nothing like it".
+  const similar = useMemo(
+    () => (selected ? findSimilarImages(all, selected) : undefined),
+    [all, selected],
+  )
+  const reasons = useMemo(
+    () => new Map((similar ?? []).map((entry) => [entry.item.name, entry.reason])),
+    [similar],
+  )
 
   const results = useMemo(() => {
     const needle = query.trim().toLowerCase()
@@ -249,7 +272,7 @@ export function ImagesGallery() {
           .includes(needle),
       )
     }
-    if (selected) return similar ?? []
+    if (selected) return (similar ?? []).map((entry) => entry.item)
     return all
   }, [all, query, selected, similar])
 
@@ -318,7 +341,10 @@ export function ImagesGallery() {
           searches and matches against all of them. */}
       <StyleRail items={railItems} selectedName={selectedName} onSelect={selectRailImage} />
 
-      <div className="mb-4 mt-9 flex flex-wrap items-center gap-x-3 gap-y-1.5">
+      <div
+        ref={discover}
+        className="mb-4 mt-9 flex scroll-mt-4 flex-wrap items-center gap-x-3 gap-y-1.5"
+      >
         <h2 className="text-[19px] font-semibold tracking-tight text-foreground">Discover</h2>
         {selected && (
           <>
@@ -381,7 +407,12 @@ export function ImagesGallery() {
         // to a single very wide column.
         <div className="columns-2 gap-3 sm:columns-[17rem]">
           {results.map((item) => (
-            <MasonryTile key={item.name} item={item} />
+            <MasonryTile
+              key={item.name}
+              item={item}
+              reason={reasons.get(item.name)}
+              onExplore={exploreFrom}
+            />
           ))}
         </div>
       )}
