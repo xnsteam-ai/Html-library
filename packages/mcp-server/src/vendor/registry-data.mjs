@@ -44,6 +44,17 @@ export const SURFACES = ['app', 'site', 'section']
 
 // Classes that only resolve inside the docs app's own @theme block. Anything
 // using one of these renders invisible (or unstyled) in another project.
+/**
+ * The app-only tokens that have a documented literal replacement.
+ *
+ * `theme.css` also defines `--ring` and `--brand`, and they are deliberately
+ * absent: nothing can be flagged here that `SUBSTITUTIONS` cannot then fix,
+ * because `check_portability` promises markup that round-trips clean. Neither
+ * is used as a utility anywhere (verified), so nothing is missed. The one real
+ * gap is `sites/site-pricing`, which reaches the accent through
+ * `bg-[var(--brand)]` — genuinely non-portable, but an arbitrary value has no
+ * dark-mode-preserving rewrite, so it is left visible rather than half-fixed.
+ */
 export const APP_TOKENS = [
   'foreground',
   'muted-foreground',
@@ -60,6 +71,17 @@ export const APP_TOKEN_RE = new RegExp(
   `(?:^|[\\s"'])(?:[a-z-]+:)*(?:text|bg|border|ring|fill|stroke|divide|placeholder|from|to|via|shadow|outline|accent|caret|decoration)-(${APP_TOKENS.join('|')})(?![a-z0-9-])`,
   'g',
 )
+
+/**
+ * The same tokens reached through an arbitrary value — `bg-[var(--muted)]`.
+ * The utility regex cannot see these, because the token never appears as a
+ * class suffix, but they are just as app-only: the variable is defined in the
+ * docs stylesheet and resolves to nothing anywhere else.
+ *
+ * No component uses this form today, so it catches nothing now — it is here so
+ * that the first one to try it is flagged rather than shipped.
+ */
+export const APP_VAR_RE = new RegExp(`var\\(\\s*--(${APP_TOKENS.join('|')})\\s*\\)`, 'g')
 
 /**
  * Exact 1:1 replacements for the app-only tokens, taken from the real values
@@ -84,9 +106,11 @@ export const SUBSTITUTIONS = {
  */
 export function scanPortability(html) {
   const tokens = new Set()
-  APP_TOKEN_RE.lastIndex = 0
-  let match
-  while ((match = APP_TOKEN_RE.exec(html))) tokens.add(match[1])
+  for (const pattern of [APP_TOKEN_RE, APP_VAR_RE]) {
+    pattern.lastIndex = 0
+    let match
+    while ((match = pattern.exec(html))) tokens.add(match[1])
+  }
   return { portable: tokens.size === 0, appTokens: [...tokens].sort() }
 }
 

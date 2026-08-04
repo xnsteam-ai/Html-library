@@ -21,7 +21,9 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const here = path.dirname(fileURLToPath(import.meta.url))
-const LIB = path.resolve(here, '../../../scripts/lib')
+const REPO = path.resolve(here, '../../..')
+const LIB = path.join(REPO, 'scripts/lib')
+const SKILL = path.join(REPO, 'skills/html-library')
 const VENDOR = path.resolve(here, '../src/vendor')
 // tsc does not emit these (allowJs is off so the .d.mts wins for typing), so
 // the runtime copies are placed here directly.
@@ -34,9 +36,37 @@ const BANNER =
 
 // JSON has no comment syntax, so it is copied byte-for-byte; its own
 // `_comment` field carries the same warning.
+//
+// The skill markdown is vendored too, so an agent that installed the package
+// over npx gets the whole guide offline rather than only what the website
+// serves. Markdown takes an HTML-comment banner; note the banner is part of
+// what --check compares, so it must be applied identically in both branches.
+const MD_BANNER =
+  '<!-- GENERATED — do not edit. Copied from skills/html-library/ by\n' +
+  '     packages/mcp-server/scripts/sync-core.mjs. Edit the original and\n' +
+  '     re-run `npm run build:mcp`. -->\n\n'
+
+const SKILL_DOCS = [
+  'INSTRUCTIONS.md',
+  'SKILL.md',
+  'references/design-system.md',
+  'references/conventions.md',
+  'references/recipes.md',
+  'references/troubleshooting.md',
+  'references/registry-api.md',
+  'references/components.md',
+  'references/images.md',
+]
+
 const FILES = [
-  { from: 'registry-data.mjs', to: 'registry-data.mjs', banner: BANNER },
-  { from: 'recipes.json', to: 'recipes.json', banner: '' },
+  { root: LIB, from: 'registry-data.mjs', to: 'registry-data.mjs', banner: BANNER },
+  { root: LIB, from: 'recipes.json', to: 'recipes.json', banner: '' },
+  ...SKILL_DOCS.map((name) => ({
+    root: SKILL,
+    from: name,
+    to: `skill/${name}`,
+    banner: MD_BANNER,
+  })),
 ]
 
 const checkOnly = process.argv.includes('--check')
@@ -48,11 +78,14 @@ if (!checkOnly) {
 }
 
 for (const file of FILES) {
-  const source = path.join(LIB, file.from)
+  const source = path.join(file.root, file.from)
   const target = path.join(VENDOR, file.to)
 
   if (!existsSync(source)) {
     console.error(`sync-core: cannot find ${source}`)
+    if (file.root === SKILL) {
+      console.error('Run `npm run build:skill` first — the skill docs are generated.')
+    }
     process.exit(1)
   }
 
@@ -63,8 +96,13 @@ for (const file of FILES) {
     const actual = existsSync(target) ? await readFile(target, 'utf8') : null
     if (actual !== expected) stale.push(`src/vendor/${file.to}`)
   } else {
+    const distTarget = path.join(DIST_VENDOR, file.to)
+    // `to` may be nested (skill/references/…), which the top-level mkdir above
+    // does not cover.
+    await mkdir(path.dirname(target), { recursive: true })
+    await mkdir(path.dirname(distTarget), { recursive: true })
     await writeFile(target, expected)
-    await writeFile(path.join(DIST_VENDOR, file.to), expected)
+    await writeFile(distTarget, expected)
   }
 }
 
