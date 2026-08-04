@@ -77,8 +77,17 @@ export interface GuideSession {
 
 export const newGuideSession = (): GuideSession => ({ read: false, nudged: false })
 
+/**
+ * The vendoring banner is provenance for people reading this repo — it tells
+ * them to edit the original and re-run the build. To an agent that installed
+ * the package over npx it is noise pointing at a script they do not have, so
+ * it is stripped from everything served.
+ */
+export const stripBanner = (text: string): string =>
+  text.replace(/^<!--[\s\S]*?-->\s*/, '').trim()
+
 export async function readSkillDoc(file: string): Promise<string> {
-  return readFile(path.join(SKILL_DIR, file), 'utf8')
+  return stripBanner(await readFile(path.join(SKILL_DIR, file), 'utf8'))
 }
 
 /** Category guides are assembled from the sections the design reference already measures. */

@@ -73,6 +73,29 @@ test('get_design_guide returns real content and defaults to the design system', 
   }
 })
 
+test('served docs carry no vendoring banner', async () => {
+  const { client, close } = await connect()
+  try {
+    // The banner tells a reader to re-run a build script they do not have if
+    // they installed over npx, so it must not reach a client by any route.
+    const viaTool = (await client.callTool({ name: 'get_design_guide', arguments: {} }))
+      .content[0].text
+    const viaResource = (
+      await client.readResource({ uri: 'skill://html-library/design-system' })
+    ).contents[0].text
+
+    for (const [route, text] of [['tool', viaTool], ['resource', viaResource]]) {
+      assert.ok(!text.includes('GENERATED — do not edit'), `${route} leaks the banner`)
+      assert.ok(!text.includes('npm run build:mcp'), `${route} leaks build instructions`)
+      assert.match(text.slice(0, 40), /^# Design system/, `${route} starts at the heading`)
+    }
+
+    assert.ok(!client.getInstructions().includes('GENERATED'), 'instructions leak the banner')
+  } finally {
+    await close()
+  }
+})
+
 test('get_category_guide answers how each category looks and behaves', async () => {
   const { client, close } = await connect()
   try {

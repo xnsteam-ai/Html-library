@@ -5,7 +5,14 @@ import path from 'node:path'
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 
 import { RegistryData } from './data.js'
-import { GUIDE_TOPICS, VENDOR_DIR, guideTools, newGuideSession, readSkillDoc } from './tools/guide.js'
+import {
+  GUIDE_TOPICS,
+  VENDOR_DIR,
+  guideTools,
+  newGuideSession,
+  readSkillDoc,
+  stripBanner,
+} from './tools/guide.js'
 import { resolveSource, type Source } from './source.js'
 import { compositionTools } from './tools/composition.js'
 import { discoveryTools } from './tools/discovery.js'
@@ -32,14 +39,9 @@ export const SERVER_VERSION: string = createRequire(import.meta.url)('../package
  * spec makes it a hint clients MAY add to the system prompt. Depth lives behind
  * get_design_guide; this stays short because clients inject it every session.
  */
-const INSTRUCTIONS: string = readFileSync(
-  path.join(VENDOR_DIR, 'skill', 'INSTRUCTIONS.md'),
-  'utf8',
+const INSTRUCTIONS: string = stripBanner(
+  readFileSync(path.join(VENDOR_DIR, 'skill', 'INSTRUCTIONS.md'), 'utf8'),
 )
-  // Strip the vendoring banner; it is provenance for readers of the repo, not
-  // something a client should be handed.
-  .replace(/^<!--[\s\S]*?-->\s*/, '')
-  .trim()
 
 export function buildServer(source: Source = resolveSource()): McpServer {
   const server = new McpServer(
