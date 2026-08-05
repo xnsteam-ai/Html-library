@@ -1,0 +1,10 @@
+node_modules
+dist
+.git
+.vite
+*.log
+more
+public/images
+packages/mcp-server/dist
+.claude
+scratch

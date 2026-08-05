@@ -35,7 +35,8 @@
     "build": "npm run sync:core && tsc -p tsconfig.json",
     "verify": "node scripts/sync-core.mjs --check && tsc --noEmit -p tsconfig.json && node --test test/*.test.mjs",
     "test": "node --test test/*.test.mjs",
-    "inspect": "npx @modelcontextprotocol/inspector node bin/html-library-mcp.mjs"
+    "inspect": "npx @modelcontextprotocol/inspector node bin/html-library-mcp.mjs",
+    "start:http": "node bin/html-library-mcp-http.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.30.0",

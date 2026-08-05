@@ -195,6 +195,51 @@ Two class vocabularies live in this registry. Most components use literal Tailwi
 
 Every replacement carries its own `dark:` variant, so the result is correct in both themes.
 
+## Remote (HTTP) server
+
+The `npx` install above runs over **stdio** — a local process, one per client.
+There's a second entrypoint, `src/http.ts`, that speaks the MCP **Streamable
+HTTP** transport instead: a long-running server with one endpoint,
+`POST/GET/DELETE /mcp`, sessioned by an `mcp-session-id` header. This is what a
+"remote server URL" style connector (Claude Desktop's Settings → Connectors →
+Add custom connector, or any other client that wants a URL instead of a
+command) needs — the stdio server has no HTTP endpoint at all, so pointing that
+dialog at `npx html-library-mcp` is what produces the sign-in-service error
+described above.
+
+It ships in this package but is **not deployed anywhere** — running it
+publicly is a separate decision (which host, which domain) left to whoever
+wants to stand it up. What's here is everything needed to do that.
+
+Run it locally:
+
+```bash
+npm run build --workspace packages/mcp-server
+npm run start:http --workspace packages/mcp-server
+```
+
+Listens on `:8787` by default (`PORT` to change it) and serves `/mcp`. A plain
+`GET /` returns a text health check. Unlike the stdio server, `HTML_LIBRARY_SOURCE`
+defaults to `remote` here automatically — a deployed instance has no repo
+checkout to detect, so this skips that filesystem probe rather than failing it.
+No authentication: every request from any origin is served, which matches how
+Claude's `mcp_servers` connector config treats `authorization_token` as
+optional — this is a read-only registry with no per-user data, so there's
+nothing an auth layer would be protecting.
+
+Container build, from the repo root (the workspace layout means the build
+context has to be the root, not this directory):
+
+```bash
+docker build -f packages/mcp-server/Dockerfile -t html-library-mcp .
+docker run -p 8787:8787 html-library-mcp
+```
+
+Once a copy of this is deployed somewhere with a public HTTPS URL, that URL is
+what goes into Claude Desktop's **Settings → Connectors → Add custom
+connector** dialog — no Client ID, no OAuth setup, just the URL ending in
+`/mcp`. Until then, use the stdio install above.
+
 ## Development
 
 From the repo root:
