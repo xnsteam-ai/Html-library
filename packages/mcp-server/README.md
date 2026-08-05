@@ -6,66 +6,38 @@ Not React. No package to install for the components themselves, no CLI, no build
 
 ## Install
 
-Add it to your MCP client. Nothing to scaffold, no config file to generate — this
-is a **local server run over stdio**, not a remote HTTP one, so it is added by
-editing a config file, never through a "remote server URL" / OAuth connector
-dialog. If a client offers both, use the config-file path below.
+The server is hosted at **`https://html-library-mcp.fly.dev/mcp`** — no account,
+no API key, nothing to install. Point a client at it and you're done.
+
+**Claude Desktop** — Settings → **Connectors** → **Add custom connector**, paste
+the URL. No Client ID, no OAuth step; the server takes unauthenticated
+connections.
 
 **Claude Code** — one command:
 
 ```bash
-claude mcp add html-library -- npx -y html-library-mcp
+claude mcp add --transport http html-library https://html-library-mcp.fly.dev/mcp
 ```
 
-Equivalent, if you'd rather edit `.mcp.json` in your project directly:
+**Cursor, Windsurf, VS Code, Zed** — anything that takes a `url`. Only the file
+it goes in changes (`.cursor/mcp.json`, `~/.cursor/mcp.json`, …):
 
 ```json
 {
   "mcpServers": {
     "html-library": {
-      "command": "npx",
-      "args": ["-y", "html-library-mcp"]
+      "url": "https://html-library-mcp.fly.dev/mcp"
     }
   }
 }
 ```
 
-**Cursor** — `.cursor/mcp.json` (or `~/.cursor/mcp.json` for every project):
+### Running it locally instead
 
-```json
-{
-  "mcpServers": {
-    "html-library": {
-      "command": "npx",
-      "args": ["-y", "html-library-mcp"]
-    }
-  }
-}
-```
-
-**Claude Desktop** — two ways to connect:
-
-- **Remote (fewer steps).** Settings → **Connectors** → **Add custom
-  connector**, paste in `https://html-library-mcp.fly.dev/mcp` as the server
-  URL. No Client ID, no OAuth step — the server takes unauthenticated
-  connections. (Pasting a plain `npx` command into this dialog is what used
-  to fail with a sign-in error — that's what this URL is for.)
-- **Local (stdio).** Edit the config file directly, same as every other
-  client above:
-
-1. Claude menu → **Settings** → **Developer** tab → **Edit Config**. This
-   opens the file, creating it if it doesn't exist yet:
-   - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
-   - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
-2. Add the block below (merge into an existing `mcpServers` object if you
-   already have other servers configured).
-3. Save, then **fully quit** Claude Desktop — not just close the window — and
-   reopen it.
-4. Confirm it connected via the **+** icon in the message box → **Connectors**
-   → **Manage connectors** → `html-library` should be listed with its tools.
-
-Desktop launches with an unrelated working directory, so the source is pinned
-explicitly:
+The published npm package is the same server over **stdio**, as a subprocess
+rather than an HTTP call — worth it if you want no network dependency on the
+hosted instance, or you're pointing it at [your own
+registry](#pointing-at-your-own-registry):
 
 ```json
 {
@@ -79,13 +51,20 @@ explicitly:
 }
 ```
 
-> Working from a clone instead? Run `npm run build:mcp`, then point `command` at
-> `node` and `args` at `packages/mcp-server/bin/html-library-mcp.mjs`. This repo
-> already ships that as [`.mcp.json`](../../.mcp.json).
+`HTML_LIBRARY_SOURCE` is pinned because a client can launch the subprocess from
+an unrelated working directory, and source detection would otherwise depend on
+where that happens to be — see [Where the data comes
+from](#where-the-data-comes-from).
+
+> Working from a clone? Run `npm run build:mcp`, then point `command` at `node`
+> and `args` at `packages/mcp-server/bin/html-library-mcp.mjs`. This repo ships
+> exactly that as [`.mcp.json`](../../.mcp.json).
 
 ## Where the data comes from
 
-The server picks its source automatically and says which one it chose on stderr at startup.
+Applies to an instance you run yourself — the hosted URL is already configured
+and reads the published registry. The server picks its source automatically and
+says which one it chose on stderr at startup.
 
 | Mode | When | Behaviour |
 |---|---|---|
@@ -197,50 +176,55 @@ Two class vocabularies live in this registry. Most components use literal Tailwi
 
 Every replacement carries its own `dark:` variant, so the result is correct in both themes.
 
-## Remote (HTTP) server
+## The HTTP server
 
-The `npx` install above runs over **stdio** — a local process, one per client.
-There's a second entrypoint, `src/http.ts`, that speaks the MCP **Streamable
-HTTP** transport instead: a long-running server with one endpoint,
-`POST/GET/DELETE /mcp`, sessioned by an `mcp-session-id` header. This is what a
-"remote server URL" style connector (Claude Desktop's Settings → Connectors →
-Add custom connector, or any other client that wants a URL instead of a
-command) needs — the stdio server has no HTTP endpoint at all, so pointing that
-dialog at `npx html-library-mcp` is what produces the sign-in-service error
-described above.
-
-It ships in this package but is **not deployed anywhere** — running it
-publicly is a separate decision (which host, which domain) left to whoever
-wants to stand it up. What's here is everything needed to do that.
-
-Run it locally:
+`src/http.ts` is the entrypoint behind the hosted URL — the same tools as the
+stdio binary, over the MCP **Streamable HTTP** transport. It's deployed on
+Fly.io; this section is for running or self-hosting your own copy.
 
 ```bash
 npm run build --workspace packages/mcp-server
 npm run start:http --workspace packages/mcp-server
 ```
 
-Listens on `:8787` by default (`PORT` to change it) and serves `/mcp`. A plain
-`GET /` returns a text health check. Unlike the stdio server, `HTML_LIBRARY_SOURCE`
-defaults to `remote` here automatically — a deployed instance has no repo
-checkout to detect, so this skips that filesystem probe rather than failing it.
-No authentication: every request from any origin is served, which matches how
-Claude's `mcp_servers` connector config treats `authorization_token` as
-optional — this is a read-only registry with no per-user data, so there's
-nothing an auth layer would be protecting.
+Listens on `:8787` (`PORT` to change it) and serves `/mcp`. `GET /` is a plain
+text health check. `HTML_LIBRARY_SOURCE` defaults to `remote` here rather than
+being auto-detected — a deployed container has no repo checkout to find, so the
+filesystem probe is skipped instead of failing. No authentication: every request
+from any origin is served, which is what Claude's connector config allows via an
+optional `authorization_token`. Nothing here is per-user or writable, so there'd
+be nothing for an auth layer to protect.
 
-Container build, from the repo root (the workspace layout means the build
-context has to be the root, not this directory):
+**It is deliberately stateless** — `sessionIdGenerator: undefined`, a fresh
+transport per request, no server-side session map. That is not an
+implementation shortcut; it's load-bearing. The first version kept sessions in
+an in-memory `Map`, which works on one process and fails on two: Fly runs this
+app on multiple machines and its proxy balances **per request**, not per
+connection, so `initialize` would land on machine A and the next request would
+round-robin to machine B, which had never heard of that session and rejected
+it — about 9 in 10 real handshakes failed that way. Any horizontally-scaled
+deployment has the same shape, so if you fork this, keep it stateless or add
+real session affinity. Consequences worth knowing:
+
+- `GET` and `DELETE /mcp` return `405` — stateless mode has no standalone SSE
+  stream to open and no session to delete. This is the status the SDK's own
+  client treats as "no stream offered" and tolerates.
+- An inbound `mcp-session-id` header is ignored, not validated or rejected.
+- `RegistryData` is shared at module scope, or a per-request server would
+  re-fetch the registry index on every single tool call.
+
+Container build, from the repo root — the workspace layout means the build
+context has to be the root, not this directory:
 
 ```bash
 docker build -f packages/mcp-server/Dockerfile -t html-library-mcp .
 docker run -p 8787:8787 html-library-mcp
 ```
 
-Once a copy of this is deployed somewhere with a public HTTPS URL, that URL is
-what goes into Claude Desktop's **Settings → Connectors → Add custom
-connector** dialog — no Client ID, no OAuth setup, just the URL ending in
-`/mcp`. Until then, use the stdio install above.
+For a Fly deploy, [`fly.toml`](../../fly.toml) at the repo root is the config
+this instance uses. It keeps one machine warm (`min_machines_running = 1`)
+because a cold start costs 6–7s, and a connector dialog is the worst place to
+spend it.
 
 ## Development
 
@@ -248,7 +232,7 @@ From the repo root:
 
 ```bash
 npm run build:mcp     # sync vendored core, compile TypeScript
-npm run verify:mcp    # staleness check, typecheck, 22 tests against the real registry
+npm run verify:mcp    # staleness check, typecheck, 48 tests against the real registry
 ```
 
 Inspect it interactively:
