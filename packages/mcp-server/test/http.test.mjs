@@ -10,22 +10,30 @@ import { REPO_ROOT } from './helpers.mjs'
 
 /**
  * The in-memory tests (guide.test.mjs, tools.integration.test.mjs, …) prove
- * the tools work; they say nothing about the HTTP transport itself — session
- * routing, CORS, and the concurrent-session isolation are all plumbing that
- * only exists in http.ts and is invisible to InMemoryTransport. This drives a
- * real server process over real HTTP, the same path a deployed instance and
- * Claude's connector would actually take.
+ * the tools work; they say nothing about the HTTP transport itself — routing,
+ * CORS, and statelessness are all plumbing that only exists in http.ts and is
+ * invisible to InMemoryTransport. This drives a real server process over real
+ * HTTP, the same path a deployed instance and Claude's connector take.
+ *
+ * The transport is deliberately stateless (see the comment atop http.ts): no
+ * server-side session map, so no test here should assume one request's session
+ * id is required by, or even present on, a later request.
  */
 
-let child
-let baseUrl
-
-test.before(async () => {
+/**
+ * Spawns its own instance of the real HTTP server on a random port and
+ * resolves once it is listening. Shared state (like the guide-read nudge — see
+ * the last test in this file) lives at process scope now that the transport is
+ * stateless, so a test that cares about "the first call in a fresh process"
+ * needs a process nothing else in the suite has already touched, not the
+ * shared one every other test in this file reuses.
+ */
+async function spawnServer() {
   const { spawn } = await import('node:child_process')
-  const port = 8700 + Math.floor(Math.random() * 200) // avoid clashing with a parallel run
-  baseUrl = `http://127.0.0.1:${port}`
+  const port = 8700 + Math.floor(Math.random() * 300) // avoid clashing with a parallel run
+  const url = `http://127.0.0.1:${port}`
 
-  child = spawn(
+  const proc = spawn(
     process.execPath,
     [path.join(REPO_ROOT, 'packages/mcp-server/bin/html-library-mcp-http.mjs')],
     { env: { ...process.env, PORT: String(port) }, stdio: ['ignore', 'pipe', 'pipe'] },
@@ -38,22 +46,33 @@ test.before(async () => {
     const onData = (chunk) => {
       buf += chunk.toString()
       if (buf.includes('listening on')) {
-        child.stdout.off('data', onData)
+        proc.stdout.off('data', onData)
         resolve()
       }
     }
-    child.stdout.on('data', onData)
-    child.once('error', reject)
+    proc.stdout.on('data', onData)
+    proc.once('error', reject)
     setTimeout(() => reject(new Error(`server did not start:\n${buf}`)), 8000)
   })
+
+  return { url, kill: () => proc.kill() }
+}
+
+let child
+let baseUrl
+
+test.before(async () => {
+  const server = await spawnServer()
+  child = { kill: server.kill }
+  baseUrl = server.url
 })
 
 test.after(() => {
   child?.kill()
 })
 
-async function connectHttp() {
-  const transport = new StreamableHTTPClientTransport(new URL(`${baseUrl}/mcp`))
+async function connectHttp(url = baseUrl) {
+  const transport = new StreamableHTTPClientTransport(new URL(`${url}/mcp`))
   const client = new Client({ name: 'http-test', version: '0.0.0' })
   await client.connect(transport)
   return { client, close: () => client.close() }
@@ -71,13 +90,13 @@ test('GET / answers a plain health check', async () => {
   assert.match(await res.text(), /html-library-mcp/)
 })
 
-test('a real client handshakes over HTTP and gets a session', async () => {
+test('a real client handshakes over HTTP with no session issued', async () => {
   const { client, close } = await connectHttp()
   try {
-    // StreamableHTTPClientTransport exposes the negotiated session id, so this
-    // confirms the server actually issued one rather than silently going
-    // stateless.
-    assert.ok(client.transport.sessionId, 'server assigned a session id')
+    // No mcp-session-id anywhere: this server never generates one, which is
+    // exactly what makes it safe to run behind two Fly machines with no
+    // sticky routing — there is no session for a second machine to have missed.
+    assert.equal(client.transport.sessionId, undefined, 'stateless mode issues no session id')
 
     const instructions = client.getInstructions()
     const stats = JSON.parse(
@@ -143,7 +162,6 @@ test('a trailing slash or bare origin still reaches the endpoint', async () => {
   for (const path of ['/mcp/', '/', '/mcp?foo=1']) {
     const res = await fetch(`${baseUrl}${path}`, { method: 'POST', headers, body })
     assert.equal(res.status, 200, `POST ${path} should initialize`)
-    assert.ok(res.headers.get('mcp-session-id'), `POST ${path} should open a session`)
     await res.text()
   }
 
@@ -158,19 +176,40 @@ test('a trailing slash or bare origin still reaches the endpoint', async () => {
   assert.match(await health.text(), /html-library-mcp/)
 })
 
-test('an unknown session id is rejected, not crashed on', async () => {
+test('a stale or bogus mcp-session-id header is ignored, not rejected', async () => {
+  // Stateless mode performs no session validation at all (that's the SDK's
+  // own documented behaviour) — a client that still sends the header, e.g.
+  // one caching a session id from a previous connect against the old stateful
+  // build, must not be punished for it.
   const res = await fetch(`${baseUrl}/mcp`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json, text/event-stream',
-      'mcp-session-id': 'this-session-does-not-exist',
+      'mcp-session-id': 'this-session-does-not-exist-anywhere',
     },
-    body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'tools/list' }),
+    body: JSON.stringify({
+      jsonrpc: '2.0',
+      id: 1,
+      method: 'initialize',
+      params: { protocolVersion: '2025-06-18', capabilities: {}, clientInfo: { name: 't', version: '0' } },
+    }),
   })
-  assert.equal(res.status, 400)
+  assert.equal(res.status, 200)
+  await res.text()
 
-  // The server process, and every other session on it, must still be alive.
+  const health = await fetch(`${baseUrl}/`)
+  assert.equal(health.status, 200)
+})
+
+test('GET and DELETE are refused, not hung on — stateless mode has no stream or session to offer', async () => {
+  const get = await fetch(`${baseUrl}/mcp`, { headers: { Accept: 'text/event-stream' } })
+  assert.equal(get.status, 405)
+  assert.match(get.headers.get('allow') ?? '', /POST/)
+
+  const del = await fetch(`${baseUrl}/mcp`, { method: 'DELETE' })
+  assert.equal(del.status, 405)
+
   const health = await fetch(`${baseUrl}/`)
   assert.equal(health.status, 200)
 })
@@ -179,33 +218,50 @@ test('OPTIONS preflight carries the CORS headers a browser client needs', async 
   const res = await fetch(`${baseUrl}/mcp`, { method: 'OPTIONS' })
   assert.equal(res.status, 204)
   assert.equal(res.headers.get('access-control-allow-origin'), '*')
-  assert.match(res.headers.get('access-control-allow-headers') ?? '', /mcp-session-id/)
-  // Without this exposed, a browser client can receive the header but never
-  // read it via the Fetch API, and every request after the first would 400.
-  assert.match(res.headers.get('access-control-expose-headers') ?? '', /mcp-session-id/)
+  assert.match(res.headers.get('access-control-allow-headers') ?? '', /content-type/i)
 })
 
-test('two concurrent sessions do not leak the guide-read nudge into each other', async () => {
-  // This is the exact bug class the per-session GuideSession threading in
-  // guide.ts/retrieval.ts already fixed for two in-process servers — this
-  // proves it also holds when the sessions are two real HTTP connections to
-  // one running process, which is the situation a deployed server is actually
-  // in.
-  const a = await connectHttp()
-  const b = await connectHttp()
+test('OPTIONS preflight echoes back whatever headers the browser asked to send', async () => {
+  // A hardcoded allow-list 404s any preflight for a header a future client
+  // adds; echoing access-control-request-headers is what keeps a browser
+  // client unblocked without hand-maintaining the list.
+  const res = await fetch(`${baseUrl}/mcp`, {
+    method: 'OPTIONS',
+    headers: { 'Access-Control-Request-Headers': 'x-totally-made-up-header' },
+  })
+  assert.equal(res.status, 204)
+  assert.match(res.headers.get('access-control-allow-headers') ?? '', /x-totally-made-up-header/)
+})
+
+test('the guide-read nudge fires once per process, not once per connection', async () => {
+  // The old stateful build isolated the nudge per session (GuideSession was
+  // created fresh inside buildServer() every time a session opened). Stateless
+  // mode shares one GuideSession across every request in the process instead
+  // — necessary because there is no session left to key per-connection state
+  // on — so the nudge now fires for the first caller after boot and stays
+  // quiet for everyone after, regardless of which HTTP connection they arrive
+  // on. Needs its own fresh server: the shared suite server has already spent
+  // its nudge in an earlier test (get_component nudges too, and "a real tool
+  // call returns real registry data over HTTP" already called it).
+  const server = await spawnServer()
   try {
-    assert.notEqual(a.client.transport.sessionId, b.client.transport.sessionId)
+    const a = await connectHttp(server.url)
+    const b = await connectHttp(server.url)
+    try {
+      const first = await call(a.client, 'get_component_markup', { names: ['switch'] })
+      assert.ok(first.data.designGuide, 'the first call in a fresh process carries the nudge')
 
-    const first = await call(a.client, 'get_component_markup', { names: ['switch'] })
-    assert.ok(first.data.designGuide, 'first call on a fresh session carries the nudge')
-
-    const untouched = await call(b.client, 'get_component_markup', { names: ['button'] })
-    assert.ok(untouched.data.designGuide, 'a different session still gets its own first nudge')
-
-    const second = await call(a.client, 'get_component_markup', { names: ['card'] })
-    assert.equal(second.data.designGuide, undefined, 'the same session does not repeat it')
+      const second = await call(b.client, 'get_component_markup', { names: ['button'] })
+      assert.equal(
+        second.data.designGuide,
+        undefined,
+        'a second connection does not get its own nudge — the state is process-wide now',
+      )
+    } finally {
+      await a.close()
+      await b.close()
+    }
   } finally {
-    await a.close()
-    await b.close()
+    server.kill()
   }
 })

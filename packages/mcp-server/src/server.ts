@@ -12,6 +12,7 @@ import {
   newGuideSession,
   readSkillDoc,
   stripBanner,
+  type GuideSession,
 } from './tools/guide.js'
 import { resolveSource, type Source } from './source.js'
 import { compositionTools } from './tools/composition.js'
@@ -69,7 +70,11 @@ const INSTRUCTIONS: string = stripBanner(
   readFileSync(path.join(VENDOR_DIR, 'skill', 'INSTRUCTIONS.md'), 'utf8'),
 )
 
-export function buildServer(source: Source = resolveSource()): McpServer {
+export function buildServer(
+  source: Source = resolveSource(),
+  data: RegistryData = new RegistryData(source),
+  session: GuideSession = newGuideSession(),
+): McpServer {
   const server = new McpServer(
     { name: SERVER_NAME, version: SERVER_VERSION, websiteUrl: SITE_URL, icons: SERVER_ICONS },
     // `resources` is declared explicitly. registerResource would self-declare
@@ -90,10 +95,6 @@ export function buildServer(source: Source = resolveSource()): McpServer {
       }),
     )
   }
-
-  const data = new RegistryData(source)
-  // One session per server, so two servers in one process cannot share it.
-  const session = newGuideSession()
 
   const tools: ToolDef[] = [
     ...guideTools(session),

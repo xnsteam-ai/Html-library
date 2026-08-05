@@ -9,7 +9,12 @@ primary_region = "iad"
   force_https = true
   auto_stop_machines = true
   auto_start_machines = true
-  min_machines_running = 0
+  # Was 0 (scale-to-zero). The server is stateless, so a cold second machine is
+  # no longer a correctness problem — but it's still a ~6-7s first-connect
+  # delay on whichever machine fly-proxy picks, and a connector dialog is
+  # exactly the worst place for that. One always-on machine (~$2/mo) keeps
+  # every first connect warm; the second stays on auto-stop for headroom.
+  min_machines_running = 1
 
 [[vm]]
   size = "shared-cpu-1x"
