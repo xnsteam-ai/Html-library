@@ -103,15 +103,27 @@ const server = createServer(async (req, res) => {
     return
   }
 
-  if (req.url === '/' && req.method === 'GET') {
+  // Strip the query string and any trailing slash before matching. A pasted
+  // "…/mcp/" is the same endpoint as "…/mcp", and 404ing it surfaces in a
+  // client as "the URL is not a valid MCP server" — an unhelpful way to report
+  // a stray character.
+  const pathname = (req.url ?? '/').split('?')[0].replace(/\/+$/, '') || '/'
+  const isRoot = pathname === '/'
+
+  // Root serves the health check, except when a session header proves the
+  // caller is a client that opened its session here (see below) and is now
+  // asking for its SSE stream.
+  if (isRoot && req.method === 'GET' && !req.headers['mcp-session-id']) {
     res.writeHead(200, { 'Content-Type': 'text/plain' })
     res.end(`html-library-mcp ${SERVER_VERSION}\nMCP endpoint: POST ${PATH}\n`)
     return
   }
 
-  if (req.url !== PATH) {
-    res.writeHead(404)
-    res.end()
+  // Root also speaks MCP, so pasting the bare origin into a connector dialog
+  // works instead of failing with a bare 404 that names no cause.
+  if (pathname !== PATH && !isRoot) {
+    res.writeHead(404, { 'Content-Type': 'text/plain' })
+    res.end(`Not found. The MCP endpoint is ${PATH} — try POST ${PATH}.\n`)
     return
   }
 

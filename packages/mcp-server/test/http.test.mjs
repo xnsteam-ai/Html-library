@@ -125,6 +125,39 @@ test('resources/list serves the skill over HTTP', async () => {
   }
 })
 
+test('a trailing slash or bare origin still reaches the endpoint', async () => {
+  // Both are ordinary paste mistakes in a connector dialog, and a 404 there
+  // reads as "this is not an MCP server" rather than "you have a stray
+  // character", so each has to route like /mcp does.
+  const body = JSON.stringify({
+    jsonrpc: '2.0',
+    id: 1,
+    method: 'initialize',
+    params: { protocolVersion: '2025-06-18', capabilities: {}, clientInfo: { name: 't', version: '0' } },
+  })
+  const headers = {
+    'Content-Type': 'application/json',
+    Accept: 'application/json, text/event-stream',
+  }
+
+  for (const path of ['/mcp/', '/', '/mcp?foo=1']) {
+    const res = await fetch(`${baseUrl}${path}`, { method: 'POST', headers, body })
+    assert.equal(res.status, 200, `POST ${path} should initialize`)
+    assert.ok(res.headers.get('mcp-session-id'), `POST ${path} should open a session`)
+    await res.text()
+  }
+
+  // A genuinely wrong path still 404s, and says where to go.
+  const missing = await fetch(`${baseUrl}/nope`, { method: 'POST', headers, body })
+  assert.equal(missing.status, 404)
+  assert.match(await missing.text(), /\/mcp/)
+
+  // The health check must survive sharing its path with the MCP endpoint.
+  const health = await fetch(`${baseUrl}/`)
+  assert.equal(health.status, 200)
+  assert.match(await health.text(), /html-library-mcp/)
+})
+
 test('an unknown session id is rejected, not crashed on', async () => {
   const res = await fetch(`${baseUrl}/mcp`, {
     method: 'POST',
