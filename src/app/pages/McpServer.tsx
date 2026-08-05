@@ -13,6 +13,8 @@ const NEEDS_SUBSTITUTION = components.filter((item) => APP_TOKEN_RE.test(item.ht
 
 const CLAUDE_CODE_CLI = `claude mcp add html-library -- npx -y html-library-mcp`
 
+const MCP_HTTP_URL = 'https://html-library-mcp.fly.dev/mcp'
+
 /**
  * One block for every client that takes a JSON config. Naming the registry
  * explicitly does two things: it pins the source, so a client that launches
@@ -119,11 +121,9 @@ export function McpServer() {
 
       <Section title="Configuring MCP">
         <P>
-          This is a <strong className="font-medium text-foreground">local server run over stdio</strong>,
-          not a remote HTTP one — it is added by editing a config file, never through a "remote
-          server URL" or OAuth connector dialog. If your client offers both, use the config-file
-          path below; the connector dialog will try to sign in to a service that does not exist and
-          fail.
+          Most clients run this as a <strong className="font-medium text-foreground">local
+          server over stdio</strong> — added by editing a config file, not through a "remote server
+          URL" dialog. Use the config blocks below for Claude Code, Cursor, and everything else.
         </P>
         <CodeTabs
           tabs={[
@@ -149,7 +149,19 @@ export function McpServer() {
           ]}
         />
         <Callout>
-          <strong className="font-medium text-foreground">Using Claude Desktop?</strong> Take the{' '}
+          <strong className="font-medium text-foreground">Using Claude Desktop?</strong> Two ways to
+          connect, both first-class:
+        </Callout>
+        <P>
+          <strong className="font-medium text-foreground">Remote (fewer steps).</strong> Claude menu
+          → <strong className="font-medium text-foreground">Settings</strong> →{' '}
+          <strong className="font-medium text-foreground">Connectors</strong> →{' '}
+          <strong className="font-medium text-foreground">Add custom connector</strong>, and paste in{' '}
+          <Code>{MCP_HTTP_URL}</Code> as the server URL. No Client ID, no OAuth step — this server
+          takes unauthenticated connections, the same as the config-file path below.
+        </P>
+        <P>
+          <strong className="font-medium text-foreground">Local (stdio).</strong> Take the{' '}
           <strong className="font-medium text-foreground">Others</strong> block above and put it in{' '}
           <Code>claude_desktop_config.json</Code>. The Claude menu →{' '}
           <strong className="font-medium text-foreground">Settings</strong> →{' '}
@@ -158,11 +170,8 @@ export function McpServer() {
           creates it — no need to find it by hand. It lives at{' '}
           <Code>~/Library/Application Support/Claude/claude_desktop_config.json</Code> on macOS and{' '}
           <Code>%APPDATA%\Claude\claude_desktop_config.json</Code> on Windows. Save, then fully quit
-          Claude Desktop — closing the window is not enough — and reopen it. Do{' '}
-          <strong className="font-medium text-foreground">not</strong> use Settings → Connectors →
-          Add custom connector: that dialog is for remote servers and will fail trying to sign in to
-          a service this one does not have.
-        </Callout>
+          Claude Desktop — closing the window is not enough — and reopen it.
+        </P>
         <P>
           <Code>npx</Code> fetches{' '}
           <a

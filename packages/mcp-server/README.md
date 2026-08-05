@@ -43,13 +43,15 @@ Equivalent, if you'd rather edit `.mcp.json` in your project directly:
 }
 ```
 
-**Claude Desktop** — this is the one client that has a *second*, unrelated
-"Connectors → Add custom connector" dialog for remote servers. That dialog
-wants a URL and immediately tries an OAuth handshake against it, so pasting an
-`npx` command there fails with something like *"couldn't register with
-html-library's sign-in service"* — there's no such service, because this isn't
-a remote OAuth server. Skip that dialog entirely and edit the config file
-instead:
+**Claude Desktop** — two ways to connect:
+
+- **Remote (fewer steps).** Settings → **Connectors** → **Add custom
+  connector**, paste in `https://html-library-mcp.fly.dev/mcp` as the server
+  URL. No Client ID, no OAuth step — the server takes unauthenticated
+  connections. (Pasting a plain `npx` command into this dialog is what used
+  to fail with a sign-in error — that's what this URL is for.)
+- **Local (stdio).** Edit the config file directly, same as every other
+  client above:
 
 1. Claude menu → **Settings** → **Developer** tab → **Edit Config**. This
    opens the file, creating it if it doesn't exist yet:

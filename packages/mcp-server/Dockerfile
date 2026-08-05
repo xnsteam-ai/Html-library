@@ -36,6 +36,7 @@ RUN npm run build:mcp
 FROM node:22-slim
 WORKDIR /app
 ENV NODE_ENV=production
+COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/packages/mcp-server/dist ./dist
 COPY --from=build /app/packages/mcp-server/bin ./bin
 COPY --from=build /app/packages/mcp-server/package.json ./package.json
